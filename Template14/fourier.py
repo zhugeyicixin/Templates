@@ -128,7 +128,7 @@ def fit_cosFourier(x, y, init_guess=None, n = 6):
         try:
             opt_parms, parm_cov = sp.optimize.curve_fit(func_cosFourier, x, y, p0 = a, maxfev=1000)
         except RuntimeError:
-            print 'Error - fit_cisFourier does not converge with 1000 steps'
+            print 'Error - fit_cosFourier does not converge with 1000 steps'
             opt_parms = a
         except:
             print 'Unexpected error! ' + str(sys.exc_info()[0])
