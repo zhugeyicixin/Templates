@@ -124,11 +124,19 @@ def fit_cosFourier(x, y, init_guess=None, n = 6):
     # if init_guess is not defined, then n is used. Otherwise, n is ignored. Then the trancated length is the same as the init_guess 
     if init_guess == None:
         a=[1] + [1]*(n+1)
-        opt_parms, parm_cov = sp.optimize.curve_fit(func_cosFourier, x, y, p0 = a, maxfev=1000)
+        try:
+            opt_parms, parm_cov = sp.optimize.curve_fit(func_cosFourier, x, y, p0 = a, maxfev=1000)
+        except RuntimeError:
+            print 'Error - fit_cisFourier does not converge with 1000 steps'
+            opt_parms = a
         # opt_parms, parm_cov = sp.optimize.curve_fit(func_cosFourier6, x, y, p0 = a, maxfev=1000)
         # opt_parms, parm_cov = sp.optimize.curve_fit(func_cosFourier6, x, y, maxfev=1000)
     else:
-        opt_parms, parm_cov = sp.optimize.curve_fit(func_fourier, x, y, p0 = init_guess, maxfev=1000)
+        try:
+            opt_parms, parm_cov = sp.optimize.curve_fit(func_fourier, x, y, p0 = init_guess, maxfev=1000)
+        except RuntimeError:
+            print 'Error - fit_cisFourier does not converge with 1000 steps'
+            opt_parms = init_guess
 
     deviation = func_cosFourier(x,*opt_parms) - y
     RMS = np.sqrt(np.average(np.power(deviation,2)))

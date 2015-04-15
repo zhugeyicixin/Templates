@@ -20,7 +20,7 @@ import lamm
 name = 'rotation'
 
 # symbol indicating the position
-pattern_name = re.compile('^.*_relax.*|.*_scan.*$')
+pattern_name = re.compile('^.*.*|.*_scan.*$')
 pattern_atoms = re.compile('^.*D *([0-9]+) *([0-9]+) *([0-9]+) *([0-9]+) *S.*$')
 pattern_energy = re.compile('^.*SCF Done:  E\(U?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$')
@@ -190,7 +190,7 @@ for tmp_file in tmp_fileLists:
 						if tmp_m:
 							tmp_dihedral=float(tmp_m.group(1))
 							if len(dihedral) > 0:
-								if tmp_dihedral < dihedral[-1]:
+								while tmp_dihedral < dihedral[-1]:
 									tmp_dihedral = tmp_dihedral + 360
 							dihedral.append(tmp_dihedral)
 							standard_done = 0
@@ -232,11 +232,12 @@ for tmp_file in tmp_fileLists:
 				# fit lamm data I0s, B0s 
 				# coeff_I, deviation_I = fourier.fit_cosFourier_noGuess(dihedral_rad, inertia, threshold=np.std(inertia))
 				# coeff_B, deviation_B = fourier.fit_cosFourier_noGuess(dihedral_rad, rotConst, threshold=np.std(rotConst)/2)
-				coeff_I, deviation_I = fourier.fit_cosFourier_noGuess(dihedral_rad, inertia, n=6)
-				coeff_B, deviation_B = fourier.fit_cosFourier_noGuess(dihedral_rad, rotConst, n=6)
+
+				coeff_I, deviation_I = fourier.fit_cosFourier_noGuess(lamm_dihedral, inertia, n=6)
+				coeff_B, deviation_B = fourier.fit_cosFourier_noGuess(lamm_dihedral, rotConst, n=6)
 
 				# coeff_I, deviation_I = fourier.fit_cosFourier_noGuess(lamm_dihedral, inertia, threshold=np.std(inertia))
-				# coeff_B, deviation_B = fourier.fit_cosFourier_noGuess(lamm_dihedral, rotConst, threshold=np.std(rotConst))
+				# coeff_B, deviation_B = fourier.fit_cosFourier_noGuess(lamm_dihedral, rotConst, threshold=np.std(rotConst)/2)
 
 
 				# write to excel
@@ -393,6 +394,9 @@ for tmp_file in tmp_fileLists:
 		tmp_fig.savefig('V' + tmp_file + '.png',dpi=100)
 		tmp_fig2.savefig('I' + tmp_file + '.png',dpi=100)
 		tmp_fig3.savefig('B' + tmp_file + '.png',dpi=100)
+		plt.close(tmp_fig)
+		plt.close(tmp_fig2)
+		plt.close(tmp_fig3)
 
 wb_new.save('HR_fit.xls')
 print 'hindered rotation data extracted successfully!'
