@@ -1,0 +1,212 @@
+
+
+            SPECIES ESTIMATION HELP
+
+ OPTION ENTERSPEC
+     ENTER / ESTIMATE A CHEMICAL SPECIES USING THE METHOD OF BENSON:
+
+ SPECIES NAME :   9 characters or less for compatibility with CHEMKIN.
+
+ "Q" IS A RESERVED CHARACTER.  ENTERING "Q" AT THIS PROMPT WILL RETURN
+ YOU TO THE MAIN MENU.
+
+   ENTER ONLY THE NAME TO BE USED FOR THE SPECIES AT THIS PROMPT:
+
+ END
+
+ OPTION NGROUPS
+       THE NUMBER OF GROUPS ( CENTRAL ATOMS, RADICAL, RING, or 
+      non-nearest neighbor CORRECTIONS ).
+
+   If 0 is entered at this prompt, THERM expects literature data to
+ be entered.
+
+       DO NOT INCLUDE BOND DISSOCIATION GROUPS AT THIS POINT; THEY
+       WILL NOT BE ACCEPTED.
+
+       RADICALS ARE EITHER CALCULATED USING "CDOT" GROUPS PRESENTED
+       IN BENSON "THERMOCHEMICAL KINETICS" TEXT AS RADICAL GROUPS;
+       OR BY APPLYING A BOND INCREMENT GROUP TO A MOLECULE AFTER 
+       IT'S PROPERTIES HAVE BEEN CALCULATED.  THE  LATTER METHOD
+       IS PREFERABLE IN THE CASE OF RESONANTLY STABILIZED RADICALS
+       SUCH AS CYCLOHEXADIENYL RADICAL.
+ 
+       BENZENE HAS 6 CB/H GROUPS, NUMBER OF GROUPS = 6.
+       
+       CHLOROBENZENE HAS 5 CB/H GROUPS AND 1 CB/CL GROUP. THE NUMBER
+       OF GROUPS = 6.
+
+       ortho-DICHLOROBENZENE HAS 4 CB/H GROUPS, 2 CB/CL GROUPS, AND 1
+       ORTHO CORRECTION. THE NUMBER OF GROUPS = 7. 
+ END
+
+ OPTION DGROUPS
+
+     ENTER HERE HOW MANY DIFFERENT GROUPS ARE TO BE INPUT.
+
+
+    AS AN EXAMPLE:  BENZENE : C6H6 HAS 6 "CB/H" GROUPS; THEREFORE
+  BENZENE HAS ONLY 1 DIFFERENT GROUP.  C6H5CL ON THE OTHER HAND 
+  CONSISTS OF 5 CB/H AND 1 CB/CL GROUPS; OR 2 DIFFERENT GROUPS.
+
+ END
+
+ OPTION NROTOR
+   how many rotors in this species {0}:
+
+  If the species being considered has internal rotors which can be
+  considered essentially free rotors in the high temperature limit
+  (5000 K) each should be considered here.
+   
+  This information is needed to adjust Cp infinity to account for 
+  essentially free rotation at high temperature. 
+
+  Cp infinity = (3N - 2)R      for non-linear molecule w/ no 
+                               free rotors
+
+              = (3N - (2 + Nr/2))R  for non-linear molecule 
+                                    which contains free rotors
+                                    ( Nr - number of rotors )
+  EXAMPLES:
+  species    Nr
+
+  ETHANE     1                    BIPHENYL   1
+  PROPANE    2                    BENZENE    0
+  METHANE    0                    TOLUENE    1
+  XYLENE     2     1,3,5 Trimethylbenzene    3
+ END
+
+
+ OPTION LIT/REF
+    enter 0 for literature input or hit return to continue:
+
+  THERM can accept literature input.  When error checking is off,
+ it is necessary to choose literature or group calculation input.
+
+ If one enters 0 at this prompt, THERM will prompt the user for 
+ literature data input.
+
+ END
+
+ OPTION LIT/INPUT
+    If literature data is to be input, the user must enter
+ Hf, S, Cp ( 300, 400, 500, 600, 800, 1000, {1500} ) at this prompt.
+ Either integer or decimal values are accepted and must be separated
+ with either a space or comma.  
+
+ Data may be input in either Kcal/mol (cal/mol K) or KJ/mol (J/mol K).
+ The user will be prompted for the units which were input.
+
+ END
+
+ OPTION LIT/UNITS
+
+ Data may be input in either Kcal/mol (cal/mol K) or KJ/mol (J/mol K).
+ The user will be prompted for the units which were input.
+
+ Enter a 2 if the units for data are KJ/mol (J/mol K) or hit return
+ if data which were input are in Kcal/mol (cal/mol K).
+
+  Conversion will be made to the current units specified in the 
+  MAIN menu.
+ END
+
+ OPTION REF/STR
+
+     Enter a reference / remark.
+  
+   This allows one to add a 14 character comment to the LST and 
+   DAT files.  This remark appears in the DATE/SOURCE column in a 
+   LST file and follows the species name in DAT files.
+   
+
+ END
+
+ OPTION FORM
+   ENTER ELEMENTAL FORMULA:
+
+  THE ELEMENTAL FORMULA IS USED TO TELL THERM HOW MANY OF EACH
+  ELEMENT ARE PRESENT IN YOUR SPECIES.  A MAXIMUM OF 4 ELEMENTS
+  ARE SUPPORTED (FOR CHEMKIN COMPATIBILITY).  THE ELEMENTAL 
+  FORMULA CAN CONTAIN UP TO 70 CHARACTERS; UPPER AND LOWER CASE
+  CHARACTERS ARE TREATED THE SAME; AND BLANKS ARE IGNORED.
+
+  FOR CONVENIENCE THE FORMULA CAN BE ENTERED WITH FUNCTIONAL GROUPS.
+
+  TOLUENE CAN EITHER BE ENTERED AS:  C6H5CH3 or C7H8 WHICHEVER YOU
+  PREFER.  SIMILARLY BIPHENYL CAN BE REPRESENTED AS:
+             C6H5C6H5 or C12H10.
+
+  PHENOL CAN BE EITHER   C6H5OH  or  C6H6O.
+
+  AFTER YOU ENTER THE FORMULA,  YOU WILL BE ASKED TO VERIFY THAT
+  THE FORMULA HAS BEEN INTERPRETED CORRECTLY.  IF IT HAS BEEN SIMPLY
+  HIT RETURN OR IF IT IS INCORRECT ENTER "Q" TO TRY AGAIN.
+   
+ END
+
+ OPTION ENTERGROUP
+    ENTER GROUPS CONTAINED IN THE CURRENT SPECIES.
+
+ GROUPS CONTAIN THE DELIMITER "/" BETWEEN DIFFERENT ATOMS/FUNCTIONAL
+ GROUPS BONDED TO THE CENTRAL ATOM.   BENSON'S  "Cd-CdH"   BECOMES 
+ "CD/CD/H" FOR THERM INPUT.
+
+   TYPE "L" AT THE "ENTER GROUP" PROMPT TO LIST THE DEFINED
+   GROUPS.  
+
+    GROUPS CONSIST OF A CENTRAL ATOM OR CORRECTION ID FOLLOWED BY
+    A "/" AND THE ATOMS BONDED OR CORRECTION TYPE.  EXAMPLES FOLLOW:
+
+     C2H4   ------->    CD/H2,2     |    TWO "CD/H2" GROUPS
+     CYC6H6 ------->    CB/H,6      |    SIX "CB/H" GROUPS
+     CYC6H8 ------->    CD/CD/H,2   |    TWO "CD/CD/H" GROUPS
+                        CD/C/H,2    |    TWO "CD/C/H" GROUPS
+                        C/CD/C/H2,2 |    TWO "C/CD/C/H2" GROUPS
+                        CY/C6/DE/13 :    ONE CYCLOHEXADIENYL (1,3)
+                                         RING CORRECTIONS
+ END
+
+ OPTION SYMMETRY
+    ENTER SYMMETRY NUMBER:
+
+   IF THE SYMMETRY NUMBER IS 1 THEN YOU CAN JUST HIT RETURN.
+   THE DEFAULT FOR "ENTER SYMMETRY NUMBER" IS "1".
+
+ END
+
+ OPTION SYMMETRYL
+    ENTER SYMMETRY NUMBER:
+
+  This information is not used in the calculation of entropy
+  but is recorded.  If one hits return at this prompt 
+  Symmetry = 1 is assumed.
+
+ END
+
+ OPTION EDIT
+
+
+   EDIT THE CURRENT SPECIES:
+
+    * MODIFY / CHANGE THERMO DATA
+    * CHANGE SYMMETRY NUMBER 
+    * ADD A GROUP
+    * CHANGE A GROUP
+    * DELETE A GROUP
+    * CHANGE FORMULA/ NAME
+    * ADD TEXT/DOCUMENTATION
+    * CHANGE BOND DISSOCIATION ENERGY { FOR RADICALS ONLY }
+
+  THESE OPTIONS ARE AVAILABLE FOR EDITING THE CURRENT SPECIES,
+  FURTHER HELP IS AVAILABLE IF YOU CHOOSE EDIT.
+
+  AFTER YOU HIT RETURN ANSWER "Y" TO THE EDIT OPTION FOR MORE
+  DETAILS.
+
+ END
+
+
+
+
+

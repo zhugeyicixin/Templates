@@ -1,0 +1,2733 @@
+
+
+
+                    
+                    
+                    
+                                                   
+                                                         THERM
+                    
+                    
+                                                 THermodynamic property
+                    
+                                                       Estimation
+                    
+                                                          for
+                    
+                                                 Radicals and Molecules
+                    
+                    
+                                                     USER'S MANUAL
+                    
+                                                     March 16,1987
+                    
+                                                          by
+                    
+                                        Edward R. Ritter and Joseph W. Bozzelli
+                    
+                                    Department of Chemical Engineering, Chemistry,
+                                               and Environmental Science
+                    
+                                          New Jersey Institute of Technology
+                                                   Newark, NJ. 07102
+                    
+
+
+
+
+
+
+                    
+                         
+                    
+                    
+                    
+                    
+                            Questions  or requests for copies of this program  should 
+                      be addressed  to:
+                    
+                    
+                                   Joseph W. Bozzelli  
+                                   Chemical Engineering Dept.
+                                   New Jersey Inst. of Tech.
+                                   323 King Blvd.
+                                   Newark, NJ. 07102
+                    
+                    
+                    
+                       Copies of this program and documentation are available on disk    
+                    free of charge.  To obtain a copy of this software and documenta-
+                    tion,  send one of the following to the above adress:
+                    
+                         A.  1 - 1.2 Mb floppy disk (5.25")
+                    
+                         B.  1 - 720 kb floppy disk (3.5")
+                    
+                         C.  2 - 360 kb floppy disks (5.25")
+                    
+                         Make sure the disk (s) is formatted and contains the  MS-DOS 
+                    system ( command.com, etc.).  Your disk (s) will be returned with 
+                    THERM and this manual installed.
+                    
+                         Contact  the  authors at the above address for  further  de-
+                    tails.
+                    
+                        This program    may be copied freely, however, we request that 
+                    users  notify us   so that we may keep them informed of  any  im-
+                    provements or problems with this program.
+                         
+                       Please  contact  us if you have any  questions,  comments,  or 
+                    problems with this program package.
+                    
+                    
+                                                                      E. R. 
+                    
+                    
+                    
+
+
+
+
+
+
+                                                  THERM
+                    
+                              THermo Estimation for Radicals and Molecules
+                    
+                        System Requirements:
+                             *       IBM PC / AT  or COMPATIBLE
+                             *       512 K available memory
+                             *       1 - 1.2 Mb (5.25 in.), or 720 kb (3.5 in.), or
+                                     2 - 360 K floppy drives (hard disk may be used
+                                     if all files are copied into a subdirectory) 
+                             *       8087 or 80287 "math processor" 
+                                     NOTE:  the program will not run if the  computer 
+                                     does not have a math processor.
+                    
+                        Programs included in this package:
+                    
+                             EXE files:
+                    
+                             *       THERM.EXE     -   therm main program.
+                                                       group estimation procedure.
+                    
+                             *       THERMFIT.EXE  -   thermo fitting procedure:
+                                                       fit Cp data to polynomials and
+                                                       output in NASA format.
+                                           input file :  list file "*.LST"
+                                           output file:  polynomial file "*.DAT"               
+                    
+                             *       THERMLST.EXE  -   thermo listing procedure:
+                                                       create a thermo table from 
+                                                       polynomials. 
+                                           input file : polynomial file "*.DAT"
+                                           output file: list file "*.LST"
+                    
+                             *       THERMRXN.EXE  -   reaction analysis procedure:
+                                                      calculate /\Hr, /\Sr, /\U, (/\E),  
+                                                      /\Gr, and ratio Arrhenius A factors 
+                                                      forward to reverse (Af/Ar).
+                                                      CHEMKIN input files can be processed
+                                                      ( only gas phase molecules and radi-
+                                                      cals are supported:
+                                                      no ions, liquids, or solids ! )  
+                    
+                             *        STOD.EXE - sequential to direct file conversion
+                                                 utility.   THERM requires polynomial
+                                                 files "*.DAT" and documentation files
+                                                 "*.DOC" to be formatted to specific 
+                                                 record lengths ( DIRECT ACCESS FORMATTED).
+                                                 DAT files require 80 character records
+                                                 while DOC files require 70  character 
+                                                 records.   In  sequential files, record
+                                                 length varies from line to line, therefore
+                                                 if one edits a file using a word  processor
+                                                 this utility may be used to pad each record     
+                                                 to  the  required length.  All editing  must  be 
+                                                 done as ASCII files w/ no formatting. 
+
+
+
+
+
+
+                    
+                     
+                             EXAMPLE SPECIES DATABASE FILES:
+                    
+                             *       THERMO.DOC    -   sample documentation file "*.DOC".
+                             *       THERMO.LST    -   sample database listing file "*.LST".
+                             *       THERMO.DAT    -   sample nasa  format  database 
+                                                       listing "*.DAT".  
+                    
+                             GROUP DATABASE FILES:
+                    
+                             *       HC.           -  hydrocarbon groups.
+                             *       HCO.          -  oxygen containing groups.
+                             *       CDOT.         -  radical groups.
+                             *       BD.           -  bond  dissociation  increment 
+                                                      groups.
+                             *       CLC.          -  Chlorinated hydrocarbon groups.
+                             *       CYCH.         -  ring corrections.
+                             *       HCN.          -  nitrogen containing groups.
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    BOOTING UP the THERM program:
+                    
+                    
+                    To  boot  up  THERM place the disk marked "THERM  PROGRAM  DISK: 
+                    DRIVE  A:"  in drive A and then reboot your computer (  "Ctrl-Alt-
+                    Delete"  ).   At the prompt for drive A:,  type "THERM"  and  hit 
+                    return.  The program title page should appear with the message:
+                    
+                          ***Loading Configuration File***
+                         ***LOADING GROUP DATABASE FILES***
+                    
+                    When all files are loaded,  the number of groups in the  database 
+                    is displayed.  Hit return and you advance to the main menu:
+                    
+                              THERM MAIN MENU.     
+                    
+                    
+                    
+                    SAMPLE  SESSION:      Calculate and file thermodynamic properties 
+                                        of PHENOL and PHENOXY RADICAL.
+                    
+                    
+                    note:   Help is available for most input if "?" is entered instead 
+                    of  the requested input.    The letter "Q" (upper or lower case) is  a 
+                    reserved character used to "QUIT" back to a previous menu or point  in 
+
+
+
+
+
+
+                    the program.   As  a  result the first character of  a  species  ID 
+                    should not begin with either of these characters (Q or ?).  
+                    SHORT SAMPLE SESSION:
+                    
+                    In  the following paragraphs,  quote marks are used for  emphasis 
+                    only.  You should only enter what is inside the quote marks.
+                    
+                    1.    At  the  main menu prompt hit return to accept the  default 
+                    option "1 - ENTER/ESTIMATE SPECIES".
+                    
+                    2.    You  are  now asked to "enter species  name  (ID)".   Enter 
+                    "phenol"  followed by a return (upper or lower case are accepted; 
+                    but THERM converts all strings to capital letters).
+                    
+                    3.   At this point you are asked to enter the "elemental formula" 
+                    for the species.  Enter "C6H5OH" or "C6H6O" whichever you prefer.
+                    
+                    4.   You are now asked to verify that the formula was interpreted 
+                    correctly.  Hit return if correct or enter "Q" if it was not.
+                    
+                    5.    After a brief description of how THERM calculates radicals, 
+                    you  are  asked to enter the number of groups  in  this  species.  
+                    Phenol  is  comprised of 5 - CB/H groups,  1  - CB/O  group,  and 
+                    1  - O/CB/H group.   This is a total of 7 groups.   Enter "7"  at 
+                    this prompt.  
+                    
+                         If one wants to enter literature data instead of estimating
+                    thermo properties using Benson's method, they should simply enter 
+                    "0" when prompted for the number of groups in the species.  THERM
+                    will then prompt for literature data to be input.
+                    
+                    6.    You  are now asked to enter the number of different  groups 
+                    which are present in this species.  Above we see that PHENOL only 
+                    has 3 different groups.  Enter "3" at this prompt.
+                    
+                    7.    Enter the number of rotors (tops) in the species.   Default 
+                    is  no rotors.  The number of rotors is used to adjust  the  high 
+                    temperature limiting heat capacity.  Phenol has 1 rotor ( -OH  ), 
+                    enter 1 and press return.
+                    
+                    8.    It  is  now time to enter the groups which are  present  in 
+                    phenol.  Enter the following:
+                            "CB/H,5"                 (note 1: a blank or comma are the
+                                                       same. "CB/H 5" is equivalent.)
+                            "CB/O"                   (note 2: if no quantity is entered
+                                                       quantity "1" is understood)
+                            "O/CB/H"
+                    
+                         In group names,  slashes delimit atoms or functional groups.  The 
+                    letters appearing before the first slash represent the central atom or 
+                    next nearest neighbor (or other) correction ( ex:  C/, O/,or /N (central 
+                    atom) or CIS/, ORT/, /MET, GAUCHE/, or OI/ (corrections)).
+                    
+                         The  atoms  or functional groups that follow are  each  delimited 
+                    with  slashes  "/"  and  appear  in  alphabetic  order  (ex:   Bensons 
+
+
+
+
+
+
+                    O-(H)(C)   would   be  O/C/H,   C-(Cd)(C)2(H)  would  be   C/C2/CD/H2, 
+                    AND C-(Cd)(CB)(H)2 would be C/CB/CD/H2 ).
+                    
+                    
+                    9.    The  symmetry number for phenol is 2.   Enter "2"  at  this 
+                    prompt.
+                    
+                    The  SPECIES SCREEN appears showing all data entered in  addition 
+                    to  the thermodynamic properties which have been calculated.   An 
+                    EDIT option is available; enter "?" for more details (we will not 
+                    edit at this point).
+                    
+                    
+                    10.    Hit  return  to advance to the SPECIES  ESTIMATION  OPTIONS 
+                    MENU.
+                    
+                    
+                    11.  Choose option "F" to add this species to a file.
+                    
+                    12.  You are asked for a filename.  Enter "B:THERMO".
+                    
+                    13.   Since "B:THERMO.LST" already exists,  the following message 
+                    appears:
+                              THERMO.LST already exists:
+                    
+                              1 - DELETE (OVERWRITE)
+                              2 - APPEND (ADD TO THE END OF THE FILE)
+                              3 - ENTER A DIFFERENT FILENAME
+                    
+                              ENTER OPTION:
+                    
+                    We want to add Phenol to the end of this file so enter "2".
+                    
+                    14.  Similarly "B:THERMO.DOC" already exists. Again enter "2" and 
+                    the data for phenol will be added to the end of these files.
+                    
+                    You  now  have returned to the SPECIES ESTIMATION  OPTIONS  MENU.  
+                    Note  that you are notified that PHENOL is the last species  that 
+                    you  have filed.   Now that these files are connected you  will 
+                    not be asked to input the filename when filing.  To close or change output
+                    files "Q" quit back to the MAIN menu and choose option "*".
+                    
+                    15.  One can now calculate the properties of PHENOXY radical.  To 
+                    do  this choose option "R".   The RADICAL ESTIMATION MENU appears 
+                    listing all bond dissociation "BD" increments which are  defined.  
+                    For  a  description  of these increments enter "?" and  then  the 
+                    increment  group name (not the group number) when prompted.   We
+                    are interested  in  the "PHENOXY" bond dissociation increment.   
+                    Enter "PHENOXY" when you are done looking at the help on these groups.
+                    
+                    16.  You must now enter the symmetry number for PHENOXY radical.
+                    Enter  "2" at this prompt.   Had the symmetry number been  1  you 
+                    could have just hit return since if no symmetry number is entered 
+                    "1" is assumed.
+                    
+
+
+
+
+
+
+                    17.   Now enter the name for your radical (9 characters maximum).  
+                    Enter "PHENOXY" or "C6H5O." whichever you prefer.
+                    
+                    18.  The formula for phenoxy is C6H5O; so enter "C6H5O".
+                    
+                    19.   Hit  return  to confirm that the elemental  composition  is 
+                    correct.
+                    
+                    20.   The  species  screen  now  displays the  data  for  PHENOXY 
+                    radical.  Hit return to advance to the SPECIES ESTIMATION OPTIONS 
+                    MENU.
+                    
+                    21.  Choose option "F" and PHENOXY's data is added to the current 
+                    file (since the file is already initilized you are not asked  for 
+                    any  additional  input).   You return to the  SPECIES  ESTIMATION 
+                    OPTIONS  MENU automatically and are notified that PHENOXY is  the 
+                    last species which you filed.
+                    
+                    22.   At this point you can review the help which is available on 
+                    the other options.   Entering "M" will return you to PHENOL where 
+                    you  could use the edit option to change/add groups to estimate a 
+                    substituted phenol for example meta-ChloroPhenol.
+                    
+                    Note:   Phenoxy  radical  could  have  been  calculated  directly 
+                    (without  calculating PHENOL first) if you had used  the  RADICAL 
+                    GROUP  "O/CB/."  when  first entering groups.   Both  methods  of 
+                    radical calculation are supported, however, use of RADICAL GROUPS 
+                    in  the case of resonantly stabilized allylic species may  result 
+                    in  a  significant  error.   These  groups  do  not  address  the 
+                    resonance  stabilization  energy accounted by BD  BOND  INCREMENT 
+                    GROUPS.
+                    
+                    
+                       For a more detailed example see SAMPLE SESSION.
+                    
+                    
+
+
+
+
+
+
+                                  THERM CONFIGURATION: The "THERM.CFG" file
+                    
+                    
+                    #FILES 7                    the number of group files
+                    BD. 
+                    HC.
+                    CYCH.
+                    CLC.                            GROUP FILE NAMES
+                    HCO.
+                    HCN.
+                    CDOT.
+                    #ELEMENTS 11                the number of elements defined
+                    C
+                    H
+                    O
+                    CL                                   ELEMENTS
+                    S
+                    N
+                    F
+                    P
+                    I
+                    BR
+                    B
+                    #HELP 8                        the number of help files 
+                    THM1P1.HLP
+                    THM1P2.HLP
+                    THS1.HLP
+                    THM2P1.HLP                         HELP FILE NAMES
+                    THM2P2.HLP
+                    THM3.HLP
+                    THE1.HLP
+                    THE2.HLP
+                    OPTIONS:                         other values alowed:
+                    THERMFIT.EXE                     THERMFIT.EXE D:   where D: is the disk
+                    THERMRXN.EXE                     THERMRXN.EXE D:   drive where this
+                    THERMLST.EXE                     THERMLST.EXE D:   EXE file resides
+                    #KEYS 3                          The number of keys used in sorting
+                    UNITS:KCAL                       UNITS:KJ    ( default to KJ units)
+                    ERRORCK=ON                       ERRORCK=OFF  (defeat error checking)
+                    TRANGE=5000                      could also be TRANGE=2000
+                    
+
+
+
+
+
+
+                    MAIN MENU - options and explanations:
+                    
+                    
+                    
+                    
+                    
+                                                  THERM MAIN MENU
+                     
+                            Units:  Kcal/mol  ( cal/mol K )                    3/ 5/89
+                         __________________________________________________________________________
+                     
+                         1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)
+                         2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}
+                         3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}
+                         4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}
+                                    9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)
+                                   10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }
+                                   11 - Sort/Write *.LST file { no *.DOC is needed }
+                                   12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST
+                                   13 - DOS utilities
+                                    U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                                             *  -  CLOSE ALL OPENED FILES
+                                             X  -  EXIT PROGRAM 
+                                             ?  -  HELP
+                     
+                                               enter option : { 1 }
+                    
+                    
+                    
+                         The following pages describe each option listed above.
+                     
+
+
+
+
+
+
+                     OPTION 1:
+                    
+                          1 - ENTER/ESTIMATE SPECIES
+                    
+                          This option invokes THERM'S code to calculate thermodynamic
+                          properties using Benson's group additivity method.
+                    
+                         To estimate molecular or radical species you will be
+                         asked for specific information about the species, such as:
+                    
+                      *   Species ID  { limited to 9 characters so as to fit CHEMKIN
+                          format}
+                    
+                      *   # of groups in the species
+                    
+                      *   # of different groups to be entered (DO NOT INCLUDE BD GROUPS)
+                    
+                      *   Elemental formula { limited to 70 characters }
+                    
+                      *   Groups contained in the species
+                    
+                      *   species symmetry number
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 2:
+                    
+                        2 - VIEW GROUPS
+                      
+                        This option allows you to review the group database currently
+                        in memory.  This is useful if you are looking for a group, but
+                        have forgotten its name.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 3:
+                    
+                       3 - SELECT SHORT/LONG MENU
+                    
+                       This option toggles the amount of information displayed when 
+                       a menu is on the screen.
+                    
+                       The MAIN menu is not affected by this option.
+                    
+                       LONG menu shows all information
+                    
+                       SHORT menu only lists available options with no description
+                    
+                       In both cases this help information is available.      
+                    
+
+
+
+
+
+
+                     OPTION 4:
+                    
+                       4 - CHANGE SPECIES LIST FILE {*.LST}
+                    
+                        THIS OPTION IS USED TO CHANGE THE "LST" FILE CURRENTLY IN MEMORY.
+                    
+                        THERE ARE A MAXIMUM OF 300 SPECIES ALLOWED AT ANY TIME.
+                    
+                        THIS DATA IS NOT PASSED TO THE REACTION ANALYSIS PROCEDURE
+                        BUT IS USED FOR SORTING AND REWRITING THE DATABASE.
+                    
+                        THE "LST" FILE CONTAINS THE SPECIES ID (9 CHARACTERS MAX);
+                        Hf, S, Cp 300, Cp 400, Cp 500, Cp600, Cp 800, Cp 1000, Cp 1500;
+                        ELEMENTAL COMPOSITION; PHASE (G = gas), AND CAN HAVE SOME
+                        ABREVIATED REFERENCE INFORMATION.  THE "LST" FILE IS THE INPUT
+                        FOR THE NASA FORMAT DATABASE GENERATION PROCEDURE "THERMFIT".
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 5:
+                    
+                       5 - LIST THERMO D BASE FILE {*.LST}
+                    
+                        THIS OPTION ALLOWS ONE TO REVIEW THE CURRENT "LST" FILE.
+                    
+                        YOU CAN NOT ONLY REVIEW SPECIES NAMES BUT CAN REQUEST
+                        EXTENDED OUTPUT SUCH AS: 
+                    
+                        Hf, S, Cp 300, Cp400, Cp 500, Cp600, Cp 800, Cp 1000, Cp 1500
+                    
+                        A DELETE/UNDELETE OPTION IS AVAILABLE IN CASE YOU HAVE
+                        DUPLICATE OR INCORRECT RECORDS.
+                    
+                        THE "LST" FILE MUST BE REWRITTEN USING OPTION " 10 or 11" IN
+                        ORDER TO DELETE SPECIES FROM THE FILE.
+                    
+
+
+
+
+
+
+                     OPTION 6:
+                    
+                       6 - GET SPECIES FROM DOCUMENTATION FILE {*.DOC}
+                    
+                        THIS OPTION REQUIRES YOU TO HAVE A DOCUMENTATION FILE
+                        WHICH CONTAINS ALL PERTINENT INFORMATION ABOUT THE SPECIES.
+                       
+                        THE DOCUMENTATION FILE CONTAINS:
+                    
+                         *    SPECIES ID & ELEMENTAL FORMULA
+                         *    ALL GROUPS 
+                         *    THERMO DATA 
+                         *    BOND DISSOCIATION INCREMENT (IF A RADICAL)
+                         *    SYMMETRY CORRECTION
+                         *    ANY TEXT ADDED FOR REFERENCE
+                         *    ANY ALTERATIONS MADE TO A CALCULATED VALUE (EDIT OPTION)
+                             ETC.
+                         The  user is required to enter a species name.   THERM  then 
+                    reads  into memory all data from a DOC file.  The species can  be 
+                    edited or modified at this point just as if the user had typed in 
+                    the data.
+                    _________________________________________________________________
+                    
+                     OPTION 7:
+                    
+                        7 - ReWrite THERMO FILES {*.DOC, *.LST}
+                    
+                       THIS OPTION RECALCULATES THERMO PROPERTIES.  IT IS USEFUL IF ANY 
+                       CHANGES HAVE BEEN MADE TO GROUP VALUES.
+                       THE DOCUMENTATION FILE IS READ FOR GROUPS AND THE THERMO PROPERTIES
+                       ARE RECALCULATED USING THE CURRENT GROUP VALUES.
+                    
+                       BE WARNED:  ON AN "AT" CLASS MACHINE (10 MHz) 100 SPECIES WILL 
+                       REQUIRE ABOUT 5 MINUTES FOR REGENERATION OF THE DATABASE.
+                    
+                       A "PC" CLASS MACHINE W/ ONLY FLOPPY DRIVES WILL TAKE ~15 MINUTES.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 8:
+                    
+                        8 - RUN THERMFIT:  CREATE NASA FORMAT FILE {*.DAT}
+                    
+                      This option spawns THERM'S heat capacity extrapolation/polynomial
+                      fitting program : THERMFIT.
+                    
+                       "LST" file format is used as input to the program "THERMFIT.EXE".
+                    
+                      This program converts thermo data to polynomials in NASA format
+                      for use with CHEMKIN or other codes which require this format and
+                      allow one to specify a common temperature other than 1000 K.
+                    
+                      Two sets of polynomials are generated with a common (breakpoint) temperature
+                      determined so as to match Cp and dCp/dT.  This break point is 
+                      typically not the more common 1000 K as with SANDIA'S fitting code.
+
+
+
+
+
+
+                    
+                     OPTION 9:
+                    
+                       9 - RUN THERMRXN: REACTION ANALYSIS ( del H, del U, del S, del G)
+                    
+                      This program allows one to enter reaction expressions such as:
+                    
+                         C6H5CL=CYC6H5. + CL
+                         
+                     and have property change of reaction calculated from NASA format
+                     polynomials in addition to the ratio of forward/reverse A factors.
+                    
+                     Data are taken from "DAT" files and one is prompted for a *.DAT
+                     filename.  {OBVIOUSLY ALL SPECIES ID'S ENTERED IN THE
+                     REACTION EXPRESSION MUST APPEAR IN  THE SPECIFIED "DAT" FILE }.
+                    
+                     Entire CHEMKIN input files can also be processed automatically.
+                    _________________________________________________________________
+                    
+                     OPTION 10:
+                    
+                      10 - Sort, Recalculate, & ReWrite THERMO FILES { *.DOC, *.LST }
+                    
+                      This option is essentially the same as OPTION 7 except the "DOC"
+                      file is first sorted in order of elemental composition.  
+                    
+                      Sorting is performed on the # of levels defined in the configuration
+                      file "THERM.CFG".  The key word "#KEYS" is followed by the number of
+                      sort keys (or levels). The priority for sorting is determined by the 
+                      order elements appear in "THERM.CFG" (configuration file).
+                    
+                      For example: if the configuration file contains the following   
+                      elements in the following order ( each element actually appears on a
+                      separate line ):
+                    
+                       C  H O  CL N BR   (and #KEYS 2 )  
+                    
+                      Data is first sorted in order of increasing carbon number; then
+                      each sub group is sorted by increasing hydrogen number. If #KEYS 3
+                      appears in the file "THERM.CFG" then sorting would continue
+                      by oxygen number.  If the order elements appear in "THERM.CFG" is
+                      changed, so is the order of sorting.
+                      
+                      Literature data are not recalculated.
+                    _________________________________________________________________
+                    
+                     OPTION 11:
+                    
+                        11 - SORT/REWRITE *.LST FILE
+                    
+                      Same sorting procedure as OPTION 10; but DATABASE RECALCULATION
+                      is not performed.
+                    
+                      This option is useful if one wants to sort a "LST" file but has no
+                      documentation file to recalculate the database.
+
+
+
+
+
+
+                    
+                    
+                     OPTION 12:
+                    
+                      12 - RUN THERMLST: Uses NASA format "DAT" file to create "LST" format
+                    
+                      This option spawns THERM'S listing program : THERMLST.EXE
+                    
+                      A *.LST FORMAT FILE IS CREATED FROM A NASA FORMAT *.DAT FILE.
+                      COEFFICIENTS ARE READ AND HEAT CAPACITY VALUES ARE GENERATED AT
+                      300, 400, 500, 600, 800, 1000, 1500 deg K. (An extended listing
+                      to 5000 K  may also be created.)
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 13:
+                    
+                        13 - DOS UTILITIES
+                    
+                      ALLOWS ONE TO INVOKE THE DOS INTERPRETER FROM WITHIN THE PROGRAM.
+                      SEVERAL OPTIONS ARE AVAILABLE. CHOOSE THIS OPTION (13) FOR MORE 
+                      DETAILS.
+                    
+                    _________________________________________________________________
+                     
+                     OPTION U:
+                    
+                        U - CHANGE UNITS
+                     
+                      This option toggles the units which results are displayed on screen
+                      and saved in documentation files.  Units can either be Kcal/mol (Hf)
+                      and cal/mol K (S and Cp) or KJ/mol (Hf) and J/mol K (S and Cp).
+                    
+                     This has no effect on units saved in a "LST" file.  If one adds data 
+                     to a "LST" file, units remain the same as those already in use in
+                     that file.  If one starts a new "LST" file they will be prompted for
+                     units.
+                    
+                      Units may be changed at various other parts of the program.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION *:
+                    
+                         * - CLOSE ALL OPENED FILES
+                    
+                      This option is necessary to change the ouput or other files that are
+                      connected. 
+                      All files are closed automatically when exiting THERM as below.
+                    _________________________________________________________________
+                    
+                     OPTION X:
+                    
+                       X - EXIT PROGRAM
+                      ENDS THERM SESSION , CLOSES ALL FILES, AND RETURNS TO DOS.
+
+
+
+
+
+
+                    
+                    EDIT OPTIONS ARE AVAILABLE:    for both MOLECULES and RADICALS
+                    
+                    
+                    EDITING A MOLECULE
+                     
+                     
+                    Thermo estimation for molecule
+                    BZ                                                             C6H6
+                     
+                      Gr # -  GROUP ID  - Quantity
+                         1 - CB/H           -  6
+                     
+                    UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}
+                       Hf      S    Cp 300   400      500     600      800    1000    1500
+                      19.80   64.24   19.44   26.64   32.76   37.80   45.24   50.46   58.38
+                         CPINF    67.56
+                    Symmetry number used to correct S value is         12
+                      EDIT THESE RESULTS?    "Y" OR {"N"}
+                    Y  <--------------------------------- to edit enter "Y" at this prompt.
+                     
+                    ======================== next screen ========================================== 
+                     
+                     
+                                                    EDIT SPECIES MENU
+                                             ___________________________________
+                    (this menu for 
+                    molecules only)          1  -  CHANGE SYMMETRY NUMBER
+                                             2  -  CHANGE/MODIFY THERMO
+                                             3  -  CHANGE SPECIES ID / FORMULA
+                                             4  -  ADD TEXT TO SPECIES SCREEN
+                                             5  -  RETURN TO SPECIES SCREEN
+                                             6  -  ADD A GROUP TO THE CURRENT SPECIES
+                                             7  -  DELETE A GROUP
+                                             8  -  CHANGE A GROUP
+                                             9  -  CHANGE NUMBER OF ROTORS
+                                             ?  -  HELP
+                                                  enter option : { Q }
+                     
+                     
+
+
+
+
+
+
+                    EDITING A RADICAL:
+                    
+                     
+                    Thermo estimation for radical
+                    PHENYL                                                         C6H5
+                    RADICAL BASED UPON PARENT  BZ                                      
+                                                               C6H6
+                    PARENT SYMMETRY         12
+                     
+                      Gr # -  GROUP ID  - Quantity
+                         1 - CB/H           -  6
+                         2 - BZ             -  1
+                     
+                    UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}
+                       Hf      S    Cp 300   400      500     600      800    1000    1500
+                      81.35   68.92   18.57   25.03   30.54   35.09   41.83   46.62   53.88
+                         CPINF    61.60
+                    Symmetry number used to correct S value is           2
+                    R ln(2) has been added to S to account for unpaired electron
+                    bond dissociation energy used=     113.650000
+                      EDIT THESE RESULTS?    "Y" OR {"N"}
+                    Y   <----------------------------------  to edit enter "Y" at this prompt.
+                     
+                    ======================== next screen ========================================== 
+                     
+                                                    EDIT SPECIES MENU
+                                             ___________________________________
+                    (this menu for 
+                    radicals only)           1  -  CHANGE SYMMETRY NUMBER
+                                             2  -  CHANGE/MODIFY THERMO
+                                             3  -  CHANGE SPECIES ID / FORMULA
+                                             4  -  ADD TEXT TO SPECIES SCREEN
+                                             5  -  RETURN TO SPECIES SCREEN
+                                             6  -  CHANGE BOND DISSOCIATION ENERGY
+                                             7  -  RETURN TO PREVIOUS PARENT MOLECULE
+                                             8  -  CHANGE NUMBER OF ROTORS
+                                             ?  -  HELP
+                                                  enter option : { Q }
+                     
+                     
+                     
+                    
+                    
+                    
+                              THE FOLLOWING PAGES GIVE BRIEF DESCRIPTIONS OF EACH OPTION
+
+
+
+
+
+
+                    
+                    
+                      EDIT OPTIONS EXPLAINED:
+                    
+                     OPTION 1:
+                    
+                        1 - CHANGE SYMMETRY NUMBER
+                    
+                            THIS OPTION ALLOWS YOU TO CORRECT/MODIFY THE SYMMETRY
+                            NUMBER WHICH YOU PREVIOUSLY ENTERED.  UNLIKE IN THE 
+                            ESTIMATION PROCEDURE A BLANK IS INTERPRETED AS NO CHANGE.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 2:
+                    
+                       2 - CHANGE/MODIFY THERMO
+                    
+                           THIS OPTION ENABLES YOU TO MAKE ANY SMALL ADJUSTMENTS TO THE 
+                           CALCULATED THERMO VALUES.  YOU CAN EITHER ADD A CORRECTION 
+                           { (-)FOR NEGATIVE CORRECTIONS }  OR REPLACE THE VALUE.
+                    
+                           YOU CAN CHANGE Hf,S, OR A Cp VALUE (ONE AT A TIME).
+                    
+                           ANY CHANGES YOU MAKE WILL BE RECORDED IN THE DOCUMENTATION
+                           FILE UNDER THE NAME "DELTA EDIT".  THIS INSURES THAT LATER
+                           USE OF AUTOMATIC UPDATING PROCEDURES WILL CONSIDER THESE SMALL
+                           ADJUSTMENTS.   IF AFTER CHANGING AND SAVING YOUR RESULTS,
+                           YOU DECIDE TO REMOVE THE "DELTA EDIT" YOU MUST DO SO OFF-LINE
+                           USING ANY CONVENIENT WORD PROCESSOR.  YOU MUST EDIT THE
+                           DOCUMENTATION FILE AS AN ASCII FILE ( no formatting ) AND
+                           DELETE THE "DELTA EDIT" REFERENCE AND GROUP.
+                    _________________________________________________________________
+                    
+                     OPTION 3:
+                    
+                          3 - CHANGE SPECIES FORMULA / ID
+                         
+                          THIS OPTION ALLOWS YOU TO CHANGE THE FORMULA AND/OR SPECIES ID.
+                    
+                          THIS IS USEFUL IF YOU CHANGE A GROUP TO FORM A NEW SPECIES 
+                          RATHER THAN RE-ENTERING ALL GROUPS IN THAT SPECIES.  IT IS 
+                          ALSO USEFUL IF YOU MADE AN ERROR IN THE SPECIES NAME OR 
+                          FORMULA.  IF YOU WANT TO CHANGE THE SPECIES ID WITHOUT
+                          CHANGING THE FORMULA, ENTER A BLANK WHEN ASKED FOR THE NEW
+                          FORMULA (THE FORMULA WILL REMAIN UNCHANGED AND YOU WILL 
+                          ADVANCE TO THE CHANGE SPECIES NAME PROMPT).
+                    
+                          CHANGING A GROUP IS NOT ALLOWED FOR RADICALS ESTIMATED USING
+                          BOND INCREMENTS (BD groups).  FOR MORE INFORMATION ON THIS
+                          OPTION REQUEST HELP ON OPTIONS 6, 7, OR 8.
+                    
+
+
+
+
+
+
+                     OPTION 4:
+                         
+                         4 - ADD TEXT TO SPECIES SCREEN
+                    
+                         THIS OPTION ALLOWS YOU TO ENTER UP TO 50 LINES OF TEXT
+                         TO THE SPECIES SCREEN (DATA WILL SCROLL OFF THE SCREEN
+                         UNLESS YOU USE "Ctrl S" TO STOP SCROLL).
+                    
+                         Text is stored in a DOC file.
+                    
+                         TEXT IS USEFUL FOR ADDING ANY DOCUMENTATION YOU LIKE TO
+                         THE DOCUMENTATION FILE (EX: COMMON NAME ).
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 5:     DEFAULT OPTION !
+                    
+                        5 - RETURN TO THE SPECIES SCREEN:
+                    
+                         "QUIT" RETURN TO THE PREVIOUS MENU
+                          This is the default option.
+                     _________________________________________________________________
+                    
+                     OPTION 6:
+                    
+                        6 - ADD A GROUP TO THE CURRENT SPECIES
+                    
+                       THIS OPTION IS USEFUL IF YOU FORGOT A GROUP OR IF YOU ARE 
+                       CREATING A NEW SPECIES BY EDITING THE GROUPS OF THE CURRENT
+                       SPECIES.  THIS OPTION  IS ONLY ENABLED FOR STABLE MOLECULES
+                       AND RADICALS WHICH WERE CALCULATED USING RADICAL GROUPS FROM "CDOT".
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 7:
+                       
+                        7 - DELETE A GROUP FROM THE CURRENT SPECIES
+                    
+                       THIS OPTION IS USEFUL IF YOU ARE CREATING A NEW SPECIES BY EDITING
+                       THE CURRENT GROUPS.  THIS OPTION  IS ONLY ENABLED FOR STABLE 
+                       MOLECULES AND RADICALS WHICH WERE CALCULATED USING RADICAL GROUPS
+                       "CDOT"; not enabled for any BD increments.
+                    
+                    
+
+
+
+
+
+
+                     OPTION 8:
+                      
+                       8 - CHANGE A GROUP
+                    
+                       THIS OPTION ALLOWS YOU TO CREATE A NEW SPECIES BY EDITING THE 
+                       GROUPS FROM THE PREVIOUS SPECIES.  THIS IS THE MOST USEFUL OPTION
+                       OF THE THREE (6, 7, 8).  YOU CAN CHANGE THE GROUP ID AND/OR 
+                       QUANTITY.
+                    
+                       EXAMPLE:
+                       STARTING WITH BENZENE:  "CB/H,6"; EDIT/ESTIMATE CHLOROBENZENE.
+                       YOU CAN CHANGE THIS FROM "CB/H,6" TO "CB/H,5"
+                       THEN YOU CAN SELECT OPTION "6" ADD A GROUP; AND ADD "CB/CL".
+                       NOW YOU HAVE THE GROUPS FOR CHLOROBENZENE. ALL YOU HAVE TO
+                       DO IS CHANGE THE SYMMETRY NUMBER, FORMULA, AND SPECIES ID.
+                    
+                       THIS MIGHT NOT SEEM LIKE IT SAVES WORK; BUT IF YOU HAVE A 
+                       SPECIES WITH 10 OR 15 DIFFERENT GROUPS, AND ALL YOU NEED TO 
+                       CHANGE IS ONE TO CREATE YOUR NEW SPECIES, THERE IS A SIGNIFICANT
+                       SAVINGS IN TIME OVER ENTERING ALL 10 - 15 GROUPS.
+                    
+                    _________________________________________________________________
+                    
+                    OPTION 9:
+                    
+                         9 - Change the number of rotors in the species
+                    
+                         This allows one to change the number of rotors which are
+                         considered to be free rotors at high temperature (5000 K).
+                    
+                         Molecules with attached tops that have large barriers to internal
+                         rotation ( V > 10 kcal/mol) cannot be considered free rotations 
+                         even at high temperature.  
+                      
+                         The number of free rotors changes the limiting heat capacity
+                         Cp infinity, since each vibrational mode contributes 1 heat
+                         capacity unit while a free rotation only contributes 1/2 a
+                         heat capacity unit and a vibrational mode is lost when a free
+                         rotor exists.  
+
+
+
+
+
+
+                    _________________________________________________________________
+                    
+                              OPTIONS FOR RADICAL SPECIES
+                    
+                     OPTION 6 - RADICAL SPECIES:
+                     
+                       6 - CHANGE BOND DISSOCIATION ENERGY FOR A RADICAL
+                    
+                      THIS OPTION ALLOWS YOU TO ALTER THE BOND ENERGY FROM ONE OF THE
+                      BD GROUPS TO MEET YOUR NEEDS.  A NEW GROUP CALLED "DELTA BOND 
+                      ENERGY" IS CREATED AND ADDED TO THE DOCUMENTATION FILE.
+                    
+                      AN EXAMPLE IS THE ESTIMATION OF THE CHLOROPHENYL RADICAL.
+                    
+                      THE BOND ENERGY USED FOR LOSS OF H ATOM FROM BENZENE IS 113.5 Kcal.
+                      THAT FOR LOSS OF H ATOM FROM CHLOROBENZENE IS LOWER BY ABOUT 1 Kcal.
+                    
+                      TO CREATE CHLOROPHENYL RADICAL YOU CAN APPLY THE "BZ" BOND INCREMENT
+                      GROUP TO CHLOROBENZENE AND THEN USE THIS OPTION TO CORRECT THE
+                      BOND ENERGY USED IN THE CALCULATION OF CHLOROPHENYL TO 112.5 Kcal.  
+                    
+                    _________________________________________________________________
+                    
+                     OPTION 7 - RADICAL SPECIES:
+                    
+                       7 - RETURN TO PREVIOUS PARENT MOLECULE
+                    
+                     THIS OPTION IS THE SAME AS OPTION "M" FROM THE SPECIES ESTIMATION
+                     OPTIONS MENU.  IT IS INCLUDED HERE FOR CONVENIENCE ONLY.
+                    
+                     WHEN THIS OPTION IS CHOSEN ALL DATA ON THE RADICAL IS DISCARDED.
+                    
+                    _________________________________________________________________
+                    
+                    OPTION 8:
+                    
+                         8 - Change the number of rotors in the species
+                    
+                         This allows one to change the number of rotors which are
+                         considered to be free rotors at high temperature (5000 K).
+                    
+                         Molecules with attached tops that have large barriers to internal
+                         rotation ( V > 10 kcal/mol) cannot be considered free rotations 
+                         even at high temperature.  
+                      
+                         The number of free rotors changes the limiting heat capacity
+                         Cp infinity, since each vibrational mode contributes 1 heat
+                         capacity unit while a free rotation only contributes 1/2 a
+                         heat capacity unit and a vibrational mode is lost when a free
+                         rotor exists.  
+
+
+
+
+
+
+                    
+                    
+                    
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                     
+                              enter option : { ENTER NEW SPECIES }
+                    
+                    
+
+
+
+
+
+
+                    
+                     OPTION R:
+                    
+                          R - CALCULATE RADICAL
+                    
+                     THIS OPTION ENABLES YOU TO ESTIMATE PROPERTIES OF A RADICAL
+                     SPECIES BY ADDING AN APPROPRIATE BOND DISSOCIATION INCREMENT TO
+                     THE CURRENT SPECIES.
+                    
+                     BOND DISSOCIATION INCREMENTS ASSUME LOSS OF A HYDROGEN ATOM FROM
+                     THE PARENT SPECIES.  TO ESTIMATE PHENYL RADICAL WE FIRST ESTIMATE 
+                     BENZENE AND THEN APPLY THE "BZ" BOND INCREMENT TO THIS SPECIES.
+                    
+                      R*ln(2) IS ADDED TO THE SPECIES ENTROPY TO ACCOUNT FOR THE FREE
+                     ELECTRON.  BOND INCREMENT GROUPS ALSO INCLUDE ANY INTERNAL ENTROPY
+                     CHANGE.  THE USER MUST SUPPLY THE SYMMETRY NUMBER FOR THE RADICAL,
+                     IN ADDITION TO IT'S NAME(ID) AND ELEMENTAL FORMULA.  
+                    
+                    _________________________________________________________________
+                    
+                     OPTION F:
+                    
+                         F - ADD THE CURRENT SPECIES TO A FILE
+                    
+                     THIS OPTION SAVES THE CURRENT SPECIES IN THE "LST" FORMAT.  IN
+                     ADDITION, THE DEFAULT IS TO CREATE A DOCUMENTATION FILE WHICH
+                     IS NECESSARY FOR AUTOMATIC UPDATE/RECALCULATION PROCEDURES 
+                     AVAILABLE FROM THE MAIN MENU.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION H:
+                    
+                        H - TOGGLE SHORT/LONG MENU
+                    
+                     TRY THIS OPTION TO SEE WHAT HAPPENS.  CHOOSING "H" A SECOND TIME WILL
+                     RESTORE THE CURRENT MENU FORMAT.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION P:
+                    
+                        P  -  RETURN TO THE LAST SPECIES SCREEN
+                       
+                       This option returns the user to the previous species screen.
+                    
+                    
+
+
+
+
+
+
+                     OPTION M:
+                    
+                       M  -  RETURN TO THE PREVIOUS PARENT MOLECULE 
+                      
+                       THIS OPTION IS ONLY ACTIVE IF THE LAST SPECIES SCREEN CONTAINED 
+                      A RADICAL SPECIES.  CHOOSING THIS OPTION RESTORES THE PARENT
+                      IF AND ONLY IF BOND INCREMENT GROUPS WERE USED TO CALCULATE THE 
+                      RADICAL.
+                    
+                      NOTE:  CURRENT RADICAL SPECIES DATA IS DISCARDED WHEN THIS OPTION
+                             IS CHOSEN.  THEREFORE, YOU SHOULD FILE "F" THIS SPECIES
+                             BEFORE CHOOSING OPTION "M".
+                    
+                     END
+                    
+                    _________________________________________________________________
+                    
+                     OPTION L:
+                    
+                       L - LIST GROUPS:
+                    
+                       THIS OPTION ENABLES YOU TO REVIEW THE CURRENT GROUP FILE DATABASE.
+                    
+                    _________________________________________________________________
+                    
+                     OPTION Q:
+                    
+                       Q - RETURN TO THE MAIN MENU
+                    
+                       WHEN RETURNING TO THE MAIN MENU, ALL CURRENT SPECIES DATA ARE LOST.
+                       THEREFORE, ONE SHOULD FILE "F" THE CURRENT SPECIES BEFORE MAKING 
+                       THIS CHOICE.
+                    
+                    _________________________________________________________________
+                    
+                    
+                     OPTION S:
+                    
+                      S - GET SPECIES FROM { *.DOC } FILE
+                    
+                       SAME FUNCTION AS OPTION "6" FROM THE MAIN MENU.
+                    
+                      THIS OPTION ENABLES YOU TO RECALL/RECALCULATE A SPECIES BASED UPON 
+                      INFORMATION CONTAINED IN THE DOCUMENTATION FILE.
+                    
+                      THIS OPTION DISCARDS CURRENT SPECIES DATA.  FILE "F" SHOULD BE
+                      CHOSEN FIRST TO SAVE THE CURRENT DATA.
+                    
+                     END
+                    
+                    
+                    
+                    
+
+
+
+
+
+
+                                           RADICAL CALCULATION MENU 
+                                      {radical by loss of H from parent}
+                               _________________________________________________
+                     
+                                  Q        -   RETURN TO PREVIOUS MENU
+                                  ?        -   HELP
+                     
+                     THE FOLLOWING BOND INCREMENT GROUPS ARE DEFINED:
+                     
+                    GR#     GROUP ID          GR#     GROUP ID          GR#     GROUP ID     
+                    ____________________________________________________________________________
+                     
+                    199  -  VIN               200  -  CHD               201  -  CHD14         
+                    202  -  CYPD              203  -  CYPENE            204  -  CLBZ          
+                    205  -  CHENE             206  -  CHENEA            207  -  BZ            
+                    208  -  P                 209  -  S                 210  -  T             
+                    211  -  ALPEROX           212  -  ALKOXY            213  -  PHENOXY       
+                    214  -  ALLYLP            215  -  ALLYLS            216  -  ALLYLT        
+                     
+                       ENTER BOND INCREMENT NAME ONLY
+                             enter option : { Q }
+                     
+                    
+                    
+                         NOTE:    These  are the bond increments included  with  this 
+                    package.  If desired, more can be added to the file BD.
+                     
+                         All bond increments must be included in this file.
+                    
+                    Bond increments consist of a bond energy (assuming loss of H atom 
+                    from  the  parent molecule), S and Cp increments to  account  for 
+                    respective changes due to loss of H atom from the parent.   These 
+                    include  loss  of vibrational modes as well  as  adjustments  for 
+                    changes in barriers to internal rotation.
+                    
+                    
+
+
+
+
+
+
+                    
+                    
+                    
+                            BOND_DISSOCIATION "BD" INCREMENTS EXPLAINED:
+                    
+                     OPTION VIN:
+                    
+                          VIN - VINYL RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 105.5 Kcal/mol
+                    
+                          based upon loss of H atom from ethylene:
+                    
+                          C2H4 --->  C2H3 + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CHD:
+                    
+                        CHD - CYCLOHEXA-1,3-DIENYL RADICAL
+                             
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 76.6 Kcal/mol    
+                    
+                          based upon loss of H atom from CY13HD ---> CYC6H7 + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CHD14:
+                    
+                        CHD - CYCLOHEXA-1,4-DIENYL RADICAL
+                             
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 75.8 Kcal/mol    
+                    
+                          based upon loss of H atom from CY14HD ---> CYC6H7 + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION BZ:
+                    
+                         BZ - PHENYL RADICAL
+                             
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 113.65 Kcal/mol    
+                    
+                          based upon loss of H atom from CYC6H6 ---> CYC6H5 + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CYPD:
+                    
+                         CYPD - CYCLOPENTADIENYL RADICAL
+                             
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 74.0 Kcal/mol    
+                    
+                          based upon loss of H atom from CYPD ---> CYPD. + H
+                    
+
+
+
+
+
+
+                     OPTION CYPENE:
+                    
+                          CYPENE - ALLYLIC CYCOLOPENTENYL RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 84.2 Kcal/mol    
+                    
+                          based upon loss of H atom from CYC5H8 ---> CYC5H7. + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CLBZ:
+                    
+                          CLBZ - CHLOROPHENYL RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 112.5 Kcal/mol    
+                    
+                          based upon loss of H atom from C6H5CL ---> C6H4CL + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CHENE:
+                    
+                          CHENE - CYCOLHEXENENYL RADICAL { NON-ALLYLIC }
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 98.98 Kcal/mol    
+                    
+                          based upon loss of H atom from CYC6H9 ---> CYC6H9 + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION CHENEA:
+                    
+                          CHENEA - CYCOLHEXENENYL RADICAL { ALLYLIC }
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 83.8 Kcal/mol    
+                    
+                          based upon loss of H atom from CYC6H9 ---> CYC6H9A + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION P:
+                    
+                          P - PRIMARY RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 100.6 Kcal/mol    
+                    
+                          based upon loss of H atom from C2H6 ---> C2H5 + H
+                    
+                          Barrier to internal rotation is lower for the CH2 rotor  in 
+                          the product than it is for the CH3 rotor in the parent.
+                    
+
+
+
+
+
+
+                     OPTION S:
+                    
+                          S - SECONDARY RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 98.2 Kcal/mol    
+                    
+                          based upon loss of H atom from CCC ---> CC.C + H (GUTMAN)
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION T:
+                    
+                          T - Tertiary Radical
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 95.2 Kcal/mol
+                      
+                          based upon loss of H atom from C3C ---> C3C. + H ( W. Tsang )
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION ALPEROX:
+                    
+                          ALPEROX - ALKYL PEROXY RADICAL:
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 88.0 Kcal/mol    
+                    
+                          based upon loss of H atom from ROOH ---> ROO. + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION ALKOXY:
+                    
+                          ALKOXY - ALKOXY RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 104.1 Kcal/mol    
+                    
+                          based upon loss of H atom from CH3OH ---> CH3O. + H
+                          Entropy loss an average of 2.6 for loss of rotor. 
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION PHENOXY:
+                    
+                          PHENOXY - PHENOXY RADICAL
+                    
+                          BOND DISSOCIATION ENERGY (assuming loss of H atom) = 86.5 Kcal/mol 
+                    
+                          based upon loss of H atom from C6H5OH ---> CYC6H5O. + H
+                    
+
+
+
+
+
+
+                     OPTION ALLYLP:
+                    
+                           ALLYLP - primary allylic
+                    
+                           Bond dissociation energy (assuming loss of H atom) = 88.2 Kcal/mol
+                        
+                           average for delta H for following two reactions:
+                    
+                           C*CC --> C*CC. + H  
+                           CC*CC --> CC*CC. + H
+                    _____________________________________________________________________
+                    
+                     OPTION ALLYLS:
+                    
+                         ALLYLS - secondary allylic
+                    
+                         Bond dissociation energy (assuming loss of H atom) =  84.4 Kcal/mol
+                    
+                         based upon loss of H atom from C*CCC --> C*CC.C + H
+                    
+                    _____________________________________________________________________
+                    
+                     OPTION ALLYLT:
+                    
+                        ALLYLT  - tertiary allylic
+                    
+                        Bond dissociation energy estimated as  81.8 Kcal/mol
+                        Bozzelli : estimate 
+                    
+                    
+                    
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                        EXAMPLES: SAMPLE SESSION
+                    
+                    
+                    
+
+
+
+
+
+
+                     
+                     
+                    
+                                                  THERM
+                     
+                    
+                               THermo Estimation for Radicals & Molecules
+                     
+                     
+                    
+                                               written by
+                    
+                                      E. R. Ritter & J. W. Bozzelli 
+                            Department of Chemical Engineering and Chemistry
+                                   New Jersey Institute of Technology
+                     
+                     
+                    
+                                         revision 4.0 : 2/11/89
+                     
+                                  **** Loading Configuration File ****
+                                   ***** LOADING GROUP DATAFILES *****     
+                                      336  Groups in the dataBase.          
+                     
+                                       { hit return to continue }
+                     
+
+
+
+
+
+
+                    
+                    ========================== next screen =======================================
+                    
+                    
+                                                  THERM MAIN MENU
+                     
+                            Units:  Kcal/mol  ( cal/mol K )                    3/ 5/89
+                         __________________________________________________________________________
+                     
+                         1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)
+                         2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}
+                         3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}
+                         4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}
+                                    9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)
+                                   10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }
+                                   11 - Sort/Write *.LST file { no *.DOC is needed }
+                                   12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST
+                                   13 - DOS utilities
+                                    U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                                             *  -  CLOSE ALL OPENED FILES
+                                             X  -  EXIT PROGRAM 
+                                             ?  -  HELP
+                     
+                                               enter option : { 1 }  <-------------  default option
+                                                                                     (press return)
+                     
+                     
+                     
+                     
+                     
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                    
+                        Enter species name (ID)
+                          9 characters maximum
+                    { "Q" return to opening menu }
+                    BIPHENYL    <------------------------ enter the species name  and 
+                                                          press return.
+                     
+                    ============================ next screen ================================= 
+                     
+                     
+                     
+                     
+                    enter the elemental formula for this species 
+                    { example: for PHENOL enter " C6H5OH " }
+                    {          for TOLUENE enter " C6H5CH3 " }
+                    {          for CHLOROPHENOL enter " C6H4CLOH " }
+                     
+                     
+                            4 ELEMENTS MAXIMUM : 70 CHARACTERS MAX
+                     
+                      THE FOLLOWING ELEMENTS ARE DEFINED:
+                      C   H   O   CL  S   N   F   P   I   BR
+                      B 
+                     
+                     ALL OTHER ELEMENTS OR NON-NUMERIC CHARACTERS
+                                WILL BE IGNORED !
+                     
+                     enter formula here: {Q=QUIT}
+                     C6H5C6H5   <--------------------------------- enter elemental formula
+                                                                   C6H5C6H5  or C12H10 
+                     
+                     
+                    ============================ next screen ================================= 
+                     
+                     
+                    FORMULA ENTERED :
+                    C6H5C6H5                                                              
+                     
+                     
+                      ELEMENTAL COMPOSITION:
+                     
+                    C            12
+                    H            10             <---------------  this message is disabled if 
+                                  0                               "ERRORCK=OFF" appears
+                                  0                               in the config file
+                                                                  (see THERM.CFG)
+                     
+                     number of Atoms for This Species =   22
+                     
+                        IF THIS IS INCORRECT ENTER " Q "
+                               TO BEGIN AGAIN
+                      OTHERWISE HIT RETURN TO CONTINUE    <------------------ press return
+
+
+
+
+
+
+                    
+                    ========================== next screen =======================================
+                                                                        _____ 
+                       Radicals are estimated either by entering a           |
+                       radical {CDOT} group such as " CB/. " on this         |
+                       screen; or by first estimating the properties         |
+                       for the stable molecule here { ex: benzene } and      | 
+                       then applying a bond increment {BD} group to          |
+                       account for loss of H atom from the molecule.         |
+                                                                             |  This message can
+                       Bond increments cannot be entered here.  They         |  be disabled if
+                       are entered at the RADICAL menu { available           |  "ERRORCK=OFF" is
+                       after the molecule's properties are estimated }.      |  set in THERM.CFG.
+                                                                             |
+                       You must be sure that groups you enter adequately     |
+                       define a molecule (no unbonded electrons).            |
+                       THERM makes no attempt to check the context           |
+                       of the groups entered (only whether they are defined).|
+                                                                        _____|
+                     
+                           Enter the Number of Groups in this species
+                     (each Central Atom or Ring Correction counts as 1 group)
+                    12  <--------------------------------------------------------  enter 12
+                    
+                    How many different groups are to be entered?
+                    1  <---------------------------------------------------------- enter 1
+                     
+                    
+                    
+                    
+                        NOTE:   To enter literature data one would answer "0" to  the 
+                    prompt  "Enter  the number of Groups in this  species".   If  one 
+                    chooses to enter literature data, they are prompted for different 
+                    information than that which follows.  Literature data remains unchanged
+                    when automatic recalculation is performed.
+                    
+                    
+                    ========================== next screen =======================================
+                    
+                    how  many  rotors  in this species {0}     enter the number of rotors in                    
+                    1    <----------------------------------   this species and press return
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                     
+                            336 groups in the database
+                                                                 ___
+                    You must enter a total of   2 different groups  |   one may review the group
+                      {enter " D " to re-enter the last group}      |   database "L", start a new
+                      {enter " Q " to start a new species}          |   species "Q", or correct/
+                      {enter " L " to list group database}          |   re-enter the last group
+                                                                 ___|   "D" by entering one of 
+                                                                        these options instead of
+                                                                        a group id.
+                    
+                    
+                    
+                     ENTER: "GROUP ID,QUANTITY"   <------- a group ID and quantity  are separated
+                                                           by  either a space or a comma.   If  no 
+                                                           quantity is entered, "1" is assumed.
+                    ENTER GROUP #   1
+                    CB/H 10            <---------------------- enter the group id : CB/H,10
+                    ENTER GROUP #   2                                         
+                    CB/CB 2            <---------------------- enter the group id : CB/CB,2
+                         Enter symmetry # for molecule
+                    8    <------------------------------------ enter symmetry number for
+                                                                biphenyl :  8 
+                                                               IF no symmetry number is entered,
+                                                               "1" is assumed. 
+                    
+                    ============================ next screen =================================
+                    
+                    
+                    Thermo estimation for molecule
+                    BIPHENYL                                                   C6H5C6H5
+                     
+                      Gr # -  GROUP ID  - Quantity
+                         1 - CB/H           - 10
+                         2 - CB/CB          -  2
+                     
+                    UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}
+                       Hf      S    Cp 300   400      500     600      800    1000    1500
+                      42.92   93.89   39.06   52.84   64.38   73.54   86.92   96.00  109.40
+                         CPINF   127.17
+                    Symmetry number used to correct S value is          8
+                      EDIT THESE RESULTS?    "Y" OR {"N"}      <------------- press return
+                                                                              to accept no
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                     
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                     
+                              enter option : { ENTER NEW SPECIES }
+                     F   <----------------------------------------------  choose "F" to file
+                                                                           (press return)
+                     
+                    ============================ next screen =================================
+                     
+                     
+                    Enter output filename:
+                    { no file extension is needed }: 
+                    THERMO        <-----------------------  enter a filename for output
+                     
+                       CREATE DOCUMENT FILE [ Y or N ]
+                     
+                       enter choice: { Y }   <---------------  press return
+                    
+                     choose output units for LST file
+                     1- Kcal/mol (cal/mol K)   2- KJ/mol (J/mol K )
+                         enter option { 1 } 
+                     2  <--------------------------  enter "2" for output in KJ
+                     
+                        enter title  for *.LST file output { blank or Q= no title }
+                    EXAMPLE USE OF THERM   <-------------  enter a file heading if desired
+                    
+                    
+                       NOTE:  If the file which is specified already exists, the user is asked
+                       if it should be overwritten, appended, or if a different filename is 
+                       desired.
+                    
+                    
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                     
+                     
+                     LAST SPECIES FILED:  BIPHENYL     <-------------------  biphenyl has been
+                                                                              filed
+                              enter option : { ENTER NEW SPECIES }
+                    R   <--------------------------------------------   enter "R" to calculate
+                                                                           a radical
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                                           RADICAL CALCULATION MENU 
+                                      {radical by loss of H from parent}
+                               _________________________________________________
+                     
+                                  Q        -   RETURN TO PREVIOUS MENU
+                                  ?        -   HELP
+                     
+                     THE FOLLOWING BOND INCREMENT GROUPS ARE DEFINED:
+                     
+                    GR#     GROUP ID          GR#     GROUP ID          GR#     GROUP ID     
+                    ____________________________________________________________________________
+                     
+                    199  -  VIN               200  -  CHD               201  -  CHD14         
+                    202  -  CYPD              203  -  CYPENE            204  -  CLBZ          
+                    205  -  CHENE             206  -  CHENEA            207  -  BZ            
+                    208  -  P                 209  -  S                 210  -  T             
+                    211  -  ALPEROX           212  -  ALKOXY            213  -  PHENOXY       
+                    214  -  ALLYLP            215  -  ALLYLS            216  -  ALLYLT        
+                     
+                       ENTER BOND INCREMENT NAME ONLY
+                             enter option : { Q }
+                     
+                    BZ   <------------------  choose the "BZ" bond increment or "?" to review
+                                                  bond increment (BD) definitions.  The BD group
+                                                  name is required here. DO NOT enter the number.
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                    PARENT =  C6H5C6H5
+                     
+                    BOND TYPE =  BZ            
+                     
+                    enter the symmetry number for the radical
+                    2  <----------------------------------------  symmetry number for ortho or
+                                                                  meta - biphenyl rdaical is "2"
+                     
+                    Enter radical name(ID)
+                    C6H5C6H4.   <------------------------  give the radical a name (9 char max)
+                     
+                    enter the elemental formula for this radical
+                    { example: for PHENYL enter " C6H5 " }
+                    {          for BENZYL enter " C6H5CH2 " }
+                    {          FOR VINYL  enter " C2H3 " }
+                     
+                     
+                                  4 ELEMENTS MAXIMUM
+                    C6H5C6H4   <------------------------  enter elemental formula for the radical
+                     
+                    
+                    FORMULA ENTERED :
+                    C6H5C6H4                                                              
+                     
+                     
+                      ELEMENTAL COMPOSITION:
+                     
+                    C            12
+                    H             9
+                                  0    <-------------------  this message can be disabled
+                                  0                          see ERRORCK in configuration
+                                                                 file
+                     
+                     
+                     number of Atoms for This Species =         21
+                     
+                        IF THIS IS INCORRECT ENTER " Q "
+                               TO BEGIN AGAIN
+                      OTHERWISE HIT RETURN TO CONTINUE   <-----------  hit return to continue
+                     
+                     
+                    ========================== next screen =======================================
+                    
+                    how  many  rotors  in this species {0}     enter the number of rotors in                    
+                    1    <----------------------------------   this species and press return 
+                     
+                     
+                     
+                     
+                     
+                      
+                     
+
+
+
+
+
+
+                     
+                     
+                     
+                    ========================== next screen ======================================= 
+                     
+                     
+                     
+                     
+                     
+                    Thermo estimation for radical
+                    C6H5C6H4.                                                  C6H5C6H4
+                    RADICAL BASED UPON PARENT  BIPHENYL                                  
+                                           C6H5C6H5
+                    PARENT SYMMETRY          8
+                     
+                      Gr # -  GROUP ID  - Quantity
+                         1 - CB/H           - 10
+                         2 - CB/CB          -  2
+                         3 - BZ             -  1
+                     
+                    UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}
+                       Hf      S    Cp 300   400      500     600      800    1000    1500
+                     104.47   97.76   38.19   51.23   62.16   70.83   83.51   92.16  104.90
+                         CPINF   121.21
+                    Symmetry number used to correct S value is           2
+                    R ln(2) has been added to S to account for unpaired electron
+                    bond dissociation energy used=     113.65
+                     EDIT THESE RESULTS?     "Y" OR {"N"}   <------------  press  return 
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                M      -  RETURN TO PREVIOUS PARENT MOLECULE
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                     
+                     
+                     LAST SPECIES FILED:  BIPHENYL     
+                     
+                              enter option : { ENTER NEW SPECIES }
+                    F    <-----------------------------------------------  file this entry.
+                                                                           enter "F" and press
+                                                                           return
+                    
+                          NOTE:  Since an output file has already been connected, the user is not
+                          prompted for any file information.  To change the file, one must  return 
+                          to the MAIN menu and choose option "*" to close all opened files.  Then 
+                          the next time option "F" is chosen, the user will again be prompted for
+                          filename, etc. 
+                    
+                    
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                M      -  RETURN TO PREVIOUS PARENT MOLECULE
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                     
+                     
+                     LAST SPECIES FILED:  C6H5C6H4.    
+                     
+                              enter option : { ENTER NEW SPECIES }
+                     L      <-----------------------------------------  enter "L" to list groups
+                     
+
+
+
+
+
+
+                                                  LIST GROUPS MENU
+                                        _______________________________________
+                     
+                                        1  -              HC
+                                        2  -            CYCH
+                                        3  -            CDOT
+                                        4  -              BD
+                                        5  -             CLC
+                                        6  -             HCO
+                                        7  -             HCN
+                                        A  -  All Groups in DataBase
+                                        Q  -  QUIT { return to previous menu}
+                     
+                                          enter option : { Q }
+                     
+                     4  <---------------  choose option "4"  to review bond increment (BD) groups
+                    
+                    ========================== next screen =======================================
+                     
+                    GR#     GROUP ID          GR#     GROUP ID          GR#     GROUP ID     
+                    ____________________________________________________________________________
+                     
+                    199  -  VIN               200  -  CHD               201  -  CHD14         
+                    202  -  CYPD              203  -  CYPENE            204  -  CLBZ          
+                    205  -  CHENE             206  -  CHENEA            207  -  BZ            
+                    208  -  P                 209  -  S                 210  -  T             
+                    211  -  ALPEROX           212  -  ALKOXY            213  -  PHENOXY       
+                    214  -  ALLYLP            215  -  ALLYLS            216  -  ALLYLT        
+                    HIT RETURN TO CONTINUE  { "?" FOR HELP }
+                    ?    <-------------------------------------- enter "?" for help
+                     
+                    ============================ next screen =================================
+                     
+                            LIST DATABASE OPTIONS
+                            _____________________
+                     
+                       Q -  QUIT return to previous menu
+                      RETURN - TO CONTINUE
+                       R -  REPEAT listing (from beginning)
+                       E -  EXTENDED listing (Hf S Cp )
+                      REF-  EXTENDED listing with references
+                     
+                           enter option {continue}
+                    REF   <-------------------------  enter "REF" to review group data with
+                                                       references
+                     ENTER RANGE OF GROUPS TO VIEW
+                    199 216   <---------------------  specify the range to display
+                                                      ( this will display groups
+                                                      199 {VIN} to 216 {ALLYLT}
+                                                      as shown above.  Group names could be
+                                                      entered  instead ( VIN ALLYLT )  to  specify 
+                                                      the range.      
+
+
+
+
+
+
+                    
+                    ===================  on-line review of group values and references ============
+                    
+                       Hf { Kcal/mol }    S & Cp  { cal/mol K }
+                    GROUP ID          Hf     S     Cp 300    400    500     600       800     1000
+                    VIN              105.54    1.06    -.16    -.67   -1.17   -1.65   -2.55   -3.31
+                       Stein , 22nd Symp (International) on Combustion : Seattle 1988     
+                    CHD               76.56     .48   -1.87   -2.26   -2.63   -2.96   -3.56   -4.11
+                        W. Tsang   J Phys Chem 1986, 90,  1152                            
+                    CHD14             75.80    1.21   -1.83   -2.09   -2.37   -2.67   -3.30   -3.93
+                        W. Tsang   J Phys Chem 1986, 90,  1152                            
+                    CYPD              74.00    4.62    -.40    -.44    -.61    -.95   -1.83   -2.68
+                    CYPENE            84.17    4.13    -.38    -.42    -.59    -.96   -1.90   -2.80
+                    CLBZ             112.12    1.12    -.87   -1.61   -2.22   -2.70   -3.41   -3.84
+                        bd lowered by 1 kcal over benzene (bz) : Louw, Mulder             
+                    CHENE             98.98    5.78    -.12    -.71   -1.25   -1.74   -2.57   -3.22
+                    CHENEA            83.83    4.71    -.13    -.74   -1.29   -1.78   -2.61   -3.28
+                    BZ               113.65    1.12    -.87   -1.61   -2.22   -2.71   -3.41   -3.84
+                        W. Tsang   J Phys Chem 1986, 90,  1152                            
+                    P                100.64    2.30    -.78   -1.19   -1.62   -2.09   -3.01   -3.80
+                        W. Tsang   I J Chem Kin 1987, 10, 821.  JACS  1985, 107, 2822     
+                    S                 98.10    4.50   -1.50   -2.33   -3.10   -3.39   -3.75   -4.45
+                        W. Tsang   I J Chem Kin 1987, 10, 821.  JACS  1985, 107, 2822     
+                    T                 95.87    6.48   -5.22   -5.52   -5.71   -5.77   -5.69   -5.54
+                        Russell and Gutman   JACS  1988,  110,  3084 & 3092               
+                      { HIT RETURN TO CONTINUE } <-------------------------------  press return
+                       Hf { Kcal/mol }    S & Cp  { cal/mol K }
+                    GROUP ID          Hf     S     Cp 300    400    500     600       800     1000
+                    ALPEROX           88.50   -2.10   -2.00   -2.65   -3.10   -3.40   -3.64   -3.60
+                    ALKOXY           104.06   -2.60   -1.47   -1.82   -2.12   -2.36   -2.72   -2.97
+                    PHENOXY           86.50   -2.60   -1.38   -2.02   -2.53   -2.91   -3.44   -3.81
+                        Burcat, Zelznik, McBride  nasa tech memo #83800 January 1985      
+                    ALLYLP            88.20   -1.60    -.51    -.72    -.99   -1.33   -2.08   -2.81
+                        avg {( C*CC --> C*CC. + H ) + ( CC*CC --> CC*CC. + H)}/2          
+                    ALLYLS            84.40    -.62    -.78   -1.19   -1.62   -2.09   -3.01   -3.78
+                        C*CCC --> C*CC.C + H                                              
+                    ALLYLT            81.80     .88   -1.50   -2.36   -3.10   -3.49   -3.95   -4.45
+                        Bozzelli : calc from alkyl bond trends & data in McMillian/Golden (1983)
+                      { HIT RETURN TO CONTINUE }
+                     
+                    
+                    
+                      NOTE:  reference appears on the line following the group data
+                             if there is no reference, none is listed.  Most groups
+                             with no reference are from Benson.  
+                    
+                    
+
+
+
+
+
+
+                            LIST DATABASE OPTIONS
+                            _____________________
+                     
+                       Q -  QUIT return to previous menu
+                      RETURN - TO CONTINUE
+                       R -  REPEAT listing (from beginning)
+                       E -  EXTENDED listing (Hf S Cp )
+                      REF-  EXTENDED listing with references
+                     
+                           enter option {continue}
+                     Q  <--------------------------------------  return to previous menu
+                    
+                    ============================ next screen ================================= 
+                     
+                                                  LIST GROUPS MENU
+                                        _______________________________________
+                     
+                                        1  -              HC
+                                        2  -            CYCH
+                                        3  -            CDOT
+                                        4  -              BD
+                                        5  -             CLC
+                                        6  -             HCO
+                                        7  -             HCN
+                                        A  -  All Groups in DataBase
+                                        Q  -  QUIT { return to previous menu}
+                     
+                                          enter option : { Q }
+                     Q  <------------ "quit" back to previous menu
+                     
+                    ============================ next screen ================================= 
+                    
+                                        SPECIES ESTIMATION OPTIONS MENU
+                                Units:  Kcal/mol  ( cal/mol K )
+                                _______________________________________________________
+                     
+                                R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES
+                                F      -  ADD CURRENT SPECIES TO OUTPUT FILE
+                                H      -  TOGGLE (SHORT/LONG) MENU
+                                P      -  RETURN TO PREVIOUS SPECIES SCREEN
+                                M      -  RETURN TO PREVIOUS PARENT MOLECULE
+                                RETURN -  ENTER A NEW SPECIES
+                                L      -  LIST GROUPS
+                                Q      -  RETURN TO MAIN MENU {choose "F" 
+                                          first; current species is discarded
+                                          when you return to MAIN menu}
+                                X      -  EXIT PROGRAM
+                                S      -  GET SPECIES FROM { *.DOC } FILE
+                                ?      -  HELP  
+                                U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                      
+                     LAST SPECIES FILED:  C6H5C6H4.    
+                     
+                              enter option : { ENTER NEW SPECIES }
+                     Q  <----------  "quit" back to MAIN menu
+
+
+
+
+
+
+                    ========================== next screen ======================================= 
+                    
+                    
+                                                  THERM MAIN MENU
+                     
+                            Units:  Kcal/mol  ( cal/mol K )                    3/ 5/89
+                         ___________________________________________________________________________
+                     
+                         1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)
+                         2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}
+                         3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}
+                         4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}
+                                    9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)
+                                   10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }
+                                   11 - Sort/Write *.LST file { no *.DOC is needed }
+                                   12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST
+                                   13 - DOS utilities
+                                    U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)
+                                             *  -  CLOSE ALL OPENED FILES
+                                             X  -  EXIT PROGRAM 
+                                             ?  -  HELP
+                     
+                                               enter option : { 1 }
+                     6    <-------------  choose "6" to get species data from a "DOC" file
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                                   enter document filename
+                    
+                                   for species input
+                    TEST  <----------------------------  enter filename for input "TEST.DOC"
+                                                          the file extension ".DOC" is understood.
+                     
+                     
+                                         INITIALIZING
+                                   THERMO DOCUMENTATION FILE
+                     
+                     
+                     
+                                           PLEASE WAIT
+                     
+                     
+                     
+                      1   FBZ              C     6  H     5  F     1        0
+                      2   BZ               C     6  H     6        0        0
+                      3   CLBZ             CL    1  C     6  H     5        0
+                      4   C6H5CH3          C     7  H     8        0        0
+                      5   IBZ              C     6  H     5  I     1        0
+                      6   BIPHENYL         C    12  H    10        0        0
+                      7   CLBIPHENY        CL    1  C    12  H     9        0
+                      8   PHENOL           C     6  H     6  O     1        0
+                      9   PHENOXY          C     6  H     5  O     1        0
+                     10   C6F6             C     6  F     6        0        0
+                     11   PHENYL           C     6  H     5        0        0
+                     12   C6H5.            C     6  H     5        0        0
+                     13   CH3OCH3          C     2  H     6  O     1        0
+                     14   C2H6             C     2  H     6        0        0
+                     15   C2H5             C     2  H     5        0        0
+                     16   C2H5CL           CL    1  C     2  H     5        0
+                     17   C2H4             C     2  H     4        0        0
+                     18   C2H3             C     2  H     3        0        0
+                     19   C2H3CL           CL    1  C     2  H     3        0
+                     20   PHPH             C    12  H    10        0        0
+                     21   PHPH.            C    12  H     9        0        0
+                     22   CY13HD           C     6  H     8        0        0
+                     23   CYC5E            C     5  H     8        0        0
+                     24   C5DE14           C     5  H     8        0        0
+                     25   CYPD             C     5  H     6        0        0
+                     26   C5DE23           C     5  H     8        0        0
+                     27   ANILINE          C     6  H     7  N     1        0
+                     28   C2H4O            C     2  H     4  O     1        0
+                     29   C20H42           C    20  H    42        0        0
+                     30   C2H5F            C     2  H     5  F     1        0
+                     31   CH2CF2           C     2  H     2  F     2        0
+                     
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                      1  FBZ            2  BZ             3  CLBZ           4  C6H5CH3      
+                      5  IBZ            6  BIPHENYL       7  CLBIPHENY      8  PHENOL       
+                      9  PHENOXY       10  C6F6          11  PHENYL        12  C6H5.        
+                     13  CH3OCH3       14  C2H6          15  C2H5          16  C2H5CL       
+                     17  C2H4          18  C2H3          19  C2H3CL        20  PHPH         
+                     21  PHPH.         22  CY13HD        23  CYC5E         24  C5DE14       
+                     25  CYPD          26  C5DE23        27  ANILINE       28  C2H4O        
+                     29  C20H42        30  C2H5F         31  CH2CF2        32               
+                     enter "D" to delete; "U" to undelete; "V" to view; or hit return to continue
+                    D   <----------  enter "D" to delete a species
+                    
+                    DELETE which species { 0 to abort }
+                        or enter species number to delete}
+                     1   <----------------------------------- choose to delete FBZ, enter "1"
+                    species #           1
+                    has been deleted
+                     
+                    ============================ next screen ================================= 
+                     
+                      1                 2  BZ             3  CLBZ           4  C6H5CH3      
+                      5  IBZ            6  BIPHENYL       7  CLBIPHENY      8  PHENOL       
+                      9  PHENOXY       10  C6F6          11  PHENYL        12  C6H5.        
+                     13  CH3OCH3       14  C2H6          15  C2H5          16  C2H5CL       
+                     17  C2H4          18  C2H3          19  C2H3CL        20  PHPH         
+                     21  PHPH.         22  CY13HD        23  CYC5E         24  C5DE14       
+                     25  CYPD          26  C5DE23        27  ANILINE       28  C2H4O        
+                     29  C20H42        30  C2H5F         31  CH2CF2        32               
+                     enter "D" to delete; "U" to undelete; "V" to view; or hit return to continue
+                    U   <----------------  choose to replace FBZ by entering "U"
+                    
+                    ============================ next screen =================================
+                     
+                      1 -  FBZ             <--------------  all species that have been deleted
+                                                            but are retained are listed here
+                      
+                     undelete which species { 0 to abort }
+                         or enter species number to undelete
+                     1   <--------------------------------------  enter "1" to UNDELETE FBZ
+                    
+                    ============================ next screen =================================
+                     
+                      1  FBZ            2  BZ             3  CLBZ           4  C6H5CH3      
+                      5  IBZ            6  BIPHENYL       7  CLBIPHENY      8  PHENOL       
+                      9  PHENOXY       10  C6F6          11  PHENYL        12  C6H5.        
+                     13  CH3OCH3       14  C2H6          15  C2H5          16  C2H5CL       
+                     17  C2H4          18  C2H3          19  C2H3CL        20  PHPH         
+                     21  PHPH.         22  CY13HD        23  CYC5E         24  C5DE14       
+                     25  CYPD          26  C5DE23        27  ANILINE       28  C2H4O        
+                     29  C20H42        30  C2H5F         31  CH2CF2        32               
+                     enter "D" to delete; "U" to undelete; "V" to view; or hit return to continue
+                    V   <---------------  choose "V" to view data in the file
+                     
+                    view which species { enter species number }
+                    9   <----------  choose species #9 : phenoxy radical
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                    
+                    
+                     SPECIES                                                              
+                     PHENOXY                                                              
+                    Thermo estimation for radical                                         
+                     PHENOXY                                                       C6H5O  
+                     RADICAL BASED UPON PARENT  PHENOL                                    
+                     PARENT FORMULA                         C6H5OH                        
+                    PARENT SYMMETRY           2                                           
+                     UNITS:KJ                                                             
+                     GROUPS   4                                                           
+                       Gr # -  GROUP ID  - Quantity                                       
+                          1 - O/CB/H         -  1                                         
+                          2 - CB/O           -  1                                         
+                          3 - CB/H           -  5                                         
+                          4 - PHENOXY        -  1                                         
+                       Hf     S    Cp 300     400     500     600     800    1000    1500 
+                        50.63  303.64  96.32 125.02 149.75  169.12  197.40  216.52     .00
+                               CPINF =  282.66                                            
+                     SYMMETRY       2                                                     
+                    R ln(2) has been added to S to account                                
+                           for unpaired electron                                          
+                     BOND  361.92                                                         
+                      ENDSPECIES                                                          
+                                                                                          
+                                                                                          
+                                                                                          
+                    { hit return to continue }
+                    
+                    
+                    NOTE:   this is only an image of the data recorded in the "DOC" file.
+                    This option allows one to view species data before choosing to load
+                    that data into memory.  
+                    
+                    
+                    
+
+
+
+
+
+
+                    ========================== next screen =======================================
+                     
+                      1  FBZ            2  BZ             3  CLBZ           4  C6H5CH3      
+                      5  IBZ            6  BIPHENYL       7  CLBIPHENY      8  PHENOL       
+                      9  PHENOXY       10  C6F6          11  PHENYL        12  C6H5.        
+                     13  CH3OCH3       14  C2H6          15  C2H5          16  C2H5CL       
+                     17  C2H4          18  C2H3          19  C2H3CL        20  PHPH         
+                     21  PHPH.         22  CY13HD        23  CYC5E         24  C5DE14       
+                     25  CYPD          26  C5DE23        27  ANILINE       28  C2H4O        
+                     29  C20H42        30  C2H5F         31  CH2CF2        32               
+                     enter "D" to delete; "U" to undelete; "V" to view; or hit return to continue
+                     
+                                  <----------------  press return to continue
+                                                      
+                    
+                              enter species id ( "?" for options)
+                    CLBZ   <----------------  enter "CLBZ" and groups and other data are loaded
+                                                  into memory for recalculation/editing
+                     
+                     
+                    { hit return to continue : ? for options }   
+                     
+                    ============================ next screen =================================
+                     
+                    Thermo estimation for molecule
+                    CLBZ                                                         C6H5CL
+                     
+                      Gr # -  GROUP ID  - Quantity
+                         1 - CB/H           -  5
+                         2 - CB/CL          -  1
+                     
+                    UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}
+                       Hf      S    Cp 300   400      500     600      800    1000    1500
+                      12.39   74.82   23.37   30.55   36.46   41.21   48.04   52.73
+                         CPINF    67.56
+                    Symmetry number used to correct S value is          2
+                      EDIT THESE RESULTS?   { "Y" OR "N"}
+                     
+                    
+                    
+                    
+                         NOTE:    Properties  have actually  been  recalculated  from 
+                    group database and data is in memory as if the user had just typed it in.
+                    
+                    Literature data is not recalculated.  The keyword "NOCALC" appears with
+                    every literature entry.   
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                             USING THERMFIT
+                    
+                             Cp EXTRAPOLATION AND POLYNOMIAL FITTING PROGRAM
+                    
+                    
+                    
+                    
+                         This stand alone program may be run from the THERM main menu 
+                    or  may be run independent from THERM.  Input file is LST  format 
+                    and  output is DAT format (thermo property polynomials).  To  run 
+                    independent enter "THERMFIT" at the DOS prompt and press return.
+
+
+
+
+
+
+                         THERMFIT : Polynomial Fitting & Cp Extrapolation Method 
+                    
+                    
+                    ENTER FILENAME FOR INPUT {.LST}
+                    EXAMPLE     <------------------------ enter input filename (extension  "LST"  is 
+                                                            assumed.                     
+                    ENTER FILENAME FOR OUTPUT {.DAT}
+                    EXAMPLE     <------------------------ enter output filename (extension "DAT"  is 
+                                                            assumed.
+                     
+                       GENERATING NASA FORMAT DATABASE FROM
+                        TEST.LST                                                              
+                     
+                                 please wait
+                    C6H5F      
+                    C6H6        
+                    C6H5CL   
+                    C6F6
+                    C6CL6   
+                    C6H5CH3      <---------------- species names are listed as each is
+                    C6H5I                          processed.
+                    C6H5C6H5  
+                    C6H5OH
+                    C6H5O.   
+                    
+
+
+ EXAMPLE LIST FILE ( LST )
+ SPECIES       Hf       S    Cp 300     400     500     600     800     1000     1500     DATE        ELEMENTS
+ C6H5F      -26.30    72.37    22.50   29.80   35.80   40.60   47.50   52.25     .00   1/23/89         C   6 H   5 F   1     0 G 0
+ C6H6        19.80    64.24    19.44   26.64   32.76   37.80   45.24   50.46   58.38   1/23/89         C   6 H   6     0     0 G 0
+ C6H5CL      12.70    75.17    24.60   29.60   37.00   40.70   47.90   52.45     .00   1/23/89         CL  1 C   6 H   5     0 G 0
+ C6F6      -228.64    91.59    37.56   43.88   48.78   52.55   57.62   60.63                    STULL  C   6 F   6     0     0 G 0
+ C6CL6       -8.10   105.45    41.36   46.00   50.52   53.00   57.74   60.28                    THERM  CL  6 C   6     0     0 G 0
+ C6H5CH3     11.81    76.81    25.06   33.18   40.38   46.44   55.68   62.26   72.21   1/23/89         C   7 H   8     0     0 G 1
+*C6H5I       39.00    79.97    24.20   31.10   36.90   41.40   48.00   52.55     .00   1/23/89         C   6 H   5 I   1     0 G 0
+ C6H5C6H5    42.92    93.89    39.06   52.84   64.38   73.54   86.92   96.00  109.40   1/23/89         C  12 H  10     0     0 G 1
+ PHENOL     -22.30    75.17    24.40   31.90   38.32   43.33   50.62   55.56     .00   1/23/89         C   6 H   6 O   1     0 G 1
+ PHENOXY     12.10    72.57    23.02   29.88   35.79   40.42   47.18   51.75     .00   1/23/89         C   6 H   5 O   1     0 G 0
+                    
+                          NOTE:  this is a sample LST format file ( *.LST ) as created by the
+                          group additivity code.  LST files produced by THERMLST have essentially
+                          the same format, except Cp 1500 K is never blank or zero.
+                    
+                      o   If Cp 1500 K is blank or zero that means one or more groups considered 
+                          had no data available at this temperature.  Once data has been fit using
+                          this program, Cp data will be calculated to 5000 K unless an asterisk appears
+                          in column 1.  An asterisk in column 1 "*" indicates that the desired 
+                          temperature range is limited to 2000 K or that extrpolation was not successful.
+                    
+                     o    The last column contains the number of rotors which can be considered
+                          free rotors at high temperature.  This is used to adjust the high temp
+                          limiting heat capacity ( Cp infinity ).
+                    
+                    --------      THIS IS THE FORMAT FOR INPUT TO THERMFIT    ----------
+
+
+
+
+
+
+                    THERMO                           <---------- first two lines are padded with                                                
+                       300.000  1500.000  5000.000               blanks to column 80                                   
+                    FBZ        1/23/89      C   6H   5F   1    0G   300.000  5000.000 1394.000    01
+                     1.61833718E+01 1.55046197E-02-5.43776755E-06 8.58686527E-10-5.04169920E-14    2
+                    -2.11896966E+04-6.54224811E+01-4.64588189E+00 6.87643930E-02-5.85165373E-05    3
+                     2.52183330E-08-4.35564823E-12-1.44380166E+04 4.47766797E+01                   4
+                    BZ         1/23/89      C   6H   6    0    0G   300.000  5000.000 1387.000    01
+                     1.39935036E+01 1.74971856E-02-6.15476220E-06 9.73716969E-10-5.72415007E-14    2
+                     2.47175791E+03-5.77602198E+01-5.39447911E+00 6.37500472E-02-4.90152689E-05    3
+                     1.93648825E-08-3.13307408E-12 9.13590251E+03 4.60723136E+01                   4
+                    CLBZ       1/23/89      CL  1C   6H   5    0G   300.000  5000.000 1402.000    01
+                     1.76097340E+01 1.39051666E-02-4.81202456E-06 7.54213602E-10-4.40866883E-14    2
+                    -2.09013038E+03-7.20465247E+01-2.22953876E-01 4.92544675E-02-2.68122926E-05    3
+                     4.13248078E-09 5.27159680E-13 4.49728146E+03 2.55701514E+01                   4
+                    C6F6ST     STULL        C   6F   6    0    0G   300.000  5000.000 1399.000    01
+                     2.58396239E+01 7.52573639E-03-2.73763134E-06 4.42881600E-10-2.64426394E-14    2
+                    -1.25330418E+05-1.08117770E+02 3.78000514E+00 6.79621910E-02-6.65244670E-05    3
+                     3.09697946E-08-5.56965091E-12-1.18686491E+05 6.98893678E+00                   4
+                    C6CL6TH    THERM        CL  6C   6    0    0G   300.000  5000.000 1388.000    01
+                     2.55178960E+01 7.73146882E-03-2.79189838E-06 4.49470408E-10-2.67455853E-14    2
+                    -1.38549596E+04-9.84421553E+01 9.57209477E+00 4.87056064E-02-4.35234301E-05    3
+                     1.89791732E-08-3.26102369E-12-8.74666935E+03-1.42163133E+01                   4
+                    C6H5CH3    1/23/89      C   7H   8    0    0G   300.000  5000.000 1382.000    11
+                     1.61733987E+01 2.32878469E-02-8.15197962E-06 1.28545400E-09-7.53928226E-14    2
+                    -2.87513958E+03-6.63277432E+01-3.90646567E+00 6.70276172E-02-4.42253282E-05    3
+                     1.48118855E-08-2.04209181E-12 4.49160027E+03 4.27682967E+01                   4
+                    IBZ        1/23/89      C   6H   5I   1    0G   300.000  5000.000 1397.000    01
+                     1.65325962E+01 1.49823586E-02-5.20668476E-06 8.17232192E-10-4.77828786E-14    2
+                     1.18034749E+04-6.30109665E+01-3.13809856E+00 6.61721608E-02-5.70980103E-05    3
+                     2.49774647E-08-4.36424464E-12 1.80792156E+04 4.07227701E+01                   4
+                    BIPHENYL   1/23/89      C  12H  10    0    0G   300.000  5000.000 1393.000    11
+                     2.78999627E+01 3.12250127E-02-1.09076740E-05 1.71779966E-09-1.00667229E-13    2
+                     7.36037385E+03-1.30290245E+02-1.05041920E+01 1.29491922E-01-1.09365524E-04    3
+                     4.73171544E-08-8.25035721E-12 1.98533421E+04 7.29519852E+01                   4
+                    PHENOL     1/23/89      C   6H   6O   1    0G   300.000  5000.000 1399.000    11
+                     1.65690590E+01 1.72953159E-02-5.95971999E-06 9.30134800E-10-5.41699078E-14    2
+                    -1.93122929E+04-6.66265382E+01-4.30712135E+00 7.12378295E-02-6.01302959E-05    3
+                     2.58824065E-08-4.46320704E-12-1.26228735E+04 4.35843352E+01                   4
+                    PHENOXY    1/23/89      C   6H   5O   1    0G   300.000  5000.000 1399.000    01
+                     1.58794328E+01 1.54008223E-02-5.32171061E-06 8.32198383E-10-4.85354318E-14    2
+                    -1.58383272E+03-6.31930634E+01-3.64980357E+00 6.52692783E-02-5.45970495E-05    3
+                     2.31094723E-08-3.91027027E-12 4.71529505E+03 4.00876924E+01                   4
+                    END   <---------- padded with blanks to column 80.
+                    
+                        NOTE:  This is a sample thermo property polynomial file created by THERMFIT.
+                     
+                        Some slight differences exist between this file format and that supplied
+                        with the CHEMKIN code.  
+                    
+                        Perhaps the most significant difference is the break point ( or common ) 
+                        temperature.  This fitting method determines the best position for the breakpoint
+                        rather than holding it constant at 1000 K.
+                    
+                        The number of rotors appears in column 79 (unused by CHEMKIN).  These differences
+                        are transparent to the CHEMKIN code
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                                             USING THERMRXN
+                    
+                                   THERMODYNAMIC ANALYSIS FOR REACTION
+                    
+                    
+                    
+                    
+                    
+                    
+                         This stand alone program may be run from the THERM main menu 
+                    or may be run independent of THERM.  Thermo property  polynomials 
+                    are  required  input  ( DAT format ).  Reactions  may  either  be 
+                    entered  interactively  or  entire CHEMKIN  inout  files  may  be 
+                    processed.   To  run  this program independent  of  THERM,  enter 
+                    "THERMRXN" at the DOS prompt and press return.
+                    
+
+
+
+
+
+
+                    THERMRXN: 
+                     
+                     
+                             Thermodynamic Property Analysis for Reactions
+                     
+                     
+                     
+                        ENTER FILENAME FOR NASA FORMAT COEFFICIENTS   { *.DAT }
+                    
+                                              enter filename containing thermodynamic 
+                        EXAMPLE   <---------- property data in polynomial format.
+                                              ( file extension DAT is assumed )
+                     
+                       NOTE:   If one wants to use a polynomial file which was not created by  this 
+                    package,  it will be necessary to run the utility program "STOD.EXE" to  verify 
+                    the  record length is 80 characters per line.  THERMRXN requires the first  two 
+                    lines  of the polynomial format file to be padded with blanks to 80  characters 
+                    (required  record  length).  STOD will do this automatically.  This  is  called 
+                    DIRECT ACCESS FILE FORMAT.  STOD stands for Sequential TO Direct conversion.  
+                    
+                       Failure to pad each line to 80 characters will result in a an error message.  
+                    The  polynomial  file  supplied with Sandia's "CHEMKIN"  requires  this  change 
+                    before it can be read.  This format change is transparent to the CHEMKIN  code, 
+                    and allows quicker operation
+                    when used with THERM.
+                    
+                    ========================== next screen =======================================
+                      
+                     current units: Kcal/mol (cal/mol K)
+                     ___________________________________
+                     
+                         To Calculate Property Change of Reaction for
+                         enthalpy (del H), entropy (del S), and 
+                         gibbs free energy (del G) 
+                         enter a Reaction expression as follows:
+                     
+                           " A+B=C+D " or " A+B=C " or " A=B+C "
+                          (ad'n/abstr)   (ad'n/recomb)  (dissoc)
+                          where A, B, C, etc.  are species defined 
+                         in the current Thermo D Base {*.DAT} file
+                      EXAMPLE:    C6H5CL=CYC6H5+ CL  (blanks are ignored)
+                     
+                         NOTE:    Reaction expression MUST BALANCE
+                                  no quote marks are needed
+                     
+                          enter " L " to list defined species
+                                " C " to process a "CHEMKIN" input file  <--- CHEMKIN input files 
+                                " Q " to return to the MAIN MENU              can be processed.
+                                " ? " to supress this information
+                                " U " change units to Kcal/mol (cal/mol K)
+                    
+                     
+                    C6H5CL=C6H5.+CL     <----------------  enter reaction  expression  (blanks  are
+                                            ignored; H +H+M = H2+M and 2H+M=H2+M are equivalent)
+                    ========================== next screen ======================================= 
+
+
+
+
+
+
+                     
+                         THERMODYNAMIC ANALYSIS for REACTION
+                    Rx          C6H5CL     = C6H5.      + CL        
+                    Hf {Kcal/mol}   12.390     81.350     28.900
+                    S {cal/mol K}   74.820     68.920     39.500
+                     
+                      dHr   (298K) =      97.860  Kcal/mol
+                    dU (dE) ( " )  =      97.268  Kcal/mol
+                      dSr   ( " )  =      33.600  cal/mol K
+                      dGr   ( " )  =      87.842  Kcal/mol
+                     Af/Ar  ( " )  =   3.320E+02
+                     
+                         T (K)  dH(Kcal/mol)  dU(Kcal/mol) dS(cal/mol K)   (Af/Ar) dG(Kcal/mol)
+                       300.000    9.786E+01    9.726E+01    3.360E+01    3.304E+02    8.778E+01
+                       400.000    9.787E+01    9.708E+01    3.364E+01    2.522E+02    8.442E+01
+                       500.000    9.783E+01    9.683E+01    3.354E+01    1.923E+02    8.106E+01
+                       600.000    9.775E+01    9.656E+01    3.340E+01    1.495E+02    7.771E+01
+                       800.000    9.756E+01    9.597E+01    3.313E+01    9.786E+01    7.106E+01
+                      1000.000    9.738E+01    9.540E+01    3.293E+01    7.071E+01    6.445E+01
+                      1200.000    9.723E+01    9.485E+01    3.279E+01    5.495E+01    5.788E+01
+                      1500.000    9.703E+01    9.405E+01    3.265E+01    4.085E+01    4.806E+01
+                      2000.000    9.673E+01    9.276E+01    3.247E+01    2.805E+01    3.179E+01
+                     
+                    Q (quit)   F (file)   N (new input file)   U (change units)
+                       enter option  { enter new reaction }
+                                                            <--------------- press return to enter 
+                                                                             a new reaction
+                    
+                    
+                        NOTE:    OPTIONS
+                    
+                       Q  -   quit this program ( return to THERM MAIN menu )
+                       F  -   save this data to a file.
+                       N  -   change the thermo property polynomial data file (DAT).
+                       U   -   switch units on display from kcal/mol  (cal/mol  K) to 
+                              KJ/mol (J/mol K) or visa versa.
+                    
+
+
+
+
+
+
+                                  or enter Reaction expression here: 
+                          C6H6 + O = C6H5O + H
+                     
+                         THERMODYNAMIC ANALYSIS for REACTION
+                    Rx          C6H6       + O          = C6H5O      + H         
+                    Hf {Kcal/mol}   19.800     59.550     11.370     52.100
+                    S {cal/mol K}   64.240     38.470     72.730     27.390
+                     
+                      dHr   (298K) =     -15.880  Kcal/mol
+                    dU (dE) ( " )  =     -15.880  Kcal/mol
+                      dSr   ( " )  =      -2.590  cal/mol K
+                      dGr   ( " )  =     -15.108  Kcal/mol
+                     Af/Ar  ( " )  =   2.716E-01
+                     
+                         T (K)  dH(Kcal/mol)  dU(Kcal/mol) dS(cal/mol K)   (Af/Ar) dG(Kcal/mol)
+                       300.000   -1.587E+01   -1.587E+01   -2.567E+00    2.748E-01   -1.510E+01
+                       400.000   -1.550E+01   -1.550E+01   -1.502E+00    4.695E-01   -1.490E+01
+                       500.000   -1.516E+01   -1.516E+01   -7.347E-01    6.909E-01   -1.479E+01
+                       600.000   -1.485E+01   -1.485E+01   -1.703E-01    9.179E-01   -1.475E+01
+                       800.000   -1.435E+01   -1.435E+01    5.517E-01    1.320E+00   -1.479E+01
+                      1000.000   -1.401E+01   -1.401E+01    9.331E-01    1.599E+00   -1.495E+01
+                      1200.000   -1.381E+01   -1.381E+01    1.124E+00    1.761E+00   -1.516E+01
+                      1500.000   -1.365E+01   -1.365E+01    1.245E+00    1.871E+00   -1.551E+01
+                      2000.000   -1.356E+01   -1.356E+01    1.298E+00    1.922E+00   -1.615E+01
+                     
+                    Q (quit)   F (file)   N (new input file)   U (change units)
+                       enter option  { enter new reaction } <------------------------press return
+                    
+                    
+                                  enter Reaction expression here:
+                    
+                    C6H6 + O = C6H5. + OH 
+                     
+                     
+                         THERMODYNAMIC ANALYSIS for REACTION
+                    Rx          C6H6       + O          = C6H5.      + OH        
+                    Hf {Kcal/mol}   19.800     59.550     81.350      9.500
+                    S {cal/mol K}   64.240     38.470     68.920     43.880
+                     
+                      dHr   (298K) =      11.500  Kcal/mol
+                    dU (dE) ( " )  =      11.500  Kcal/mol
+                      dSr   ( " )  =      10.090  cal/mol K
+                      dGr   ( " )  =       8.492  Kcal/mol
+                     Af/Ar  ( " )  =   1.605E+02
+                     
+                         T (K)  dH(Kcal/mol)  dU(Kcal/mol) dS(cal/mol K)   (Af/Ar) dG(Kcal/mol)
+                       300.000    1.150E+01    1.150E+01    1.010E+01    1.611E+02    8.473E+00
+                       400.000    1.159E+01    1.159E+01    1.036E+01    1.834E+02    7.448E+00
+                       500.000    1.161E+01    1.161E+01    1.041E+01    1.888E+02    6.408E+00
+                       600.000    1.159E+01    1.159E+01    1.037E+01    1.845E+02    5.369E+00
+                       800.000    1.143E+01    1.143E+01    1.014E+01    1.643E+02    3.317E+00
+                      1000.000    1.116E+01    1.116E+01    9.845E+00    1.418E+02    1.318E+00
+                      1200.000    1.084E+01    1.084E+01    9.550E+00    1.223E+02   -6.212E-01
+                      1500.000    1.029E+01    1.029E+01    9.140E+00    9.946E+01   -3.423E+00
+                      2000.000    9.284E+00    9.284E+00    8.564E+00    7.444E+01   -7.844E+00
+

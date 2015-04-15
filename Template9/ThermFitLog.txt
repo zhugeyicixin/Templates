@@ -1,0 +1,5106 @@
+None
+input:	\n
+output:
+------------------------Start Line--------------------------------------
+Invalid keyboard code specified---
+---
+                                   THERM---
+ ---
+*****************0
+---
+                  THermo Estimation for Radicals & Molecules---
+ ---
+*****************1
+---
+                              Edward R. Ritter ---
+                       Dept. of Chemical Engineering---
+                    Villanova University,  Villanova, PA---
+---
+                                     and---
+---
+                             Joseph W. Bozzelli ---
+               Department of Chemical Engineering and Chemistry---
+                     New Jersey Institute of Technology---
+                                  Newark, NJ---
+---
+                          486 version 4.5 : 7/8/94---
+---
+                     **** Loading Configuration File ****---
+                      ***** LOADING GROUP DATAFILES *****     ---
+                           742  Groups in the dataBase.          ---
+ ---
+*****************2
+                           { hit return to continue }---
+                              THERM MAIN MENU---
+ ---
+*****************3
+        Units:  Kcal/mol  ( cal/mol K )                   10/ 9/14---
+     ___________________________________________________________________________---
+ ---
+*****************4
+     1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)---
+     2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}---
+     3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}---
+     4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}---
+                9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)---
+               10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }---
+               11 - Sort/Write "LST" file {or Write w/ new Units }---
+                             { no "DOC" format file is needed }---
+               12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST---
+               13 - DOS utilities---
+                U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)---
+                         *  -  CLOSE ALL OPENED FILES---
+                         X  -  EXIT PROGRAM ---
+                         ?  -  HELP---
+ ---
+*****************5
+-------------------------End Line---------------------------------------
+
+input:	8\ncomb2\ncomb2\n1\n
+output:
+------------------------Start Line--------------------------------------
+                           enter option : { 1 }---
+  ENTER {*.LST} FILENAME FOR INPUT TO---
+       THERMFIT NASA TYPE POLYNOMIAL PROCEDURE ---
+ ---
+*****************0
+ enter "MENU" for fitting options---
+  ENTER {*.DAT} OUTPUT FILENAME---
+    FOR NASA FORMAT COEFFICIENTS ---
+ ---
+*****************1
+   GENERATING NASA FORMAT DATABASE FROM---
+    COMB2.lst                                                             ---
+ ---
+*****************2
+             please wait---
+C15H32    ---
+C15H31_A  ---
+C15H32    ---
+C15H31_B  ---
+C15H32    ---
+C15H31_C  ---
+C15H32    ---
+C15H31_D  ---
+C15H32    ---
+C15H31_E  ---
+C15H32    ---
+C15H31_F  ---
+C15H32    ---
+C15H31_G  ---
+C15H32    ---
+C15H31_H  ---
+C15H32    ---
+C15H31_I  ---
+C15H32    ---
+C15H31_J  ---
+C15H32    ---
+C15H31_K  ---
+C15H32    ---
+C15H31_L  ---
+C15H32    ---
+C15H31_M  ---
+C15H32    ---
+C15H31_N  ---
+C15H30_1  ---
+C15H30_2  ---
+C15H30_3  ---
+C15H30_4  ---
+C15H30_5  ---
+C15H30_6  ---
+C15H30_62 ---
+C15H30_7  ---
+C15H30_8  ---
+C15H30_9  ---
+C15H30_10 ---
+C15H30102 ---
+C15H30_11 ---
+C15H30_1  ---
+C15H29    ---
+C15H32O_1 ---
+C15H31O_1 ---
+C15H32O_2 ---
+C15H31O_2 ---
+C15H32O_3 ---
+C15H31O_3 ---
+C15H32O_4 ---
+C15H31O_4 ---
+C15H32O_5 ---
+C15H31O_5 ---
+C15H32O_6 ---
+C15H31O_1 ---
+C15H32O_7 ---
+C15H31O_7 ---
+C15H32O_8 ---
+C15H31O_8 ---
+C15H32O_9 ---
+C15H31O_9 ---
+C15H32O10 ---
+C15H31O10 ---
+C15H32O11 ---
+C15H31O11 ---
+C15H32O_1 ---
+C15H31O_1 ---
+C15H32O_1 ---
+C15H31O_1 ---
+C15H32O_1 ---
+C15H31O_1 ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_1     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.035E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_2     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_3     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_4     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_5     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_6     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_7     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.035E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_8     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_9     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_10    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_11    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_12    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.035E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_13    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.150E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROO_14    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.035E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1A   ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1B   ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1C   ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1D   ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1E   ---
+ROOH_1    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_1F   ---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2A   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2C   ---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2D   ---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2E   ---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2F   ---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_2    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_2H   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3A   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3B   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3D   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3E   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3F   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3H   ---
+ROOH_3    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_3I   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4A   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4B   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4C   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4E   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4F   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4H   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4I   ---
+ROOH_4    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_4J   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5A   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5B   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5C   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5D   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5F   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5H   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5I   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5J   ---
+ROOH_5    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_5K   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6A   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6B   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6C   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6D   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6E   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6H   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6I   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6J   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6K   ---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6L   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_6    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_6M   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7B   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7C   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7D   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7E   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7F   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7H   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7I   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7J   ---
+ROOH_7    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_7K   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8B   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8C   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8D   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8E   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8F   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8I   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8J   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8K   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8L   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8M   ---
+ROOH_8    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_8N   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9C   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9D   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9E   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9F   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9G   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9H   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9I   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9J   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9K   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9L   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9M   ---
+ROOH_9    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_9N   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10D  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10E  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10F  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10G  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10H  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10I  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10J  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10K  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10L  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10M  ---
+ROOH_10   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_10N  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11E  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11F  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11G  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11H  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11I  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11J  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11L  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11M  ---
+ROOH_11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.118E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_11N  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12F  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12H  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12I  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12J  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12K  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12M  ---
+ROOH_12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_12N  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13F  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13H  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13I  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13J  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13K  ---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13L  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.120E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_13N  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.095E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14H  ---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14I  ---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14J  ---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14K  ---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14L  ---
+ROOH_14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.009E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QOOH_14M  ---
+OOHOOH11  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.223E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH11   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH12  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH12   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH13  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH13   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH14  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH14   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH15  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH15   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH16  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH16   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH21  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH21   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH23  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH23   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH24  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH24   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH25  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH25   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH26  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.446E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.290E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  7.881E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.771E-03---
+ best regression is #           2---
+OOOOH26   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.478E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.336E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.842E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  5.251E-03---
+ best regression is #           2---
+OOHOOH27  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH27   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH28  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH28   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH31  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH31   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH32  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH32   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH34  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH34   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH35  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH35   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH36  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH36   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH37  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH37   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH38  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH38   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH39  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH39   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH41  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH41   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH42  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH42   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH43  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH43   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH45  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH45   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH46  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH46   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH47  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH47   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH48  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH48   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH49  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH49   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH410 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH410  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH51  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH51   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH52  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH52   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH53  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH53   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH54  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH54   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH56  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH56   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH57  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH57   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH58  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH58   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH59  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH59   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH510 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH510  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH511 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH511  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH61  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH61   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH62  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.446E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.290E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  7.881E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.771E-03---
+ best regression is #           2---
+OOOOH62   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.478E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.336E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.842E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  5.251E-03---
+ best regression is #           2---
+OOHOOH63  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH63   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH64  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH64   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH65  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH65   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH67  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH67   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH68  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH68   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH69  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH69   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH610 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH610  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH611 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.446E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.290E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  7.881E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.771E-03---
+ best regression is #           2---
+OOOOH611  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.478E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.336E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.842E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  5.251E-03---
+ best regression is #           2---
+OOHOOH612 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH612  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH613 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH613  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH72  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH72   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH73  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH73   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH74  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH74   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH75  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH75   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH76  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH76   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH78  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH78   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH79  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH79   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH710 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH710  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH711 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH711  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH82  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH82   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH83  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH83   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH84  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH84   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH85  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH85   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH86  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH86   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH87  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH87   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH89  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH89   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH810 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH810  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH811 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH811  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH812 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH812  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH813 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH813  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH814 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH814  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH93  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH93   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH94  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH94   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH95  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH95   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH96  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH96   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH97  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH97   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH98  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH98   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH910 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH910  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH911 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH911  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH912 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH912  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH913 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH913  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH914 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH914  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH104 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH104  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH105 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH105  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH106 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH106  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH107 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH107  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH108 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH108  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH109 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH109  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH101 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH1011 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH101 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1012 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH101 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH1013 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH101 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1014 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH115 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH115  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH116 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.446E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.290E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  7.881E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.771E-03---
+ best regression is #           2---
+OOOOH116  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.478E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.336E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.842E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  5.251E-03---
+ best regression is #           2---
+OOHOOH117 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH117  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH118 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH118  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH119 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH119  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH111 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH1110 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH111 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH1112 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH111 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH1113 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH111 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH1114 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH126 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH126  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH128 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH128  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH129 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH129  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH121 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1210 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH121 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH1211 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH121 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1213 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH121 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.223E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1214 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH136 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH136  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH138 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH138  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH139 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.316E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.157E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.468E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.608E-03---
+ best regression is #           2---
+OOOOH139  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.340E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.193E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.344E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.198E-03---
+ best regression is #           2---
+OOHOOH131 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.350E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.182E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.558E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.033E-03---
+ best regression is #           2---
+OOOOH1311 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.382E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.201E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.406E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.532E-03---
+ best regression is #           2---
+OOHOOH131 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1312 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH131 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1314 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH148 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH148  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH149 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH149  ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH141 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1410 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH141 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.343E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.544E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.981E-03---
+ best regression is #           2---
+OOOOH1411 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.357E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.078E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.431E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.438E-03---
+ best regression is #           2---
+OOHOOH141 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.223E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1412 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOHOOH141 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.265E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+OOOOH1413 ---
+Tmid mismatch:  delta dCp(Tmid) =  2.277E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QO11      ---
+QO12      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.093E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QO13      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.067E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.002E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.908E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.240E-03---
+ best regression is #           2---
+QO14      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.045E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.036E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.793E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.168E-03---
+ best regression is #           2---
+QO15      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.010E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.069E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.680E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.081E-03---
+ best regression is #           1---
+QO16      ---
+QO23      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.213E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.016E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.113E-03---
+ best regression is #           2---
+QO24      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.188E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.253E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.901E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.052E-03---
+ best regression is #           1---
+QO25      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.159E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.362E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.811E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.972E-03---
+ best regression is #           1---
+QO26      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.110E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.273E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.478E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.207E-03---
+ best regression is #           1---
+QO27      ---
+QO28      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.092E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.164E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.587E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.807E-03---
+ best regression is #           1---
+QO34      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.180E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.147E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.787E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.555E-03---
+ best regression is #           2---
+QO35      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.170E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.220E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.620E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.526E-03---
+ best regression is #           1---
+QO36      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.159E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.362E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.811E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.972E-03---
+ best regression is #           1---
+QO37      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.010E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.069E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.680E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.081E-03---
+ best regression is #           1---
+QO38      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.281E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.424E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.517E-03---
+ best regression is #           1---
+QO39      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.101E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.169E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.314E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.475E-03---
+ best regression is #           1---
+QO45      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.180E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.147E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.787E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.555E-03---
+ best regression is #           2---
+QO46      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.188E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.253E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.901E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.052E-03---
+ best regression is #           1---
+QO47      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.045E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.036E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.793E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.168E-03---
+ best regression is #           2---
+QO48      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.152E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.413E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.533E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.532E-03---
+ best regression is #           1---
+QO49      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.281E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.424E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.517E-03---
+ best regression is #           1---
+QO410     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.101E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.169E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.314E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.475E-03---
+ best regression is #           1---
+QO56      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.213E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.016E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.113E-03---
+ best regression is #           2---
+QO57      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.067E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.002E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.908E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.240E-03---
+ best regression is #           2---
+QO58      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.170E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.220E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.620E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.526E-03---
+ best regression is #           1---
+QO59      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.152E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.413E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.533E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.532E-03---
+ best regression is #           1---
+QO510     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.281E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.424E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.517E-03---
+ best regression is #           1---
+QO511     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.092E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.164E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.587E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.807E-03---
+ best regression is #           1---
+QO67      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.093E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QO68      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.213E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.016E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.113E-03---
+ best regression is #           2---
+QO69      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.188E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.253E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.901E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.052E-03---
+ best regression is #           1---
+QO610     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.159E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.362E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.811E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.972E-03---
+ best regression is #           1---
+QO611     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.110E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.273E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.478E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.207E-03---
+ best regression is #           1---
+QO612     ---
+QO613     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.092E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.164E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.587E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.807E-03---
+ best regression is #           1---
+QO78      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.067E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.002E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.908E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.240E-03---
+ best regression is #           2---
+QO79      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.045E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.036E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.793E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.168E-03---
+ best regression is #           2---
+QO710     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.010E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.069E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.680E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.081E-03---
+ best regression is #           1---
+QO711     ---
+QO89      ---
+Tmid mismatch:  delta dCp(Tmid) =  2.180E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.147E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.787E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.555E-03---
+ best regression is #           2---
+QO810     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.170E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.220E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.620E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.526E-03---
+ best regression is #           1---
+QO811     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.159E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.362E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.811E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.972E-03---
+ best regression is #           1---
+QO812     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.010E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.069E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.680E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.081E-03---
+ best regression is #           1---
+QO813     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.281E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.424E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.517E-03---
+ best regression is #           1---
+QO814     ---
+QO910     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.180E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.147E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.787E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.555E-03---
+ best regression is #           2---
+QO911     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.188E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.253E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.901E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.052E-03---
+ best regression is #           1---
+QO912     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.045E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.036E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.793E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.168E-03---
+ best regression is #           2---
+QO913     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.152E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.413E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.533E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.532E-03---
+ best regression is #           1---
+QO914     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.010E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.069E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.680E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.081E-03---
+ best regression is #           1---
+QO1011    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.213E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.016E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.113E-03---
+ best regression is #           2---
+QO1012    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.067E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.002E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.908E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.240E-03---
+ best regression is #           2---
+QO1013    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.170E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.220E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.620E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.526E-03---
+ best regression is #           1---
+QO1014    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.045E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.036E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.793E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.168E-03---
+ best regression is #           2---
+QO1112    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.093E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QO1113    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.213E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.016E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.113E-03---
+ best regression is #           2---
+QO1114    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.068E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+QO1213    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.067E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.002E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  4.908E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.240E-03---
+ best regression is #           2---
+QO1214    ---
+QO1314    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.096E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET11     ---
+KET12     ---
+KET13     ---
+KET14     ---
+KET15     ---
+KET16     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.050E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET31     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET32     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.000E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET34     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.252E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.088E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.218E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.733E-03---
+ best regression is #           2---
+KET35     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET36     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET37     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET38     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET39     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET41     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET42     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.292E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.003E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.574E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.863E-03---
+ best regression is #           2---
+KET43     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.230E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET45     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.230E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET46     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.292E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.003E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.574E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.863E-03---
+ best regression is #           2---
+KET47     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET48     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET49     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET410    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET51     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET52     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET53     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET54     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.252E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.088E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.218E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.733E-03---
+ best regression is #           2---
+KET56     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.000E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET57     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET58     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET59     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET510    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET511    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET72     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.050E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET73     ---
+KET74     ---
+KET75     ---
+KET76     ---
+KET78     ---
+KET79     ---
+KET710    ---
+KET711    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.050E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET82     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET83     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET84     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET85     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET86     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.000E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET87     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET89     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.252E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.088E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.218E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.733E-03---
+ best regression is #           2---
+KET810    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET811    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET812    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET813    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET814    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET93     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET94     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET95     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET96     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.292E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.003E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.574E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.863E-03---
+ best regression is #           2---
+KET97     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET98     ---
+Tmid mismatch:  delta dCp(Tmid) =  2.230E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET910    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.230E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET911    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.292E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.003E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  6.574E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  4.863E-03---
+ best regression is #           2---
+KET912    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET913    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.271E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET914    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.202E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET104    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET105    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET106    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET107    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET108    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET109    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.252E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.088E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  5.218E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  3.733E-03---
+ best regression is #           2---
+KET1011   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.000E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1012   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1013   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1014   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET126    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.050E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET128    ---
+KET129    ---
+KET1210   ---
+KET1211   ---
+KET1213   ---
+KET1214   ---
+KET136    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.222E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET138    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET139    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1310   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.210E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1311   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.000E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1312   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.129E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1314   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.500E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+Tmid mismatch:  delta dCp(Tmid) =  2.603E-03---
+ SECOND REGRESSION FAILED TO MATCH---
+ PROPERTY AT THE MID-POINT---
+ MAKING A THIRD ATTEMPT TO FIT THE DATA---
+Tmid mismatch:  delta dCp(Tmid) =  7.157E-03---
+ THIRD ATTEMPT TO MATCH PROPERTIES ---
+ AT THE MIDPOINT HAS FAILED---
+ LAST REGRESSION IN PROGRESS---
+Tmid mismatch:  delta dCp(Tmid) =  5.512E-03---
+ best regression is #           1---
+KET148    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.091E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET149    ---
+Tmid mismatch:  delta dCp(Tmid) =  2.091E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1410   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.091E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1411   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.122E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1412   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.030E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+KET1413   ---
+Tmid mismatch:  delta dCp(Tmid) =  2.061E-03---
+ repeating polynomial fitting routine---
+ with a different overlap region---
+C7H16_3   ---
+C7H15_3A  ---
+C7H16_3   ---
+C7H15_3F  ---
+C8H18_4   ---
+C8H17_4A  ---
+C8H18_3   ---
+C8H17_3G  ---
+C8H18_3   ---
+C8H17_3A  ---
+C9H20_3   ---
+C9H19_3H  ---
+C9H20_3   ---
+C9H19_3A  ---
+C9H20_2   ---
+C9H19_2H  ---
+C10H22_26 ---
+C10H2126A ---
+C10H22_26 ---
+C10H2126I ---
+C10H22_4  ---
+C10H21_4A ---
+C10H22_3  ---
+C10H21_3J ---
+C10H22_3  ---
+C10H21_3A ---
+C11H24_37 ---
+C11H2337A ---
+C11H24_26 ---
+C11H2326J ---
+C12H26_37 ---
+C12H2537L ---
+C13H27_26 ---
+C13H2726K ---
+C14H30_37 ---
+C14H2937M ---
+C14H30210 ---
+C14_210F  ---
+C14H30_26 ---
+C14H2926K ---
+C14_2610  ---
+C14_2610A ---
+C7H14_5_3 ---
+C7H14_1_3 ---
+C8H16_6_3 ---
+C8H16_1_3 ---
+C8H16_1_4 ---
+C9H18_1_6 ---
+C9H18_2_6 ---
+C9H18_1_3 ---
+C9H18_1_2 ---
+C9H18_1_5 ---
+C9H18_1   ---
+C9H18_2   ---
+C9H18_1_4 ---
+C9H18_1_7 ---
+C10H20126 ---
+C10H20137 ---
+C10H2014  ---
+C10H2013  ---
+C10H2017  ---
+C10H2016  ---
+C10H2026  ---
+C10H2018  ---
+C11H22137 ---
+C11H22148 ---
+C11H2214  ---
+C11H2218  ---
+C12H24148 ---
+C12H2426  ---
+C12H2416  ---
+C12H24159 ---
+C12H24210 ---
+C12H24110 ---
+C13H262   ---
+C13H261   ---
+C14H281   ---
+C14H285   ---
+C14H286   ---
+C14H283   ---
+C14H281   ---
+C14H282   ---
+C14H282   ---
+C7H14_1_3 ---
+C7H1313   ---
+C8H16_1_4 ---
+C8H151_14 ---
+C8H16_1_3 ---
+C8H1513   ---
+C9H181_26 ---
+C9H171126 ---
+C9H18_1_3 ---
+C9H17113  ---
+C9H18_1_2 ---
+C9H17112  ---
+C9H18_1_4 ---
+C9H17114  ---
+C9H18_1   ---
+C9H1711   ---
+C10H20126 ---
+C10H191   ---
+C10H2014  ---
+C10H19114 ---
+C10H2013  ---
+C10H19113 ---
+C10H2012  ---
+C10H19112 ---
+C11H22137 ---
+C11H211   ---
+C11H22126 ---
+C11H211   ---
+C11H2214  ---
+C11H21114 ---
+C11H2213  ---
+C11H21113 ---
+C12H24137 ---
+C12H231   ---
+C12H2416  ---
+C12H23116 ---
+C12H24126 ---
+C12H231   ---
+C12H2412  ---
+C12H23112 ---
+C13H26126 ---
+C13H251   ---
+C14H281   ---
+C14H271   ---
+C14H28137 ---
+C14H271   ---
+C14H281   ---
+C14H271   ---
+C14H27126 ---
+C14H271   ---
+BC4H9CHO  ---
+BC4H8CHO  ---
+IC4H9CHO  ---
+IC4H8CHO  ---
+BC4H7CHO  ---
+BC4H9CHO  ---
+BC4H9CO   ---
+BC4H7CHO  ---
+BC4H7CO   ---
+IC3H7COC  ---
+IC3H6COC  ---
+C5H11CHO  ---
+C5H10CHO  ---
+CC5H11CHO ---
+CC5H10CHO ---
+C5H11CHO  ---
+C5H11CO_3 ---
+BC4H9COC  ---
+BC4H9COC  ---
+BC4H9COC  ---
+BC4H8COC  ---
+C6H13CHO  ---
+C6H13CO   ---
+C5H11COC  ---
+C5H11COC  ---
+C4H9COC2  ---
+C4H9COC2  ---
+C4H9COC2  ---
+C5H11COC  ---
+C5H10COC  ---
+C7H15CHO  ---
+C7H14CHO  ---
+C6H13COC  ---
+C5H11COC2 ---
+C6H13COC  ---
+C6H12COCA ---
+C6H13COC  ---
+C6H12COCB ---
+C6H13COC  ---
+C6H12COCC ---
+C6H13COC  ---
+C6H12COCD ---
+C6H13COC  ---
+C6H12COCE ---
+C6H13COC  ---
+C6H13COC  ---
+C8H17CHO  ---
+C8H17CHO3 ---
+C8H16CHO3 ---
+C8H17CHO  ---
+C8H16CHO  ---
+C8H15CHO  ---
+C8H15CHO  ---
+C8H15CO   ---
+C8H17CHO  ---
+C8H17CO   ---
+C6H13COC2 ---
+C6H13COC2 ---
+C5H11COC3 ---
+C5H11COC3 ---
+C4H9COC4  ---
+C4H9COC4  ---
+C4H9COC4  ---
+C4H9COC4  ---
+C7H15COC  ---
+C5H11COC3 ---
+C5H11COC3 ---
+C7H15COC  ---
+C7H14COCA ---
+C7H15COC  ---
+C7H14COCB ---
+C7H15COC  ---
+C7H14COCC ---
+C7H15COC  ---
+C7H14COCD ---
+C7H15COC  ---
+C7H14COCE ---
+C7H15COC  ---
+C7H14COCF ---
+C7H15COC  ---
+C7H14COCG ---
+C7H15COC  ---
+C7H15COC  ---
+C9H19CHO  ---
+C9H19CHO  ---
+C9H19CHO  ---
+C9H18CHO  ---
+C9H19CHO  ---
+C9H18CHO  ---
+C9H19CHO  ---
+C9H19CO   ---
+C9H19CHO  ---
+C9H19CO   ---
+C6H13COC3 ---
+C6H13COC3 ---
+C8H17COC  ---
+C8H17COC  ---
+C5H11COC4 ---
+C5H11COC4 ---
+C5H11COC4 ---
+C5H11COC4 ---
+C8H17COC  ---
+C8H16COC  ---
+C10H21CHO ---
+C10H21CHO ---
+C10H21CHO ---
+C10H20CHO ---
+C10H21CHO ---
+C10H21CO  ---
+C10H21CHO ---
+C10H21CO  ---
+C9H19COC  ---
+C9H19COC  ---
+C8H17COC2 ---
+C8H17COC2 ---
+C9H17COC  ---
+C9H19COC  ---
+C6H13COC4 ---
+C6H13COC4 ---
+C8H17COC2 ---
+C11H23CHO ---
+C11H23CO  ---
+C10H21COC ---
+C10H21COC ---
+C9H19COC2 ---
+C9H19COC2 ---
+C9H19COC2 ---
+C12H25CHO ---
+C12H24CHO ---
+C11H23COC ---
+C10H21COC ---
+C10H21COC ---
+C8H17COC4 ---
+C8H17COC4 ---
+C9H19COC3 ---
+C9H19COC3 ---
+C11H23COC ---
+C11H22COA ---
+C11H23COC ---
+C11H22COB ---
+C11H23COC ---
+C11H22COC ---
+C11H23COC ---
+C11H22COD ---
+C11H23COC ---
+C11H22COE ---
+C11H23COC ---
+C11H22COF ---
+C11H23COC ---
+C11H22COG ---
+C11H23COC ---
+C11H22COH ---
+C11H23COC ---
+C11H22COI ---
+C11H23COC ---
+C11H22COJ ---
+C11H23COC ---
+C11H23COC ---
+C13H27CHO ---
+C13H27CO  ---
+C11H23COC ---
+C11H23COC ---
+C10H21COC ---
+C10H21COC ---
+end of THERMFIT---
+---
+---
+                              THERM MAIN MENU---
+ ---
+*****************3
+        Units:  Kcal/mol  ( cal/mol K )                   10/ 9/14---
+     ___________________________________________________________________________---
+ ---
+*****************4
+     1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)---
+     2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}---
+     3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}---
+     4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}---
+                9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)---
+               10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }---
+               11 - Sort/Write "LST" file {or Write w/ new Units }---
+                             { no "DOC" format file is needed }---
+               12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST---
+               13 - DOS utilities---
+                U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)---
+                         *  -  CLOSE ALL OPENED FILES---
+                         X  -  EXIT PROGRAM ---
+                         ?  -  HELP---
+ ---
+*****************5
+-------------------------End Line---------------------------------------
+
+input:	x\n
+input:	q\nx\n
+ThermFit end successfully!

@@ -1,0 +1,128 @@
+
+             THERM MAIN MENU HELP FILE
+
+ OPTION 1
+      1 - ENTER/ESTIMATE SPECIES:
+
+      This option invokes THERM'S code to calculate thermodynamic
+      properties using Benson's group additivity method.
+
+     To estimate molecular or radical species you will be
+     asked for specific information about the species, such as:
+
+  *   Species ID  { limited to 9 characters so as to fit CHEMKIN
+      format}
+
+  *   # of groups in the species
+
+  *   # of different groups to be entered (DO NOT INCLUDE BD GROUPS)
+
+  *   Elemental formula { limited to 70 characters }
+
+  *   Groups contained in the species
+
+  *   species symmetry number
+
+ END
+
+ OPTION 2
+    2 - VIEW GROUPS:
+  
+    This option allows you to review the group database currently
+    in memory.  This is useful if you are looking for a group, but
+    have forgotten its name.
+
+ END
+
+ OPTION 3
+   3 - SELECT SHORT/LONG MENU:
+
+   This option toggles the amount of information displayed when 
+   a menu is on the screen.
+
+   The MAIN menu is not affected by this option.
+
+   LONG menu shows all information
+
+   SHORT menu only lists available options with no description
+
+   In both cases this help information is available.      
+
+ END
+
+ OPTION 4
+   4 - CHANGE SPECIES LIST FILE {*.LST}:
+
+    THIS OPTION IS USED TO CHANGE THE "LST" FILE CURRENTLY IN MEMORY.
+
+    THERE ARE A MAXIMUM OF 300 SPECIES ALLOWED AT ANY TIME.
+
+    THIS DATA IS NOT PASSED TO THE REACTION ANALYSIS PROCEDURE
+    BUT IS USED FOR SORTING AND REWRITING THE DATABASE.
+
+    THE "LST" FILE CONTAINS THE SPECIES ID (9 CHARACTERS MAX);
+    Hf, S, Cp 300, Cp 400, Cp 500, Cp600, Cp 800, Cp 1000, Cp 1500;
+    ELEMENTAL COMPOSITION; PHASE (G = gas), AND CAN HAVE SOME
+    ABREVIATED REFERENCE INFORMATION.  THE "LST" FILE IS THE INPUT
+    FOR THE NASA FORMAT DATABASE GENERATION PROCEDURE "THERMFIT".
+
+ END
+
+ OPTION 5
+   5 - LIST THERMO D BASE FILE {*.LST}:
+
+    THIS OPTION ALLOWS ONE TO REVIEW THE CURRENT "LST" FILE.
+
+    YOU CAN NOT ONLY REVIEW SPECIES NAMES BUT CAN REQUEST
+    EXTENDED OUTPUT SUCH AS: 
+
+    Hf, S, Cp 300, Cp400, Cp 500, Cp600, Cp 800, Cp 1000, Cp 1500
+
+    A DELETE/UNDELETE OPTION IS AVAILABLE IN CASE YOU HAVE
+    DUPLICATE OR INCORRECT RECORDS.
+
+    THE "LST" FILE MUST BE REWRITTEN USING OPTION " 10 or 11" IN
+    ORDER TO DELETE SPECIES FROM THE FILE.
+
+ END
+
+ OPTION 6
+   6 - GET SPECIES FROM DOCUMENTATION FILE {*.DOC}:
+
+    THIS OPTION REQUIRES YOU TO HAVE A DOCUMENTATION FILE
+    WHICH CONTAINS ALL PERTINENT INFORMATION ABOUT THE SPECIES.
+   
+    THE DOCUMENTATION FILE CONTAINS:
+
+     *    SPECIES ID & ELEMENTAL FORMULA
+     *    ALL GROUPS 
+     *    THERMO DATA 
+     *    BOND DISSOCIATION INCREMENT (IF A RADICAL)
+     *    SYMMETRY CORRECTION
+     *    ANY TEXT ADDED FOR REFERENCE
+     *    ANY ALTERATIONS MADE TO A CALCULATED VALUE (EDIT OPTION)
+	 ETC.
+
+    DOCUMENTATION FILE CAN BE CREATED AUTOMATICALLY WHEN
+    ESTIMATING/FILING SPECIES.  
+
+ END
+
+ OPTION 7
+    7 - ReWrite THERMO FILES {*.DOC, *.LST}:
+
+   THIS OPTION RECALCULATES THERMO PROPERTIES.  IT IS USEFUL IF ANY 
+   CHANGES HAVE BEEN MADE TO GROUP VALUES.
+   THE DOCUMENTATION FILE IS READ FOR GROUPS AND THE THERMO PROPERTIES
+   ARE RECALCULATED USING THE CURRENT GROUP VALUES.
+
+   BE WARNED:  ON AN "AT" CLASS MACHINE (10 MHz) 100 SPECIES WILL 
+   REQUIRE ABOUT 5 MINUTES FOR REGENERATION OF THE DATABASE.
+
+   A "PC" CLASS MACHINE W/ ONLY FLOPPY DRIVES WILL TAKE ~15 MINUTES.
+
+ END
+
+
+
+

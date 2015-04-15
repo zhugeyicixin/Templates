@@ -1,0 +1,25 @@
+用于Thermo in Multiwell计算
+Template4和5是最完整的版本 可以计算正逆反应 （还需要改进其中的symmetry number、optical isomers和multiplicity的部分，对于一般的ridical还可以，但是不适用于有对称性的molecule，同时有手性碳原子的结构还需要benchmark进行对比）
+Template4使用freq文件中第一次的freq
+Template5检查freq是否有cbs部分，只能使用cbs部分的freq，找不到会报错
+//旧版报废 Template6用于计算barrierless reactions
+Template12用于计算barrierless reaction 其中的能量需要选择（cbs开关和能量提取关键字）
+
+用于gaussian计算
+Template7用于提取cbs-qb3优化后的坐标进行irc
+
+用于gaussian检查数据
+Template8 optCheck 用于提取每步优化中的能量 
+
+thermodynamic计算
+Template9 使用THERM批量计算thermodynamic data
+
+用于gaussian或者molpro计算
+Template10用于提取scan中的坐标，生成各个反应坐标（键长等）对应的输入文件 
+
+用于gaussian后处理
+Template11用于提取指定目录格式下的log文件，并从log文件中提取出计算的能量汇总到excel中
+
+Template13用于hindered rotation中的inertia
+计算稳定物和过渡态的mominert（使用multiwell中的MomInert）
+

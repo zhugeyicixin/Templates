@@ -1,0 +1,10 @@
+#Created by SPARROW
+
+load "C:/Users/dodo/Desktop/soothair_singlet/R33C2H2/Gaussian/IM1.log"
+fileName = "C:/Users/dodo/Desktop/soothair_singlet/R33C2H2/SupInfo/Image/IM1.jpg"
+frank off
+background [255, 255, 255]
+set echo top center;font echo 24 serif;color echo white
+set zoomLarge false
+write image jpg @fileName
+quit

@@ -1,0 +1,20 @@
+ SPECIES                                                              
+ OOHOOH11                                                             
+Thermo estimation for molecule                                        
+ OOHOOH11                                                   C15H32O4  
+ UNITS:KCAL                                                           
+ GROUPS   8                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  3 |     5 - O/C/O          -  2           
+      2 - C/C3/H         -  3 |     6 - O/H/O          -  2           
+      3 - C/C2/H2        -  7 |     7 - GAUCHE         -  3           
+      4 - C/C/H2/O       -  2 |     8 - OI             -  2           
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-128.21 209.49  98.89 123.93 145.60 163.83 191.64 212.32    .00       
+           CPINF =  282.15                                            
+  NROTORS:18                                                          
+ SYMMETRY          27                                                 
+  CREATION DATE: 10/12/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      

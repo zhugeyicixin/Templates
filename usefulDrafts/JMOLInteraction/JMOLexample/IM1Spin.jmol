@@ -1,0 +1,31 @@
+#Created by SPARROW
+
+load "C:/Users/dodo/Desktop/soothair_singlet/R33C2H2/Gaussian/IM1.log"
+name = "C:/Users/dodo/Desktop/soothair_singlet/R33C2H2/SupInfo/SpinGif/IM1000.jpg"
+nFrames = 36 
+nDegrees = 10 
+thisDegree = 0 
+#width = 640
+#height = 480
+background [0, 0, 0]
+frank off
+set echo top center
+font echo 24 serif
+color echo white
+set zoomLarge false
+spin on
+for (var i = 1; i <= nFrames; i = i + 1)
+	thisDegree = thisDegree  + nDegrees
+	degreeText = "Degree = " + thisDegree + ""
+	fileName = name.replace("000","" + ("000" + thisDegree)[-2][0])
+	#rotate x @nDegrees  # use these options if you want to rotate the molecule
+	rotate y @nDegrees
+	#rotate z @nDegrees
+	#frame next # only use this if you have a multiframe file.
+	echo @degreeText
+	refresh
+	#write image jpg @width @height @fileName
+	write image jpg @fileName
+end for
+spin off
+quit

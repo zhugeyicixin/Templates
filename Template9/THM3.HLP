@@ -1,0 +1,242 @@
+
+
+
+        BOND_DISSOCIATION "BD" HELP:
+
+ OPTION VIN
+      VIN - VINYL RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 105.5 Kcal/mol
+
+      based upon loss of H atom from ethylene:
+
+      C2H4 --->  C2H3 + H
+
+ END
+
+ OPTION A1
+    A1 - ALLYLIC # 1:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 88 Kcal/mol
+
+      based upon loss of H atom from C=C=CC ---> C=C=CC. + H
+      in Therm these species should be written as follows:
+	
+           C*C*CC = C*C*CC. + H  
+
+      because "=" is a reserved character for reaction expressions.
+
+ END
+ OPTION A2
+    A2 - ALLYLIC # 2:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 81.8 Kcal/mol
+
+      based upon loss of H atom from C#CCC*C ---> C#CC.C*C + H
+      where "#" denotes a triple bond and "*" denotes a double
+      bond
+
+ END
+
+ OPTION A3
+    A3 - ALLYLIC # 3:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 81.8 Kcal/mol
+
+      based upon loss of H atom from C#CCC*C ---> C*CC.C*C + H
+      where "*" denotes a double bond
+
+ END
+
+ OPTION CHD
+    CHD - CYCLOHEXA-1,3-DIENYL RADICAL:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 76.6 Kcal/mol
+
+      based upon loss of H atom from CY13HD ---> CYC6H7 + H
+
+ END
+
+ OPTION CHD14
+    CHD - CYCLOHEXA-1,4-DIENYL RADICAL:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 75.8 Kcal/mol
+
+      based upon loss of H atom from CY14HD ---> CYC6H7 + H
+
+ END
+
+ OPTION BZ
+     BZ - PHENYL RADICAL:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 113.65 Kcal/mol
+
+      based upon loss of H atom from CYC6H6 ---> CYC6H5 + H
+
+ END
+
+ OPTION CYPD
+     CYPD - CYCLOPENTADIENYL RADICAL:
+         
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 74.0 Kcal/mol
+
+      based upon loss of H atom from CYPD ---> CYPD. + H
+
+ END
+
+ OPTION CYPENE
+      CYPENE - ALLYLIC CYCOLOPENTENYL RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 84.2 Kcal/mol
+
+      based upon loss of H atom from CYC5H8 ---> CYC5H7. + H
+
+ END
+
+ OPTION CLBZ
+      CLBZ - CHLOROPHENYL RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 112.5 Kcal/mol
+
+      based upon loss of H atom from C6H5CL ---> C6H4CL + H
+
+ END
+
+ OPTION CHENE
+      CHENE - CYCOLHEXENENYL RADICAL { NON-ALLYLIC }:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 98.98 Kcal/mol
+
+      based upon loss of H atom from CYC6H9 ---> CYC6H9 + H
+
+ END
+
+ OPTION CHENEA
+      CHENEA - CYCOLHEXENENYL RADICAL { ALLYLIC }:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 83.8 Kcal/mol
+
+      based upon loss of H atom from CYC6H9 ---> CYC6H9A + H
+
+ END
+
+ OPTION P
+      P - PRIMARY RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 100.6 Kcal/mol
+
+      based upon loss of H atom from C2H6 ---> C2H5 + H
+
+ END
+
+ OPTION S
+      S - SECONDARY RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 98.2 Kcal/mol
+
+      based upon loss of H atom from CCC ---> CC.C + H (GUTMAN)
+
+ END
+
+ OPTION T
+      T - Tertiary Radical:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 95.2 Kcal/mol
+  
+      based upon loss of H atom from C3C ---> C3C. + H ( W. Tsang )
+
+ END
+
+ OPTION ALPEROX
+      ALPEROX - ALKYL PEROXY RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 89.7 Kcal/mol
+
+      based upon loss of H atom from CH3OOH ---> CH3OO. + H
+
+ END
+
+ OPTION ALKOXY
+      ALKOXY - ALKOXY RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 104.1 Kcal/mol
+
+      based upon loss of H atom from CH3OH ---> CH3O. + H
+      Entropy loss an average of 2.6 for loss of rotor. 
+
+ END
+
+ OPTION PHENOXY
+      PHENOXY - PHENOXY RADICAL:
+
+  BOND DISSOCIATION ENERGY (assuming loss of H atom) = 86.5 Kcal/mol
+
+      based upon loss of H atom from C6H5OH ---> CYC6H5O. + H
+
+ END
+
+
+
+
+ OPTION ALLYLP
+
+       ALLYLP - primary allylic:
+
+   Bond dissociation energy (assuming loss of H atom) = 88.2 Kcal/mol
+    
+       average for delta H for following two reactions:
+
+       C*CC --> C*CC. + H  
+       CC*CC --> CC*CC. + H
+ END
+
+ OPTION ALLYLS
+
+     ALLYLS - secondary allylic:
+
+  Bond dissociation energy (assuming loss of H atom) =  84.4 Kcal/mol
+
+     based upon loss of H atom from C*CCC --> C*CC.C + H
+
+ END
+
+ OPTION ALLYLT
+
+    ALLYLT  - tertiary allylic:
+
+    Bond dissociation energy estimated as  81.8 Kcal/mol
+    Bozzelli : estimate 
+
+ END
+
+ OPTION BENZYLP
+
+     BENZYLP - primary benzylic radical:
+
+  Bond dissociation energy ( assuming loss of H atom ) = 89.8 kcal/mol
+
+    based upon C6H5CH3 --> C6H5CH2. + H
+
+ END
+
+ OPTION BENZYLS
+
+     BENZYLS - secondary benzylic radical:
+
+  Bond dissociation energy (assuming loss of H atom) = 87.0 kcal/mol
+
+     based upon C6H5CH2CH3 --> C6H5CH.CH3 + H 
+
+ END
+
+ OPTION DIPHME
+
+     DIPHME - diphenylmethyl radical
+
+  Bond dissociation energy (assuming loss of H atom) = 85.5 kcal/mol
+
+     based upon C6H5CH2C6H5 --> C6H5CH.C6H5 + H
+
+ END
+
+

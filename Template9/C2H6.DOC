@@ -1,0 +1,43 @@
+ SPECIES                                                              
+ C2H5                                                                 
+Thermo estimation for molecule                                        
+ C2H5                                                           C2H6  
+ UNITS:KCAL                                                           
+ GROUPS   1                                                           
+   Gr # -  GROUP ID  - Quantity                                       
+      1 - C/C/H3         -  2                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+ -20.40  55.08  12.38  15.68  18.80  21.58  26.04  29.54  35.16       
+           CPINF =   42.72                                            
+  NROTORS: 1                                                          
+ SYMMETRY          18                                                 
+  CREATION DATE: 10/ 9/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ C2H5                                                                 
+Thermo estimation for radical                                         
+ C2H5                                                           C2H5  
+ RADICAL BASED UPON PARENT  C2H5                                      
+ PARENT FORMULA                           C2H6                        
+PARENT SYMMETRY              18                                       
+ UNITS:KCAL                                                           
+ GROUPS   2                                                           
+   Gr # -  GROUP ID  - Quantity                                       
+      1 - C/C/H3         -  2                                         
+      2 - P              -  1                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+  28.60  61.25  11.61  14.32  16.89  19.18  22.88  25.80  30.50       
+           CPINF =   36.76                                            
+  NROTORS: 1                                                          
+ SYMMETRY           3                                                 
+R ln(2) has been added to S to account                                
+       for unpaired electron                                          
+ BOND  101.10                                                         
+  CREATION DATE: 10/ 9/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+                                                                      
+                                                                      

@@ -1,0 +1,55 @@
+body{color:#984E13;}
+.fc00{color:#627E1F;}
+.fc01{color:#708413;}
+.fc02,.fc02 a{color:#80A633;}
+.fc03,.fc03 a,.fc11 a{color:#839432;}
+.fc04,.fc04 a{color:#A4B45A;}
+.fc05{color:#984E13;}
+.fc06{color:#C87838;}
+.fc07{color:#AC5510;}
+.fc08{color:#5B782A;}
+.fc09{color:#627E1F;}
+.fc10{color:#A7C17B;}
+.bdc0{border-color:#A7C17B;}
+.bdc1{border-color:#E1F4C0;}
+.bdc9t{border-top-color:#F5F8EE;}
+.bdc9r{border-right-color:#F5F8EE;}
+.bdc9b{border-bottom-color:#F5F8EE;}
+.bdc9l{border-left-color:#F5F8EE;}
+.bgc0,.bgc9:hover, .bgc9.js-bgc9-hover{background-color:#EBF3DB;}
+.bgc1{background-color:#F5F8EE;}
+.bgc2{background-color:#FFFFFF;}
+.bgp0{background-image:url(img/-1.gif);}
+.nb-body{background:#fff url(img/bg.jpg) repeat left top;}
+.nb-bar{background-color:#FFFFFF;width:1004px;}
+.nb-top{background:url(img/banner.jpg) no-repeat left top;}
+.nb-top .h{height:420px;}
+.nb-top .t{top:170px;left:205px;font-family:свт╡;color:#FFFFFF;}
+.nb-top .n{font-size:34px;}
+.nb-top .d{font-size:18px;}
+.nb-nav .wkg{background:url(img/tab.jpg) no-repeat left top;}
+.nb-nav .h{height:60px;line-height:90px;}
+.nb-nav .c{margin:0 60px 0 120px;}
+.nb-nav .w{margin-left:40px;}
+.nb-nav .i{font-weight:normal;font-size:14px;}
+.nb-nav .i:hover{color:#000000;}
+.nb-nav .selected .i, .nb-nav .selected .i:hover{font-weight:bold;color:#984E13;background:none;}
+.nb-cnt{background:url(img/web-b.jpg) repeat center top;}
+.nb-cnt .wkg{background:url(img/web-a.jpg) no-repeat left top;}
+.nb-cnt .wc{margin:0 30px 0 30px;}
+.nb-fot .h{height:110px;}
+.nb-fot .k{padding-top:30px;}
+.nb-mdl{margin:10px 5px;}
+.nb-mdl .th{height:39px;line-height:51px;}
+.nb-mdl .bh{height:18px;}
+.nb-mt .tl{width:24px;background:url(img/bg-a.gif) repeat left top;}
+.nb-mt .tc{margin:0 24px 0 24px;font-size:14px;font-weight:bold;background:url(img/bg-c.gif) repeat left top;}
+.nb-mt .tr{width:24px;background:url(img/bg-b.gif) repeat left top;}
+.nb-mt .tm{right:15px;}
+.nb-mc .cl{width:14px;background:url(img/bg-d.gif) repeat left top;}
+.nb-mc .cc{margin:0 14px 0 14px;background:#F5F8EE;}
+.nb-mc .cr{width:14px;background:url(img/bg-e.gif) repeat left top;}
+.nb-mb{display:block;}
+.nb-mb .bl{width:16px;background:url(img/bg-f.gif) repeat left top;}
+.nb-mb .bc{margin:0 16px 0 16px;background:url(img/bg-h.gif) repeat left top;}
+.nb-mb .br{width:16px;background:url(img/bg-g.gif) repeat left top;}

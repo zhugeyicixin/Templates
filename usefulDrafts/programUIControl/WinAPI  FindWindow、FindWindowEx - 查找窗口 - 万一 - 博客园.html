@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0058)http://www.cnblogs.com/del/archive/2008/02/28/1085432.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/analytics.js"></script>
+
+<title>WinAPI: FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/bundle-arrow.css">
+<link type="text/css" rel="stylesheet" href="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/30694.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/del/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/del/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/del/wlwmanifest.xml">
+<script async="" type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/gpt.js"></script><script src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'del', cb_enable_mathjax=false;</script>
+<script src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/blog-common.js" type="text/javascript"></script>
+<script async="" type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/pubads_impl_58.js"></script><script type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/osd.js"></script></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/del/">万一的 Delphi 博客</a><br>
+		<br>记录学习过程中的点点滴滴，是喜欢、不是职业；记性不好，特别需要这么一个博客。
+	</div>
+</div>
+
+</div>
+<div id="mylinks">
+<!--done-->
+<a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a>&nbsp;&nbsp;&nbsp;
+<a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/del/">首页</a>&nbsp;&nbsp;&nbsp;
+<a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp;&nbsp;&nbsp;
+<a id="MyLinks1_ContactLink" accesskey="9" class="menu" rel="nofollow" href="http://space.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80">联系</a>&nbsp;&nbsp;&nbsp;
+<a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/del/rss">订阅</a><a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/del/rss"><img src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;&nbsp;&nbsp;
+<a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a>
+</div>
+<div id="mytopmenu">
+	
+		
+<div class="blogStats">随笔 - 2146&nbsp;
+文章 - 83&nbsp;评论 - 11580&nbsp;trackbacks - 253
+</div>
+	
+</div>
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script><br>
+			
+<!--done-->
+<div class="newsItem">
+	<div id="blog-news">
+
+<div align="left" style="position: relative; top: 0px">
+
+<nobr>
+<input style="WIDTH: 96px" type="text" name="q" id="q" onkeydown="return SearchGoogle(document.getElementById
+(&#39;q&#39;),event,&#39;http://www.cnblogs.com/del/&#39;)">
+<input onclick="SearchGoogle(document.getElementById(&#39;q&#39;),event,&#39;http://www.cnblogs.com/del/&#39;)" type="button" value="搜索本博客" name="sa" style="font-size:12px; width:80px"></nobr><br>
+
+<nobr>
+<input onclick="SearchGoogle(document.getElementById
+(&#39;q&#39;),event,&#39;http://bbs.2ccc.com/&#39;)" type="button" value="搜索盒子论坛" name="sa" style="font-size:12px; width:96px">
+<input onclick="SearchGoogle(document.getElementById
+(&#39;q&#39;),event,&#39;http://csdn.net/&#39;)" type="button" value="搜索 CSDN" name="sa" style="font-size:12px; width:80px"></nobr>
+</div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/del/">万一</a><br>园龄：<a href="http://home.cnblogs.com/u/del/" title="入园时间：2007-11-12">7年4个月</a><br>荣誉：<a href="http://www.cnblogs.com/expert/">推荐博客</a><br>粉丝：<a href="http://home.cnblogs.com/u/del/followers/">703</a><br>关注：<a href="http://home.cnblogs.com/u/del/followees/">34</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;ec833d0b-63cf-dd11-9e4d-001cf0cd104b&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-sidecolumn">
+<!--done-->
+
+		<h1 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(2445)</span></h1>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/del/category/215158.html"><span class="x_x_bt">47.</span>Delphi 与 JSON(20)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/del/category/129136.html"><span class="x_bt">001.</span>问与答(155)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_2" class="listitem" href="http://www.cnblogs.com/del/category/114881.html"><span class="x_bt">002.</span>常用列表(26)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_3" class="listitem" href="http://www.cnblogs.com/del/category/116726.html"><span class="x_bt">003.</span>其他列表(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_4" class="listitem" href="http://www.cnblogs.com/del/category/583929.html"><span class="x_bt">003a.</span>IntraWeb(46)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_5" class="listitem" href="http://www.cnblogs.com/del/category/219930.html"><span class="x_bt">004.</span>点点滴滴-日积月累(31)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_6" class="listitem" href="http://www.cnblogs.com/del/category/148952.html"><span class="x_bt">005.</span>2009-XE4 新功能(75)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_7" class="listitem" href="http://www.cnblogs.com/del/category/323943.html"><span class="x_bt">005.</span>XE2 与 FireMonkey(49)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_8" class="listitem" href="http://www.cnblogs.com/del/category/141218.html"><span class="x_bt">006.</span>学习官方示例(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_9" class="listitem" href="http://www.cnblogs.com/del/category/213198.html"><span class="x_bt">007.</span>使用泛型(33)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_10" class="listitem" href="http://www.cnblogs.com/del/category/127665.html"><span class="x_bt">021.</span>System 单元(35)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_11" class="listitem" href="http://www.cnblogs.com/del/category/127927.html"><span class="x_bt">022.</span>SysUtils 单元(37)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_12" class="listitem" href="http://www.cnblogs.com/del/category/128022.html"><span class="x_bt">023.</span>从 VCL 中吸取营养(14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_13" class="listitem" href="http://www.cnblogs.com/del/category/128038.html"><span class="x_bt">024.</span>Classes 单元(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_14" class="listitem" href="http://www.cnblogs.com/del/category/128039.html"><span class="x_bt">025.</span>DateUtils 单元(21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_15" class="listitem" href="http://www.cnblogs.com/del/category/128040.html"><span class="x_bt">026.</span>Math 单元(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_16" class="listitem" href="http://www.cnblogs.com/del/category/128041.html"><span class="x_bt">027.</span>StrUtils 单元(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_17" class="listitem" href="http://www.cnblogs.com/del/category/128043.html"><span class="x_bt">028.</span>Graphics 单元(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_18" class="listitem" href="http://www.cnblogs.com/del/category/128044.html"><span class="x_bt">029.</span>Variants 单元(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_19" class="listitem" href="http://www.cnblogs.com/del/category/115007.html"><span class="x_bt">03.</span>Delphi IDE 使用(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_20" class="listitem" href="http://www.cnblogs.com/del/category/168694.html"><span class="x_bt">04.</span>Delphi 编译指令(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_21" class="listitem" href="http://www.cnblogs.com/del/category/113183.html"><span class="x_bt">08.</span>Pascal 与 Console(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_22" class="listitem" href="http://www.cnblogs.com/del/category/113411.html"><span class="x_bt">09.</span>Delphi 语言常识(17)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_23" class="listitem" href="http://www.cnblogs.com/del/category/120997.html"><span class="x_bt">10.</span>程序语句(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_24" class="listitem" href="http://www.cnblogs.com/del/category/116715.html"><span class="x_bt">11.</span>数据类型相关(50)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_25" class="listitem" href="http://www.cnblogs.com/del/category/114424.html"><span class="x_bt">13.</span>运算符相关(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_26" class="listitem" href="http://www.cnblogs.com/del/category/114641.html"><span class="x_bt">14.</span>数组相关(25)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_27" class="listitem" href="http://www.cnblogs.com/del/category/114896.html"><span class="x_bt">15.</span>类相关(85)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_28" class="listitem" href="http://www.cnblogs.com/del/category/147315.html"><span class="x_bt">151.</span>接口相关(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_29" class="listitem" href="http://www.cnblogs.com/del/category/113550.html"><span class="x_bt">16.</span>DLL 相关(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_30" class="listitem" href="http://www.cnblogs.com/del/category/162410.html"><span class="x_bt">17.</span>Delphi 内存与指针(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_31" class="listitem" href="http://www.cnblogs.com/del/category/113957.html"><span class="x_bt">18.</span>Delphi 其他小技巧(31)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_32" class="listitem" href="http://www.cnblogs.com/del/category/192898.html"><span class="x_bt">19.</span>数据库编程(51)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_33" class="listitem" href="http://www.cnblogs.com/del/category/122614.html"><span class="x_bt">1a.</span>关于资源文件(19)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_34" class="listitem" href="http://www.cnblogs.com/del/category/113558.html"><span class="x_bt">21.</span>字符串操作及相关函数(51)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_35" class="listitem" href="http://www.cnblogs.com/del/category/115946.html"><span class="x_bt">22.</span>数学操作及相关函数(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_36" class="listitem" href="http://www.cnblogs.com/del/category/115742.html"><span class="x_bt">23.</span>文件操作及相关函数(22)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_37" class="listitem" href="http://www.cnblogs.com/del/category/115328.html"><span class="x_bt">24.</span>颜色操作及相关函数(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_38" class="listitem" href="http://www.cnblogs.com/del/category/115948.html"><span class="x_bt">25.</span>时间操作及相关函数(23)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_39" class="listitem" href="http://www.cnblogs.com/del/category/113264.html"><span class="x_bt">29.</span>常用自定义函数、单元(56)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_40" class="listitem" href="http://www.cnblogs.com/del/category/122010.html"><span class="x_bt">2a2.</span>菜单相关(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_41" class="listitem" href="http://www.cnblogs.com/del/category/127352.html"><span class="x_bt">2a3.</span>TStringGrid(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_42" class="listitem" href="http://www.cnblogs.com/del/category/127351.html"><span class="x_bt">2a4.</span>TTreeView(18)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_43" class="listitem" href="http://www.cnblogs.com/del/category/171107.html"><span class="x_bt">2a5.</span>TListView(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_44" class="listitem" href="http://www.cnblogs.com/del/category/180154.html"><span class="x_bt">2a6.</span>TWebBrowser(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_45" class="listitem" href="http://www.cnblogs.com/del/category/113540.html"><span class="x_bt">2az.</span>其他常用控件(35)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_46" class="listitem" href="http://www.cnblogs.com/del/category/122981.html"><span class="x_bt">2b.</span>TApplication(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_47" class="listitem" href="http://www.cnblogs.com/del/category/129759.html"><span class="x_bt">2c.</span>TClipboard 类(6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_48" class="listitem" href="http://www.cnblogs.com/del/category/120907.html"><span class="x_bt">2c.</span>TScreen 类(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_49" class="listitem" href="http://www.cnblogs.com/del/category/151908.html"><span class="x_bt">2d.</span>注册表类 TRegistry(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_50" class="listitem" href="http://www.cnblogs.com/del/category/113556.html"><span class="x_bt">2e.</span>Delphi 中的容器类(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_51" class="listitem" href="http://www.cnblogs.com/del/category/118249.html"><span class="x_bt">2f.</span>Delphi 中的流类(13)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_52" class="listitem" href="http://www.cnblogs.com/del/category/128578.html"><span class="x_bt">30.</span>学习 Delphi 类的实现(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_53" class="listitem" href="http://www.cnblogs.com/del/category/118202.html"><span class="x_bt">3z.</span>错误处理(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_54" class="listitem" href="http://www.cnblogs.com/del/category/113551.html"><span class="x_bt">40.</span>Delphi 与正则表达式(30)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_55" class="listitem" href="http://www.cnblogs.com/del/category/123038.html"><span class="x_bt">41.</span>Delphi 的绘图功能(29)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_56" class="listitem" href="http://www.cnblogs.com/del/category/113557.html"><span class="x_bt">42.</span>Delphi 与 GDI+(202)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_57" class="listitem" href="http://www.cnblogs.com/del/category/113561.html"><span class="x_bt">43.</span>Delphi 与 XML(35)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_58" class="listitem" href="http://www.cnblogs.com/del/category/167862.html"><span class="x_bt">44.</span>Delphi 与 COM(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_59" class="listitem" href="http://www.cnblogs.com/del/category/171778.html"><span class="x_bt">45.</span>Delphi 与 DirectX(113)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_60" class="listitem" href="http://www.cnblogs.com/del/category/290814.html"><span class="x_bt">45.</span>Direct2D(42)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_61" class="listitem" href="http://www.cnblogs.com/del/category/174761.html"><span class="x_bt">46.</span>Delphi 与 多线程(23)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_62" class="listitem" href="http://www.cnblogs.com/del/category/121079.html"><span class="x_bt">50.</span>Delphi 与汇编入门(66)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_63" class="listitem" href="http://www.cnblogs.com/del/category/113560.html"><span class="x_bt">51.</span>汇编指令列表(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_64" class="listitem" href="http://www.cnblogs.com/del/category/126840.html"><span class="x_bt">52.</span>算法与数据结构(17)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_65" class="listitem" href="http://www.cnblogs.com/del/category/134064.html"><span class="x_bt">60.</span>Windows 消息(29)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_66" class="listitem" href="http://www.cnblogs.com/del/category/115312.html"><span class="x_bt">61.</span>API 常识(16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_67" class="listitem" href="http://www.cnblogs.com/del/category/122464.html"><span class="x_bt">62.</span>API 窗口函数(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_68" class="listitem" href="http://www.cnblogs.com/del/category/122965.html"><span class="x_bt">63.</span>API 菜单函数(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_69" class="listitem" href="http://www.cnblogs.com/del/category/122468.html"><span class="x_bt">64.</span>API 硬件与系统函数(35)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_70" class="listitem" href="http://www.cnblogs.com/del/category/122518.html"><span class="x_bt">65.</span>API 控件与消息函数(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_71" class="listitem" href="http://www.cnblogs.com/del/category/122666.html"><span class="x_bt">66.</span>API 进程与线程函数(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_72" class="listitem" href="http://www.cnblogs.com/del/category/122495.html"><span class="x_bt">67.</span>API 绘图函数(58)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_73" class="listitem" href="http://www.cnblogs.com/del/category/122944.html"><span class="x_bt">68.</span>API 图像函数(14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_74" class="listitem" href="http://www.cnblogs.com/del/category/122475.html"><span class="x_bt">69.</span>API 文本与字体函数(14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_75" class="listitem" href="http://www.cnblogs.com/del/category/129729.html"><span class="x_bt">6a.</span>API 内存与剪切板函数(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_76" class="listitem" href="http://www.cnblogs.com/del/category/122469.html"><span class="x_bt">6a.</span>API 文件处理函数(12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_77" class="listitem" href="http://www.cnblogs.com/del/category/123296.html"><span class="x_bt">6b.</span>API WAVE 专栏(50)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_78" class="listitem" href="http://www.cnblogs.com/del/category/123297.html"><span class="x_bt">6c.</span>API MIDI 专栏(31)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_79" class="listitem" href="http://www.cnblogs.com/del/category/122473.html"><span class="x_bt">6d.</span>API 其他多媒体函数(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_80" class="listitem" href="http://www.cnblogs.com/del/category/124150.html"><span class="x_bt">6e.</span>API 钩子相关函数(24)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_81" class="listitem" href="http://www.cnblogs.com/del/category/161859.html"><span class="x_bt">6f.</span>API 字符及字符串函数(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_82" class="listitem" href="http://www.cnblogs.com/del/category/179522.html"><span class="x_bt">6g.</span>API 网络函数(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_83" class="listitem" href="http://www.cnblogs.com/del/category/122967.html"><span class="x_bt">6z.</span>API 未归类函数(6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_84" class="listitem" href="http://www.cnblogs.com/del/category/131625.html"><span class="x_bt">70.</span>Windows 底层编程(30)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_85" class="listitem" href="http://www.cnblogs.com/del/category/150851.html"><span class="x_bt">71.</span>多媒体函数库Bass.dll(17)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_86" class="listitem" href="http://www.cnblogs.com/del/category/130953.html"><span class="x_bt">75.</span>学习 C 语言(36)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_87" class="listitem" href="http://www.cnblogs.com/del/category/167300.html"><span class="x_bt">76.</span>学习 C++(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_88" class="listitem" href="http://www.cnblogs.com/del/category/170456.html"><span class="x_bt">77.</span>C# 与 Net(41)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_89" class="listitem" href="http://www.cnblogs.com/del/category/113553.html"><span class="x_bt">81.</span>HTML 与 CSS(20)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_90" class="listitem" href="http://www.cnblogs.com/del/category/113552.html"><span class="x_bt">82.</span>JavaScript(48)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_91" class="listitem" href="http://www.cnblogs.com/del/category/113182.html"><span class="x_bt">92.</span>其他(88)</a></li>
+			
+				</ul>
+			
+	
+		<h1 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(2146)</span></h1>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_0" class="listitem" href="http://www.cnblogs.com/del/archive/2015/01.html">2015年1月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_1" class="listitem" href="http://www.cnblogs.com/del/archive/2014/09.html">2014年9月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_2" class="listitem" href="http://www.cnblogs.com/del/archive/2014/06.html">2014年6月 (46)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_3" class="listitem" href="http://www.cnblogs.com/del/archive/2014/05.html">2014年5月 (13)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_4" class="listitem" href="http://www.cnblogs.com/del/archive/2014/03.html">2014年3月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_5" class="listitem" href="http://www.cnblogs.com/del/archive/2013/11.html">2013年11月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_6" class="listitem" href="http://www.cnblogs.com/del/archive/2013/10.html">2013年10月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_7" class="listitem" href="http://www.cnblogs.com/del/archive/2013/08.html">2013年8月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_8" class="listitem" href="http://www.cnblogs.com/del/archive/2013/07.html">2013年7月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_9" class="listitem" href="http://www.cnblogs.com/del/archive/2013/06.html">2013年6月 (11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_10" class="listitem" href="http://www.cnblogs.com/del/archive/2012/03.html">2012年3月 (12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_11" class="listitem" href="http://www.cnblogs.com/del/archive/2012/02.html">2012年2月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_12" class="listitem" href="http://www.cnblogs.com/del/archive/2012/01.html">2012年1月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_13" class="listitem" href="http://www.cnblogs.com/del/archive/2011/12.html">2011年12月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_14" class="listitem" href="http://www.cnblogs.com/del/archive/2011/11.html">2011年11月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_15" class="listitem" href="http://www.cnblogs.com/del/archive/2011/10.html">2011年10月 (60)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_16" class="listitem" href="http://www.cnblogs.com/del/archive/2011/09.html">2011年9月 (22)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_17" class="listitem" href="http://www.cnblogs.com/del/archive/2011/07.html">2011年7月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_18" class="listitem" href="http://www.cnblogs.com/del/archive/2011/06.html">2011年6月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_19" class="listitem" href="http://www.cnblogs.com/del/archive/2011/05.html">2011年5月 (12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_20" class="listitem" href="http://www.cnblogs.com/del/archive/2011/04.html">2011年4月 (42)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_21" class="listitem" href="http://www.cnblogs.com/del/archive/2011/03.html">2011年3月 (23)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_22" class="listitem" href="http://www.cnblogs.com/del/archive/2011/02.html">2011年2月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_23" class="listitem" href="http://www.cnblogs.com/del/archive/2011/01.html">2011年1月 (45)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_24" class="listitem" href="http://www.cnblogs.com/del/archive/2010/12.html">2010年12月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_25" class="listitem" href="http://www.cnblogs.com/del/archive/2010/06.html">2010年6月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_26" class="listitem" href="http://www.cnblogs.com/del/archive/2010/05.html">2010年5月 (14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_27" class="listitem" href="http://www.cnblogs.com/del/archive/2010/04.html">2010年4月 (50)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_28" class="listitem" href="http://www.cnblogs.com/del/archive/2010/03.html">2010年3月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_29" class="listitem" href="http://www.cnblogs.com/del/archive/2010/02.html">2010年2月 (20)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_30" class="listitem" href="http://www.cnblogs.com/del/archive/2010/01.html">2010年1月 (29)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_31" class="listitem" href="http://www.cnblogs.com/del/archive/2009/12.html">2009年12月 (68)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_32" class="listitem" href="http://www.cnblogs.com/del/archive/2009/11.html">2009年11月 (22)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_33" class="listitem" href="http://www.cnblogs.com/del/archive/2009/10.html">2009年10月 (75)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_34" class="listitem" href="http://www.cnblogs.com/del/archive/2009/09.html">2009年9月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_35" class="listitem" href="http://www.cnblogs.com/del/archive/2009/06.html">2009年6月 (9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_36" class="listitem" href="http://www.cnblogs.com/del/archive/2009/05.html">2009年5月 (45)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_37" class="listitem" href="http://www.cnblogs.com/del/archive/2009/04.html">2009年4月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_38" class="listitem" href="http://www.cnblogs.com/del/archive/2009/03.html">2009年3月 (33)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_39" class="listitem" href="http://www.cnblogs.com/del/archive/2009/02.html">2009年2月 (43)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_40" class="listitem" href="http://www.cnblogs.com/del/archive/2009/01.html">2009年1月 (130)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_41" class="listitem" href="http://www.cnblogs.com/del/archive/2008/12.html">2008年12月 (50)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_42" class="listitem" href="http://www.cnblogs.com/del/archive/2008/11.html">2008年11月 (66)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_43" class="listitem" href="http://www.cnblogs.com/del/archive/2008/10.html">2008年10月 (44)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_44" class="listitem" href="http://www.cnblogs.com/del/archive/2008/09.html">2008年9月 (19)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_45" class="listitem" href="http://www.cnblogs.com/del/archive/2008/08.html">2008年8月 (65)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_46" class="listitem" href="http://www.cnblogs.com/del/archive/2008/07.html">2008年7月 (42)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_47" class="listitem" href="http://www.cnblogs.com/del/archive/2008/06.html">2008年6月 (120)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_48" class="listitem" href="http://www.cnblogs.com/del/archive/2008/05.html">2008年5月 (79)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_49" class="listitem" href="http://www.cnblogs.com/del/archive/2008/04.html">2008年4月 (59)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_50" class="listitem" href="http://www.cnblogs.com/del/archive/2008/03.html">2008年3月 (120)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_51" class="listitem" href="http://www.cnblogs.com/del/archive/2008/02.html">2008年2月 (242)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_52" class="listitem" href="http://www.cnblogs.com/del/archive/2008/01.html">2008年1月 (145)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_53" class="listitem" href="http://www.cnblogs.com/del/archive/2007/12.html">2007年12月 (154)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_54" class="listitem" href="http://www.cnblogs.com/del/archive/2007/11.html">2007年11月 (54)</a></li>
+			
+				</ul>
+			
+	
+
+<h3>积分与排名</h3>
+<ul>
+	<li>
+		积分 -
+		4368929
+	</li><li>
+		排名 -
+		5
+	</li>
+</ul>
+<div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/del/archive/2009/02/27/1399932.html#3156021">1. Re:用 API 提取、写入指定网站的 Cookie - 回复 &amp;quot;bangrj&amp;quot; 的问题</a></li>
+    <li class="recent_comment_body">万一老师，通过idhttp控件登录网站后，如何调用IE浏览器实现免登陆打开登录网站， 望指点 谢谢。</li>
+    <li class="recent_comment_author">--Qing&amp;#39;s Blog For Delphi KC</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/del/archive/2008/01/09/1032374.html#3153568">2. Re:学习结构[记录]类型(8) - 结构嵌套 </a></li>
+    <li class="recent_comment_body">{ 注意没有, 在本页的例子中, 结构中的 name 被声明为 string ! 结构中不是不允许长字符串吗? 其实 Delphi 在这里是把 string 当作 ShortString 用的.......</li>
+    <li class="recent_comment_author">--记性这么差</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/del/p/4225871.html#3148093">3. Re:关于内存数据与 JSON</a></li>
+    <li class="recent_comment_body">@LEN2011我没用过, 但我觉得 datasnap 应该是支持 session 的, 或许使用方法有问题....</li>
+    <li class="recent_comment_author">--万一</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/del/p/4225871.html#3148078">4. Re:关于内存数据与 JSON</a></li>
+    <li class="recent_comment_body">delphi以前有个websnap版本，好像支持session不知为何到delphi xe中把它取消了！<br>万老师有没有方法把websnap的session功能移植到datasnap中来呢？</li>
+    <li class="recent_comment_author">--LEN2011</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/del/p/4225871.html#3148066">5. Re:关于内存数据与 JSON</a></li>
+    <li class="recent_comment_body">@万一客户端可以通过cookie来存储用户信息，如果浏览器不支持cookie,是否可以存储在网页中？问题是，假设服务器数据库中存储用户表，服务器根据不同的用户实现权限管理，如果不实现session,即......</li>
+    <li class="recent_comment_author">--LEN2011</li>
+</ul>
+</div>
+</div>
+</div></div><script type="text/javascript">loadBlogSideColumn();</script></div>		
+	
+</div>
+<div id="centercontent">
+	
+
+<!--done-->
+<div class="post">
+	<div class="postTitle">
+		<h1><a id="cb_post_title_url" class="postTitle2" href="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园.html">WinAPI: FindWindow、FindWindowEx - 查找窗口</a></h1>
+	</div>
+	<div id="cnblogs_post_body"><pre class="Delphi"><pre>FindWindow(
+&nbsp; lpClassName,&nbsp; &nbsp; &nbsp; &nbsp; <font color="#008000">{窗口的类名}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; lpWindowName: PChar <font color="#008000">{窗口的标题}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+): HWND;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font color="#008000">{返回窗口的句柄; 失败返回 0}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+
+<font color="#008000">//FindWindowEx 比 FindWindow 多出两个句柄参数:</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+FindWindowEx(
+&nbsp; Parent: HWND;&nbsp; &nbsp;  <font color="#008000">{要查找子窗口的父窗口句柄}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; Child: HWND;&nbsp; &nbsp; &nbsp; <font color="#008000">{子窗口句柄}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; ClassName: PChar; <font color="#008000">{}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; WindowName: PChar <font color="#008000">{}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+): HWND;
+<font color="#008000">{
+如果 Parent 是 0, 则函数以桌面窗口为父窗口, 查找桌面窗口的所有子窗口;
+如果&nbsp; 是 HWND_MESSAGE, 函数仅查找所有消息窗口;
+子窗口必须是 Parent 窗口的直接子窗口;
+如果 Child 是 0, 查找从 Parent 的第一个子窗口开始;
+如果 Parent 和 Child 同时是 0, 则函数查找所有的顶层窗口及消息窗口.
+}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+<hr>
+
+<font color="#008000">//测试1: 试着找找新建程序主窗口的句柄</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>var</b></font>
+&nbsp; h: HWND;
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>begin</b></font>
+&nbsp; <font color="#008000">{现在我们知道窗口的标题是: Form1、窗口的类名是: TForm1}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; h := FindWindow(<font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'TForm1'</font><font color="#000080"><b></b></font>, <font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'Form1'</font><font color="#000080"><b></b></font>);
+&nbsp; ShowMessage(IntToStr(h));&nbsp; &nbsp; &nbsp; <font color="#008000">{656180; 这是随机, 每次启动窗口肯定不一样}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+
+&nbsp; <font color="#008000">{假如不知道类名}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; h := FindWindow(<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>nil</b></font>, <font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'Form1'</font><font color="#000080"><b></b></font>);
+&nbsp; ShowMessage(IntToStr(h));&nbsp; &nbsp; &nbsp; <font color="#008000">{656180}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+
+&nbsp; <font color="#008000">{假如不知道标题名}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; h := FindWindow(<font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'TForm1'</font><font color="#000080"><b></b></font>, <font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>nil</b></font>);
+&nbsp; ShowMessage(IntToStr(h));&nbsp; &nbsp; &nbsp; <font color="#008000">{656180}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+
+&nbsp; <font color="#008000">{其实这个窗口的句柄不就是 Self.Handle 吗}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; ShowMessage(IntToStr(Handle)); <font color="#008000">{656180}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>end</b></font>;
+<hr>
+
+<font color="#008000">//测试2: 找计算器窗口的句柄(先打开计算器)</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>var</b></font>
+&nbsp; h: HWND;
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>begin</b></font>
+&nbsp; <font color="#008000">{如果不是简体中文系统, 这样可能不灵}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; h := FindWindow(<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>nil</b></font>, <font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'计算器'</font><font color="#000080"><b></b></font>);
+&nbsp; ShowMessage(IntToStr(h)); <font color="#008000">{1508334}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+
+&nbsp; <font color="#008000">{最好这样, 但你得提前知道计算器窗口的类名是: SciCalc}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+&nbsp; h := FindWindow(<font color="#008000"></font><font color="#008284"></font><font color="#0000FF">'SciCalc'</font><font color="#000080"><b></b></font>, <font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>nil</b></font>);
+&nbsp; ShowMessage(IntToStr(h)); <font color="#008000">{1508334}</font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b></b></font>
+<font color="#008000"></font><font color="#008284"></font><font color="#0000FF"></font><font color="#000080"><b>end</b></font>;
+<hr>
+</pre></pre></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/del/category/122464.html"><span class="bt">62.</span>API 窗口函数</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(1085432,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/del/" target="_blank"><img src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/del/">万一</a><br>
+<a href="http://home.cnblogs.com/u/del/followees">关注 - 34</a><br>
+<a href="http://home.cnblogs.com/u/del/followers">粉丝 - 703</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor">荣誉：<a href="http://www.cnblogs.com/expert/" target="_blank">推荐博客</a></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(1085432,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+	<div class="buryit" onclick="votePost(1085432,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085404.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/del/archive/2008/02/28/1085404.html" title="发布于2008-02-28 21:25">WinAPI: GetClassName - 获取指定窗口的类名</a><br><a href="http://www.cnblogs.com/del/archive/2008/03/02/1088083.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/del/archive/2008/03/02/1088083.html" title="发布于2008-03-02 21:29">控件的 Parent 属性演示</a><br></div>
+</div>
+
+
+	<div class="postDesc">posted on <span id="post-date">2008-02-28 21:51</span> <a href="http://www.cnblogs.com/del/">万一</a> 阅读(<span id="post_view_count">71444</span>) 评论(<span id="post_comment_count">37</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=1085432" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#" onclick="AddToWz(1085432);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=30694,cb_entryId=1085432,cb_blogApp=currentBlogApp,cb_blogUserGuid='ec833d0b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2008/2/28 21:51:00';loadViewCount(cb_entryId);</script>
+
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<b>FeedBack:</b>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247671" class="layer">#1楼</a><a name="1247671" id="comment_anchor_1247671"></a>&nbsp; <span class="comment_date">2008-02-29 11:01</span>&nbsp;<a id="ctl00_CommentList_NameLink_0" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247671" class="blog_comment_body">领导不在，偷偷上来看看，呵呵！！！
+<br>
+<br>这句可能有点问题，前面是h，到后面就成handle了：
+<br>
+<br>var
+<br>  h: HWND;
+<br>//*
+<br>begin
+<br>  {如果不是简体中文系统, 这样可能不灵}
+<br>  h := FindWindow(nil, '计算器');
+<br>  ShowMessage(IntToStr(Handle)); {1508334}
+<br>
+<br>//                                *****
+<br>
+<br></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247610" class="layer">#2楼</a><a name="1247610" id="comment_anchor_1247610"></a>&nbsp; <span class="comment_date">2008-02-29 11:04</span>&nbsp;<a id="ctl00_CommentList_NameLink_1" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247610" class="blog_comment_body">补充一下，查类名可以用 间谍工具 Spy++或其精简版本spy Lite，后者更好用。
+<br>Spy4win也很不错！</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247611" class="layer">#3楼</a><a name="1247611" id="comment_anchor_1247611"></a>&nbsp; <span class="comment_date">2008-02-29 11:24</span>&nbsp;<a id="ctl00_CommentList_NameLink_2" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247611" class="blog_comment_body">谢谢 maxcool , 改了.</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247764" class="layer">#4楼</a><a name="1247764" id="comment_anchor_1247764"></a>&nbsp; <span class="comment_date">2008-02-29 11:35</span>&nbsp;<a id="ctl00_CommentList_NameLink_3" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247764" class="blog_comment_body">万一老师动作好快呀</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247888" class="layer">#5楼</a><a name="1247888" id="comment_anchor_1247888"></a>&nbsp; <span class="comment_date">2008-02-29 12:27</span>&nbsp;<a id="ctl00_CommentList_NameLink_4" target="_blank">不可思议[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247888" class="blog_comment_body">请问博主你怎么这么强呢，在接触delphi前都学过哪些语言呢？精通哪几门呢？</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247655" class="layer">#6楼</a><a name="1247655" id="comment_anchor_1247655"></a>&nbsp; <span class="comment_date">2008-02-29 12:39</span>&nbsp;<a id="ctl00_CommentList_NameLink_5" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247655" class="blog_comment_body">还说我强呢, 比这些获奖高手差远了, 学吧...
+<br><a href="http://www.cnblogs.com/del/archive/2008/02/29/1085558.html" target="_new">http://www.cnblogs.com/del/archive/2008/02/29/1085558.html</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247788" class="layer">#7楼</a><a name="1247788" id="comment_anchor_1247788"></a>&nbsp; <span class="comment_date">2008-02-29 17:01</span>&nbsp;<a id="ctl00_CommentList_NameLink_6" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247788" class="blog_comment_body">偶心中只有万一老师。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1086537" class="layer">#8楼</a><a name="1086537" id="comment_anchor_1086537"></a>&nbsp; <span class="comment_date">2008-02-29 19:27</span>&nbsp;<a id="ctl00_CommentList_NameLink_7" target="_blank">dolby[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1086537" class="blog_comment_body">请教万一老师：
+<br>
+<br>如果IE弹出一个Alert对话框，如何利用findwindow等功能，从外部关闭这个警告对话框，而不是手工去关呢？我很想知道。也大有用途呢。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247656" class="layer">#9楼</a><a name="1247656" id="comment_anchor_1247656"></a>&nbsp; <span class="comment_date">2008-02-29 19:46</span>&nbsp;<a id="ctl00_CommentList_NameLink_8" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247656" class="blog_comment_body">看着上面的例子就可以了</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247789" class="layer">#10楼</a><a name="1247789" id="comment_anchor_1247789"></a>&nbsp; <span class="comment_date">2008-02-29 19:46</span>&nbsp;<a id="ctl00_CommentList_NameLink_9" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247789" class="blog_comment_body">回楼上：
+<br>
+<br>用spy++就能找到对话框的标题或类。我前面已经说了呀，再说，警告对话框上不是有标题吗。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247612" class="layer">#11楼</a><a name="1247612" id="comment_anchor_1247612"></a>&nbsp; <span class="comment_date">2008-02-29 19:47</span>&nbsp;<a id="ctl00_CommentList_NameLink_10" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247612" class="blog_comment_body">补充：关闭对话框用sendmessage(handle,WM_CLOSE,0,0)这个API命令就可以了。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247657" class="layer">#12楼</a><a name="1247657" id="comment_anchor_1247657"></a>&nbsp; <span class="comment_date">2008-02-29 19:59</span>&nbsp;<a id="ctl00_CommentList_NameLink_11" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247657" class="blog_comment_body">不好意思, 关于 sendmessage 我已经做了例子, 我还以为贴上了呢.
+<br>#8楼 请按 #11楼 maxcool 的办法试试.
+<br></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247613" class="layer">#13楼</a><a name="1247613" id="comment_anchor_1247613"></a>&nbsp; <span class="comment_date">2008-02-29 21:19</span>&nbsp;<a id="ctl00_CommentList_NameLink_12" target="_blank">迷惑[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247613" class="blog_comment_body">学习ing...</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247889" class="layer">#14楼</a><a name="1247889" id="comment_anchor_1247889"></a>&nbsp; <span class="comment_date">2008-03-01 21:11</span>&nbsp;<a id="ctl00_CommentList_NameLink_13" target="_blank">newhori[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247889" class="blog_comment_body">贵站做得真不错啊。简直就是Delphi大全。早来3年，就不用那么辛苦东奔西跑找资料了。
+<br>请问贵站接受投稿吗？不要稿费。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247765" class="layer">#15楼</a><a name="1247765" id="comment_anchor_1247765"></a>&nbsp; <span class="comment_date">2008-03-01 21:20</span>&nbsp;<a id="ctl00_CommentList_NameLink_14" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247765" class="blog_comment_body">好啊</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247766" class="layer">#16楼</a><a name="1247766" id="comment_anchor_1247766"></a>&nbsp; <span class="comment_date">2008-03-01 21:30</span>&nbsp;<a id="ctl00_CommentList_NameLink_15" target="_blank">maxcool[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247766" class="blog_comment_body">--引用--------------------------------------------------
+<br>newhori: 贵站做得真不错啊。简直就是Delphi大全。早来3年，就不用那么辛苦东奔西跑找资料了。
+<br>请问贵站接受投稿吗？不要稿费。
+<br>--------------------------------------------------------
+<br>早来三年，这里还是一片荒地呢。。。万一老师也是去年底开垦的。哈哈哈。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247614" class="layer">#17楼</a><a name="1247614" id="comment_anchor_1247614"></a>&nbsp; <span class="comment_date">2008-03-24 16:21</span>&nbsp;<a id="ctl00_CommentList_NameLink_16" href="http://www.cnitblog.com/r.aspx?url=http://www.calloy.cn" rel="nofllow" target="_blank">calloy[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247614" class="blog_comment_body">请教一个问题？
+<br>使用var
+<br>  h: HWND;
+<br>begin
+<br>  {如果不是简体中文系统, 这样可能不灵}
+<br>  h := FindWindow(nil, '计算器');
+<br>  ShowMessage(IntToStr(h)); {1508334}
+<br>
+<br>  {最好这样, 但你得提前知道计算器窗口的类名是: SciCalc}
+<br>  h := FindWindow('SciCalc', nil);
+<br>  ShowMessage(IntToStr(h)); {1508334}
+<br>end;
+<br>这段代码查找计算器窗体时，如果当时打开的是2个或2个以上的计算器，怎么知道是不是自己要查找的那个窗口呢？
+<br>主要是数据返回这？</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1119929" class="layer">#18楼</a><a name="1119929" id="comment_anchor_1119929"></a>[<span class="louzhu">楼主</span>]&nbsp; <span class="comment_date">2008-03-24 16:38</span>&nbsp;<a id="a_comment_author_1119929" href="http://www.cnblogs.com/del/" target="_blank">万一</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_1119929" class="blog_comment_body">FindWindow 的两个参数(类名与标题), 如果还不能锁定你需要的窗口, 可以再结合 GetWindow.</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(1119929,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(1119929,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247672" class="layer">#19楼</a><a name="1247672" id="comment_anchor_1247672"></a>&nbsp; <span class="comment_date">2008-03-30 12:38</span>&nbsp;<a id="ctl00_CommentList_NameLink_18" target="_blank">贵州人[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247672" class="blog_comment_body">能在这里问个别的地方的问题吗？
+<br>k:=FindWindowEx(j,0,'Button','消息模式(&amp;T)');
+<br>请问这里的“消息模式(&amp;T)”是怎么弄出来的呢，谢啦！
+<br>
+<br>
+<br>QQ2007中自动切换消息模式:此处用的是SendMessage函数实现自动按钮单击
+<br>
+<br>var
+<br>     i,j,k:integer;
+<br>begin
+<br>     i:=FindWindow(nil,'与 ●┌哒!ňg 聊天中');    //查找主窗口
+<br>      j:=FindWindowEx(i,0,'#32770','');
+<br>      k:=FindWindowEx(j,0,'Button','消息模式(&amp;T)');
+<br>     SendMessage(k,BM_CLICK,0,0);   //模拟单击此按钮
+<br>     ShowWindow(k,SW_HIDE);   //隐藏此按钮
+<br>end;
+<br></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247767" class="layer">#20楼</a><a name="1247767" id="comment_anchor_1247767"></a>&nbsp; <span class="comment_date">2008-03-30 17:42</span>&nbsp;<a id="ctl00_CommentList_NameLink_19" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247767" class="blog_comment_body">谢谢你的信任, 现在没有时间, 晚上我给详细解答.</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247673" class="layer">#21楼</a><a name="1247673" id="comment_anchor_1247673"></a>&nbsp; <span class="comment_date">2008-03-30 22:21</span>&nbsp;<a id="ctl00_CommentList_NameLink_20" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247673" class="blog_comment_body">@#19楼: 已把详细介绍发到你的信箱.</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247890" class="layer">#22楼</a><a name="1247890" id="comment_anchor_1247890"></a>&nbsp; <span class="comment_date">2008-06-03 09:18</span>&nbsp;<a id="ctl00_CommentList_NameLink_21" target="_blank">诚心求教[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247890" class="blog_comment_body">FindWindowEx
+<br>为什么没有这个 函数的说明啊 
+<br>
+<br></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247658" class="layer">#23楼</a><a name="1247658" id="comment_anchor_1247658"></a>&nbsp; <span class="comment_date">2008-06-03 09:19</span>&nbsp;<a id="ctl00_CommentList_NameLink_22" target="_blank">诚心求教[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247658" class="blog_comment_body">我想做个自动删除QQ好友的例子要怎么做啊 
+<br>用句柄huangdi@vip.qq.com 万一老师</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1216653" class="layer">#24楼</a><a name="1216653" id="comment_anchor_1216653"></a>[<span class="louzhu">楼主</span>]&nbsp; <span class="comment_date">2008-06-03 10:45</span>&nbsp;<a id="a_comment_author_1216653" href="http://www.cnblogs.com/del/" target="_blank">万一</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_1216653" class="blog_comment_body">@诚心求教: 
+<br>1、关于 FindWindowEx 以作了补充说明;
+<br>2、"自动删除 QQ 好友" 的问题我没弄过.
+<br></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(1216653,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(1216653,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247615" class="layer">#25楼</a><a name="1247615" id="comment_anchor_1247615"></a>&nbsp; <span class="comment_date">2008-07-07 21:23</span>&nbsp;<a id="ctl00_CommentList_NameLink_24" target="_blank">混岗[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1247615" class="blog_comment_body">查找IE怎么做？是它的输入框，我怎么找不到啊？给个例子</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1247768" class="layer">#26楼</a><a name="1247768" id="comment_anchor_1247768"></a>&nbsp; <span class="comment_date">2008-07-07 23:18</span>&nbsp;<a id="ctl00_CommentList_NameLink_25" href="http://del.cnblogs.com/" target="_blank">万一</a></div>
+				<div align="left"><div id="comment_body_1247768" class="blog_comment_body">@混岗: <a href="http://www.cnblogs.com/del/archive/2008/07/07/1237804.html" target="_new">http://www.cnblogs.com/del/archive/2008/07/07/1237804.html</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1334943" class="layer">#27楼</a><a name="1334943" id="comment_anchor_1334943"></a>&nbsp; <span class="comment_date">2008-10-08 16:02</span>&nbsp;<a id="ctl00_CommentList_NameLink_26" target="_blank">吴佳彬[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1334943" class="blog_comment_body">那 个函数好像只能关闭exe文件，像文件夹类型的好像就关不掉了！是这样吗？我试过关“我的电脑”关不掉，是可以destory掉 ，计算器可以关掉
+<br>像我的文档啊就关不掉了！</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1434765" class="layer">#28楼</a><a name="1434765" id="comment_anchor_1434765"></a>&nbsp; <span class="comment_date">2009-01-19 16:04</span>&nbsp;<a id="ctl00_CommentList_NameLink_27" target="_blank">sbz0409[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1434765" class="blog_comment_body">万老师您好!FindWindowEx函数查找窗体上的控件时,如果是同一类型的控件,那怎么区别呢?比如有6个TEdit控件,这个时候,用另一种语言编写的程序要给这个窗体发送消息,通过WM_SETTEXT消息来设置每个Edit的文本内容,这时候该如果处理呢?</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1434827" class="layer">#29楼</a><a name="1434827" id="comment_anchor_1434827"></a>[<span class="louzhu">楼主</span>]&nbsp; <span class="comment_date">2009-01-19 17:01</span>&nbsp;<a id="a_comment_author_1434827" href="http://www.cnblogs.com/del/" target="_blank">万一</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_1434827" class="blog_comment_body">@sbz0409
+<br>这种情况就别用 FindWindowEx 了, 换一个, 譬如:GetWindow</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(1434827,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(1434827,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1453987" class="layer">#30楼</a><a name="1453987" id="comment_anchor_1453987"></a>&nbsp; <span class="comment_date">2009-02-17 17:15</span>&nbsp;<a id="ctl00_CommentList_NameLink_29" target="_blank">打着灯笼走夜道[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1453987" class="blog_comment_body">看完了万一老师的2008二月份的随笔，觉的一个字爽，明白了很多知识点。有万一这样的好老师在前面指导，说什么也要学会。万老师就象一座灯塔，指导着我们前进，再前进。我以前的网名是“摸着石头走夜道”现在改做“打着灯笼走夜道”，以此感谢给于我无私帮助的万一老师！</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1485220" class="layer">#31楼</a><a name="1485220" id="comment_anchor_1485220"></a>&nbsp; <span class="comment_date">2009-03-23 20:21</span>&nbsp;<a id="ctl00_CommentList_NameLink_30" target="_blank">sibad[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1485220" class="blog_comment_body">万老师：请问你如何获取到一个窗口弹出的Warning MessageBox的句柄呢？
+<br>非常感谢！</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1485223" class="layer">#32楼</a><a name="1485223" id="comment_anchor_1485223"></a>&nbsp; <span class="comment_date">2009-03-23 20:23</span>&nbsp;<a id="ctl00_CommentList_NameLink_31" target="_blank">sibad[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1485223" class="blog_comment_body">对了万老师，请告诉FindWindowEx，获取窗口弹出的警告对话框句柄(补上)</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1495171" class="layer">#33楼</a><a name="1495171" id="comment_anchor_1495171"></a>&nbsp; <span class="comment_date">2009-04-03 17:10</span>&nbsp;<a id="ctl00_CommentList_NameLink_32" target="_blank">rainbow57[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1495171" class="blog_comment_body">万一老师您好，我一直关注您的博客，从这里学到了很多东西。在看这篇文章的时候，我就遇到了一个问题：<br>我现在要做一个模拟按键的程序，把另外一个可执行文件弹出的确认窗口关闭并返回确定（该确认窗口为#32770类，其中有两个按钮，一个确定、一个取消）。怎么样才能在不用找到那个确定按钮的句柄的前提下，使用SendMessage来达到模拟按下确定按钮的效果呢？<br>谢谢老师指导。</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1495175" class="layer">#34楼</a><a name="1495175" id="comment_anchor_1495175"></a>&nbsp; <span class="comment_date">2009-04-03 17:13</span>&nbsp;<a id="ctl00_CommentList_NameLink_33" target="_blank">rainbow57[未注册用户]</a></div>
+				<div align="left"><div id="comment_body_1495175" class="blog_comment_body">接上#33楼<br>还有一点比较奇怪的地方，我用FindWindowsEx指定父窗口的句柄（就是该应用程序句柄）但是找不到该确认窗口，但是如果不指定，从桌面上开始找，就可以找到。这是不是说，该确认窗口的父窗口不是这个应用程序或其看起来（因为是别的应用程序，所以只能凭直观感觉）的父窗口？</div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1956058" class="layer">#35楼</a><a name="1956058" id="comment_anchor_1956058"></a>&nbsp; <span class="comment_date">2010-11-08 23:23</span>&nbsp;<a id="a_comment_author_1956058" href="http://home.cnblogs.com/u/129789/" target="_blank">东方好友</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%9c%e6%96%b9%e5%a5%bd%e5%8f%8b" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_1956058" class="blog_comment_body">万一老师，我也遇到33楼的问题，没有找到答案。我模拟了一个窗口上的按钮事件，但是该窗口弹出了一个确认窗口，我找不到确认窗口的句柄，无法去模拟点击确认按钮的动作。请问如何获得这个对话框的句柄呢。谢谢!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(1956058,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(1956058,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#1956214" class="layer">#36楼</a><a name="1956214" id="comment_anchor_1956214"></a>[<span class="louzhu">楼主</span>]&nbsp; <span class="comment_date">2010-11-09 09:22</span>&nbsp;<a id="a_comment_author_1956214" href="http://www.cnblogs.com/del/" target="_blank">万一</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%87%e4%b8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_1956214" class="blog_comment_body">通过不同的方法生成的信息窗口是有区别的: <br>MessageBox() 是系统函数, 它建立窗口时可以指定父窗口;<br>MessageDlg()、ShowMessage() 是 Delphi 函数, 殊途同归, 它们的父窗口都可能是 Application.<br></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(1956214,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(1956214,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<div class="feedbacktitle"><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#2624397" class="layer">#37楼</a><a name="2624397" id="comment_anchor_2624397"></a><span id="comment-maxId" style="display:none;">2624397</span><span id="comment-maxDate" style="display:none;">2013/2/27 16:04:33</span>&nbsp; <span class="comment_date">2013-02-27 16:04</span>&nbsp;<a id="a_comment_author_2624397" href="http://home.cnblogs.com/u/263314/" target="_blank">为狂而活</a> <a href="http://msg.cnblogs.com/msg/send/%e4%b8%ba%e7%8b%82%e8%80%8c%e6%b4%bb" title="发送站内短消息" class="sendMsg2This">&nbsp;</a></div>
+				<div align="left"><div id="comment_body_2624397" class="blog_comment_body">万一老师，我想实现嵌入窗体，所以在主窗体内又并排动态创建嵌入两个子窗体（没有标题栏）。现在遇到的问题是用FindWindow查找子窗体句柄时返回非0值，但不是子窗体的句柄，请老师解答下可能的原因。<br>我的邮箱是chenyu1280@163.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2624397,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2624397,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/del/archive/2008/02/28/1085432.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width:300px; height:250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/518206/" target="_blank">《经济学人》：四十不惑，微软能否重焕青春？</a><br> ·  <a href="http://news.cnblogs.com/n/518205/" target="_blank">黄金苹果手表的保护费很贵：一年要999刀</a><br> ·  <a href="http://news.cnblogs.com/n/518204/" target="_blank">40周年，比尔·盖茨致微软员工的一封信</a><br> ·  <a href="http://news.cnblogs.com/n/518203/" target="_blank">创业者应该有的5个正常心态</a><br> ·  <a href="http://news.cnblogs.com/n/518202/" target="_blank">图赏苹果新总部飞船</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width:468px; height:60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe><object type="application/x-shockwave-flash" data="http://www.gstatic.com/osd/hbe.swf?id=1~0" width="1" height="1" style="visibility: hidden; opacity: 0; z-index: -999999; position: fixed; left: 484px; top: 7816px;"><param name="movie" value="//www.gstatic.com/osd/hbe.swf?id=1~0"><param name="allowscriptaccess" value="always"><param name="wmode" value="opaque"></object></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/517960/" target="_blank">我们为什么要思考算法</a><br> ·  <a href="http://kb.cnblogs.com/page/517859/" target="_blank">事件流如何提高应用程序的扩展性、可靠性和可维护性</a><br> ·  <a href="http://kb.cnblogs.com/page/517730/" target="_blank">Web动效研究与实践</a><br> ·  <a href="http://kb.cnblogs.com/page/203795/" target="_blank">关于工作效率的心得分享</a><br> ·  <a href="http://kb.cnblogs.com/page/517741/" target="_blank">编码之道：取个好名字很重要</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script>
+</div>
+
+	
+<!--done-->
+<div class="footer">
+	
+	Copyright ©2015 万一 Powered by: <a href="http://www.cnblogs.com/" class="footerlink">博客园</a> 模板提供：<a href="http://blog.hjenglish.com/" class="footerlink">沪江博客</a><br>
+</div>
+</div>
+
+
+
+<!--PageEndHtml Block Begin-->
+<br><br>
+<script type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/del.js"></script><script async="" type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/check_359604.js"></script><iframe src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/container.html" style="visibility: hidden; display: none;"></iframe>
+<script type="text/javascript" src="./WinAPI  FindWindow、FindWindowEx - 查找窗口 - 万一 - 博客园_files/asm.js"></script>
+<!--PageEndHtml Block End-->
+
+
+<iframe id="google_osd_static_frame_6407205713912" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>

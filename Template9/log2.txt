@@ -1,0 +1,276 @@
+None
+
+hi	0
+Invalid keyboard code specified---
+---
+                                   THERM---
+ ---
+*****************0	0
+---
+                  THermo Estimation for Radicals & Molecules---
+ ---
+*****************1	1
+---
+                              Edward R. Ritter ---
+                       Dept. of Chemical Engineering---
+                    Villanova University,  Villanova, PA---
+---
+                                     and---
+---
+                             Joseph W. Bozzelli ---
+               Department of Chemical Engineering and Chemistry---
+                     New Jersey Institute of Technology---
+                                  Newark, NJ---
+---
+                          486 version 4.5 : 7/8/94---
+---
+                     **** Loading Configuration File ****---
+                      ***** LOADING GROUP DATAFILES *****     ---
+                           742  Groups in the dataBase.          ---
+ ---
+*****************2	2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: \n
+
+hi	1
+                           { hit return to continue }---
+                              THERM MAIN MENU---
+ ---
+*****************0	3
+        Units:  Kcal/mol  ( cal/mol K )                   10/ 8/14---
+     ___________________________________________________________________________---
+ ---
+*****************1	4
+     1 - ENTER/ESTIMATE SPECIES     5 - REVIEW (LST FORMAT FILE)---
+     2 - VIEW GROUPS                6 - GET SPECIES FROM FILE {*.DOC}---
+     3 - SELECT SHORT MENU          7 - ReWrite THERMO FILES {*.DOC, *.LST}---
+     4 - SELECT LIST FILE {*.LST}   8 - RUN THERMFIT create NASA {*.DAT}---
+                9 - RUN THERMRXN (calculate dU, dH, dS, dG for reaction)---
+               10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }---
+               11 - Sort/Write "LST" file {or Write w/ new Units }---
+                             { no "DOC" format file is needed }---
+               12 - RUN THERMLST (LIST NASA FORMAT FILE) /create *.LST---
+               13 - DOS utilities---
+                U - CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)---
+                         *  -  CLOSE ALL OPENED FILES---
+                         X  -  EXIT PROGRAM ---
+                         ?  -  HELP---
+ ---
+*****************2	5
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: \n
+
+hi	2
+input: c2h6\n
+
+hi	3
+                           enter option : { 1 }---
+    Enter species name (ID)---
+      9 characters maximum---
+{ "Q" return to opening menu }---
+ ---
+*****************0	6
+enter the elemental formula for this species ---
+{ example: for PHENOL enter " C6H5OH " }---
+{          for TOLUENE enter " C6H5CH3 " }---
+{          for CHLOROPHENOL enter " C6H4CLOH " }---
+ ---
+*****************1	7
+ ---
+*****************2	8
+        4 ELEMENTS MAXIMUM : 70 CHARACTERS MAX---
+ ---
+*****************3	9
+  THE FOLLOWING ELEMENTS ARE DEFINED:---
+  C   H   O   CL  S   N   F   P   I   BR---
+  B   SI  LI---
+ ---
+*****************4	10
+ ALL OTHER ELEMENTS OR NON-NUMERIC CHARACTERS---
+            WILL BE IGNORED !---
+ ---
+*****************5	11
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: c2h6\n
+
+hi	4
+ enter formula here: {Q=QUIT}---
+FORMULA ENTERED :---
+C2H6                                                                  ---
+ ---
+*****************0	12
+ ---
+*****************1	13
+  ELEMENTAL COMPOSITION:---
+ ---
+*****************2	14
+C             2---
+H             6---
+              0---
+              0---
+ ---
+*****************3	15
+ ---
+*****************4	16
+ number of Atoms for This Species =          8---
+ ---
+*****************5	17
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: \n
+
+hi	5
+    IF THIS IS INCORRECT ENTER " Q "---
+           TO BEGIN AGAIN---
+  OTHERWISE HIT RETURN TO CONTINUE---
+   Radicals are estimated either by entering a---
+   radical {CDOT} group such as " CB/. " on this---
+   screen; or by first estimating the properties---
+   for the stable molecule here { ex: benzene } and---
+   then applying a bond increment {BD} group to ---
+   account for loss of H atom from the molecule.---
+ ---
+*****************0	18
+   Bond increments cannot be entered here.  They---
+   are entered at the RADICAL menu { available---
+   after the molecule's properties are estimated }.---
+ ---
+*****************1	19
+   You must be sure that groups you enter adequately---
+   define a molecule (no unbonded electrons).---
+   THERM makes no attempt to check the context---
+   of the groups entered (only whether they are defined).---
+ ---
+*****************2	20
+ ---
+*****************3	21
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: 2\n
+
+hi	6
+       Enter the Number of Groups in this species---
+ (each Central Atom or Ring Correction counts as 1 group)---
+ ---
+*****************0	22
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: 1\n
+
+hi	7
+input: 1\n
+
+hi	8
+How many different groups are to be entered?---
+ how many rotors in this species { 0 }---
+        742 groups in the database---
+ ---
+*****************0	23
+You must enter a total of   1 different groups---
+  {enter " D " to re-enter the last group}---
+  {enter " Q " to start a new species}---
+  {enter " L " to list group database}---
+ ---
+*****************1	24
+ ---
+*****************2	25
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: c/c/h3 2\n
+
+hi	9
+input: 18\n
+
+hi	10
+  ENTER: "GROUP ID,QUANTITY"---
+ENTER GROUP #   1---
+     Enter symmetry # for molecule---
+Thermo estimation for molecule---
+C2H6                                                           C2H6---
+ ---
+*****************0	26
+  Gr # -  GROUP ID  - Quantity---
+     1 - C/C/H3         -  2---
+ ---
+*****************1	27
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: \n
+
+hi	11
+UNITS:  Hf{Kcal/mol}   S & Cp {cal/mol K}---
+   Hf      S    Cp 300   400      500     600      800    1000    1500---
+ -20.40   55.08   12.38   15.68   18.80   21.58   26.04   29.54   35.16---
+     CPINF    42.72---
+Symmetry number used to correct S value is         18---
+  EDIT THESE RESULTS?     "Y" OR {"N"}---
+                    SPECIES ESTIMATION OPTIONS MENU---
+            Units:  Kcal/mol  ( cal/mol K )---
+            _______________________________________________________---
+ ---
+*****************0	28
+            R      -  CALCULATE RADICAL BASED UPON PREVIOUS SPECIES---
+            F      -  ADD CURRENT SPECIES TO OUTPUT FILE---
+            H      -  TOGGLE (SHORT/LONG) MENU---
+            P      -  RETURN TO PREVIOUS SPECIES SCREEN---
+            RETURN -  ENTER A NEW SPECIES---
+            L      -  LIST GROUPS---
+            Q      -  RETURN TO MAIN MENU {choose "F" ---
+                      first; current species is discarded---
+                      when you return to MAIN menu}---
+            X      -  EXIT PROGRAM---
+            S      -  GET SPECIES FROM { *.DOC } FILE---
+            ?      -  HELP  ---
+            U      -  CHANGE CURRENT UNITS TO : KJ/mol  (J/mol K)---
+ ---
+*****************1	29
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: f\n
+
+hi	12
+input: c2h6\n
+
+hi	13
+          enter option : { ENTER NEW SPECIES }---
+Enter output filename:---
+{ no file extension is needed }: ---
+ ---
+*****************0	30
+   CREATE DOCUMENT FILE [ Y or N ]---
+ ---
+*****************1	31
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: \n
+
+hi	14
+input: \n
+
+hi	15
+   enter choice: { Y }---
+ choose output units for LST file---
+ 1- Kcal/mol (cal/mol K)   2- KJ/mol (J/mol K         )---
+     enter option { 1 }---
+ ---
+*****************0	32
+ ---
+*****************1	33
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+input: c2h6\n
+
+hi	16
+    enter title  for *.LST file output { blank or Q= no title }---
+                    SPECIES ESTIMATION OPTIONS MENU---
+            Units:  Kcal/mol  ( cal/mol K )---
+            _______________________________________________________---
+ ---
+*****************0	34
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+c2h6 calculated successfully!
+None

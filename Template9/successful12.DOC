@@ -1,0 +1,191 @@
+ SPECIES                                                              
+ OOHOOH138                                                            
+Thermo estimation for molecule                                        
+ OOHOOH138                                                  C15H32O4  
+ UNITS:KCAL                                                           
+ GROUPS   8                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     5 - O/C/O          -  2           
+      2 - C/C3/H         -  3 |     6 - O/H/O          -  2           
+      3 - C/C2/H2        -  5 |     7 - GAUCHE         -  3           
+      4 - C/C2/H/O       -  2 |     8 - OI             -  2           
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-136.95 205.50  99.89 125.29 147.50 165.31 192.94 213.32    .00       
+           CPINF =  282.15                                            
+  NROTORS:18                                                          
+ SYMMETRY         243                                                 
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOOOH138                                                             
+Thermo estimation for radical                                         
+ OOOOH138                                                   C15H31O4  
+ RADICAL BASED UPON PARENT  OOHOOH138                                 
+ PARENT FORMULA                       C15H32O4                        
+PARENT SYMMETRY             243                                       
+ UNITS:KCAL                                                           
+ GROUPS   9                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     6 - O/H/O          -  2           
+      2 - C/C3/H         -  3 |     7 - GAUCHE         -  3           
+      3 - C/C2/H2        -  5 |     8 - OI             -  2           
+      4 - C/C2/H/O       -  2 |     9 - ALPEROX        -  1           
+      5 - O/C/O          -  2                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-102.75 205.73  97.84 122.45 143.95 161.22 188.22 208.35    .00       
+           CPINF =  277.19                                            
+  NROTORS:17                                                          
+ SYMMETRY         243                                                 
+R ln(2) has been added to S to account                                
+       for unpaired electron                                          
+ BOND   86.30                                                         
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOHOOH139                                                            
+Thermo estimation for molecule                                        
+ OOHOOH139                                                  C15H32O4  
+ UNITS:KCAL                                                           
+ GROUPS   8                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     5 - O/C/O          -  2           
+      2 - C/C3/H         -  3 |     6 - O/H/O          -  2           
+      3 - C/C2/H2        -  5 |     7 - GAUCHE         -  3           
+      4 - C/C2/H/O       -  2 |     8 - OI             -  2           
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-136.95 205.50  99.89 125.29 147.50 165.31 192.94 213.32    .00       
+           CPINF =  282.15                                            
+  NROTORS:18                                                          
+ SYMMETRY         243                                                 
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOOOH139                                                             
+Thermo estimation for radical                                         
+ OOOOH139                                                   C15H31O4  
+ RADICAL BASED UPON PARENT  OOHOOH139                                 
+ PARENT FORMULA                       C15H32O4                        
+PARENT SYMMETRY             243                                       
+ UNITS:KCAL                                                           
+ GROUPS   9                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     6 - O/H/O          -  2           
+      2 - C/C3/H         -  3 |     7 - GAUCHE         -  3           
+      3 - C/C2/H2        -  5 |     8 - OI             -  2           
+      4 - C/C2/H/O       -  2 |     9 - ALPEROX        -  1           
+      5 - O/C/O          -  2                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-102.75 205.73  97.84 122.45 143.95 161.22 188.22 208.35    .00       
+           CPINF =  277.19                                            
+  NROTORS:17                                                          
+ SYMMETRY         243                                                 
+R ln(2) has been added to S to account                                
+       for unpaired electron                                          
+ BOND   86.30                                                         
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOHOOH131                                                            
+Thermo estimation for molecule                                        
+ OOHOOH131                                                  C15H32O4  
+ UNITS:KCAL                                                           
+ GROUPS   8                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     5 - O/C/O          -  2           
+      2 - C/C3/H         -  3 |     6 - O/H/O          -  2           
+      3 - C/C2/H2        -  5 |     7 - GAUCHE         -  3           
+      4 - C/C2/H/O       -  2 |     8 - OI             -  2           
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-136.95 205.50  99.89 125.29 147.50 165.31 192.94 213.32    .00       
+           CPINF =  282.15                                            
+  NROTORS:18                                                          
+ SYMMETRY         243                                                 
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOOOH1310                                                            
+Thermo estimation for radical                                         
+ OOOOH1310                                                  C15H31O4  
+ RADICAL BASED UPON PARENT  OOHOOH1310                                
+ PARENT FORMULA                       C15H32O4                        
+PARENT SYMMETRY             243                                       
+ UNITS:KCAL                                                           
+ GROUPS   9                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     6 - O/H/O          -  2           
+      2 - C/C3/H         -  3 |     7 - GAUCHE         -  3           
+      3 - C/C2/H2        -  5 |     8 - OI             -  2           
+      4 - C/C2/H/O       -  2 |     9 - ALPEROX        -  1           
+      5 - O/C/O          -  2                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-102.75 205.73  97.84 122.45 143.95 161.22 188.22 208.35    .00       
+           CPINF =  277.19                                            
+  NROTORS:17                                                          
+ SYMMETRY         243                                                 
+R ln(2) has been added to S to account                                
+       for unpaired electron                                          
+ BOND   86.30                                                         
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOHOOH131                                                            
+Thermo estimation for molecule                                        
+ OOHOOH131                                                  C15H32O4  
+ UNITS:KCAL                                                           
+ GROUPS   9                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     6 - O/C/O          -  2           
+      2 - C/C3/H         -  2 |     7 - O/H/O          -  2           
+      3 - C/C2/H2        -  6 |     8 - GAUCHE         -  3           
+      4 - C/C3/O         -  1 |     9 - OI             -  2           
+      5 - C/C2/H/O       -  1                                         
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-139.38 204.43 100.38 125.79 147.73 165.58 193.09 213.45    .00       
+           CPINF =  282.15                                            
+  NROTORS:18                                                          
+ SYMMETRY         243                                                 
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+ SPECIES                                                              
+ OOOOH1311                                                            
+Thermo estimation for radical                                         
+ OOOOH1311                                                  C15H31O4  
+ RADICAL BASED UPON PARENT  OOHOOH1311                                
+ PARENT FORMULA                       C15H32O4                        
+PARENT SYMMETRY             243                                       
+ UNITS:KCAL                                                           
+ GROUPS  10                                                           
+   Gr # -  GROUP ID  - Quantity  Gr # -  GROUP ID  - Quantity         
+      1 - C/C/H3         -  5 |     6 - O/C/O          -  2           
+      2 - C/C3/H         -  2 |     7 - O/H/O          -  2           
+      3 - C/C2/H2        -  6 |     8 - GAUCHE         -  3           
+      4 - C/C3/O         -  1 |     9 - OI             -  2           
+      5 - C/C2/H/O       -  1 |    10 - ALPEROX        -  1           
+  Hf    S   Cp 300    400    500    600    800   1000   1500          
+-105.18 204.66  98.33 122.95 144.18 161.49 188.37 208.48    .00       
+           CPINF =  277.19                                            
+  NROTORS:17                                                          
+ SYMMETRY         243                                                 
+R ln(2) has been added to S to account                                
+       for unpaired electron                                          
+ BOND   86.30                                                         
+  CREATION DATE: 10/11/14                                             
+  ENDSPECIES                                                          
+                                                                      
+                                                                      
+                                                                      
+                                                                      

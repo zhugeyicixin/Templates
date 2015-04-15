@@ -1,0 +1,256 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                                        John R. Barker
+                Thermo-2014             University of Michigan
+                                        Ann Arbor, MI 48109-2143
+                Jan 2014                jrbarker@umich.edu
+                                        (734) 763 6239
+
+              http://aoss.engin.umich.edu/multiwell/
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        Suggested Literature Citation:
+
+        a) MultiWell-2014   Software, Jan 2014, designed and
+           maintained by J.R. Barker with contributors N.F. Ortiz,
+           J.M. Preses, L.L. Lohr, A. Maranzana, P.J. Stimac, T. L.
+           Nguyen, and T. J. Dhilip Kumar, University of Michigan,
+           Ann Arbor, MI; http://aoss.engin.umich.edu/multiwell/
+
+        b) J.R. Barker, Int. J. Chem. Kinetics, 33, 232-45 (2001).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+....................................................
+          2014/03/12   15:26:32.404   (Local Time)
+          year/mm/dd   hr:mi:second
+                 CPU :        0.047 s (  0.000 hr)
+....................................................
+
+
+     RO2_1     Molecular Wt. = 159.249  ;  Empirical Formula:      H 19       C  9       O  2
+          1. (blank comment line)                                                                                                                               
+          2. (blank comment line)                                                                                                                               
+          3. (blank comment line)                                                                                                                               
+    Electronic Levels (degeneracies) 
+                0.00 cm-1 ( 2)
+
+    1  Vibrator  Freq(obs)=   29.46  Freq(har)=   29.46  Anh(cm-1)=    0.00  zpe(cm-1) =    14.7     g = 1
+    2  Vibrator  Freq(obs)=   37.48  Freq(har)=   37.48  Anh(cm-1)=    0.00  zpe(cm-1) =    18.7     g = 1
+    3  Vibrator  Freq(obs)=   57.74  Freq(har)=   57.74  Anh(cm-1)=    0.00  zpe(cm-1) =    28.9     g = 1
+    4  Vibrator  Freq(obs)=   87.68  Freq(har)=   87.68  Anh(cm-1)=    0.00  zpe(cm-1) =    43.8     g = 1
+    5  Vibrator  Freq(obs)=   93.59  Freq(har)=   93.59  Anh(cm-1)=    0.00  zpe(cm-1) =    46.8     g = 1
+    6  Vibrator  Freq(obs)=  115.45  Freq(har)=  115.45  Anh(cm-1)=    0.00  zpe(cm-1) =    57.7     g = 1
+    7  Vibrator  Freq(obs)=  156.24  Freq(har)=  156.24  Anh(cm-1)=    0.00  zpe(cm-1) =    78.1     g = 1
+    8  Vibrator  Freq(obs)=  214.24  Freq(har)=  214.24  Anh(cm-1)=    0.00  zpe(cm-1) =   107.1     g = 1
+    9  Vibrator  Freq(obs)=  226.76  Freq(har)=  226.76  Anh(cm-1)=    0.00  zpe(cm-1) =   113.4     g = 1
+   10  Vibrator  Freq(obs)=  230.31  Freq(har)=  230.31  Anh(cm-1)=    0.00  zpe(cm-1) =   115.2     g = 1
+   11  Vibrator  Freq(obs)=  243.20  Freq(har)=  243.20  Anh(cm-1)=    0.00  zpe(cm-1) =   121.6     g = 1
+   12  Vibrator  Freq(obs)=  251.38  Freq(har)=  251.38  Anh(cm-1)=    0.00  zpe(cm-1) =   125.7     g = 1
+   13  Vibrator  Freq(obs)=  260.03  Freq(har)=  260.03  Anh(cm-1)=    0.00  zpe(cm-1) =   130.0     g = 1
+   14  Vibrator  Freq(obs)=  360.01  Freq(har)=  360.01  Anh(cm-1)=    0.00  zpe(cm-1) =   180.0     g = 1
+   15  Vibrator  Freq(obs)=  377.16  Freq(har)=  377.16  Anh(cm-1)=    0.00  zpe(cm-1) =   188.6     g = 1
+   16  Vibrator  Freq(obs)=  414.39  Freq(har)=  414.39  Anh(cm-1)=    0.00  zpe(cm-1) =   207.2     g = 1
+   17  Vibrator  Freq(obs)=  449.42  Freq(har)=  449.42  Anh(cm-1)=    0.00  zpe(cm-1) =   224.7     g = 1
+   18  Vibrator  Freq(obs)=  487.12  Freq(har)=  487.12  Anh(cm-1)=    0.00  zpe(cm-1) =   243.6     g = 1
+   19  Vibrator  Freq(obs)=  505.42  Freq(har)=  505.42  Anh(cm-1)=    0.00  zpe(cm-1) =   252.7     g = 1
+   20  Vibrator  Freq(obs)=  591.27  Freq(har)=  591.27  Anh(cm-1)=    0.00  zpe(cm-1) =   295.6     g = 1
+   21  Vibrator  Freq(obs)=  744.76  Freq(har)=  744.76  Anh(cm-1)=    0.00  zpe(cm-1) =   372.4     g = 1
+   22  Vibrator  Freq(obs)=  784.13  Freq(har)=  784.13  Anh(cm-1)=    0.00  zpe(cm-1) =   392.1     g = 1
+   23  Vibrator  Freq(obs)=  821.29  Freq(har)=  821.29  Anh(cm-1)=    0.00  zpe(cm-1) =   410.6     g = 1
+   24  Vibrator  Freq(obs)=  843.10  Freq(har)=  843.10  Anh(cm-1)=    0.00  zpe(cm-1) =   421.6     g = 1
+   25  Vibrator  Freq(obs)=  876.16  Freq(har)=  876.16  Anh(cm-1)=    0.00  zpe(cm-1) =   438.1     g = 1
+   26  Vibrator  Freq(obs)=  928.79  Freq(har)=  928.79  Anh(cm-1)=    0.00  zpe(cm-1) =   464.4     g = 1
+   27  Vibrator  Freq(obs)=  935.64  Freq(har)=  935.64  Anh(cm-1)=    0.00  zpe(cm-1) =   467.8     g = 1
+   28  Vibrator  Freq(obs)=  943.02  Freq(har)=  943.02  Anh(cm-1)=    0.00  zpe(cm-1) =   471.5     g = 1
+   29  Vibrator  Freq(obs)=  963.77  Freq(har)=  963.77  Anh(cm-1)=    0.00  zpe(cm-1) =   481.9     g = 1
+   30  Vibrator  Freq(obs)=  965.12  Freq(har)=  965.12  Anh(cm-1)=    0.00  zpe(cm-1) =   482.6     g = 1
+   31  Vibrator  Freq(obs)=  991.19  Freq(har)=  991.19  Anh(cm-1)=    0.00  zpe(cm-1) =   495.6     g = 1
+   32  Vibrator  Freq(obs)= 1028.89  Freq(har)= 1028.89  Anh(cm-1)=    0.00  zpe(cm-1) =   514.4     g = 1
+   33  Vibrator  Freq(obs)= 1041.63  Freq(har)= 1041.63  Anh(cm-1)=    0.00  zpe(cm-1) =   520.8     g = 1
+   34  Vibrator  Freq(obs)= 1059.25  Freq(har)= 1059.25  Anh(cm-1)=    0.00  zpe(cm-1) =   529.6     g = 1
+   35  Vibrator  Freq(obs)= 1112.81  Freq(har)= 1112.81  Anh(cm-1)=    0.00  zpe(cm-1) =   556.4     g = 1
+   36  Vibrator  Freq(obs)= 1131.76  Freq(har)= 1131.76  Anh(cm-1)=    0.00  zpe(cm-1) =   565.9     g = 1
+   37  Vibrator  Freq(obs)= 1142.56  Freq(har)= 1142.56  Anh(cm-1)=    0.00  zpe(cm-1) =   571.3     g = 1
+   38  Vibrator  Freq(obs)= 1169.25  Freq(har)= 1169.25  Anh(cm-1)=    0.00  zpe(cm-1) =   584.6     g = 1
+   39  Vibrator  Freq(obs)= 1189.67  Freq(har)= 1189.67  Anh(cm-1)=    0.00  zpe(cm-1) =   594.8     g = 1
+   40  Vibrator  Freq(obs)= 1195.57  Freq(har)= 1195.57  Anh(cm-1)=    0.00  zpe(cm-1) =   597.8     g = 1
+   41  Vibrator  Freq(obs)= 1223.03  Freq(har)= 1223.03  Anh(cm-1)=    0.00  zpe(cm-1) =   611.5     g = 1
+   42  Vibrator  Freq(obs)= 1270.92  Freq(har)= 1270.92  Anh(cm-1)=    0.00  zpe(cm-1) =   635.5     g = 1
+   43  Vibrator  Freq(obs)= 1285.39  Freq(har)= 1285.39  Anh(cm-1)=    0.00  zpe(cm-1) =   642.7     g = 1
+   44  Vibrator  Freq(obs)= 1301.56  Freq(har)= 1301.56  Anh(cm-1)=    0.00  zpe(cm-1) =   650.8     g = 1
+   45  Vibrator  Freq(obs)= 1323.02  Freq(har)= 1323.02  Anh(cm-1)=    0.00  zpe(cm-1) =   661.5     g = 1
+   46  Vibrator  Freq(obs)= 1336.57  Freq(har)= 1336.57  Anh(cm-1)=    0.00  zpe(cm-1) =   668.3     g = 1
+   47  Vibrator  Freq(obs)= 1355.08  Freq(har)= 1355.08  Anh(cm-1)=    0.00  zpe(cm-1) =   677.5     g = 1
+   48  Vibrator  Freq(obs)= 1358.06  Freq(har)= 1358.06  Anh(cm-1)=    0.00  zpe(cm-1) =   679.0     g = 1
+   49  Vibrator  Freq(obs)= 1370.90  Freq(har)= 1370.90  Anh(cm-1)=    0.00  zpe(cm-1) =   685.5     g = 1
+   50  Vibrator  Freq(obs)= 1382.29  Freq(har)= 1382.29  Anh(cm-1)=    0.00  zpe(cm-1) =   691.1     g = 1
+   51  Vibrator  Freq(obs)= 1389.03  Freq(har)= 1389.03  Anh(cm-1)=    0.00  zpe(cm-1) =   694.5     g = 1
+   52  Vibrator  Freq(obs)= 1398.04  Freq(har)= 1398.04  Anh(cm-1)=    0.00  zpe(cm-1) =   699.0     g = 1
+   53  Vibrator  Freq(obs)= 1403.84  Freq(har)= 1403.84  Anh(cm-1)=    0.00  zpe(cm-1) =   701.9     g = 1
+   54  Vibrator  Freq(obs)= 1417.97  Freq(har)= 1417.97  Anh(cm-1)=    0.00  zpe(cm-1) =   709.0     g = 1
+   55  Vibrator  Freq(obs)= 1422.28  Freq(har)= 1422.28  Anh(cm-1)=    0.00  zpe(cm-1) =   711.1     g = 1
+   56  Vibrator  Freq(obs)= 1477.03  Freq(har)= 1477.03  Anh(cm-1)=    0.00  zpe(cm-1) =   738.5     g = 1
+   57  Vibrator  Freq(obs)= 1481.19  Freq(har)= 1481.19  Anh(cm-1)=    0.00  zpe(cm-1) =   740.6     g = 1
+   58  Vibrator  Freq(obs)= 1487.92  Freq(har)= 1487.92  Anh(cm-1)=    0.00  zpe(cm-1) =   744.0     g = 1
+   59  Vibrator  Freq(obs)= 1490.55  Freq(har)= 1490.55  Anh(cm-1)=    0.00  zpe(cm-1) =   745.3     g = 1
+   60  Vibrator  Freq(obs)= 1496.58  Freq(har)= 1496.58  Anh(cm-1)=    0.00  zpe(cm-1) =   748.3     g = 1
+   61  Vibrator  Freq(obs)= 1500.24  Freq(har)= 1500.24  Anh(cm-1)=    0.00  zpe(cm-1) =   750.1     g = 1
+   62  Vibrator  Freq(obs)= 1504.11  Freq(har)= 1504.11  Anh(cm-1)=    0.00  zpe(cm-1) =   752.1     g = 1
+   63  Vibrator  Freq(obs)= 1506.37  Freq(har)= 1506.37  Anh(cm-1)=    0.00  zpe(cm-1) =   753.2     g = 1
+   64  Vibrator  Freq(obs)= 1508.28  Freq(har)= 1508.28  Anh(cm-1)=    0.00  zpe(cm-1) =   754.1     g = 1
+   65  Vibrator  Freq(obs)= 1512.47  Freq(har)= 1512.47  Anh(cm-1)=    0.00  zpe(cm-1) =   756.2     g = 1
+   66  Vibrator  Freq(obs)= 2981.91  Freq(har)= 2981.91  Anh(cm-1)=    0.00  zpe(cm-1) =  1491.0     g = 1
+   67  Vibrator  Freq(obs)= 2986.45  Freq(har)= 2986.45  Anh(cm-1)=    0.00  zpe(cm-1) =  1493.2     g = 1
+   68  Vibrator  Freq(obs)= 2990.35  Freq(har)= 2990.35  Anh(cm-1)=    0.00  zpe(cm-1) =  1495.2     g = 1
+   69  Vibrator  Freq(obs)= 2996.28  Freq(har)= 2996.28  Anh(cm-1)=    0.00  zpe(cm-1) =  1498.1     g = 1
+   70  Vibrator  Freq(obs)= 3011.48  Freq(har)= 3011.48  Anh(cm-1)=    0.00  zpe(cm-1) =  1505.7     g = 1
+   71  Vibrator  Freq(obs)= 3012.43  Freq(har)= 3012.43  Anh(cm-1)=    0.00  zpe(cm-1) =  1506.2     g = 1
+   72  Vibrator  Freq(obs)= 3018.78  Freq(har)= 3018.78  Anh(cm-1)=    0.00  zpe(cm-1) =  1509.4     g = 1
+   73  Vibrator  Freq(obs)= 3024.88  Freq(har)= 3024.88  Anh(cm-1)=    0.00  zpe(cm-1) =  1512.4     g = 1
+   74  Vibrator  Freq(obs)= 3026.92  Freq(har)= 3026.92  Anh(cm-1)=    0.00  zpe(cm-1) =  1513.5     g = 1
+   75  Vibrator  Freq(obs)= 3043.85  Freq(har)= 3043.85  Anh(cm-1)=    0.00  zpe(cm-1) =  1521.9     g = 1
+   76  Vibrator  Freq(obs)= 3062.79  Freq(har)= 3062.79  Anh(cm-1)=    0.00  zpe(cm-1) =  1531.4     g = 1
+   77  Vibrator  Freq(obs)= 3070.72  Freq(har)= 3070.72  Anh(cm-1)=    0.00  zpe(cm-1) =  1535.4     g = 1
+   78  Vibrator  Freq(obs)= 3072.58  Freq(har)= 3072.58  Anh(cm-1)=    0.00  zpe(cm-1) =  1536.3     g = 1
+   79  Vibrator  Freq(obs)= 3077.47  Freq(har)= 3077.47  Anh(cm-1)=    0.00  zpe(cm-1) =  1538.7     g = 1
+   80  Vibrator  Freq(obs)= 3081.01  Freq(har)= 3081.01  Anh(cm-1)=    0.00  zpe(cm-1) =  1540.5     g = 1
+   81  Vibrator  Freq(obs)= 3087.97  Freq(har)= 3087.97  Anh(cm-1)=    0.00  zpe(cm-1) =  1544.0     g = 1
+   82  Vibrator  Freq(obs)= 3091.45  Freq(har)= 3091.45  Anh(cm-1)=    0.00  zpe(cm-1) =  1545.7     g = 1
+   83  Vibrator  Freq(obs)= 3098.77  Freq(har)= 3098.77  Anh(cm-1)=    0.00  zpe(cm-1) =  1549.4     g = 1
+   84  Vibrator  Freq(obs)= 3130.33  Freq(har)= 3130.33  Anh(cm-1)=    0.00  zpe(cm-1) =  1565.2     g = 1
+   85  Quan.Rot  AmuAng^2 =  276.78  Symm =  1.   dim = 1  B =  0.0609 cm-1
+   86  Quan.Rot  AmuAng^2 = 1241.64  Symm =  1.   dim = 2  B =  0.0136 cm-1
+
+
+   TS_1_1c     Molecular Wt. = 159.249  ;  Empirical Formula:      H 19       C  9       O  2
+          1. (blank comment line)                                                                                                                               
+          2. (blank comment line)                                                                                                                               
+          3. (blank comment line)                                                                                                                               
+    Electronic Levels (degeneracies) 
+                0.00 cm-1 ( 2)
+
+    TUNNELING PARAMETERS: Unsymmetrical Eckart Barrier
+     Imaginary Freq.:   2054.55i cm-1
+         V(forward) :  10027.73 cm-1
+         V(reverse) :   6222.42 cm-1
+    1  Vibrator  Freq(obs)=   12.32  Freq(har)=   12.32  Anh(cm-1)=    0.00  zpe(cm-1) =     6.2     g = 1
+    2  Vibrator  Freq(obs)=   52.66  Freq(har)=   52.66  Anh(cm-1)=    0.00  zpe(cm-1) =    26.3     g = 1
+    3  Vibrator  Freq(obs)=   58.89  Freq(har)=   58.89  Anh(cm-1)=    0.00  zpe(cm-1) =    29.4     g = 1
+    4  Vibrator  Freq(obs)=   91.37  Freq(har)=   91.37  Anh(cm-1)=    0.00  zpe(cm-1) =    45.7     g = 1
+    5  Vibrator  Freq(obs)=  123.00  Freq(har)=  123.00  Anh(cm-1)=    0.00  zpe(cm-1) =    61.5     g = 1
+    6  Vibrator  Freq(obs)=  131.28  Freq(har)=  131.28  Anh(cm-1)=    0.00  zpe(cm-1) =    65.6     g = 1
+    7  Vibrator  Freq(obs)=  211.57  Freq(har)=  211.57  Anh(cm-1)=    0.00  zpe(cm-1) =   105.8     g = 1
+    8  Vibrator  Freq(obs)=  219.26  Freq(har)=  219.26  Anh(cm-1)=    0.00  zpe(cm-1) =   109.6     g = 1
+    9  Vibrator  Freq(obs)=  221.31  Freq(har)=  221.31  Anh(cm-1)=    0.00  zpe(cm-1) =   110.7     g = 1
+   10  Vibrator  Freq(obs)=  237.64  Freq(har)=  237.64  Anh(cm-1)=    0.00  zpe(cm-1) =   118.8     g = 1
+   11  Vibrator  Freq(obs)=  250.18  Freq(har)=  250.18  Anh(cm-1)=    0.00  zpe(cm-1) =   125.1     g = 1
+   12  Vibrator  Freq(obs)=  270.58  Freq(har)=  270.58  Anh(cm-1)=    0.00  zpe(cm-1) =   135.3     g = 1
+   13  Vibrator  Freq(obs)=  310.74  Freq(har)=  310.74  Anh(cm-1)=    0.00  zpe(cm-1) =   155.4     g = 1
+   14  Vibrator  Freq(obs)=  359.63  Freq(har)=  359.63  Anh(cm-1)=    0.00  zpe(cm-1) =   179.8     g = 1
+   15  Vibrator  Freq(obs)=  383.76  Freq(har)=  383.76  Anh(cm-1)=    0.00  zpe(cm-1) =   191.9     g = 1
+   16  Vibrator  Freq(obs)=  424.27  Freq(har)=  424.27  Anh(cm-1)=    0.00  zpe(cm-1) =   212.1     g = 1
+   17  Vibrator  Freq(obs)=  428.63  Freq(har)=  428.63  Anh(cm-1)=    0.00  zpe(cm-1) =   214.3     g = 1
+   18  Vibrator  Freq(obs)=  498.21  Freq(har)=  498.21  Anh(cm-1)=    0.00  zpe(cm-1) =   249.1     g = 1
+   19  Vibrator  Freq(obs)=  572.23  Freq(har)=  572.23  Anh(cm-1)=    0.00  zpe(cm-1) =   286.1     g = 1
+   20  Vibrator  Freq(obs)=  676.69  Freq(har)=  676.69  Anh(cm-1)=    0.00  zpe(cm-1) =   338.3     g = 1
+   21  Vibrator  Freq(obs)=  732.73  Freq(har)=  732.73  Anh(cm-1)=    0.00  zpe(cm-1) =   366.4     g = 1
+   22  Vibrator  Freq(obs)=  797.24  Freq(har)=  797.24  Anh(cm-1)=    0.00  zpe(cm-1) =   398.6     g = 1
+   23  Vibrator  Freq(obs)=  833.27  Freq(har)=  833.27  Anh(cm-1)=    0.00  zpe(cm-1) =   416.6     g = 1
+   24  Vibrator  Freq(obs)=  850.22  Freq(har)=  850.22  Anh(cm-1)=    0.00  zpe(cm-1) =   425.1     g = 1
+   25  Vibrator  Freq(obs)=  883.69  Freq(har)=  883.69  Anh(cm-1)=    0.00  zpe(cm-1) =   441.8     g = 1
+   26  Vibrator  Freq(obs)=  928.10  Freq(har)=  928.10  Anh(cm-1)=    0.00  zpe(cm-1) =   464.1     g = 1
+   27  Vibrator  Freq(obs)=  943.79  Freq(har)=  943.79  Anh(cm-1)=    0.00  zpe(cm-1) =   471.9     g = 1
+   28  Vibrator  Freq(obs)=  944.31  Freq(har)=  944.31  Anh(cm-1)=    0.00  zpe(cm-1) =   472.2     g = 1
+   29  Vibrator  Freq(obs)=  953.70  Freq(har)=  953.70  Anh(cm-1)=    0.00  zpe(cm-1) =   476.8     g = 1
+   30  Vibrator  Freq(obs)=  962.93  Freq(har)=  962.93  Anh(cm-1)=    0.00  zpe(cm-1) =   481.5     g = 1
+   31  Vibrator  Freq(obs)=  967.60  Freq(har)=  967.60  Anh(cm-1)=    0.00  zpe(cm-1) =   483.8     g = 1
+   32  Vibrator  Freq(obs)=  999.30  Freq(har)=  999.30  Anh(cm-1)=    0.00  zpe(cm-1) =   499.7     g = 1
+   33  Vibrator  Freq(obs)= 1033.59  Freq(har)= 1033.59  Anh(cm-1)=    0.00  zpe(cm-1) =   516.8     g = 1
+   34  Vibrator  Freq(obs)= 1047.16  Freq(har)= 1047.16  Anh(cm-1)=    0.00  zpe(cm-1) =   523.6     g = 1
+   35  Vibrator  Freq(obs)= 1061.42  Freq(har)= 1061.42  Anh(cm-1)=    0.00  zpe(cm-1) =   530.7     g = 1
+   36  Vibrator  Freq(obs)= 1121.94  Freq(har)= 1121.94  Anh(cm-1)=    0.00  zpe(cm-1) =   561.0     g = 1
+   37  Vibrator  Freq(obs)= 1135.74  Freq(har)= 1135.74  Anh(cm-1)=    0.00  zpe(cm-1) =   567.9     g = 1
+   38  Vibrator  Freq(obs)= 1153.80  Freq(har)= 1153.80  Anh(cm-1)=    0.00  zpe(cm-1) =   576.9     g = 1
+   39  Vibrator  Freq(obs)= 1187.81  Freq(har)= 1187.81  Anh(cm-1)=    0.00  zpe(cm-1) =   593.9     g = 1
+   40  Vibrator  Freq(obs)= 1197.29  Freq(har)= 1197.29  Anh(cm-1)=    0.00  zpe(cm-1) =   598.6     g = 1
+   41  Vibrator  Freq(obs)= 1223.68  Freq(har)= 1223.68  Anh(cm-1)=    0.00  zpe(cm-1) =   611.8     g = 1
+   42  Vibrator  Freq(obs)= 1236.32  Freq(har)= 1236.32  Anh(cm-1)=    0.00  zpe(cm-1) =   618.2     g = 1
+   43  Vibrator  Freq(obs)= 1259.39  Freq(har)= 1259.39  Anh(cm-1)=    0.00  zpe(cm-1) =   629.7     g = 1
+   44  Vibrator  Freq(obs)= 1284.93  Freq(har)= 1284.93  Anh(cm-1)=    0.00  zpe(cm-1) =   642.5     g = 1
+   45  Vibrator  Freq(obs)= 1301.20  Freq(har)= 1301.20  Anh(cm-1)=    0.00  zpe(cm-1) =   650.6     g = 1
+   46  Vibrator  Freq(obs)= 1328.94  Freq(har)= 1328.94  Anh(cm-1)=    0.00  zpe(cm-1) =   664.5     g = 1
+   47  Vibrator  Freq(obs)= 1340.88  Freq(har)= 1340.88  Anh(cm-1)=    0.00  zpe(cm-1) =   670.4     g = 1
+   48  Vibrator  Freq(obs)= 1352.09  Freq(har)= 1352.09  Anh(cm-1)=    0.00  zpe(cm-1) =   676.0     g = 1
+   49  Vibrator  Freq(obs)= 1369.84  Freq(har)= 1369.84  Anh(cm-1)=    0.00  zpe(cm-1) =   684.9     g = 1
+   50  Vibrator  Freq(obs)= 1383.38  Freq(har)= 1383.38  Anh(cm-1)=    0.00  zpe(cm-1) =   691.7     g = 1
+   51  Vibrator  Freq(obs)= 1396.79  Freq(har)= 1396.79  Anh(cm-1)=    0.00  zpe(cm-1) =   698.4     g = 1
+   52  Vibrator  Freq(obs)= 1401.46  Freq(har)= 1401.46  Anh(cm-1)=    0.00  zpe(cm-1) =   700.7     g = 1
+   53  Vibrator  Freq(obs)= 1404.52  Freq(har)= 1404.52  Anh(cm-1)=    0.00  zpe(cm-1) =   702.3     g = 1
+   54  Vibrator  Freq(obs)= 1420.28  Freq(har)= 1420.28  Anh(cm-1)=    0.00  zpe(cm-1) =   710.1     g = 1
+   55  Vibrator  Freq(obs)= 1465.54  Freq(har)= 1465.54  Anh(cm-1)=    0.00  zpe(cm-1) =   732.8     g = 1
+   56  Vibrator  Freq(obs)= 1479.76  Freq(har)= 1479.76  Anh(cm-1)=    0.00  zpe(cm-1) =   739.9     g = 1
+   57  Vibrator  Freq(obs)= 1480.74  Freq(har)= 1480.74  Anh(cm-1)=    0.00  zpe(cm-1) =   740.4     g = 1
+   58  Vibrator  Freq(obs)= 1487.95  Freq(har)= 1487.95  Anh(cm-1)=    0.00  zpe(cm-1) =   744.0     g = 1
+   59  Vibrator  Freq(obs)= 1489.50  Freq(har)= 1489.50  Anh(cm-1)=    0.00  zpe(cm-1) =   744.7     g = 1
+   60  Vibrator  Freq(obs)= 1494.59  Freq(har)= 1494.59  Anh(cm-1)=    0.00  zpe(cm-1) =   747.3     g = 1
+   61  Vibrator  Freq(obs)= 1495.12  Freq(har)= 1495.12  Anh(cm-1)=    0.00  zpe(cm-1) =   747.6     g = 1
+   62  Vibrator  Freq(obs)= 1502.37  Freq(har)= 1502.37  Anh(cm-1)=    0.00  zpe(cm-1) =   751.2     g = 1
+   63  Vibrator  Freq(obs)= 1505.62  Freq(har)= 1505.62  Anh(cm-1)=    0.00  zpe(cm-1) =   752.8     g = 1
+   64  Vibrator  Freq(obs)= 1511.55  Freq(har)= 1511.55  Anh(cm-1)=    0.00  zpe(cm-1) =   755.8     g = 1
+   65  Vibrator  Freq(obs)= 1709.31  Freq(har)= 1709.31  Anh(cm-1)=    0.00  zpe(cm-1) =   854.7     g = 1
+   66  Vibrator  Freq(obs)= 2948.09  Freq(har)= 2948.09  Anh(cm-1)=    0.00  zpe(cm-1) =  1474.0     g = 1
+   67  Vibrator  Freq(obs)= 2984.00  Freq(har)= 2984.00  Anh(cm-1)=    0.00  zpe(cm-1) =  1492.0     g = 1
+   68  Vibrator  Freq(obs)= 2984.64  Freq(har)= 2984.64  Anh(cm-1)=    0.00  zpe(cm-1) =  1492.3     g = 1
+   69  Vibrator  Freq(obs)= 2991.92  Freq(har)= 2991.92  Anh(cm-1)=    0.00  zpe(cm-1) =  1496.0     g = 1
+   70  Vibrator  Freq(obs)= 3011.18  Freq(har)= 3011.18  Anh(cm-1)=    0.00  zpe(cm-1) =  1505.6     g = 1
+   71  Vibrator  Freq(obs)= 3016.96  Freq(har)= 3016.96  Anh(cm-1)=    0.00  zpe(cm-1) =  1508.5     g = 1
+   72  Vibrator  Freq(obs)= 3018.82  Freq(har)= 3018.82  Anh(cm-1)=    0.00  zpe(cm-1) =  1509.4     g = 1
+   73  Vibrator  Freq(obs)= 3024.10  Freq(har)= 3024.10  Anh(cm-1)=    0.00  zpe(cm-1) =  1512.0     g = 1
+   74  Vibrator  Freq(obs)= 3027.02  Freq(har)= 3027.02  Anh(cm-1)=    0.00  zpe(cm-1) =  1513.5     g = 1
+   75  Vibrator  Freq(obs)= 3031.83  Freq(har)= 3031.83  Anh(cm-1)=    0.00  zpe(cm-1) =  1515.9     g = 1
+   76  Vibrator  Freq(obs)= 3065.07  Freq(har)= 3065.07  Anh(cm-1)=    0.00  zpe(cm-1) =  1532.5     g = 1
+   77  Vibrator  Freq(obs)= 3069.65  Freq(har)= 3069.65  Anh(cm-1)=    0.00  zpe(cm-1) =  1534.8     g = 1
+   78  Vibrator  Freq(obs)= 3071.63  Freq(har)= 3071.63  Anh(cm-1)=    0.00  zpe(cm-1) =  1535.8     g = 1
+   79  Vibrator  Freq(obs)= 3076.53  Freq(har)= 3076.53  Anh(cm-1)=    0.00  zpe(cm-1) =  1538.3     g = 1
+   80  Vibrator  Freq(obs)= 3079.98  Freq(har)= 3079.98  Anh(cm-1)=    0.00  zpe(cm-1) =  1540.0     g = 1
+   81  Vibrator  Freq(obs)= 3081.86  Freq(har)= 3081.86  Anh(cm-1)=    0.00  zpe(cm-1) =  1540.9     g = 1
+   82  Vibrator  Freq(obs)= 3092.65  Freq(har)= 3092.65  Anh(cm-1)=    0.00  zpe(cm-1) =  1546.3     g = 1
+   83  Vibrator  Freq(obs)= 3106.59  Freq(har)= 3106.59  Anh(cm-1)=    0.00  zpe(cm-1) =  1553.3     g = 1
+   84  Quan.Rot  AmuAng^2 =  246.04  Symm =  1.   dim = 1  B =  0.0685 cm-1
+   85  Quan.Rot  AmuAng^2 = 1335.05  Symm =  1.   dim = 2  B =  0.0126 cm-1
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+THERMODYNAMIC QUANTITIES          Std. State = molecule/cc 
+   Entropy & Cp units: cal/K/mole
+   DelS         units: cal/K/mole
+   [H(T)-H(0)]  units: kcal/mole
+   DelH & DelG  units: kcal/mole
+
+Species Properties
+                              ----Enthalpy----
+ TYPE  NAME         Mol.Wt.    (O K)  (298.15 K) DelG(298)  ZPE(cm-1) Symmetry  opt.isomers
+ reac  RO2_1       159.249      0.00    -14.08     29.87      59062.9      1         1
+ ctst  TS_1_1c     159.249     28.67     14.36     58.66      57639.0      1         1
+                             ------- ---------  --------      -------
+     NET (prod - react):       28.67     28.44     28.79      -1423.9
+
+
+               RATE k(T) = A*exp(B/T) (molecule/cc )**( 0) * sec-1                               RO2_1 (reac)                       TS_1_1c (ctst)
+        T(K)      k(T)      A(T)       B(T)    DelS(rxn) DelH(rxn) DelCp(rxn) DelG(rxn)     Qelectr  Entropy  Cp  [H(T)-H(0)]    Qelectr  Entropy  Cp  [H(T)-H(0)]
+      400.00   3.312E-02   4.319E+10  -11159.     -1.28    28.40      -0.28      28.91        2.00   227.69    67.79    15.62      2.00   226.40    67.51    15.35
+      450.00   8.269E-01   3.109E+11  -11994.     -1.31    28.39      -0.23      28.98        2.00   235.85    74.92    19.19      2.00   234.54    74.69    18.91
+      500.00   1.269E+01   1.056E+12  -12573.     -1.33    28.38      -0.21      29.05        2.00   243.89    81.59    23.10      2.00   242.55    81.38    22.81
+      550.00   1.295E+02   2.308E+12  -12982.     -1.35    28.37      -0.20      29.11        2.00   251.77    87.76    27.34      2.00   250.41    87.56    27.04
+      600.00   9.469E+02   3.913E+12  -13285.     -1.37    28.36      -0.21      29.18        2.00   259.48    93.44    31.87      2.00   258.10    93.23    31.56
+      650.00   5.275E+03   5.705E+12  -13521.     -1.39    28.35      -0.23      29.25        2.00   267.01    98.66    36.68      2.00   265.62    98.44    36.35
+      700.00   2.353E+04   7.563E+12  -13712.     -1.41    28.34      -0.25      29.32        2.00   274.35   103.47    41.73      2.00   272.94   103.21    41.40
+      750.00   8.744E+04   9.419E+12  -13871.     -1.43    28.32      -0.29      29.39        2.00   281.50   107.90    47.02      2.00   280.08   107.61    46.67
+      800.00   2.791E+05   1.123E+13  -14008.     -1.45    28.31      -0.33      29.46        2.00   288.47   111.99    52.52      2.00   287.03   111.67    52.15

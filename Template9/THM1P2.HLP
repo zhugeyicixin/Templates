@@ -1,0 +1,163 @@
+
+
+
+
+ OPTION 8
+    8 - RUN THERMFIT:  CREATE NASA FORMAT FILE {*.DAT}:
+
+  This option spawns THERM'S heat capacity extrapolation/polynomial
+  fitting program : THERMFIT.
+
+   "LST" file format is used as input to the program "THERMFIT.EXE".
+
+  This program converts thermo data to polynomials in NASA format
+  for use with CHEMKIN or other codes which require this format and
+  allow one to specify a common temperature other than 1000 K.
+
+  Two sets of polynomials are generated with a common temperature
+  determined so as to match Cp and dCp/dT.  This break point is 
+  typically not the more common 1000 K as with SANDIA'S fitting code.
+ END
+
+ OPTION 9
+   9 - RUN THERMRXN: REACTION ANALYSIS ( del H, del U, del S, del G):
+
+  This program allows one to enter reaction expressions such as:
+
+     C6H5CL=CYC6H5. + CL
+     
+ and have property change of reaction calculated from NASA format
+ polynomials in addition to the ratio of forward/reverse A factors.
+
+ Data are taken from "DAT" files and one is prompted for a *.DAT
+ filename.  {OBVIOUSLY ALL SPECIES ID'S ENTERED IN THE
+ REACTION EXPRESSION MUST APPEAR IN  THE SPECIFIED "DAT" FILE }.
+
+ Entire CHEMKIN input files can also be processed automatically.
+
+ END
+
+ OPTION 10
+  10 - Sort & ReWrite THERMO FILES { *.DOC, *.LST }:
+
+  This option is essentially the same as OPTION 7 except the "DOC"
+  file is first sorted in order of elemental composition.  
+
+  Sorting is performed on the # of levels defined in the configuration
+  file "THERM.CFG".  The key word "#KEYS" is followed by the number of
+  sort keys (or levels). The priority for sorting is determined by the 
+  order elements appear in "THERM.CFG" (configuration file).
+
+  For example: if the configuration file contains the following   
+  elements in the following order ( each element actually appears on a
+  separate line ):
+
+   C  H O  CL N BR   (and #KEYS 2 )  
+
+  Data is first sorted in order of increasing carbon number; then
+  each sub group is sorted by increasing hydrogen number. If #KEYS 3
+  appears in the file "THERM.CFG" then sorting would continue
+  by oxygen number.  If the order elements appear in "THERM.CFG" is
+  changed, so is the order of sorting.
+ END
+
+ OPTION 11
+    11 - SORT/REWRITE *.LST FILE or CHANGE file Units:
+
+  Same sorting procedure as OPTION 10; but DATABASE RECALCULATION
+  is not performed.
+
+  To Change Units (Kcal to KJ, or visa versa),  answer "N" when
+  prompted "Sort Database (Y/N/Q)?   {Y}".  Sorting by composition 
+  will be suppressed, and you must enter the desired units for the
+  new output file when prompted.
+
+  This option is useful if one wants to sort a "LST" file but has no
+  documentation file to recalculate the database,  or if one wants to
+  change a file from one set of units to another ( Kcal <---> KJ ).
+
+ END
+ OPTION 12
+  12 - RUN THERMLST: CONVERT NASA FORMAT "DAT" FILE TO "LST" FORMAT:
+
+  This option spawns THERM'S listing program : THERMLST.EXE
+
+  A *.LST FORMAT FILE IS CREATED FROM A NASA FORMAT *.DAT FILE.
+  COEFFICIENTS ARE READ AND HEAT CAPACITY VALUES ARE GENERATED AT
+  300, 400, 500, 600, 800, 1000, 1500 deg K. (An extended listing
+  to 5000 K  may also be created.)
+
+ END
+
+
+ OPTION 13
+    13 - DOS UTILITIES:
+
+  ALLOWS ONE TO INVOKE THE DOS INTERPRETER FROM WITHIN THE PROGRAM.
+  SEVERAL OPTIONS ARE AVAILABLE. CHOOSE THIS OPTION (12) FOR MORE 
+  DETAILS.
+
+ END
+ 
+ OPTION U
+    U - CHANGE UNITS
+ 
+  This option toggles the units which results are displayed on screen
+  and saved in documentation files.  Units can either be Kcal/mol: Hf
+  and cal/mol K: S and Cp; or KJ/mol: Hf and J/mol K: S and Cp.
+
+ This has no effect on units saved in a "LST" file.  If one adds data 
+ to a "LST" file, units remain the same as those already in use in
+ that file.  If one starts a new "LST" file they will be prompted for
+ units.
+
+  Units may be changed at various oter parts of the program.
+
+ END
+
+ OPTION *
+     * - CLOSE ALL OPENED FILES
+
+  This option is necessary to change the ouput or other files that are
+  connected. 
+
+
+ END
+
+ OPTION X
+   X - EXIT PROGRAM:
+
+  ENDS THERM SESSION , CLOSES ALL FILES, AND RETURNS TO DOS.
+
+ END
+
+ OPTION ?
+   ? - HELP:
+
+  MAKES THIS HELP INFORMATION AVAILABLE.
+
+ END 
+
+ OPTION SORT/Y/N/Q
+	Sort Database (Y/N/Q)?       :  {Y}  
+
+    To suppress sorting of the "LST" file prior to output answer
+  "N" to this prompt.
+
+   This is useful if one wants to convert an existing "LST" file
+  from one set of units to another ( Kcal <---> KJ )  and does 
+  not want the file to be sorted.
+
+  SORTING LARGE FILES ON MANY LEVELS ( KEY ELEMENTS ) MAY TAKE
+  A VERY LONG TIME.   THE NUMBER OF LEVELS FOR SORTING IS DEFINED
+  IN THE CONFIGURATION FILE.  { # KEYS }
+
+  "Y" is the default: proceed with sorting.
+
+  "Q" will abort this option and return to the MAIN MENU.   
+
+  All other responses are interpreted as "Y".
+
+ END
+
+

@@ -1,0 +1,99 @@
+UNITS:KCAL
+95               Hf    S   Cp: 300    400    500    600    800   1000   1500
+OI,              0.     1.37   0.0    0.0    0.0    0.0    0.0    0.0    0.0      1 correction for every 2 OPTICAL ISOMERS
+MESO,            0.     2.18   0.0    0.0    0.0    0.0    0.0    0.0    0.0      1 correction for every 3 OPTICAL ISOMERS
+GAUCHE,           .8     .00    .00    .00    .00    .00    .00    .00    .00  Benson: alkane gauche correction
+GAUCHE/A,         .8     .00    .00    .00    .00    .00    .00    .00    .00  Benson: alkane gauche correction
+GAUCHE/E,         .5     .00    .00    .00    .00    .00    .00    .00    .00  Benson: alkene gauche correction
+GAUCHE/CL,       1.3     .00    .00    .00    .00    .00    .00    .00    .00  Benson: Gauche halogen correction
+GAUCHE/BR,       1.0     .00    .00    .00    .00    .00    .00    .00    .00  Benson: Gauche halogen correction
+GAUCHE/I,        1.0     .00    .00    .00    .00    .00    .00    .00    .00  Benson: Gauche halogen correction
+H/REPEL/15,      1.5     .00    .00    .00    .00    .00    .00    .00    .00  Benson 1,5 hydrogen repulsion correction
+H15              1.5     .00    .00    .00    .00    .00    .00    .00    .00  Benson 1,5 hydrogen repulsion correction
+CIS,             1.0    0.0   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis all other 2-enes
+CIS/2BE,         1.0    1.2   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis but-2-ene
+CIS/2E,          1.0    0.0   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis all other 2-enes
+CIS3,            1.0   -0.6   -1.34  -1.09  -0.81  -0.61  -0.35  -0.26   0.0   Benson cis non 3 or 2 or tbutyl  
+CIS/3E,          0.6    0.0   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis all 3-enes
+CIS/TB1,         4.0    0.0   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis tert-butyl
+CIS/TB2,        10.0    0.0   -1.34  -1.09  -0.81  -0.61  -0.39  -0.26    .00  Benson: cis di-tert-butyl
+ORTHO,            .57  -1.61   1.12   1.30   1.30   1.19    .88    .66   -.05    BENSON                                                            
+ORT/CL/CL,       2.28   -.31   -.20   -.39   -.47   -.48   -.44   -.38   0.57    7/20/90 : Hf,Cp500:TEXAS;S,Cps:Stull 1,2-DiCLBZ  
+MET/CL/CL,       1.23    .17   -.12   -.33   -.37   -.45   -.43   -.38   0.57            : Hf,Cp500:TEXAS;S,Cps:Stull 1,3-DiCLBZ  
+PAR/CL/CL,        .43   -.08   -.10   -.29   -.38   -.38   -.37   -.38   0.60            : Hf,Cp500:TEXAS;S,Cps:Stull 1,4-DiCLBZ  
+ORT/ME/ME,        .74  -1.05   1.11   1.02   0.83   0.67    .40    .29    .05    TEXAS A&M;O-XYLENE; based on BSN's groups 1/31/91
+MET/ME/ME,        .32    .13   -.46    .02    .23    .29    .20    .11   -.17    TEXAS A&M;M-XYLENE;based on BSN's groups  1/31/91
+PAR/ME/ME,        .49    .25   -.38    .30    .59    .66    .53    .37   -.02    TEXAS A&M;P-XYLENE; based on BSN's groups 1/31/91
+ORT/BR/BR,       1.40   -.55   -.01    .29    .38    .27   -.06   -.23    .31    TEXAS A&M 1,2 DIBR-BENZENE                                      
+MET/BR/BR,      -0.2    0.66   0.03   0.27   0.33   0.21  -0.1    -.25    .28    TEXAS A&M 1,3 DIBR-BENZENE                                       
+PAR/BR/BR,      -0.2    0.32   0.11   0.38   0.45   0.32   -.02   -.2     .33    TEXAS A&M 1,4 DIBR-BENZENE                                     
+ORT/ME/OH,       -.44  -0.09   1.15   1.23   1.16   1.17   1.14   1.17   1.59    Hf from O-CRESOL, Texas, Stull, & Pedley et. al. 
+MET/ME/OH,       -.33    .15   0.76   1.02   1.05   1.12   1.15   1.19   1.39    Hf from 3,5 diMe-phenol, Texas & Pedley et. al.  
+PAR/ME/OH,        .33   -.35    .02    .46    .43    .44    .29    .24   1.33    Hf form P-CRESOL, Texas, Stull & Pedley et. al.  
+ORT/PH/PH,       2.39  -1.05   1.82    .70   -.09   -.67  -1.52  -2.13    .15    HF FROM CIS-STILBENE (COX);  ENTROPY & CP FROM O-XYLENE (STULL)   
+CIS/PH/PH,       2.39    .00    .00    .00    .00    .00    .00    .00    .00    HF CIS STILBENE (COX)                                             
+TRANS/PH/PH,    -1.49    .00    .00    .00    .00    .00    .00    .00    .00    HF TRANS STILBENE (COX)                                           
+ORT/CL/PH,       1.20  -2.52    .29    .07   0.17    .25    .39    .56    .00    2,2'diCl-1,1'biphenyl,TEXAS
+MET/CL/PH,       0.56   -.17    .38    .01   -.11   -.17   -.21   -.16    .00    3,3'diCl-1,1'biphenyl, TEXAS
+PAR/CL/PH,        .40   -.81    .38    .01   -.11   -.17   -.21   -.16    .00    4,4'diCl-1,1'biphenyl, TEXAS
+ORT/F/F,         5.13    .20   -.16   -.53   -.67   -.66   -.48   -.28    .39    Hf,Cp15000:TEXAS;S,Cps:STULL: 1,2DiFBZ, 7/24/90 
+MET/F/F,         1.48   -.17   -.22   -.59   -.77   -.85   -.93  -1.06    .39     : 1,3diFBZ, 7/24/90                     
+PAR/F/F,         2.09    .06   -.06   -.46   -.68   -.80   -.92  -1.01    .37     : 1,4diFBZ, 7/24/90         
+PAR/F/ME,         .33    .10   -.05   -.36   -.53   -.63   -.78   -.90    .92    : P-FLUORO-TOLUENE : 10/2/88                                 
+ORT/CL/OH/CL,    3.00    .00    .00    .00    .00    .00    .00    .00    .00    1,4 DIHYDROXY 2,6 DICHLOROBENZENE : COX                        
+MET/CL/OH,      -0.04    .00    .00    .00    .00    .00    .00    .00    .00    META-CHLORO PHENOL : COX                                    
+PAR/CL/OH,       0.03    .00    .00    .00    .00    .00    .00    .00    .00    PARA-CHLORO PHENOL : COX                                    
+ORT/CL/OH,      -1.14    .00    .00    .00    .00    .00    .00    .00    .00    1,4 DIHYDROXY-2-CHLOROBENZENE : COX                         
+ORT/CL/F,        2.98    .03   -.09   -.50   -.69   -.81   -.87   -.96    .46    1CL,2F- BZ, TEXAS, 8/03/90                                    
+MET/CL/F,        1.16    .18    .02   -.36   -.55   -.69   -.80   -.91    .47    1CL, 3F - BZ TEXAS, 8/03/90                                        
+PAR/CL/F,        1.16    .29    .04   -.37   -.57   -.71   -.79   -.90    .49    1CL, 4F - BZ TEXAS, 8/03/90                                   
+ORT/CL/ME,        .60    .00    .42    .36    .28    .21    .12    .14    .16    RPS: AS ORTHO(ALKANE)(HALOGEN)
+CIS/CL/ME,       -.80    .00   -.97   -.71   -.53   -.40   -.24   -.13   -.08    RPS: AS CIS(ALKANE)(HALOGEN)              
+CIS/CL/CL,        .40   -.08   -.37   -.17    .09    .05    .01   -.01           Chiung-ju li zhu  JPC IEC-998, 37, 8, 3501
+CIS/HALO/HALO,  -0.30    .00   -.19   -.04    .03    .04    .00   -.03   -.08    Benson (Hf)/ RPS: AS CIS(HALOGEN)(HALOGEN)
+CIS/CL/BR,      -0.30    .00   -.19   -.04    .03    .04    .00   -.03   -.08    Benson (Hf)/ RPS: AS CIS(HALOGEN)(HALOGEN)
+CIS/BR/BR,      -0.30    .00   -.19   -.04    .03    .04    .00   -.03   -.08    Benson (Hf)/ RPS: AS CIS(HALOGEN)(HALOGEN)
+CIS/ALK/HALO,   -0.80    .00   -.97   -.71   -.53   -.40   -.24   -.13   -.08    RPS: AS CIS(ALKANE)(HALOGEN)  
+CIS/ALK/CL,     -0.80    .00   -.97   -.71   -.53   -.40   -.24   -.13   -.08    RPS: AS CIS(ALKANE)(HALOGEN)  
+CIS/ALK/BR,     -0.80    .00   -.97   -.71   -.53   -.40   -.24   -.13   -.08    RPS: AS CIS(ALKANE)(HALOGEN)  
+CIS/ALK/I,      -0.80    .00   -.97   -.71   -.53   -.40   -.24   -.13   -.08    RPS: AS CIS(ALKANE)(HALOGEN)  
+BUTTRESS,         .42   -.25    .37   -.28   -.38   -.38   -.25   -.05    .54    123 Tri me bz, Texas A&M, 7/26/90, Hf opt CH3s-Bz 1/31/91
+BUT/CL/OH/CL,    3.00    .00    .00    .00    .00    .00    .00    .00    .00    Clphenols ab initio                         
+BUT/CL/CL/OH,    1.44    .00    .00    .00    .00    .00    .00    .00    .00    Clphenols ab initio                         
+BUT/CL/CL/CL,   -1.39    .00    .00    .00    .00    .00    .00    .00    .00    Clphenols ab initio                        
+CL/OH/CL,        3.00    .00    .00    .00    .00    .00    .00    .00    .00     CLPHENOLS, AB INITIO
+CL/CL/OH,        1.44    .00    .00    .00    .00    .00    .00    .00    .00     CLPHENOLS, AB INITIO
+CL/CL/CL,       -1.39    .00    .00    .00    .00    .00    .00    .00    .00     CLPHENOLS, AB INITIO
+ORT/ALK/HALO,    0.60    .00    .42    .36    .28    .21    .12    .14    .16    RPS: AS ORTHO(ALKANE)(HALOGEN)
+ORT/ALK/CL,      0.60    .00    .42    .36    .28    .21    .12    .14    .16    RPS: AS ORTHO(ALKANE)(HALOGEN)
+ORT/ALK/BR,      0.60    .00    .42    .36    .28    .21    .12    .14    .16    RPS: AS ORTHO(ALKANE)(HALOGEN)
+ORT/ALK/I,       0.60    .00    .42    .36    .28    .21    .12    .14    .16    RPS: AS ORTHO(ALKANE)(HALOGEN)
+INT/CL3/111,     4.0    0.11  -0.47  -0.14   0.15   0.30   0.46   0.21           Yang-soo
+INT/CL3/112,     4.0   -1.50   0.03   0.21   0.52   0.40   0.52   0.61           Yang-Soo/K chan 3/92
+INT/F3,          6.0    0.00  -0.08  -0.04   0.01   0.11   0.15   0.17           Hf jwb june 95, S Cp 112-111
+INT/F4,          6.0   -1.00  -0.08  -0.04   0.01   0.11   0.15   0.17           Hf jwb june 95, S Cp not done
+INT/F5,         13.0    0.00   0.13   0.03   0.08   0.16   0.50   0.21           Hf jwb june 95, S Cp not done
+INT/F6,         14.7   -0.03   0.13   0.03   0.08   0.16   0.50   0.20           Hf jwb june 95, S Cp not done
+INT/CL2,         2.54  -1.29   0.75   0.46   0.23   0.08  -0.05  -0.05   0.02    Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CL3,         3.85  -1.86   0.58   0.33   0.04  -0.12  -0.24  -0.24   0.2     Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CL4,         5.10  -2.15   0.05  -0.11  -0.26  -0.24  -0.10   0.43   0.73    Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CL5,        10.88  -2.47   0.45   0.02  -0.31  -0.44  -0.53   0.02   0.18    Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CL6,        13.62  -0.87   1.06   0.44  -0.15  -0.44  -0.73  -0.17   0.47    Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CD/CL2,      3.10  -0.13   0.16   0.15   0.03  -0.15  -0.02   0.02   0.13    Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CD/CL3,      5.08   1.50   0.39   0.18   0.04  -0.06   0.01   0.04   0.1     Chiung/D Wong, JPC 102,24,4551, 1998
+INT/CD/CL4,      8.37   2.68   0.79   0.26   0.06   0.02   0.02   0.05   0.09    Chiung/D Wong, JPC 102,24,4551, 1998
+Z/CL/CD3,       18.01   0.65   0.24   -.76   -.60   -.47   -.51   -.40
+GAUCHE-CL,       1.30    .00    .00    .00    .00    .00    .00    .00    .00
+INT/F/F          3.1    0.92  -0.21  -0.25  -0.31  -0.30  -0.34  -0.24   0.01    TAK, JPC 102, 1998
+INT/2F/F         5.7    0.38   0.30   0.25   0.17   0.15   0.03   0.03   0.10    TAK, JPC 102, 1998
+INT/3F/F         7.8    0.85  -0.14  -0.20  -0.24  -0.21  -0.26  -0.21  -0.06    TAK, JPC 102, 1998
+INT/2F/2F        9.8   -0.45   1.61   1.21   0.77   0.48   0.09   0.01   0.06    TAK, JPC 102, 1998
+INT/3F/2F       13.8    0.73   0.08  -0.15  -0.30  -0.34  -0.41  -0.34  -0.13    TAK, JPC 102, 1998
+INT/3F/3F       15.5    0.54   0.24  -0.09  -0.28  -0.34  -0.39  -0.31  -0.13    TAK, JPC 102, 1998
+INT/CD/F2        1.9   -7.34  -0.01  -0.10  -0.12  -0.09  -0.03   0.03   0.10    TAK98
+INT/CD/F3        8.9   -3.70   0.51   0.15  -0.02  -0.07  -0.07  -0.03   0.05    TAK98
+INT/CD/F4       16.1   -2.62   1.12   0.37   0.02  -0.11  -0.15  -0.10   0.00    TAK98
+INT/CT/F2       -0.5   -5.17  -0.97  -0.72  -0.48  -0.29  -0.08  -0.02  -0.03    TAK98
+DUM2,            0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0    0.0       Dummy
+
+
