@@ -140,6 +140,8 @@ def fit_cosFourier(x, y, init_guess=None, n = 6):
         except RuntimeError:
             print 'Error - fit_cisFourier does not converge with 1000 steps'
             opt_parms = init_guess
+        except:
+            print 'Unexpected error! ' + str(sys.exc_info()[0])
 
     deviation = func_cosFourier(x,*opt_parms) - y
     RMS = np.sqrt(np.average(np.power(deviation,2)))
