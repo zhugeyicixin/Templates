@@ -9,9 +9,6 @@ import re
 import os
 import shutil
 
-
-import phys
-import fourier
 import GaussView
 import MomInert
 
