@@ -1,6 +1,5 @@
 # READING--------------------------------------------------------------------------------------
-# Read from specifically formatted excel sheet and store them as data arrays
-# from numpy import *
+
 import numpy as np
 from xlrd import *
 from xlwt import *
@@ -21,7 +20,7 @@ name = 'rotation'
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*|.*_scan.*$')
-pattern_atoms = re.compile('^.*D *([0-9]+) *([0-9]+) *([0-9]+) *([0-9]+) *S.*$')
+pattern_atoms = re.compile('^.*D *([0-9]+) *([0-9]+) *([0-9]+) *([0-9]+).*S *([0-9]+) *(-?[0-9]+\.[0-9]+).*$')
 pattern_energy = re.compile('^.*SCF Done:  E\(U?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$')
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
@@ -41,6 +40,8 @@ lamm1 = lamm.lamm()
 #variables
 atoms = []
 # energy in hatree
+steps = 0
+step_length = 0.0
 energy = []	
 # dihedral in degree
 dihedral = []
@@ -105,6 +106,7 @@ for tmp_file in tmp_fileLists:
 		tmp_fig = plt.figure(figsize=(22,12))
 		tmp_fig2 = plt.figure(figsize=(22,12))
 		tmp_fig3 = plt.figure(figsize=(22,12))
+		print '------------------------------------ ' + tmp_file + ' ----------------------------------------'
 
 
 		os.mkdir('lammInput/' + tmp_file)
@@ -128,6 +130,8 @@ for tmp_file in tmp_fileLists:
 				dihedral_done = 0
 
 				atoms = []
+				steps = 0
+				step_length = 0.0
 				energy = []	
 				dihedral = []
 				energy_cmm1 = []
@@ -150,7 +154,9 @@ for tmp_file in tmp_fileLists:
 					if atoms_done != 1:
 						tmp_m = pattern_atoms.match(tmp_line)
 						if tmp_m:
-							atoms = map(int,tmp_m.groups())
+							atoms = map(int,tmp_m.groups()[0:4])
+							steps = int(tmp_m.group(5))
+							step_length = float(tmp_m.group(6))
 							pattern_dihedral = re.compile('^.*D\(' + str(atoms[0]) + ',' + str(atoms[1]) + ',' + str(atoms[2]) + ',' + str(atoms[3]) + '\) *(-?[0-9]+\.[0-9]+).*-DE/DX.*$')
 							atoms_done = 1
 					elif (standard_done != 1 or coordinate_done != 1 or energy_done != 1 or optimized_done != 1):
@@ -190,8 +196,14 @@ for tmp_file in tmp_fileLists:
 						if tmp_m:
 							tmp_dihedral=float(tmp_m.group(1))
 							if len(dihedral) > 0:
-								while tmp_dihedral < dihedral[-1]:
-									tmp_dihedral = tmp_dihedral + 360
+								if abs(step_length - 10.0) < 1e-2:
+									while tmp_dihedral < dihedral[-1]:
+										tmp_dihedral = tmp_dihedral + 360
+								elif abs(step_length + 10.0) < 1e-2:
+									while tmp_dihedral > dihedral[-1]:
+										tmp_dihedral = tmp_dihedral - 360
+								else:
+									print 'Warning! The step length is neither 10 or -10 degree!'
 							dihedral.append(tmp_dihedral)
 							standard_done = 0
 							coordinate_done = 0
@@ -208,6 +220,8 @@ for tmp_file in tmp_fileLists:
 				dihedral = np.array(dihedral)
 				energy = np.array(energy)
 
+				if step_length < 0:
+					dihedral = 360 - dihedral
 				dihedral_rad = phys1.degreeTorad(dihedral)
 				dihedral_rad = dihedral_rad - dihedral_rad[0]
 				energy_cmm1 = phys1.hatreeTocmm1(energy)
