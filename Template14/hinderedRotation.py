@@ -73,6 +73,7 @@ tmp_m = []
 tmp_energy = 0.0
 tmp_dihedral = 0.0
 tmp_num = 0
+tmp_page = 1
 
 pwd = os.getcwd()
 wb_new = Workbook()
@@ -106,7 +107,7 @@ for tmp_file in tmp_fileLists:
 		tmp_fig = plt.figure(figsize=(22,12))
 		tmp_fig2 = plt.figure(figsize=(22,12))
 		tmp_fig3 = plt.figure(figsize=(22,12))
-		print '------------------------------------ ' + tmp_file + ' ----------------------------------------'
+		print '\n------------------------------------ ' + tmp_file + ' ----------------------------------------'
 
 
 		os.mkdir('lammInput/' + tmp_file)
@@ -256,8 +257,12 @@ for tmp_file in tmp_fileLists:
 
 				# write to excel
 				# original data
+				# if tmp_num > 15:
+				# 	tmp_page += 1
+				# 	sh = wb_new.add_sheet(tmp_file + ' (' + str(tmp_page) + ')')
 				tmp_row = 0
-				tmp_col = 0 + (tmp_num - 1) * 15
+				tmp_col = 0 + (tmp_num - 15 * (tmp_page-1) - 1) * 15
+					
 				sh.col(tmp_col).width = 0x1500
 				sh.write(0, tmp_col+0, tmp_file2,style_blue)
 				sh.write(1, tmp_col+0, 'atoms')
@@ -395,11 +400,11 @@ for tmp_file in tmp_fileLists:
 				tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
 				tmp_ax.set_title(tmp_file2)
 				tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,tmp_num)
-				tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+				tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 				tmp_ax2.plot(lamm_dihedral, inertia, 'b*', dihedral_rad, fourier.func_cosFourier(dihedral_rad,*coeff_I),'r-')
 				tmp_ax2.set_title(tmp_file2)
 				tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,tmp_num)
-				tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+				tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 				tmp_ax3.plot(lamm_dihedral, rotConst, 'b*', dihedral_rad, fourier.func_cosFourier(dihedral_rad,*coeff_B),'r-')
 				tmp_ax3.set_title(tmp_file2)			
 		tmp_fig.show()
