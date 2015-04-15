@@ -104,6 +104,7 @@ for tmp_file in tmp_fileLists:
 	if re.search(name,tmp_file):		
 		sh = wb_new.add_sheet(tmp_file)
 		sh_fit = wb_new.add_sheet(tmp_file + '_fit')
+		tmp_page = 1
 		tmp_fig = plt.figure(figsize=(22,12))
 		tmp_fig2 = plt.figure(figsize=(22,12))
 		tmp_fig3 = plt.figure(figsize=(22,12))
@@ -257,12 +258,12 @@ for tmp_file in tmp_fileLists:
 
 				# write to excel
 				# original data
-				# if tmp_num > 15:
-				# 	tmp_page += 1
-				# 	sh = wb_new.add_sheet(tmp_file + ' (' + str(tmp_page) + ')')
+				if tmp_num > (15*tmp_page) :
+					tmp_page += 1
+					sh = wb_new.add_sheet(tmp_file + ' (' + str(tmp_page) + ')')
 				tmp_row = 0
 				tmp_col = 0 + (tmp_num - 15 * (tmp_page-1) - 1) * 15
-					
+
 				sh.col(tmp_col).width = 0x1500
 				sh.write(0, tmp_col+0, tmp_file2,style_blue)
 				sh.write(1, tmp_col+0, 'atoms')
@@ -410,9 +411,9 @@ for tmp_file in tmp_fileLists:
 		tmp_fig.show()
 		tmp_fig2.show()
 		tmp_fig3.show()
-		tmp_fig.savefig('V' + tmp_file + '.png',dpi=100)
-		tmp_fig2.savefig('I' + tmp_file + '.png',dpi=100)
-		tmp_fig3.savefig('B' + tmp_file + '.png',dpi=100)
+		tmp_fig.savefig('V' + tmp_file + '.png',dpi=300)
+		tmp_fig2.savefig('I' + tmp_file + '.png',dpi=300)
+		tmp_fig3.savefig('B' + tmp_file + '.png',dpi=300)
 		plt.close(tmp_fig)
 		plt.close(tmp_fig2)
 		plt.close(tmp_fig3)
