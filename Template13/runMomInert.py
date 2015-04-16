@@ -112,6 +112,7 @@ for tmp_file2 in tmp_fileLists2:
 wb_new = Workbook()
 sh = wb_new.add_sheet('MomInert')
 # sh.cell_overwrite_ok=True
+sh.col(0).width = 0x1500
 sh.write(0, 0, 'name')
 sh.write(0, 1, 'bond')
 sh.write(0, 2, 'key word')

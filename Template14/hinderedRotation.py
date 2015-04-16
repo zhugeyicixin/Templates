@@ -418,6 +418,8 @@ for tmp_file in tmp_fileLists:
 		plt.close(tmp_fig2)
 		plt.close(tmp_fig3)
 
+if os.path.exists('HR_fit.xls'):
+	os.remove('HR_fit.xls')
 wb_new.save('HR_fit.xls')
 print 'hindered rotation data extracted successfully!'
 

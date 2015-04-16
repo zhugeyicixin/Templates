@@ -72,7 +72,14 @@ class gview:
 		# key: enter
 		win32api.keybd_event(13,0,0,0) 
 		win32api.keybd_event(13,0,win32con.KEYEVENTF_KEYUP,0)
-		time.sleep(1) 
+		time.sleep(0.5)
+		tmp_hwnd = win32gui.FindWindow(None,'warning')
+		if tmp_hwnd:
+			win32gui.SetForegroundWindow(tmp_hwnd)
+			# key: enter
+			win32api.keybd_event(13,0,0,0) 
+			win32api.keybd_event(13,0,win32con.KEYEVENTF_KEYUP,0) 
+		time.sleep(0.5)
 	
 	def saveFile(self, rename):
 		# key: ctrl

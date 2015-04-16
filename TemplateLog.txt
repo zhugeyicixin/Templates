@@ -23,3 +23,5 @@ Template11用于提取指定目录格式下的log文件，并从log文件中提取出计算的能量汇总到ex
 Template13用于hindered rotation中的inertia
 计算稳定物和过渡态的mominert（使用multiwell中的MomInert）
 
+Template15用于修改提交用脚本
+可以用于在Tsinghua cluster和Prof. You's cluster之间切换
