@@ -3,7 +3,6 @@ import scipy as sp
 import scipy.optimize
 import matplotlib.pyplot as plt
 import sys
-from scipy import optimize
 
 import phys
 
@@ -71,9 +70,9 @@ def fit_arrhenius(T, k, init_guess=None):
             print 'Unexpected error!' + str(sys.exc_info()[0])
             opt_parms1 = init_guess
 
-        # opt_parms = optimize.leastsq(resi_arrhenius, init_guess, args=(k, T))
-        opt_parms2 = optimize.leastsq(resi_arrheniuslog, init_guess, args=(np.log(k), T))
-        # opt_parms = optimize.leastsq(resi_arrheniuslogTm1, init_guess, args=(np.log(k), 1.0/T))
+        # opt_parms = sp.optimize.leastsq(resi_arrhenius, init_guess, args=(k, T))
+        opt_parms2 = sp.optimize.leastsq(resi_arrheniuslog, init_guess, args=(np.log(k), T))
+        # opt_parms = sp.optimize.leastsq(resi_arrheniuslogTm1, init_guess, args=(np.log(k), 1.0/T))
         opt_parms2 = opt_parms2[0]
 
         deviation1 = func_arrhenius(T,*opt_parms1) - k
