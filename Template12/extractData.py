@@ -1,11 +1,13 @@
 # READING--------------------------------------------------------------------------------------
 # Read from specifically formatted excel sheet and store them as data arrays
-from numpy import *
+import numpy as np
 from xlrd import *
 from xlwt import *
 from xlutils.copy import copy
 import re
 import os
+
+__energy__ = 'cbs'
 
 ###################
 #get reactions to calculate
@@ -16,6 +18,20 @@ tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
 	if re.search('.name',tmp_file):
 		name = tmp_file[0:-5]
+		fr = file(tmp_file, 'r')
+		tmp_lines = fr.readlines()
+		tmp_line = tmp_lines[3].strip(' \n')
+		if tmp_line == 'cbs':
+			__energy__ = 'cbs'
+			# note that if __energy__ == 'cbs', a cbs freq check would be used. 
+			# Sometimes another opt and freq would be done before cbs. This check is used to skip reading the information of other methods. 
+			print '\n-------------------------------------\ncbs freq and energy are used in this calculation\n-------------------------------------\n'
+		elif tmp_line == 'b3lyp':
+			__energy__ = 'b3lyp'
+			print '\n-------------------------------------\nb3lyp freq and energy are used in this calculation\n-------------------------------------\n'
+		else:
+			print '\n-------------------------------------\nWarning! CBS or b3lyp energy is not announced! CBS is used as default!\n-------------------------------------\n'
+		fr.close()	
 
 wb=open_workbook('template.xls')
 sh=wb.sheet_by_index(0)
@@ -46,8 +62,8 @@ num_prod = 1
 
 for tmp_row in range(2,num_rows):
 	if int(sh.cell_value(tmp_row,0)) != 0:
-		num_reac = int(int(sh.cell_value(tmp_row,0))/10);
-		num_prod = int(sh.cell_value(tmp_row,0))%10;
+		num_reac = int(int(sh.cell_value(tmp_row,0))/10)
+		num_prod = int(sh.cell_value(tmp_row,0))%10
 		tmp_name = []
 		tmp_abbr = []
 		tmp_form = []
@@ -102,7 +118,10 @@ pattern_freq = re.compile('^.*Frequencies -- *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0
 pattern_RSN = re.compile('^.*Rotational symmetry number *([0-9]+).*$')
 pattern_rots = re.compile('^.*Rotational constants \(GHZ\): *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+)$')
 pattern2_rots = re.compile('^.*Rotational constant \(GHZ\): *(-?[0-9]+\.[0-9]+)$')
-pattern_energy = re.compile('^.*Sum of electronic and zero-point Energies= *(-?[0-9]+\.[0-9]+).*$')
+if __energy__ == 'cbs':
+	pattern_energy = re.compile('^.*CBS-QB3 \(0 K\)= *(-?[0-9]+\.[0-9]+).*$')
+else:
+	pattern_energy = re.compile('^.*Sum of electronic and zero-point Energies= *(-?[0-9]+\.[0-9]+).*$')
 
 #definition of counter
 count = 0					#count the num of line maybe tell() could be useful you could have a try if needed
@@ -161,12 +180,17 @@ for i in range(len(allSpecies_name)):
 		rots = []					
 		energy = 0.0				
 
-		cbs_done = 1
 		multi_done = -1
 		freq_done = -1
 		RSN_done = -1
 		rots_done = -1
 		energy_done = -1
+
+		# only if __energy__ == 'cbs', then check whether the freq file is cbs file 
+		if __energy__ == 'cbs':
+			cbs_done = -1
+		else:
+			cbs_done = 1
 
 		tmp_all_lines = freqFile.readlines()
 		for line in tmp_all_lines:
@@ -231,7 +255,7 @@ for i in range(len(allSpecies_name)):
 		sh.write(tmp_row,11,float(rots[0]))
 		sh.write(tmp_row,12,float(rots[1]))
 		sh.write(tmp_row,13,float(rots[2]))
-		sh.write(tmp_row,14,sqrt(float(rots[1])*float(rots[2])))
+		sh.write(tmp_row,14,np.sqrt(float(rots[1])*float(rots[2])))
 		sh.write(tmp_row,15,int(RSN))
 		sh.write(tmp_row,16,int(multi))
 		sh.write(tmp_row,17,allSpecies_name[i][j])

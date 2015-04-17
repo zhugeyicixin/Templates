@@ -1,17 +1,34 @@
 # READING--------------------------------------------------------------------------------------
 # Read from specifically formatted excel sheet and store them as data arrays
-from numpy import *
 from xlrd import *
 import os
 import re
+import shutil
+
+__barrier__ = True
 
 # from xlrd import open_workbook,cellname
 name = ''
+temperature=[298.15, 300, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500]
 pwd = os.getcwd()
 tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
 	if re.search('.name',tmp_file):
 		name = tmp_file[0:-5]
+		fr = file(tmp_file, 'r')
+		tmp_lines = fr.readlines()
+		tmp_line = tmp_lines[1].strip(' \n')
+		if tmp_line == 'barrier':
+			__barrier__ = True
+			print '\n-------------------------------------\nbarrier reactions\n-------------------------------------\n'
+		elif tmp_line == 'barrierless':
+			__barrier__ = False
+			print '\n-------------------------------------\nbarrierless reaction\n-------------------------------------\n'
+		else:
+			print '\n-------------------------------------\nWarning! Barrier or barrierless is not announced! Barrier is used as default!\n-------------------------------------\n'
+		tmp_line = tmp_lines[5].strip(' \n')
+		temperature = map(float, tmp_line.split())			
+		fr.close()	
 
 wb=open_workbook(name + '.xls')
 sh=wb.sheet_by_index(1)
@@ -142,8 +159,9 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
 			tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
+			if not tmp_i_freq[-1] > 0:
+				print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
 			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
-
 
 			tmp2_freq = []
 			for col_num in range(tmp_num_freq[-1]): 
@@ -173,20 +191,20 @@ print 'get reverse reactions successfully!'
 # WRITING --------------------------------------------------------------------------------------
 
 total = len(name_TS)
-if not os.path.exists(os.getcwd()+'/thermoReverseInput'):
-	os.mkdir('thermoReverseInput')
+if os.path.exists(os.getcwd()+'/thermoReverseInput'):
+	shutil.rmtree(os.getcwd()+'/thermoReverseInput')
+os.mkdir('thermoReverseInput')
+if os.path.exists(os.getcwd()+'/thermoReverseInputATM'):
+	shutil.rmtree(os.getcwd()+'/thermoReverseInputATM')
+os.mkdir('thermoReverseInputATM')
 
 for k in range(total):
-	h=open('thermoReverseInput/thermo_' + name_TS[k][0] +'.dat','w')
+	fw = file('thermoReverseInput/thermo_' + name_TS[k][0] +'.dat','w')
 	#write information about R
-	h.write(
-'''KCAL  MCC
-29
-298.15 300 400 450	500	550	600	650	700	750	800 850 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 2100 2200 2300 2400 2500
-''' + str(len(name_R[k])+len(name_TS[k])))
+	fw.write('KCAL  MCC\n' + str(len(temperature)) + '\n' + ''.join(str(x) + ' ' for x in temperature) + '\n' + str(len(name_R[k])+len(name_TS[k])))
 
 	for i in range(len(name_R[k])):
-		h.write('''
+		fw.write('''
 reac  ''' + name_R[k][i] + "  " + str(energy_R[k][i]) + "\n" + \
 formula_R[k][i] + '''
 1. (blank comment line)
@@ -196,22 +214,31 @@ formula_R[k][i] + '''
 0.0   ''' + str(multi_R[k][i]) + '\n')
 
 		if abs(K_rotor_R[k][i]) > 0.001:
-			h.write(str(num_freq_R[k][i] + 2) + "\tHAR\tGHZ\n")
+			fw.write(str(num_freq_R[k][i] + 2) + "\tHAR\tGHZ\n")
 		else:
-			h.write(str(num_freq_R[k][i] + 1) + "\tHAR\tGHZ\n")
+			fw.write(str(num_freq_R[k][i] + 1) + "\tHAR\tGHZ\n")
 
 		for m in range(num_freq_R[k][i]):
-			h.write(str(m+1) + "\tvib\t" + str(freq_R[k][i][m]) + "\t\t0\t1\n")
+			fw.write(str(m+1) + "\tvib\t" + str(freq_R[k][i][m]) + "\t\t0\t1\n")
 				
 		#why not use kro but qro here
 		if abs(K_rotor_R[k][i]) > 0.001:
-			h.write(str(m+2) + "\tqro\t" + str(K_rotor_R[k][i]) + "\t\t1\t1\t!	K-rotor\n")
-			h.write(str(m+3) + "\tqro\t" + str(TwoD_rotor_R[k][i]) + "\t\t1\t2\t!	2D\n\n")
+			fw.write(str(m+2) + "\tqro\t" + str(K_rotor_R[k][i]) + "\t\t1\t1\t!	K-rotor\n")
+			fw.write(str(m+3) + "\tqro\t" + str(TwoD_rotor_R[k][i]) + "\t\t1\t2\t!	2D\n\n")
 		else:
-			h.write(str(m+2) + "\tqro\t" + str(TwoD_rotor_R[k][i]) + "\t\t1\t2\t!	2D\n\n")
+			fw.write(str(m+2) + "\tqro\t" + str(TwoD_rotor_R[k][i]) + "\t\t1\t2\t!	2D\n\n")
 
 	#write information about TS
-	h.write("ctst\t" + name_TS[k][0]  + "\t" + str(energy_TS[k][0]) + "  0.0" + "  0.0" + '''\t!!!!!!!!!!!    <= loose TS
+	if __barrier__ == True:
+		fw.write("ctst\t" + name_TS[k][0]  + "\t" + str(energy_TS[k][0]) + "  " + str(i_freq_TS[k][0]) + "  " + str(reverse_barrier[k][0]) + '''\t!!!!!!!!!!!    <= TS
+''' + formula_TS[k][0] + '''
+1. (blank comment line)
+2. (blank comment line)
+3. (blank comment line)
+''' + str(RSN_TS[k][0]) + '''   1   1
+0.0   ''' + str(multi_TS[k][0]) + '\n' + str(num_freq_TS[k][0] + 2) + "\tHAR GHZ\n")
+	else:
+		fw.write("ctst\t" + name_TS[k][0]  + "\t" + str(energy_TS[k][0]) + "  0.0" + "  0.0" + '''\t!!!!!!!!!!!    <= loose TS
 ''' + formula_TS[k][0] + '''
 1. (blank comment line)
 2. (blank comment line)
@@ -220,12 +247,19 @@ formula_R[k][i] + '''
 0.0   ''' + str(multi_TS[k][0]) + '\n' + str(num_freq_TS[k][0] + 2) + "\tHAR GHZ\n")
 
 	for m in range(num_freq_TS[k][0]):
-		h.write(str(m+1) + "\tvib\t" + str(freq_TS[k][0][m]) + "\t\t0\t1\n")
+		fw.write(str(m+1) + "\tvib\t" + str(freq_TS[k][0][m]) + "\t\t0\t1\n")
 			
 	#why not use kro but qro here
-	h.write(str(m+2) + "\tqro\t" + str(K_rotor_TS[k][0]) + "\t\t1\t1\t!	K-rotor\n")
-	h.write(str(m+3) + "\tqro\t" + str(TwoD_rotor_TS[k][0]) + "\t\t1\t2\t!	2D\n\n")		
-
+	fw.write(str(m+2) + "\tqro\t" + str(K_rotor_TS[k][0]) + "\t\t1\t1\t!	K-rotor\n")
+	fw.write(str(m+3) + "\tqro\t" + str(TwoD_rotor_TS[k][0]) + "\t\t1\t2\t!	2D\n\n")		
+	fw.close()
+	fr = file('thermoReverseInput/thermo_' + name_TS[k][0] +'.dat','r')
+	tmp_lines = fr.readlines()
+	fr.close()
+	tmp_lines[0]='KCAL  ATM\n'
+	fw = file('thermoReverseInputATM/thermo_' + name_TS[k][0] +'.dat','w')
+	fw.writelines(tmp_lines)	
+	fw.close()
 # for loops of all reactions ended
 
 print '\nThermo reverse input generated successfully!\n'		

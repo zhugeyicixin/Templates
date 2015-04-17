@@ -5,7 +5,6 @@ from xlrd import *
 from xlwt import *
 import pyExcelerator
 from xlutils.copy import copy
-from re import *
 import re
 import os
 import shutil
@@ -383,7 +382,7 @@ for tmp_file in tmp_fileLists:
 				tmp_col2 = tmp_col2 + 2
 				sh_fit.write(tmp_row2, tmp_col2+0, len(coeff_V)-1, style_blue)
 				sh_fit.write(tmp_row2, tmp_col2+1, len(coeff_I)-1, style_blue)
-				sh_fit.write(tmp_row2, tmp_col2+2, 0, style_blue)
+				sh_fit.write(tmp_row2, tmp_col2+2, 1, style_blue)
 				sh_fit.write(tmp_row2+1, tmp_col2+0, 1, style_blue)
 				sh_fit.write(tmp_row2+1, tmp_col2+1, '0.0', style_blue)
 				sh_fit.write(tmp_row2+2, tmp_col2+0, 1, style_blue)
