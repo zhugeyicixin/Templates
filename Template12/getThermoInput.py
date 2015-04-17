@@ -136,9 +136,6 @@ total = len(name_TS)
 if os.path.exists(os.getcwd()+'/thermoInput'):
 	shutil.rmtree(os.getcwd()+'/thermoInput')
 os.mkdir('thermoInput')
-if os.path.exists(os.getcwd()+'/thermoInputATM'):
-	shutil.rmtree(os.getcwd()+'/thermoInputATM')
-os.mkdir('thermoInputATM')
 
 for k in range(total):
 
@@ -193,14 +190,6 @@ formula_R[k] + '''
 	fw.write(str(m+2) + "\tqro\t" + str(K_rotor_TS[k]) + "\t\t1\t1\t!	K-rotor\n")
 	fw.write(str(m+3) + "\tqro\t" + str(TwoD_rotor_TS[k]) + "\t\t1\t2\t!	2D\n\n")
 	fw.close()
-	fr = file('thermoInput/thermo_' + name_TS[k]+'.dat','r')
-	tmp_lines = fr.readlines()
-	fr.close()
-	tmp_lines[0]='KCAL  ATM\n'
-	fw = file('thermoInputATM/thermo_' + name_TS[k]+'.dat','w')
-	fw.writelines(tmp_lines)
-	fw.close()
-
 
 # for loops of all reactions ended
 

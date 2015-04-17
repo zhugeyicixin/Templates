@@ -81,7 +81,7 @@ def fit_arrhenius_noGuess(T, k, threshold = 1e-6):
     rela_deviation = deviation/k
     rela_RMS = np.sqrt(np.average(np.power(rela_deviation,2)))
     if rela_RMS > threshold:
-        print 'Warning! The relative RMS is larger then the threshold!'
+        print 'Warning! The relative RMS ' + str(rela_RMS) + ' is larger then the threshold ' + str(threshold) + '!'
     RMS = np.sqrt(np.average(np.power(deviation,2)))
     if __printError__ == True:
         print 'RMS\t' + str(RMS)
