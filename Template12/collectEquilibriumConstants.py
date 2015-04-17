@@ -247,7 +247,7 @@ for (index, tmp_name) in enumerate(reacNames):
 
 wb_new.save(name + '.xls')
 
-print 'Equilibrium constants collected successfully!'
+print 'Equilibrium constants collected successfully!\n'
 
 
 

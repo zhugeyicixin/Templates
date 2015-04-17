@@ -37,7 +37,7 @@ for tmp_file in tmp_fileLists:
 		fw.writelines(tmp_lines)
 		fw.close()
 
-print 'save Thermo ATM files successfully!'
+print 'save Thermo ATM files successfully!\n'
 		
 
 

@@ -87,7 +87,7 @@ for tmp_file in tmp_fileLists:
 
 wb_new.save(name + '.xls')
 
-print 'run Reverse Thermo successfully!'
+print 'run Reverse Thermo successfully!\n'
 		
 
 

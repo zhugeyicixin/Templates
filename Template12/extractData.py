@@ -302,7 +302,7 @@ for i in range(len(allSpecies_name)):
 	tmp_energies.append(tmp2_energies)
 
 wb_new.save(name + '.xls')
-print 'data extracted successfully!'
+print 'data extracted successfully!\n'
 
 
 # THE END

@@ -179,13 +179,22 @@ for (index, tmp_name) in enumerate(reacNames):
 	rate_f[index] = np.array(rate_f[index])
 	rate_r[index] = np.array(rate_r[index])
 	Kconst[index] = np.array(Kconst[index])	
-	tmp_coeff, tmp_deviation = arrhenius.fit_arrhenius_noGuess(T_fit, rate_f[index][2:13], threshold=5e-2)
+	
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_f[index][2:13], threshold=5e-2)
+	if rela_RMS > 5e-2:
+		print 'reaction name:\t' + tmp_name + '\ttype:\tforward rate fitting\n---'
 	coeff_f.append(tmp_coeff)
 	deviation_f.append(tmp_deviation)
-	tmp_coeff, tmp_deviation = arrhenius.fit_arrhenius_noGuess(T_fit, rate_r[index][2:13], threshold=5e-2)
+
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_r[index][2:13], threshold=5e-2)
+	if rela_RMS > 5e-2:
+		print 'reaction name:\t' + tmp_name + '\ttype:\treverse rate fitting\n---'
 	coeff_r.append(tmp_coeff)
 	deviation_r.append(tmp_deviation)
-	tmp_coeff, tmp_deviation = arrhenius.fit_arrhenius_noGuess(T_fit, Kconst[index][2:13], threshold=5e-2)
+
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, Kconst[index][2:13], threshold=5e-2)
+	if rela_RMS > 5e-2:
+		print 'reaction name:\t' + tmp_name + '\ttype:\tequilibrium constant fitting\n---'
 	coeff_K.append(tmp_coeff)
 	deviation_K.append(tmp_deviation)
 
@@ -301,7 +310,7 @@ for (index, tmp_name) in enumerate(reacNames):
 
 wb_new.save(name + '.xls')
 
-print 'Arrhenius fiited successfully!'
+print 'Arrhenius fiited successfully!\n'
 
 
 

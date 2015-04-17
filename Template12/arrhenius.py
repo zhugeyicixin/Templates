@@ -3,6 +3,7 @@ import scipy as sp
 import scipy.optimize
 import matplotlib.pyplot as plt
 import sys
+from scipy import optimize
 
 import phys
 
@@ -23,6 +24,9 @@ def func_arrhenius(T, *a):
 def func_arrheniuslog(T, *a):
     return np.log(a[0])+a[1]*np.log(T)-phys1.calToJoul(a[2])/phys1.R/T
 
+def func_arrheniuslogTm1(Tm1, *a):
+    return np.log(a[0])-a[1]*np.log(Tm1)-phys1.calToJoul(a[2])*Tm1/phys1.R    
+
 # the 3-parameter arrhenius formula
 # unit: Ea [cal/mol], A [s**-1 or cm**-3/mol/s], k [s**-1 or cm**-3/mol/s] 
 def func_arrhenius3(T, A, n, Ea):
@@ -30,6 +34,15 @@ def func_arrhenius3(T, A, n, Ea):
 
 def func_arrhenius3log(T, A, n, Ea):
     return np.log(A)+n*np.log(T)-phys1.calToJoul(Ea)/phys1.R/T
+
+def resi_arrhenius(a, k, T):
+    return k - func_arrhenius(T, *a)
+
+def resi_arrheniuslog(a, ln_k, T):
+    return ln_k - func_arrheniuslog(T, *a)
+
+def resi_arrheniuslogTm1(a, ln_k, Tm1):
+    return ln_k - func_arrheniuslogTm1(Tm1, *a)    
 
 # fit arrhenius
 def fit_arrhenius(T, k, init_guess=None):
@@ -49,12 +62,32 @@ def fit_arrhenius(T, k, init_guess=None):
     else:
         try:
             # opt_parms, parm_cov = sp.optimize.curve_fit(func_arrhenius, T, k, p0 = init_guess, maxfev=1000)
-            opt_parms, parm_cov = sp.optimize.curve_fit(func_arrheniuslog, T, np.log(k), p0 = init_guess, maxfev=1000)
+            opt_parms1, parm_cov = sp.optimize.curve_fit(func_arrheniuslog, T, np.log(k), p0 = init_guess, maxfev=1000)
+            # opt_parms, parm_cov = sp.optimize.curve_fit(func_arrheniuslogTm1, 1.0/T, np.log(k), p0 = init_guess, maxfev=1000)            
         except RuntimeError:
-            print 'Error - fit_arrhenius does not converge with 1000 steps'
-            opt_parms = init_guess
+            # print 'Error - fit_arrhenius does not converge with 1000 steps'
+            opt_parms1 = init_guess
         except:
-            print 'Unexpected error!' + str(sys.exc_info()[0])    
+            print 'Unexpected error!' + str(sys.exc_info()[0])
+            opt_parms1 = init_guess
+
+        # opt_parms = optimize.leastsq(resi_arrhenius, init_guess, args=(k, T))
+        opt_parms2 = optimize.leastsq(resi_arrheniuslog, init_guess, args=(np.log(k), T))
+        # opt_parms = optimize.leastsq(resi_arrheniuslogTm1, init_guess, args=(np.log(k), 1.0/T))
+        opt_parms2 = opt_parms2[0]
+
+        deviation1 = func_arrhenius(T,*opt_parms1) - k
+        rela_deviation1 = deviation1/k
+        rela_RMS1 = np.sqrt(np.average(np.power(rela_deviation1,2)))
+        deviation2 = func_arrhenius(T,*opt_parms2) - k
+        rela_deviation2 = deviation2/k
+        rela_RMS2 = np.sqrt(np.average(np.power(rela_deviation2,2)))
+        if rela_RMS1 < rela_RMS2:
+            opt_parms = opt_parms1
+            # print 'curve_fit win', rela_RMS1, rela_RMS2
+        else:
+            opt_parms = opt_parms2
+            # print 'leastsq win', rela_RMS1, rela_RMS2
 
     deviation = func_arrhenius(T,*opt_parms) - k
     RMS = np.sqrt(np.average(np.power(deviation,2)))
@@ -86,7 +119,7 @@ def fit_arrhenius_noGuess(T, k, threshold = 1e-6):
     if __printError__ == True:
         print 'RMS\t' + str(RMS)
         print 'relative RMS\t' + str(rela_RMS)
-    return coeff, deviation
+    return coeff, deviation, rela_RMS
 
 
 
