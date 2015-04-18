@@ -1,27 +1,27 @@
-ÓÃÓÚThermo in Multiwell¼ÆËã
-Template4ºÍ5ÊÇ×îÍêÕûµÄ°æ±¾ ¿ÉÒÔ¼ÆËãÕıÄæ·´Ó¦ £¨»¹ĞèÒª¸Ä½øÆäÖĞµÄsymmetry number¡¢optical isomersºÍmultiplicityµÄ²¿·Ö£¬¶ÔÓÚÒ»°ãµÄridical»¹¿ÉÒÔ£¬µ«ÊÇ²»ÊÊÓÃÓÚÓĞ¶Ô³ÆĞÔµÄmolecule£¬Í¬Ê±ÓĞÊÖĞÔÌ¼Ô­×ÓµÄ½á¹¹»¹ĞèÒªbenchmark½øĞĞ¶Ô±È£©
-Template4Ê¹ÓÃfreqÎÄ¼şÖĞµÚÒ»´ÎµÄfreq
-Template5¼ì²éfreqÊÇ·ñÓĞcbs²¿·Ö£¬Ö»ÄÜÊ¹ÓÃcbs²¿·ÖµÄfreq£¬ÕÒ²»µ½»á±¨´í
-//¾É°æ±¨·Ï Template6ÓÃÓÚ¼ÆËãbarrierless reactions
-Template12ÓÃÓÚ¼ÆËãbarrierless reaction ÆäÖĞµÄÄÜÁ¿ĞèÒªÑ¡Ôñ£¨cbs¿ª¹ØºÍÄÜÁ¿ÌáÈ¡¹Ø¼ü×Ö£©
+ç”¨äºThermo in Multiwellè®¡ç®—
+Template4å’Œ5æ˜¯æœ€å®Œæ•´çš„ç‰ˆæœ¬ å¯ä»¥è®¡ç®—æ­£é€†ååº” ï¼ˆè¿˜éœ€è¦æ”¹è¿›å…¶ä¸­çš„symmetry numberã€optical isomerså’Œmultiplicityçš„éƒ¨åˆ†ï¼Œå¯¹äºä¸€èˆ¬çš„ridicalè¿˜å¯ä»¥ï¼Œä½†æ˜¯ä¸é€‚ç”¨äºæœ‰å¯¹ç§°æ€§çš„moleculeï¼ŒåŒæ—¶æœ‰æ‰‹æ€§ç¢³åŸå­çš„ç»“æ„è¿˜éœ€è¦benchmarkè¿›è¡Œå¯¹æ¯”ï¼‰
+Template4ä½¿ç”¨freqæ–‡ä»¶ä¸­ç¬¬ä¸€æ¬¡çš„freq
+Template5æ£€æŸ¥freqæ˜¯å¦æœ‰cbséƒ¨åˆ†ï¼Œåªèƒ½ä½¿ç”¨cbséƒ¨åˆ†çš„freqï¼Œæ‰¾ä¸åˆ°ä¼šæŠ¥é”™
+//æ—§ç‰ˆæŠ¥åºŸ Template6ç”¨äºè®¡ç®—barrierless reactions
+Template12ç”¨äºè®¡ç®—barrier/barrierless reaction, å…¶ä¸­çš„èƒ½é‡å¯ä»¥é€‰æ‹©ï¼ˆcbså¼€å…³å’Œèƒ½é‡æå–å…³é”®å­—ï¼‰,æ¸©åº¦ä¹Ÿå¯ä»¥é€‰æ‹©
 
-ÓÃÓÚgaussian¼ÆËã
-Template7ÓÃÓÚÌáÈ¡cbs-qb3ÓÅ»¯ºóµÄ×ø±ê½øĞĞirc
+ç”¨äºgaussianè®¡ç®—
+Template7ç”¨äºæå–cbs-qb3ä¼˜åŒ–åçš„åæ ‡è¿›è¡Œirc
 
-ÓÃÓÚgaussian¼ì²éÊı¾İ
-Template8 optCheck ÓÃÓÚÌáÈ¡Ã¿²½ÓÅ»¯ÖĞµÄÄÜÁ¿ 
+ç”¨äºgaussianæ£€æŸ¥æ•°æ®
+Template8 optCheck ç”¨äºæå–æ¯æ­¥ä¼˜åŒ–ä¸­çš„èƒ½é‡ 
 
-thermodynamic¼ÆËã
-Template9 Ê¹ÓÃTHERMÅúÁ¿¼ÆËãthermodynamic data
+thermodynamicè®¡ç®—
+Template9 ä½¿ç”¨THERMæ‰¹é‡è®¡ç®—thermodynamic data
 
-ÓÃÓÚgaussian»òÕßmolpro¼ÆËã
-Template10ÓÃÓÚÌáÈ¡scanÖĞµÄ×ø±ê£¬Éú³É¸÷¸ö·´Ó¦×ø±ê£¨¼ü³¤µÈ£©¶ÔÓ¦µÄÊäÈëÎÄ¼ş 
+ç”¨äºgaussianæˆ–è€…molproè®¡ç®—
+Template10ç”¨äºæå–scanä¸­çš„åæ ‡ï¼Œç”Ÿæˆå„ä¸ªååº”åæ ‡ï¼ˆé”®é•¿ç­‰ï¼‰å¯¹åº”çš„è¾“å…¥æ–‡ä»¶ 
 
-ÓÃÓÚgaussianºó´¦Àí
-Template11ÓÃÓÚÌáÈ¡Ö¸¶¨Ä¿Â¼¸ñÊ½ÏÂµÄlogÎÄ¼ş£¬²¢´ÓlogÎÄ¼şÖĞÌáÈ¡³ö¼ÆËãµÄÄÜÁ¿»ã×Üµ½excelÖĞ
+ç”¨äºgaussianåå¤„ç†
+Template11ç”¨äºæå–æŒ‡å®šç›®å½•æ ¼å¼ä¸‹çš„logæ–‡ä»¶ï¼Œå¹¶ä»logæ–‡ä»¶ä¸­æå–å‡ºè®¡ç®—çš„èƒ½é‡æ±‡æ€»åˆ°excelä¸­
 
-Template13ÓÃÓÚhindered rotationÖĞµÄinertia
-¼ÆËãÎÈ¶¨ÎïºÍ¹ı¶ÉÌ¬µÄmominert£¨Ê¹ÓÃmultiwellÖĞµÄMomInert£©
+Template13ç”¨äºhindered rotationä¸­çš„inertia
+è®¡ç®—ç¨³å®šç‰©å’Œè¿‡æ¸¡æ€çš„mominertï¼ˆä½¿ç”¨multiwellä¸­çš„MomInertï¼‰
 
-Template15ÓÃÓÚĞŞ¸ÄÌá½»ÓÃ½Å±¾
-¿ÉÒÔÓÃÓÚÔÚTsinghua clusterºÍProf. You's clusterÖ®¼äÇĞ»»
+Template15ç”¨äºä¿®æ”¹æäº¤ç”¨è„šæœ¬
+å¯ä»¥ç”¨äºåœ¨Tsinghua clusterå’ŒProf. You's clusterä¹‹é—´åˆ‡æ¢
