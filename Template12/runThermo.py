@@ -32,8 +32,10 @@ tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
 	if re.search('.out',tmp_file):
 		os.remove(tmp_file)
-	else:
+	elif re.search('.dat', tmp_file):
 		os.system('thermo ' + tmp_file)
+	else:
+		pass
 tmp_fileLists = os.listdir(pwd)
 tmp_fileLists = [tmp_file for tmp_file in tmp_fileLists if re.search('.out',tmp_file)]
 os.chdir('..')
@@ -46,8 +48,10 @@ tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
 	if re.search('.out',tmp_file):
 		os.remove(tmp_file)
-	else:
+	elif re.search('.dat', tmp_file):
 		os.system('thermo ' + tmp_file)
+	else:
+		pass
 tmp_fileLists = os.listdir(pwd)
 tmp_fileLists = [tmp_file for tmp_file in tmp_fileLists if re.search('.out',tmp_file)]
 os.chdir('..')
@@ -61,7 +65,7 @@ sh.cell_overwrite_ok = True
 tmp_row = 3
 
 for tmp_file in tmp_fileLists:
-	sh.write(tmp_row,0,tmp_file[7:-4])
+	sh.write(tmp_row,0,tmp_file[0:-4])
 	fr = file('thermoOutput/'+tmp_file,'r')
 	lastlines = fr.readlines()[-len(temperature):]
 	for tmp_line in lastlines:

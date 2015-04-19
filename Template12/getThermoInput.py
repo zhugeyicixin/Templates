@@ -143,7 +143,7 @@ for k in range(total):
 	
 	# Open the new .dat file and append the remaining changes to the file
 	#with open('thermo_{0}.dat'.format((bond_length[k])*100),'a') as fw:
-	fw = file('thermoInput/thermo_' + name_TS[k]+'.dat','w')
+	fw = file('thermoInput/' + name_TS[k]+'.dat','w')
 
 	#write information about R
 	fw.write(

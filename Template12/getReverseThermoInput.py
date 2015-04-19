@@ -196,7 +196,7 @@ if os.path.exists(os.getcwd()+'/thermoReverseInput'):
 os.mkdir('thermoReverseInput')
 
 for k in range(total):
-	fw = file('thermoReverseInput/thermo_' + name_TS[k][0] +'.dat','w')
+	fw = file('thermoReverseInput/' + name_TS[k][0] +'.dat','w')
 	#write information about R
 	fw.write('KCAL  MCC\n' + str(len(temperature)) + '\n' + ''.join(str(x) + ' ' for x in temperature) + '\n' + str(len(name_R[k])+len(name_TS[k])))
 
