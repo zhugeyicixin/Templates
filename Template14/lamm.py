@@ -21,6 +21,13 @@ class lamm:
 		self.location = location
 
 	def genInput(self, geoms, dihedral = [], energy_cmm1=[]):
+		step_length = dihedral[1] - dihedral[0]
+		cycle_size = 360.0 / step_length
+		if (round(cycle_size) > len(dihedral)):
+			print 'Warning! Input data is shorter than a whole cycle!'
+		if (cycle_size - round(cycle_size)) > 1e-2:
+		    print 'Warning! A cycle 360 degree is not a integral multiple of the step length!'
+
 		fw = file('lamm.dat', 'w')
 		fw.write(geoms[0].label + '\n')
 		fw.write(
@@ -28,7 +35,7 @@ class lamm:
 
 ''' + str(geoms[0].getAtomsNum()) + '''               !Number of atoms in the molecule
 
-0, ''' + str(len(geoms)) + ''', 10       ! Minumum angle, No. of Points and Stepsize (in degrees)
+0, ''' + str(len(geoms)) + ', ' + str(round(step_length)) +'''       ! Minumum angle, No. of Points and Stepsize (in degrees)
 
 ''')
 		for tmp_atom in geoms[0].atoms:
@@ -42,10 +49,7 @@ class lamm:
 ''''WARNING: The zero of the relative energy is arbitrary minimum'
 
 ''')
-		if abs(dihedral[1] - dihedral[0] - 10) > 1e-2:
-			print 'Error! The step is not 10 degree!'
-		if len(dihedral) < 37:
-			print 'Error! The scan points is less than 37!'
+
 		for i in range(0, len(dihedral)):
 			fw.write(str(10*i) + '\t' + str(energy_cmm1[i]) + '\n')
 		fw.write('\n\n\n\n\n\n')
@@ -84,7 +88,6 @@ class lamm:
 		dihedral = []
 		inertias = []
 		rotConsts = []
-		step = 10/180*np.pi
 		part_inertias = {}
 		part_rotConsts = {}
 		interpolationNum = {}

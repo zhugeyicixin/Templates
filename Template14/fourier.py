@@ -48,21 +48,32 @@ def fourier(x, y, n = -1, threshold = 1e-6):
     # pay attention that f(x)=a0+sum(ai*cos(i*x)+bi*sin(i*x)), a0 is the same as a0/2 in original fourier formula!
     # when n < 0, the threshold is used in trancation
     # when n > 0, the threshold is ignored and n is the trancation length
+    # the unit of x is rad
     a = [0]
     b = [0]
     if n < 0:
         n = MAX_ORDER + 1
-        # 100 items are used to control the time
-    a[0] = sum(y[0:36])/18/2
+        # MAX_ORDER items are used to control the time
+
+    step_length = x[1] - x[0]
+    cycle_size = 2.0 * np.pi / step_length
+    if (round(cycle_size) > len(x)):
+        print 'Warning! Input data is shorter than a whole cycle!'
+    if (cycle_size - round(cycle_size)) > 1e-2:
+        print 'Warning! A cycle 360 degree is not a integral multiple of the step length!'
+    cycle_size = round(cycle_size)
+
+    a[0] = np.average(y[0:cycle_size])
     deviation = a[0] - y
+
     RMS = np.sqrt(np.average(np.power(deviation,2)))
     for i in range(1,n+1):
-        tmp_cos = np.cos(i*x[0:36])
-        tmp_a = sum(y[0:36]*tmp_cos[0:36])/18
+        tmp_cos = np.cos(i*x[0:cycle_size])
+        tmp_a = sum(y[0:cycle_size]*tmp_cos[0:cycle_size])*2.0/cycle_size
         a.append(tmp_a)
 
-        tmp_sin = np.sin(i*x[0:36])
-        tmp_b = sum(y[0:36]*tmp_sin[0:36])/18
+        tmp_sin = np.sin(i*x[0:cycle_size])
+        tmp_b = sum(y[0:cycle_size]*tmp_sin[0:cycle_size])*2/cycle_size
         b.append(tmp_b)
 
         deviation = a[i]*np.cos(i*x) + b[i]*np.sin(i*x) + deviation

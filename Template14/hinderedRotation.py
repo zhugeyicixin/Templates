@@ -197,14 +197,24 @@ for tmp_file in tmp_fileLists:
 						if tmp_m:
 							tmp_dihedral=float(tmp_m.group(1))
 							if len(dihedral) > 0:
-								if abs(step_length - 10.0) < 1e-2:
+								if step_length >= 0 and (step_length - 45.0) < 1e-2:
 									while tmp_dihedral < dihedral[-1]:
-										tmp_dihedral = tmp_dihedral + 360
-								elif abs(step_length + 10.0) < 1e-2:
+										tmp_dihedral += 360
+								elif step_length < 0 and (step_length + 45.0) > -1e-2:
 									while tmp_dihedral > dihedral[-1]:
-										tmp_dihedral = tmp_dihedral - 360
+										tmp_dihedral -= 360
 								else:
-									print 'Warning! The step length is neither 10 or -10 degree!'
+									print 'Error! The absolute value of step length is larger than 45 degree!'
+
+								# if abs(step_length - 10.0) < 1e-2:
+								# 	while tmp_dihedral < dihedral[-1]:
+								# 		tmp_dihedral = tmp_dihedral + 360
+								# elif abs(step_length + 10.0) < 1e-2:
+								# 	while tmp_dihedral > dihedral[-1]:
+								# 		tmp_dihedral = tmp_dihedral - 360
+								# else:
+								# 	print 'Warning! The step length is neither 10 or -10 degree!'
+
 							dihedral.append(tmp_dihedral)
 							standard_done = 0
 							coordinate_done = 0

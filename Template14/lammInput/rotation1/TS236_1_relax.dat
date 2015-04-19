@@ -3,7 +3,7 @@ Calculated at [      ] level of theory
 
 12               !Number of atoms in the molecule
 
-0, 37, 10       ! Minumum angle, No. of Points and Stepsize (in degrees)
+0, 37, 10.0       ! Minumum angle, No. of Points and Stepsize (in degrees)
 
 12.01
 1.008
