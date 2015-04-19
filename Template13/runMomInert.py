@@ -14,7 +14,7 @@ import MomInert
 
 # control the open or close of gauss, this is used for test
 # generally it should be set as True
-__Gauss__ = False	
+__Gauss__ = True	
 
 #input
 name = 'freq'

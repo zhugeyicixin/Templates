@@ -95,7 +95,7 @@ class gview:
 		# key: enter
 		win32api.keybd_event(13,0,0,0) 
 		win32api.keybd_event(13,0,win32con.KEYEVENTF_KEYUP,0)
-		time.sleep(0.5) 
+		time.sleep(1) 
 		# key: enter
 		win32api.keybd_event(13,0,0,0) 
 		win32api.keybd_event(13,0,win32con.KEYEVENTF_KEYUP,0)
