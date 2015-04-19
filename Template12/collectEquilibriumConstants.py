@@ -95,8 +95,6 @@ for tmp_row in range(3, num_rows):
 		continue
 	# start line of a reaction
 	if (tmp_row%(len(temperature)+1))==3:
-		tmp_name = sh.cell_value(tmp_row, 0)
-		reacNames.append(tmp_name)
 		tmp_DS =[]
 		tmp_DH = []
 		tmp_DCp = []
@@ -106,6 +104,14 @@ for tmp_row in range(3, num_rows):
 		tmp_Cp = []
 		tmp_H = []		
 
+		tmp_name = sh.cell_value(tmp_row, 0)
+		if tmp_name not in reactionsDict:
+			continue
+		else:
+			reacNames.append(tmp_name)
+
+	if tmp_name not in reactionsDict:
+		continue
 	tmp_col = 22
 	tmp_DS.append(float(sh.cell_value(tmp_row, tmp_col+0)))
 	tmp_DH.append(float(sh.cell_value(tmp_row, tmp_col+1)))
@@ -157,8 +163,6 @@ for tmp_row in range(3, num_rows):
 		continue
 	# start line of a reaction
 	if (tmp_row%(len(temperature)+1))==3:
-		tmp_name = sh.cell_value(tmp_row, 0)
-		# reacNames.append(sh.cell_value(tmp_row, 0))
 		tmp_DS =[]
 		tmp_DH = []
 		tmp_DCp = []
@@ -166,8 +170,17 @@ for tmp_row in range(3, num_rows):
 		tmp_Qelectr = []
 		tmp_entropy = []
 		tmp_Cp = []
-		tmp_H = []		
+		tmp_H = []
 
+		tmp_name = sh.cell_value(tmp_row, 0)
+		if tmp_name not in reactionsDict:
+			continue
+		else:
+			# reacNames.append(sh.cell_value(tmp_row, 0))
+			pass
+
+	if tmp_name not in reactionsDict:
+		continue
 	tmp_col = 22
 	tmp_DS.append(float(sh.cell_value(tmp_row, tmp_col+0)))
 	tmp_DH.append(float(sh.cell_value(tmp_row, tmp_col+1)))

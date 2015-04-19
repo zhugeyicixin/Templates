@@ -106,12 +106,19 @@ for tmp_row in range(3, num_rows):
 		continue
 	# start line of a reaction
 	if (tmp_row%(len(temperature)+1))==3:
-		tmp_name = sh.cell_value(tmp_row, 0)
-		reacNames.append(tmp_name)
-		if reactionsDict[tmp_name][0] != 1:
-			print 'Error! The number of reactants is not 1 in the forward direction!' + reacNames[-1]
 		tmp_rate =[]
 
+		tmp_name = sh.cell_value(tmp_row, 0)
+		if tmp_name not in reactionsDict:
+			continue
+		else:
+			reacNames.append(tmp_name)
+			if reactionsDict[tmp_name][0] != 1:
+				print 'Error! The number of reactants is not 1 in the forward direction!' + reacNames[-1]
+
+
+	if tmp_name not in reactionsDict:
+		continue
 	tmp_col = 2
 	tmp_rate.append(float(sh.cell_value(tmp_row, tmp_col)))
 
@@ -132,11 +139,18 @@ for tmp_row in range(3, num_rows):
 		continue
 	# start line of a reaction
 	if (tmp_row%(len(temperature)+1))==3:
-		tmp_name = sh.cell_value(tmp_row, 0)		
-		# reacNames.append(sh.cell_value(tmp_row, 0))
-		sigma_miu = reactionsDict[tmp_name][1] - reactionsDict[tmp_name][0]
 		tmp_rate =[]
 
+		tmp_name = sh.cell_value(tmp_row, 0)		
+		if tmp_name not in reactionsDict:
+			continue
+		else:
+			# reacNames.append(sh.cell_value(tmp_row, 0))
+			sigma_miu = reactionsDict[tmp_name][1] - reactionsDict[tmp_name][0]
+		
+
+	if tmp_name not in reactionsDict:
+		continue
 	tmp_col = 2
 	tmp_rate.append(float(sh.cell_value(tmp_row, tmp_col))*(phys1.NA)**sigma_miu)
 
@@ -157,10 +171,17 @@ for tmp_row in range(2, num_rows):
 		continue
 	# start line of a reaction
 	if (tmp_row%(len(temperature)+1))==2:
-		tmp_name = sh.cell_value(tmp_row, 0)
-		# reacNames.append(sh.cell_value(tmp_row, 0))
 		tmp_K =[]
 
+		tmp_name = sh.cell_value(tmp_row, 0)
+		if tmp_name not in reactionsDict:
+			continue
+		else:
+			# reacNames.append(sh.cell_value(tmp_row, 0))
+			pass
+
+	if tmp_name	not in reactionsDict:
+		continue
 	tmp_col = 2
 	tmp_K.append(float(sh.cell_value(tmp_row, tmp_col)))
 
@@ -172,9 +193,6 @@ for tmp_row in range(2, num_rows):
 # fitting the parameters with arrhenius formula
 T_fit = np.array(T_fit)
 for (index, tmp_name) in enumerate(reacNames):
-	if not tmp_name=='TS_216':
-		# continue
-		pass
 	temperature = np.array(temperature)
 	rate_f[index] = np.array(rate_f[index])
 	rate_r[index] = np.array(rate_r[index])
