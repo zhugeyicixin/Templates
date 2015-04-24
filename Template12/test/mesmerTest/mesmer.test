@@ -1,0 +1,687 @@
+          Angle         Potential          Series
+       -6.28319,       0.0849367,         3.68577
+       -6.02139,          360.69,         286.532
+       -5.75959,         1194.42,         926.995
+       -5.49779,         2002.82,         1516.51
+       -5.23599,         2373.93,         1796.41
+       -4.97419,         2180.66,         1738.72
+       -4.71239,         1537.04,         1433.65
+       -4.45059,         740.703,          1048.3
+       -4.18879,          235.34,         806.608
+       -3.92699,          285.86,         843.414
+       -3.66519,         729.268,         1080.59
+       -3.40339,         1202.21,         1318.54
+       -3.14159,         1471.42,         1411.85
+       -2.87979,         1545.39,         1318.54
+       -2.61799,         1518.27,         1080.59
+       -2.35619,         1473.95,         843.414
+        -2.0944,         1446.45,         806.608
+        -1.8326,         1440.23,          1048.3
+        -1.5708,         1450.35,         1433.65
+         -1.309,         1442.87,         1738.72
+        -1.0472,         1369.83,         1796.41
+      -0.785398,         1152.07,         1516.51
+      -0.523599,         739.444,         926.995
+      -0.261799,           240.1,         286.532
+              0,               0,         3.68577
+
+          Angle         Potential          Series
+       -6.28319,        0.320213,        0.459022
+       -6.02139,         81.6296,         74.5073
+       -5.75959,         272.614,         255.558
+       -5.49779,         463.978,         441.296
+       -5.23599,         545.423,         523.682
+       -4.97419,         462.404,         452.814
+       -4.71239,         259.404,         269.517
+       -4.45059,         67.2709,         82.0083
+       -4.18879,         0.67247,        0.836818
+       -3.92699,         94.2806,          73.752
+       -3.66519,         291.715,         258.115
+       -3.40339,         477.601,         445.052
+       -3.14159,         544.858,         522.983
+       -2.87979,         449.761,         445.052
+       -2.61799,         245.464,         258.115
+       -2.35619,         59.5187,          73.752
+        -2.0944,         1.73122,        0.836818
+        -1.8326,         102.936,         82.0083
+        -1.5708,         301.663,         269.517
+         -1.309,         482.239,         452.814
+        -1.0472,         544.756,         523.682
+      -0.785398,         455.057,         441.296
+      -0.523599,         260.548,         255.558
+      -0.261799,         73.4481,         74.5073
+              0,               0,        0.459022
+
+          Angle         Potential          Series
+       -6.28319,       0.0125101,         4.08229
+       -6.02139,         39.2739,         73.3771
+       -5.75959,         127.782,         238.148
+       -5.49779,         181.533,         413.064
+       -5.23599,         191.146,         544.478
+       -4.97419,         185.106,         627.339
+       -4.71239,         214.672,         669.027
+       -4.45059,         303.785,         664.668
+       -4.18879,         414.222,         606.459
+       -3.92699,         475.729,         499.758
+       -3.66519,         447.814,         369.467
+       -3.40339,         344.188,         258.985
+       -3.14159,         228.775,         215.142
+       -2.87979,         192.666,         258.985
+       -2.61799,         314.183,         369.467
+       -2.35619,         572.719,         499.758
+        -2.0944,         851.912,         606.459
+        -1.8326,         1073.61,         664.668
+        -1.5708,         1179.57,         669.027
+         -1.309,         1128.53,         627.339
+        -1.0472,         940.677,         544.478
+      -0.785398,         671.797,         413.064
+      -0.523599,         376.248,         238.148
+      -0.261799,         115.668,         73.3771
+              0,               0,         4.08229
+
+          Angle         Potential          Series
+              0,               0,        -6.71125
+       0.174533,         53.9254,         51.8183
+       0.349066,         206.432,         201.398
+       0.523599,         435.781,         390.777
+       0.698132,         520.213,         594.603
+       0.872665,         752.852,         831.794
+         1.0472,         1027.38,         1126.48
+        1.22173,         1332.83,         1448.07
+        1.39626,         1651.28,         1694.65
+         1.5708,          1941.5,         1747.81
+        1.74533,         1648.67,         1559.23
+        1.91986,         1267.31,         1195.44
+         2.0944,         879.174,         800.331
+        2.26893,         559.784,          505.26
+        2.44346,         347.936,         358.689
+        2.61799,         250.189,         324.675
+        2.79253,         251.335,         336.531
+        2.96706,          323.17,         349.873
+        3.14159,           417.8,          353.91
+        3.31613,          398.15,         349.873
+        3.49066,         372.511,         336.531
+        3.66519,         370.487,         324.675
+        3.83972,         419.919,         358.689
+        4.01426,         551.107,          505.26
+        4.18879,         783.469,         800.331
+        4.36332,         1106.87,         1195.44
+        4.53786,            1476,         1559.23
+        4.71239,         1804.11,         1747.81
+        4.88692,         1831.62,         1694.65
+        5.06145,         1571.43,         1448.07
+        5.23599,         1281.28,         1126.48
+        5.41052,         1003.38,         831.794
+        5.58505,         669.876,         594.603
+        5.75959,         399.745,         390.777
+        5.93412,         186.505,         201.398
+        6.10865,         48.0017,         51.8183
+        6.28319,        0.659082,        -6.71125
+
+          Angle         Potential          Series
+              0,               0,        -5.77122
+       0.174533,               0,         28.2852
+       0.349066,         56.3326,         122.534
+       0.523599,         150.135,          257.22
+       0.698132,         238.338,          409.13
+       0.872665,         296.261,         557.252
+         1.0472,          323.55,         682.717
+        1.22173,         332.146,         767.064
+        1.39626,         345.584,         795.043
+         1.5708,          383.25,         762.667
+        1.74533,         454.023,          683.51
+        1.91986,         549.062,         585.128
+         2.0944,         648.935,         495.234
+        2.26893,         727.182,         427.162
+        2.44346,         757.386,         376.268
+        2.61799,         717.525,         330.185
+        2.79253,         604.698,         283.804
+        2.96706,         431.878,         245.688
+        3.14159,         232.977,         230.592
+        3.31613,          49.235,         245.688
+        3.49066,               0,         283.804
+        3.66519,               0,         330.185
+        3.83972,               0,         376.268
+        4.01426,          111.52,         427.162
+        4.18879,          373.12,         495.234
+        4.36332,          677.49,         585.128
+        4.53786,         964.327,          683.51
+        4.71239,          1175.7,         762.667
+        4.88692,         1271.19,         795.043
+        5.06145,         1236.96,         767.064
+        5.23599,         1090.93,         682.717
+        5.41052,         867.682,         557.252
+        5.58505,         602.629,          409.13
+        5.75959,         360.495,          257.22
+        5.93412,         185.031,         122.534
+        6.10865,         67.1066,         28.2852
+        6.28319,               0,        -5.77122
+
+          Angle         Potential          Series
+              0,               0,         11.1591
+       0.261799,         207.901,         224.291
+       0.523599,         718.828,         789.816
+       0.785398,         1273.05,         1525.25
+         1.0472,         1632.96,          2181.7
+          1.309,         1723.33,          2476.3
+         1.5708,         1652.63,         2256.74
+         1.8326,         1603.68,          1706.9
+         2.0944,          1696.9,         1238.49
+        2.35619,         1866.92,         1084.55
+        2.61799,         1905.55,         1123.24
+        2.87979,         1663.88,            1153
+        3.14159,         1193.71,         1149.47
+        3.40339,         724.393,            1153
+        3.66519,         484.766,         1123.24
+        3.92699,         335.985,         1084.55
+        4.18879,         910.063,         1238.49
+        4.45059,         1954.72,          1706.9
+        4.71239,         3046.38,         2256.74
+        4.97419,         3423.18,          2476.3
+        5.23599,         2924.64,          2181.7
+        5.49779,         1911.48,         1525.25
+        5.75959,         902.805,         789.816
+        6.02139,         285.156,         224.291
+        6.28319,               0,         11.1591
+
+          Angle         Potential          Series
+       -6.28319,       0.0144853,        -2.16285
+       -6.02139,         94.7529,         78.6653
+       -5.75959,         428.623,          317.92
+       -5.49779,         1006.67,         690.002
+       -5.23599,         1705.36,         1125.43
+       -4.97419,         2342.48,         1521.65
+       -4.71239,         2766.09,         1782.55
+       -4.45059,         2873.62,         1855.94
+       -4.18879,         2649.29,         1752.34
+       -3.92699,          2242.2,         1540.55
+       -3.66519,         1804.14,         1316.08
+       -3.40339,         1421.22,         1156.85
+       -3.14159,         1143.64,         1100.84
+       -2.87979,         990.127,         1156.85
+       -2.61799,         943.758,         1316.08
+       -2.35619,         962.757,         1540.55
+        -2.0944,         997.006,         1752.34
+        -1.8326,         1001.35,         1855.94
+        -1.5708,         945.431,         1782.55
+         -1.309,           822.1,         1521.65
+        -1.0472,         643.548,         1125.43
+      -0.785398,         433.691,         690.002
+      -0.523599,         228.814,          317.92
+      -0.261799,         68.5263,         78.6653
+              0,               0,        -2.16285
+
+PT Grid 0 Condition: conc = 9.65649e+015, temp = 1000, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200    3.2942e-006
+    300       0.102353
+    400        31.8359
+    500        1297.63
+    600        17208.1
+    700         115699
+    800         501903
+    900   1.61516e+006
+   1000   4.19384e+006
+   1100   9.23865e+006
+}
+
+Eq fraction matrix:
+{
+    -0.051741            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+      -0.9508       0.9508
+       0.9508     0.049196
+}
+Equilibrium Fraction for IM1 = 0.950804
+Equilibrium Fraction for IM2 = 0.0491958
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	9.487001e-01	
+nan	5.129986e-02	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 1 Condition: conc = 3.24043e+016, temp = 298, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07869e-018
+    200    3.2935e-006
+    300       0.102357
+}
+
+Eq fraction matrix:
+{
+ -1.0476e-007            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  1.0476e-007
+}
+Equilibrium Fraction for IM1 = 1
+Equilibrium Fraction for IM2 = 1.04756e-007
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	nan	
+nan	nan	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+nan	nan	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 2 Condition: conc = 2.42625e+016, temp = 398, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200   3.29369e-006
+    300       0.102355
+    400        31.8456
+}
+
+Eq fraction matrix:
+{
+ -8.7021e-006            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99999      0.99999
+      0.99999   8.702e-006
+}
+Equilibrium Fraction for IM1 = 0.999991
+Equilibrium Fraction for IM2 = 8.70204e-006
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	nan	
+nan	nan	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+nan	nan	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 3 Condition: conc = 1.93905e+016, temp = 498, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200   3.29367e-006
+    300       0.102344
+    400        31.8444
+    500        1297.93
+}
+
+Eq fraction matrix:
+{
+  -0.00013438            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99987      0.99987
+      0.99987   0.00013436
+}
+Equilibrium Fraction for IM1 = 0.999866
+Equilibrium Fraction for IM2 = 0.000134358
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	9.993271e-01	
+nan	6.728750e-04	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 4 Condition: conc = 1.60942e+016, temp = 600, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200   3.29381e-006
+    300       0.102307
+    400        31.8356
+    500        1297.85
+    600        17207.3
+    700         115377
+}
+
+Eq fraction matrix:
+{
+  -0.00091922            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99908      0.99908
+      0.99908   0.00091838
+}
+Equilibrium Fraction for IM1 = 0.999082
+Equilibrium Fraction for IM2 = 0.000918378
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	nan	
+nan	nan	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+nan	nan	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 5 Condition: conc = 1.3795e+016, temp = 700, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200   3.29403e-006
+    300       0.102306
+    400          31.83
+    500        1297.71
+    600        17209.2
+    700         115653
+    800         499642
+}
+
+Eq fraction matrix:
+{
+   -0.0036929            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99632      0.99632
+      0.99632    0.0036793
+}
+Equilibrium Fraction for IM1 = 0.996321
+Equilibrium Fraction for IM2 = 0.00367934
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	9.945266e-01	
+nan	5.473359e-03	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}
+PT Grid 6 Condition: conc = 1.20706e+016, temp = 800, diagonalization precision: double
+{
+
+Canonical rate coefficients for R2, calculated from microcanonical rates
+{
+    100   1.07871e-018
+    200   3.29417e-006
+    300       0.102337
+    400        31.8347
+    500        1297.74
+    600        17209.3
+    700         115696
+    800         501402
+    900   1.60422e+006
+}
+
+Eq fraction matrix:
+{
+    -0.010837            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.98928      0.98928
+      0.98928     0.010721
+}
+Equilibrium Fraction for IM1 = 0.989279
+Equilibrium Fraction for IM2 = 0.0107211
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+Z_matrix: {
+nan	9.870022e-01	
+nan	1.299783e-02	
+}
+
+Z_matrix^(-1):
+{
+nan	nan	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+nan	nan	
+nan	nan	
+}
+
+Kr matrix:
+{
+nan	nan	
+nan	nan	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+IM1 loss = nan
+IM2 loss = nan
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+IM1 -> IM2 = nan
+IM2 -> IM1 = nan
+}
+}

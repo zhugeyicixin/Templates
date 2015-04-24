@@ -185,7 +185,7 @@ for tmp_file in tmp_fileLists:
 								print 'Error! The number of atoms is not correct!'
 							tmp_mole = chem.molecule()	
 							tmp_mole.getLogGeom(tmp_lines[geom_start: geom_start + atomsNum])
-							tmp_mole.changeLabel(tmp_file2[0:-4])
+							tmp_mole.setLabel(tmp_file2[0:-4])
 							geoms.append(tmp_mole)
 							dihedral_done = 0 
 							standard_done = 1

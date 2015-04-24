@@ -68,7 +68,7 @@ class MomInert:
 			print 'connectivity info extracted not successfully!'
 		geom = geometryExtractor.mominertGeometryExtractor(tmp_lines[atom_start: atom_start + atomsNum])
 
-		molecule1 = chem.molecule(geom=tmp_lines[atom_start: atom_start + atomsNum], connect=tmp_lines[connect_start: connect_start + atomsNum], atomsNum=atomsNum)
+		molecule1 = chem.molecule(geom=tmp_lines[atom_start: atom_start + atomsNum], connect=tmp_lines[connect_start: connect_start + atomsNum])
 		if __OOSYSTEM__ == True:
 			molecule1.fulfillBonds()
 			# molecule1.displayBonds()	
