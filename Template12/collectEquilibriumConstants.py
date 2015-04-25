@@ -24,6 +24,7 @@ for tmp_file in tmp_fileLists:
 		fr.close()
 
 wb=open_workbook(name + '.xls')
+sheets=[s.name for s in wb.sheets()]
 
 # variables
 phys1=phys.phys()
@@ -71,7 +72,7 @@ tmp_K = 0.0
 
 # read thermo data from excel
 # read sketch info of all reaction
-sh=wb.sheet_by_index(0)
+sh=wb.sheet_by_name('Reactions')
 num_rows = sh.nrows
 num_cols = sh.ncols
 for tmp_row in range(2,num_rows):
@@ -84,7 +85,7 @@ for tmp_row in range(2,num_rows):
 		reactionsDict[TSs_abbr[-1]] = [num_reac[-1], num_prod[-1]]
 
 # read info of forward reaction
-sh=wb.sheet_by_index(2)
+sh=wb.sheet_by_name('Rate')
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -152,7 +153,7 @@ for tmp_row in range(3, num_rows):
 		tmp_H = []
 
 # read info of reverse reaction
-sh=wb.sheet_by_index(3)
+sh=wb.sheet_by_name('ReverseRate')
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -221,7 +222,7 @@ for tmp_row in range(3, num_rows):
 
 # write equilibrium data to excel
 wb_new = copy(wb)
-sh=wb_new.get_sheet(4)
+sh=wb_new.get_sheet(sheets.index('EquilibriumConstants'))
 sh.cell_overwrite_ok = True
 tmp_row = 2
 tmp_col = 0

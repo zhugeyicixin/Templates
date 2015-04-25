@@ -3,7 +3,7 @@
 import re
 import os
 
-import geometryExtractor
+import textExtractor
 import chem
 
 # if __OOSYSTEM__ == True then OO are all connected if the distance is shorter than 2.0 Ang
@@ -66,7 +66,7 @@ class MomInert:
 			pass
 		else:
 			print 'connectivity info extracted not successfully!'
-		geom = geometryExtractor.mominertGeometryExtractor(tmp_lines[atom_start: atom_start + atomsNum])
+		geom = textExtractor.mominertGeometryExtractor(tmp_lines[atom_start: atom_start + atomsNum])
 
 		molecule1 = chem.molecule(geom=tmp_lines[atom_start: atom_start + atomsNum], connect=tmp_lines[connect_start: connect_start + atomsNum])
 		if __OOSYSTEM__ == True:

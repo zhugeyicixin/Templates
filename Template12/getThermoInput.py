@@ -30,7 +30,7 @@ for tmp_file in tmp_fileLists:
 		fr.close()
 
 wb=open_workbook(name + '.xls')
-sh=wb.sheet_by_index(1)
+sh=wb.sheet_by_name('SpeciesInfo')
 
 # Define variables
 total=int(sh.cell_value(1,0)) 		# Total number of activated reactions

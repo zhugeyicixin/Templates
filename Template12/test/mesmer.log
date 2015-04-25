@@ -68,13 +68,14 @@ The default value of precision (or one of its attributes) was used.
 The default value of precision (or one of its attributes) was used.
 20atm, 900K at d precision with He
 The default value of me:eigenvalues was used.
-Write metadata 20150425_014955
+Write metadata 20150425_023501
 
 File: "D:\hetanjin\smallSoftware\github\storageFiles\Templates\Template12\test\TS_1_1b.xml" successfully parsed.
 Main Calculation begins
-In FastLaplaceConvolution: 13000 values in the FFT convolution routine were replaced by standard convolution
-In FastLaplaceConvolution: 13040 values in the FFT convolution routine were replaced by standard convolution
-In FastLaplaceConvolution: 17580 values in the FFT convolution routine were replaced by standard convolution
-In FastLaplaceConvolution: 19880 values in the FFT convolution routine were replaced by standard convolution
-In FastLaplaceConvolution: 22220 values in the FFT convolution routine were replaced by standard convolution
-In FastLaplaceConvolution: 24240 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 26760 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 26900 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 36020 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 41200 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 45960 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 50920 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 55800 values in the FFT convolution routine were replaced by standard convolution

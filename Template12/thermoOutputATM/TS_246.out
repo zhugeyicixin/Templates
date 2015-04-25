@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                                  John R. Barker
+        Thermo-2014.1b            University of Michigan
+                                  Ann Arbor, MI 48109-2143
+        Jun 2014                  jrbarker@umich.edu
+                                  (734) 763 6239
+
+            http://aoss.engin.umich.edu/multiwell/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  Suggested Literature Citations:
+
+  a) MultiWell-2014.1 Software, Jun 2014, designed and
+     maintained by J.R. Barker with contributors N.F. Ortiz,
+     J.M. Preses, L.L. Lohr, A. Maranzana, P.J. Stimac, T. L.
+     Nguyen, and T. J. Dhilip Kumar, University of Michigan,
+     Ann Arbor, MI; http://aoss.engin.umich.edu/multiwell/
+
+  b) J.R. Barker, Int. J. Chem. Kinetics, 33, 232-45 (2001).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+....................................................
+          2015/04/26   02:06:22.761   (Local Time)
+          year/mm/dd   hr:mi:second
+                 CPU :        0.047 s (  0.000 hr)
+....................................................
+
+
+       RO2     Molecular Wt. =  75.087  ;  Empirical Formula:      H  7       C  3       O  2
+          1. (blank comment line)                                                                                                                               
+          2. (blank comment line)                                                                                                                               
+          3. (blank comment line)                                                                                                                               
+    Electronic Levels (degeneracies) 
+                0.00 cm-1 ( 2)
+
+    1  Vibrator  Freq(obs)=   60.59  Freq(har)=   60.59  Anh(cm-1)=    0.00  zpe(cm-1) =    30.3     g = 1
+    2  Vibrator  Freq(obs)=  135.46  Freq(har)=  135.46  Anh(cm-1)=    0.00  zpe(cm-1) =    67.7     g = 1
+    3  Vibrator  Freq(obs)=  204.30  Freq(har)=  204.30  Anh(cm-1)=    0.00  zpe(cm-1) =   102.1     g = 1
+    4  Vibrator  Freq(obs)=  299.15  Freq(har)=  299.15  Anh(cm-1)=    0.00  zpe(cm-1) =   149.6     g = 1
+    5  Vibrator  Freq(obs)=  380.97  Freq(har)=  380.97  Anh(cm-1)=    0.00  zpe(cm-1) =   190.5     g = 1
+    6  Vibrator  Freq(obs)=  520.98  Freq(har)=  520.98  Anh(cm-1)=    0.00  zpe(cm-1) =   260.5     g = 1
+    7  Vibrator  Freq(obs)=  756.93  Freq(har)=  756.93  Anh(cm-1)=    0.00  zpe(cm-1) =   378.5     g = 1
+    8  Vibrator  Freq(obs)=  885.95  Freq(har)=  885.95  Anh(cm-1)=    0.00  zpe(cm-1) =   443.0     g = 1
+    9  Vibrator  Freq(obs)=  914.31  Freq(har)=  914.31  Anh(cm-1)=    0.00  zpe(cm-1) =   457.2     g = 1
+   10  Vibrator  Freq(obs)=  932.25  Freq(har)=  932.25  Anh(cm-1)=    0.00  zpe(cm-1) =   466.1     g = 1
+   11  Vibrator  Freq(obs)= 1068.57  Freq(har)= 1068.57  Anh(cm-1)=    0.00  zpe(cm-1) =   534.3     g = 1
+   12  Vibrator  Freq(obs)= 1132.84  Freq(har)= 1132.84  Anh(cm-1)=    0.00  zpe(cm-1) =   566.4     g = 1
+   13  Vibrator  Freq(obs)= 1167.26  Freq(har)= 1167.26  Anh(cm-1)=    0.00  zpe(cm-1) =   583.6     g = 1
+   14  Vibrator  Freq(obs)= 1211.49  Freq(har)= 1211.49  Anh(cm-1)=    0.00  zpe(cm-1) =   605.7     g = 1
+   15  Vibrator  Freq(obs)= 1257.22  Freq(har)= 1257.22  Anh(cm-1)=    0.00  zpe(cm-1) =   628.6     g = 1
+   16  Vibrator  Freq(obs)= 1318.80  Freq(har)= 1318.80  Anh(cm-1)=    0.00  zpe(cm-1) =   659.4     g = 1
+   17  Vibrator  Freq(obs)= 1387.63  Freq(har)= 1387.63  Anh(cm-1)=    0.00  zpe(cm-1) =   693.8     g = 1
+   18  Vibrator  Freq(obs)= 1412.67  Freq(har)= 1412.67  Anh(cm-1)=    0.00  zpe(cm-1) =   706.3     g = 1
+   19  Vibrator  Freq(obs)= 1445.11  Freq(har)= 1445.11  Anh(cm-1)=    0.00  zpe(cm-1) =   722.6     g = 1
+   20  Vibrator  Freq(obs)= 1507.11  Freq(har)= 1507.11  Anh(cm-1)=    0.00  zpe(cm-1) =   753.6     g = 1
+   21  Vibrator  Freq(obs)= 1516.84  Freq(har)= 1516.84  Anh(cm-1)=    0.00  zpe(cm-1) =   758.4     g = 1
+   22  Vibrator  Freq(obs)= 1531.89  Freq(har)= 1531.89  Anh(cm-1)=    0.00  zpe(cm-1) =   765.9     g = 1
+   23  Vibrator  Freq(obs)= 1538.36  Freq(har)= 1538.36  Anh(cm-1)=    0.00  zpe(cm-1) =   769.2     g = 1
+   24  Vibrator  Freq(obs)= 3049.83  Freq(har)= 3049.83  Anh(cm-1)=    0.00  zpe(cm-1) =  1524.9     g = 1
+   25  Vibrator  Freq(obs)= 3054.46  Freq(har)= 3054.46  Anh(cm-1)=    0.00  zpe(cm-1) =  1527.2     g = 1
+   26  Vibrator  Freq(obs)= 3071.80  Freq(har)= 3071.80  Anh(cm-1)=    0.00  zpe(cm-1) =  1535.9     g = 1
+   27  Vibrator  Freq(obs)= 3085.80  Freq(har)= 3085.80  Anh(cm-1)=    0.00  zpe(cm-1) =  1542.9     g = 1
+   28  Vibrator  Freq(obs)= 3119.78  Freq(har)= 3119.78  Anh(cm-1)=    0.00  zpe(cm-1) =  1559.9     g = 1
+   29  Vibrator  Freq(obs)= 3129.51  Freq(har)= 3129.51  Anh(cm-1)=    0.00  zpe(cm-1) =  1564.8     g = 1
+   30  Vibrator  Freq(obs)= 3135.47  Freq(har)= 3135.47  Anh(cm-1)=    0.00  zpe(cm-1) =  1567.7     g = 1
+   31  Quan.Rot  AmuAng^2 =   38.94  Symm =  1.   dim = 1  B =  0.4329 cm-1
+   32  Quan.Rot  AmuAng^2 =  196.67  Symm =  1.   dim = 2  B =  0.0857 cm-1
+
+
+    TS_246     Molecular Wt. =  75.087  ;  Empirical Formula:      H  7       C  3       O  2
+          1. (blank comment line)                                                                                                                               
+          2. (blank comment line)                                                                                                                               
+          3. (blank comment line)                                                                                                                               
+    Electronic Levels (degeneracies) 
+                0.00 cm-1 ( 2)
+
+    TUNNELING PARAMETERS: Unsymmetrical Eckart Barrier
+     Imaginary Freq.:      0.00i cm-1
+         V(forward) :  10091.59 cm-1
+         V(reverse) :      0.00 cm-1
+    TUNNELING IGNORED: V(forward) & V(reverse) must be >0.01 cm-1, and Imag. Freq. must be >20i cm-1
+
+    TUNNELING IGNORED: V(forward) & V(reverse) must be >0.01 cm-1, and Imag. Freq. must be >20i cm-1
+
+    1  Vibrator  Freq(obs)=   19.12  Freq(har)=   19.12  Anh(cm-1)=    0.00  zpe(cm-1) =     9.6     g = 1
+    2  Vibrator  Freq(obs)=   69.77  Freq(har)=   69.77  Anh(cm-1)=    0.00  zpe(cm-1) =    34.9     g = 1
+    3  Vibrator  Freq(obs)=   87.43  Freq(har)=   87.43  Anh(cm-1)=    0.00  zpe(cm-1) =    43.7     g = 1
+    4  Vibrator  Freq(obs)=  217.41  Freq(har)=  217.41  Anh(cm-1)=    0.00  zpe(cm-1) =   108.7     g = 1
+    5  Vibrator  Freq(obs)=  261.20  Freq(har)=  261.20  Anh(cm-1)=    0.00  zpe(cm-1) =   130.6     g = 1
+    6  Vibrator  Freq(obs)=  374.37  Freq(har)=  374.37  Anh(cm-1)=    0.00  zpe(cm-1) =   187.2     g = 1
+    7  Vibrator  Freq(obs)=  397.07  Freq(har)=  397.07  Anh(cm-1)=    0.00  zpe(cm-1) =   198.5     g = 1
+    8  Vibrator  Freq(obs)=  652.25  Freq(har)=  652.25  Anh(cm-1)=    0.00  zpe(cm-1) =   326.1     g = 1
+    9  Vibrator  Freq(obs)=  774.91  Freq(har)=  774.91  Anh(cm-1)=    0.00  zpe(cm-1) =   387.5     g = 1
+   10  Vibrator  Freq(obs)=  888.34  Freq(har)=  888.34  Anh(cm-1)=    0.00  zpe(cm-1) =   444.2     g = 1
+   11  Vibrator  Freq(obs)=  935.92  Freq(har)=  935.92  Anh(cm-1)=    0.00  zpe(cm-1) =   468.0     g = 1
+   12  Vibrator  Freq(obs)= 1067.07  Freq(har)= 1067.07  Anh(cm-1)=    0.00  zpe(cm-1) =   533.5     g = 1
+   13  Vibrator  Freq(obs)= 1094.13  Freq(har)= 1094.13  Anh(cm-1)=    0.00  zpe(cm-1) =   547.1     g = 1
+   14  Vibrator  Freq(obs)= 1188.53  Freq(har)= 1188.53  Anh(cm-1)=    0.00  zpe(cm-1) =   594.3     g = 1
+   15  Vibrator  Freq(obs)= 1282.26  Freq(har)= 1282.26  Anh(cm-1)=    0.00  zpe(cm-1) =   641.1     g = 1
+   16  Vibrator  Freq(obs)= 1380.95  Freq(har)= 1380.95  Anh(cm-1)=    0.00  zpe(cm-1) =   690.5     g = 1
+   17  Vibrator  Freq(obs)= 1438.71  Freq(har)= 1438.71  Anh(cm-1)=    0.00  zpe(cm-1) =   719.4     g = 1
+   18  Vibrator  Freq(obs)= 1490.26  Freq(har)= 1490.26  Anh(cm-1)=    0.00  zpe(cm-1) =   745.1     g = 1
+   19  Vibrator  Freq(obs)= 1494.68  Freq(har)= 1494.68  Anh(cm-1)=    0.00  zpe(cm-1) =   747.3     g = 1
+   20  Vibrator  Freq(obs)= 1515.12  Freq(har)= 1515.12  Anh(cm-1)=    0.00  zpe(cm-1) =   757.6     g = 1
+   21  Vibrator  Freq(obs)= 1528.19  Freq(har)= 1528.19  Anh(cm-1)=    0.00  zpe(cm-1) =   764.1     g = 1
+   22  Vibrator  Freq(obs)= 1536.96  Freq(har)= 1536.96  Anh(cm-1)=    0.00  zpe(cm-1) =   768.5     g = 1
+   23  Vibrator  Freq(obs)= 2949.99  Freq(har)= 2949.99  Anh(cm-1)=    0.00  zpe(cm-1) =  1475.0     g = 1
+   24  Vibrator  Freq(obs)= 3035.81  Freq(har)= 3035.81  Anh(cm-1)=    0.00  zpe(cm-1) =  1517.9     g = 1
+   25  Vibrator  Freq(obs)= 3052.64  Freq(har)= 3052.64  Anh(cm-1)=    0.00  zpe(cm-1) =  1526.3     g = 1
+   26  Vibrator  Freq(obs)= 3117.16  Freq(har)= 3117.16  Anh(cm-1)=    0.00  zpe(cm-1) =  1558.6     g = 1
+   27  Vibrator  Freq(obs)= 3129.90  Freq(har)= 3129.90  Anh(cm-1)=    0.00  zpe(cm-1) =  1564.9     g = 1
+   28  Vibrator  Freq(obs)= 3166.41  Freq(har)= 3166.41  Anh(cm-1)=    0.00  zpe(cm-1) =  1583.2     g = 1
+   29  Vibrator  Freq(obs)= 3265.19  Freq(har)= 3265.19  Anh(cm-1)=    0.00  zpe(cm-1) =  1632.6     g = 1
+   30  Quan.Rot  AmuAng^2 =   57.07  Symm =  1.   dim = 1  B =  0.2954 cm-1
+   31  Quan.Rot  AmuAng^2 =  249.22  Symm =  1.   dim = 2  B =  0.0676 cm-1
+
+
+*  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *
+
+THERMODYNAMIC QUANTITIES          Std. State = atmosphere  
+   Entropy & Cp units: cal/K/mole
+   DelS         units: cal/K/mole
+   [H(T)-H(0)]  units: kcal/mole
+   DelH & DelG  units: kcal/mole
+
+Species Properties
+                              ----Enthalpy----
+ TYPE  NAME         Mol.Wt.    (O K)  (298.15 K) DelG(298)  ZPE(cm-1) Symmetry  opt.isomers
+ reac  RO2          75.087      0.00     -5.41     19.34      22116.7      1         1
+ ctst  TS_246       75.087     28.85     24.17     46.29      20705.9      1         1
+                             ------- ---------  --------      -------
+     NET (prod - react):       28.85     29.58     26.96      -1410.8
+
+
+               RATE k(T) = A*exp(B/T) (atmosphere  )**( 0) * sec-1                                 RO2 (reac)                        TS_246 (ctst)
+        T(K)      k(T)      A(T)       B(T)    DelS(rxn) DelH(rxn) DelCp(rxn) DelG(rxn)     Qelectr  Entropy  Cp  [H(T)-H(0)]    Qelectr  Entropy  Cp  [H(T)-H(0)]
+      298.15   1.084E-07   1.421E+15  -15184.      8.81    29.58       2.41      26.96        2.00    79.45    22.12     4.50      2.00    88.26    24.54     5.23
+      300.00   1.484E-07   1.440E+15  -15188.      8.82    29.59       2.40      26.94        2.00    79.59    22.22     4.54      2.00    88.41    24.62     5.27
+      400.00   5.041E-02   2.593E+15  -15392.      9.42    29.79       1.69      26.02        2.00    86.72    27.62     7.03      2.00    96.14    29.31     7.97
+      450.00   3.669E+00   3.189E+15  -15479.      9.60    29.87       1.31      25.55        2.00    90.12    30.23     8.48      2.00    99.72    31.54     9.49
+      500.00   1.154E+02   3.764E+15  -15558.      9.72    29.92       0.96      25.06        2.00    93.44    32.69    10.05      2.00   103.15    33.65    11.12
+      550.00   1.965E+03   4.304E+15  -15628.      9.79    29.96       0.65      24.58        2.00    96.66    34.96    11.74      2.00   106.45    35.61    12.85
+      600.00   2.108E+04   4.800E+15  -15691.      9.84    29.99       0.37      24.09        2.00    99.79    37.07    13.54      2.00   109.63    37.43    14.68
+      650.00   1.581E+05   5.251E+15  -15747.      9.86    30.00       0.12      23.59        2.00   102.84    39.00    15.45      2.00   112.69    39.12    16.60
+      700.00   8.947E+05   5.656E+15  -15797.      9.86    30.00      -0.10      23.10        2.00   105.79    40.78    17.44      2.00   115.65    40.68    18.59
+      750.00   4.037E+06   6.019E+15  -15842.      9.84    29.99      -0.29      22.61        2.00   108.66    42.43    19.52      2.00   118.51    42.14    20.66
+      800.00   1.514E+07   6.343E+15  -15883.      9.82    29.97      -0.46      22.12        2.00   111.45    43.95    21.68      2.00   121.27    43.49    22.80
+      850.00   4.874E+07   6.630E+15  -15919.      9.79    29.95      -0.60      21.63        2.00   114.16    45.36    23.92      2.00   123.95    44.75    25.01
+      900.00   1.381E+08   6.887E+15  -15952.      9.75    29.91      -0.73      21.14        2.00   116.79    46.67    26.22      2.00   126.54    45.93    27.28
+     1000.00   8.154E+08   7.318E+15  -16010.      9.66    29.83      -0.95      20.17        2.00   121.83    49.01    31.01      2.00   131.49    48.06    31.98
+     1100.00   3.503E+09   7.661E+15  -16058.      9.56    29.72      -1.11      19.21        2.00   126.60    51.03    36.01      2.00   136.16    49.92    36.88
+     1200.00   1.184E+10   7.937E+15  -16099.      9.46    29.61      -1.24      18.26        2.00   131.12    52.79    41.20      2.00   140.58    51.54    41.96
+     1300.00   3.327E+10   8.161E+15  -16133.      9.36    29.48      -1.35      17.31        2.00   135.40    54.31    46.56      2.00   144.76    52.96    47.19
+     1400.00   8.079E+10   8.344E+15  -16163.      9.25    29.34      -1.43      16.38        2.00   139.48    55.64    52.06      2.00   148.73    54.20    52.55
+     1500.00   1.745E+11   8.495E+15  -16189.      9.15    29.19      -1.50      15.46        2.00   143.36    56.79    57.68      2.00   152.51    55.29    58.02
+     1600.00   3.428E+11   8.621E+15  -16212.      9.05    29.04      -1.56      14.55        2.00   147.05    57.80    63.42      2.00   156.11    56.24    63.60
+     1700.00   6.224E+11   8.727E+15  -16232.      8.96    28.88      -1.61      13.65        2.00   150.59    58.68    69.24      2.00   159.54    57.07    69.27
+     1800.00   1.058E+12   8.816E+15  -16250.      8.86    28.71      -1.65      12.76        2.00   153.96    59.46    75.15      2.00   162.82    57.81    75.01
+     1900.00   1.702E+12   8.893E+15  -16266.      8.77    28.55      -1.69      11.88        2.00   157.20    60.15    81.13      2.00   165.97    58.46    80.83
+     2000.00   2.612E+12   8.959E+15  -16280.      8.68    28.38      -1.72      11.01        2.00   160.30    60.76    87.18      2.00   168.98    59.04    86.70
+     2100.00   3.850E+12   9.016E+15  -16293.      8.60    28.20      -1.74      10.14        2.00   163.27    61.30    93.28      2.00   171.88    59.56    92.63
+     2200.00   5.478E+12   9.066E+15  -16305.      8.52    28.03      -1.76       9.29        2.00   166.14    61.78    99.44      2.00   174.66    60.02    98.61
+     2300.00   7.562E+12   9.109E+15  -16316.      8.44    27.85      -1.78       8.44        2.00   168.89    62.21   105.64      2.00   177.33    60.43   104.64
+     2400.00   1.016E+13   9.147E+15  -16326.      8.36    27.67      -1.80       7.60        2.00   171.55    62.60   111.88      2.00   179.91    60.80   110.70
+     2500.00   1.334E+13   9.181E+15  -16335.      8.29    27.49      -1.81       6.77        2.00   174.11    62.94   118.16      2.00   182.40    61.13   116.80

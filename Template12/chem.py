@@ -1,21 +1,18 @@
 # this is a class of chemistry 
 # it can be used to deal with infomation of atoms and molecules
-
-# if the bond in a ring is not allowed, set this value as true. Otherwise, set it as False
-__RingBanned__ = False
-
 import visual
 
 import numpy as np
+import copy
+
 # constants
-elementDict={1:'H',6
-:'C',7:'N',8:'O',
-'1':'H','6':'C','7':'N','8':'O'
+elementDict={1:'H', 2:'He', 6:'C', 7:'N', 8:'O',
+'1':'H', '2':'He', '6':'C', '7':'N', '8':'O'
 }
 
-eleWeightDict={'H': 1.008, 'C': 12.01, 'O': 16.00, 'N': 14.01}
+eleWeightDict={'H': 1.008, 'He': 4.0026, 'C': 12.011, 'O': 15.999, 'N': 14.007}
 
-eleColorDict={'H': visual.color.white, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
+eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
 
 # gaussian default bond length threshold parameters
 # bondDisDict={
@@ -45,12 +42,78 @@ bondOrderDict={
 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 }
 
+
+# units:
+# P: atm
+# T: K
+class reactionSystem:
+	freqScaleFactor = 1.0
+	reactions = []
+	bathGas = []
+	PTpairs = []
+
+	_hinderedRotation = True
+
+	def __init__(self):
+		self.freqScaleFactor = 1.0
+		self.reactions = []
+		self.bathGas = []
+		self.PTpairs = []
+
+	def setFreqScale(self, freqScaleFactor):
+		self.freqScaleFactor = freqScaleFactor
+
+	def setPTpairs(self, PTpairs):
+		self.PTpairs = PTpairs
+
+	def addReaction(self, reaction):
+		self.reactions.append(reaction)
+
+	def addBathGas(self, bathGas):
+		self.bathGas.append(bathGas)
+
+	def addPTpair(self, PTpair):
+		self.PTpairs.append(PTpair)
+
+	def addPTpairs(self, PTpairs):
+		self.PTpairs.extend(PTpairs)
+
+	def hinderedRotationCorrection(self, HR):
+		self._hinderedRotation = HR
+
+class reaction:
+	reactants = []
+	TSs = []
+	products = []
+
+	def __init__(self, input_Rs, input_TSs, input_Ps):
+		# self.reactants = copy.deepcopy(input_Rs)
+		# self.TSs = copy.deepcopy(input_TSs)
+		# self.products = copy.deepcopy(input_Ps)
+		self.reactants = input_Rs
+		self.TSs = input_TSs
+		self.products = input_Ps
+		if len(self.TSs) != 1:
+			print 'Error! The number of TSs is not 1!'
+
+# units:
+# ZPE: kcal/mol
+# rotConsts: cm-1
+# frequency: cm-1
+# hessian: Hartree/Bohr2
+# MW: amu
+# exponentialDown: cm-1
+# hinderedRotorQM1D: angle: degree energy: cm-1
 class molecule:
 	atoms = []
+	
+	bonds = []
 	label = ''
 	ZPE = 0.0
 	rotConsts = []
 	symmetryNumber = 1
+	# frequency scaling factor could be set for each molecule separately if the freq computational methods are different but all accurate 
+	# currently the freq scaling factor used is the factor in reaction system, which is a uniformed number
 	freqScaleFactor = 1.0
 	imfreq = 0.0
 	frequencies = []
@@ -61,8 +124,12 @@ class molecule:
 	exponentialDown = 0.0
 	hinderedRotorQM1D = []
 	description = ''
+	role = ''
 
-	def __init__(self, geom='', connect='', inputAtoms=[]):
+	_RingBanned = False
+
+	def __init__(self, geom=[], connect=[], inputAtoms=[]):
+		self.bonds = []
 		self.label = ''
 		self.ZPE = 0.0
 		self.rotConsts = []
@@ -76,19 +143,19 @@ class molecule:
 		self.sigma = 0.0
 		self.exponentialDown = 0.0
 		self.hinderedRotorQM1D = []
+		role = ''
+
+		_RingBanned = False
 
 		if inputAtoms == []:
 			self.atoms = []
 			atomsNum = len(geom)
-			if len(geom) == atomsNum:
-				for i in range(0, atomsNum):
-					tmp_line = geom[i]
-					tmp_line.strip()
-					tmp_line = tmp_line.split()
-					tmp_atom = atom(tmp_line[0],i+1,map(float, tmp_line[1:4]))
-					self.atoms.append(tmp_atom)
-			else:
-				print 'Error! Wrong geom input in molecule initiation!'	
+			for i in range(0, atomsNum):
+				tmp_line = geom[i]
+				tmp_line.strip()
+				tmp_line = tmp_line.split()
+				tmp_atom = atom(tmp_line[0],i+1,map(float, tmp_line[1:4]))
+				self.atoms.append(tmp_atom)
 
 			if len(connect) == atomsNum:
 				for i in range(0, atomsNum):
@@ -99,24 +166,57 @@ class molecule:
 						tmp_bond = bond(self.atoms[i], self.atoms[int(tmp_line[j]) - 1], float(tmp_line[j+1]))
 						self.atoms[i].addBond(tmp_bond)
 						self.atoms[int(tmp_line[j]) - 1].addBond(tmp_bond)
-			elif connect != '':
+						self.bonds.append(tmp_bond)
+			elif connect != []:
 				print 'Error! Worng coonectivity in molecule initiation!'					
 		else:
-			self.atoms = inputAtoms
+			self.atoms = copy.deepcopy(inputAtoms)
 
 	def getLogGeom(self, geom):
 		self.atoms = []
 		for tmp_line in geom:
-			tmp_line.strip()
+			tmp_line = tmp_line.strip()
 			tmp_line = tmp_line.split()
 			tmp_atom = atom(elementDict[tmp_line[1]] , int(tmp_line[0]), map(float, tmp_line[3:6]))
 			self.atoms.append(tmp_atom)
+
+	def getGjfGeom(self, geom):
+		self.atoms = []
+		for (i,tmp_line) in enumerate(geom):
+			tmp_line = tmp_line.strip()
+			tmp_line = tmp_line.split()
+			tmp_atom = atom(tmp_line[0],i+1,map(float, tmp_line[1:4]))
+			self.atoms.append(tmp_atom)
+
+	def addAtom(self, atom):
+		tmp_atom = copy.deepcopy(atom)
+		tmp_atom.label = len(self.atoms)+1
+		self.atoms.append(tmp_atom)
+
+
+	# only a fresh virtual bond could be accepted as the parameter of this function 
+	def addBond(self, freshBond):
+		if not (freshBond.atom1 in self.atoms) and (freshBond.atom2 in self.atoms):
+			print 'Error! The atoms to be bonded are not both in the atoms list!', freshBond.atom1.label, freshBond.atom2.label
+		else:
+			freshBond.atom1.addBond(freshBond)
+			freshBond.atom2.addBond(freshBond)
+			self.bonds.append(freshBond)
+
+	# input parameters are the two atoms and the bond order
+	def addBond2(self, atom1, atom2, bondOrder):
+		if not (atom1 in self.atoms) and (atom2 in self.atoms):
+			print 'Error! The atoms to be bonded are not both in the atoms list!', atom1.label, atom2.label
+		else:
+			tmp_bond = bond(atom1, atom2, bondOrder)
+			self.addBond(tmp_bond)
+
 
 	def setLabel(self, label):
 		self.label = label
 
 	def setZPE(self, ZPE):
-		self.setZPE = ZPE
+		self.ZPE = ZPE
 
 	def setRotConsts(self, rotConsts):
 		self.rotConsts = rotConsts
@@ -152,8 +252,30 @@ class molecule:
 		self.hinderedRotorQM1D = hinderedRotorQM1D
 
 	def setDescription(self, description):
-		self.description
-		
+		self.description = description
+
+	def setRole(self, role):
+		self.role = role
+	
+	def setRingBanned(self, banned):
+		self._RingBanned = banned
+
+	def getWeight(self):
+		weight = 0.0
+		for tmp_atom in self.atoms:
+			weight += tmp_atom.mass
+		return	weight
+
+	def getBond(self, atom1Label, atom2Label):
+		tmp_children = self.atoms[atom1Label-1].children
+		if self.atoms[atom2Label-1] in tmp_children:
+			tmp_index = tmp_children.index(self.atoms[atom2Label-1])
+			tmp_bond = self.atoms[atom1Label-1].bonds[tmp_index]
+		else:
+			print 'Error! This bond is not in current molecule', self.label, str(atom1Label), str(atom2Label)
+			tmp_bond = None
+		return tmp_bond
+
 	def getRotations(self):
 		rotations = []
 		for tmp_atom in self.atoms:
@@ -171,7 +293,7 @@ class molecule:
 				# print str(tmp_atom.bonds[index].atom1.label) + ' ' + str(tmp_atom.bonds[index].atom2.label)
 				# print [x.label for x in tmp_group1]
 				# print [x.label for x in tmp_group2]
-				if __RingBanned__ == True and tmp_result == 0:
+				if self._RingBanned == True and tmp_result == 0:
 					# print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					pass
 				else:
@@ -212,6 +334,7 @@ class molecule:
 				print '[', tmp_bond.atom1.label, tmp_bond.atom2.label, ']', tmp_bond.bondOrder
 
 	def clearBonds(self):
+		self.bonds = []
 		for tmp_atom in self.atoms:
 			tmp_atom.children = []
 			tmp_atom.bonds = []
@@ -239,6 +362,7 @@ class molecule:
 					tmp_bond = bond(self.atoms[i], self.atoms[j], tmp_order)
 					self.atoms[i].addBond(tmp_bond)
 					self.atoms[j].addBond(tmp_bond)
+					self.bonds.append(tmp_bond)
 
 
 class atom:
@@ -306,24 +430,32 @@ class atom:
 		tmp = (sum(tmp**2))**0.5
 		return tmp		
 
+
 class bond:
 	atom1 = atom()
 	atom2 = atom()
 	bondOrder = 0.0
 
-	def __init__(self, inputAtom1=atom(), inputAtom2=atom(), inputBondOrder=0.0):
+	# this bond initialized is not a real bond
+	# it would not be a real one until verified in a molecule level or added logically
+	# we can call it a fresh virtual bond now
+	def __init__(self, inputAtom1, inputAtom2, inputBondOrder=0.0):
 		self.atom1 = inputAtom1
 		self.atom2 = inputAtom2
 		self.bondOrder = inputBondOrder
 
 
 class rotation:
-	rotBondAxis = bond()
+	rotBondAxis = None
 	atomGroup1 = []
 	atomGroup2 = []
+	angles = []
+	energies = []
 
-	def __init__(self, rotBondAxis=bond(), atomGroup1=[], atomGroup2=[]):
+	def __init__(self, rotBondAxis, atomGroup1=[], atomGroup2=[]):
 		self.rotBondAxis = rotBondAxis
+		angles = []
+		energies = []
 		if atomGroup1 == []:
 			self.atomGroup1	= []
 		else:
@@ -373,6 +505,8 @@ class rotation:
 		else:
 			return self.group2Info()
 
-
+	def setPotential(self, angles, energies):
+		self.angles = angles
+		self.energies = energies	
 
 

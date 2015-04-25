@@ -27,7 +27,6 @@ for tmp_file in tmp_fileLists:
 		fr.close()
 
 wb=open_workbook(name + '.xls')
-sheets=[s.name for s in wb.sheets()]
 
 # constants
 # the number of rows and columns of the displayed fitting figures
@@ -83,7 +82,7 @@ tmp_name = ''
 
 # read thermo data from excel
 # read sketch info of all reaction
-sh=wb.sheet_by_name('Reactions')
+sh=wb.sheet_by_index(0)
 num_rows = sh.nrows
 num_cols = sh.ncols
 for tmp_row in range(2,num_rows):
@@ -96,7 +95,7 @@ for tmp_row in range(2,num_rows):
 		reactionsDict[TSs_abbr[-1]] = [num_reac[-1], num_prod[-1]]
 
 # read info of forward reaction
-sh=wb.sheet_by_name('Rate')
+sh=wb.sheet_by_index(2)
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -129,7 +128,7 @@ for tmp_row in range(3, num_rows):
 		tmp_rate = []
 
 # read info of reverse reaction
-sh=wb.sheet_by_name('ReverseRate')
+sh=wb.sheet_by_index(3)
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -161,7 +160,7 @@ for tmp_row in range(3, num_rows):
 		tmp_rate = []
 
 # read info of equilibrium constants
-sh=wb.sheet_by_name('EquilibriumConstants')
+sh=wb.sheet_by_index(4)
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 2
@@ -253,7 +252,7 @@ plt.close(tmp_fig3)
 # write to excel
 # write forward reaction
 wb_new = copy(wb)
-sh=wb_new.get_sheet(sheets.index('rate_f'))
+sh=wb_new.get_sheet(5)
 sh.cell_overwrite_ok = True
 tmp_row = 1
 tmp_col = 0
@@ -278,7 +277,7 @@ for (index, tmp_name) in enumerate(reacNames):
 	tmp_row += len(temperature)+1	
 
 # write reverse reaction
-sh=wb_new.get_sheet(sheets.index('rate_r'))
+sh=wb_new.get_sheet(6)
 sh.cell_overwrite_ok = True
 tmp_row = 1
 tmp_col = 0
@@ -303,7 +302,7 @@ for (index, tmp_name) in enumerate(reacNames):
 	tmp_row += len(temperature)+1	
 
 # write equilibrium constants
-sh=wb_new.get_sheet(sheets.index('Kconst'))
+sh=wb_new.get_sheet(7)
 sh.cell_overwrite_ok = True
 tmp_row = 1
 tmp_col = 0

@@ -6,5 +6,8 @@ python getThermoATM.py
 python runThermo.py
 python runReverseThermo.py
 python collectEquilibriumConstants.py
-python arrheniusFitting.py
+python thermoFitting.py
+python getMesmerInput.py
+python runMesmer.py
+python mesmerExtractFit.py
 pause

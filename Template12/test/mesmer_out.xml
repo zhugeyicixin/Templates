@@ -107,61 +107,61 @@
             <me:tmpnode_DOSCMethod name="ClassicalRotors" />
             <me:DOSCMethod default="true" name="ClassicalRotors" />
             <me:DistributionCalcMethod default="true" name="Boltzmann" />
-            <me:densityOfStatesList calculated="20150425_013559">
+            <me:densityOfStatesList calculated="20150425_133610">
                 <me:description>Rovibronic partition function calculation at various temperatures. qtot : product of QM partition functions for vibrations (1-D harmonic oscillator) and classical partition functions for rotations.  sumc : cell based partition function. sumg : grain based partition function </me:description>
                 <me:densityOfStates>
                     <me:T>200</me:T>
                     <me:qtot>4.15148e+009</me:qtot>
                     <me:sumc>4.11627e+009</me:sumc>
-                    <me:sumg>4.02984e+009</me:sumg>
+                    <me:sumg>4.09424e+009</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>300</me:T>
                     <me:qtot>4.61558e+011</me:qtot>
                     <me:sumc>4.57541e+011</me:sumc>
-                    <me:sumg>4.53206e+011</me:sumg>
+                    <me:sumg>4.56448e+011</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>400</me:T>
                     <me:qtot>3.64232e+013</me:qtot>
                     <me:sumc>3.6105e+013</me:sumc>
-                    <me:sumg>3.59116e+013</me:sumg>
+                    <me:sumg>3.60565e+013</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>500</me:T>
                     <me:qtot>2.42343e+015</me:qtot>
-                    <me:sumc>2.40225e+015</me:sumc>
-                    <me:sumg>2.39399e+015</me:sumg>
+                    <me:sumc>2.40224e+015</me:sumc>
+                    <me:sumg>2.40018e+015</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>600</me:T>
                     <me:qtot>1.43433e+017</me:qtot>
-                    <me:sumc>1.42178e+017</me:sumc>
-                    <me:sumg>1.41838e+017</me:sumg>
+                    <me:sumc>1.42081e+017</me:sumc>
+                    <me:sumg>1.41996e+017</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>700</me:T>
                     <me:qtot>7.6236e+018</me:qtot>
-                    <me:sumc>7.55681e+018</me:sumc>
-                    <me:sumg>7.54353e+018</me:sumg>
+                    <me:sumc>7.37365e+018</me:sumc>
+                    <me:sumg>7.37041e+018</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>800</me:T>
                     <me:qtot>3.63351e+020</me:qtot>
-                    <me:sumc>3.60162e+020</me:sumc>
-                    <me:sumg>3.59677e+020</me:sumg>
+                    <me:sumc>2.96894e+020</me:sumc>
+                    <me:sumg>2.96794e+020</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>900</me:T>
                     <me:qtot>1.54965e+022</me:qtot>
-                    <me:sumc>1.53602e+022</me:sumc>
-                    <me:sumg>1.53439e+022</me:sumg>
+                    <me:sumc>7.87493e+021</me:sumc>
+                    <me:sumg>7.87284e+021</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>1000</me:T>
                     <me:qtot>5.91122e+023</me:qtot>
-                    <me:sumc>5.8591e+023</me:sumc>
-                    <me:sumg>5.85405e+023</me:sumg>
+                    <me:sumc>1.31084e+023</me:sumc>
+                    <me:sumg>1.31055e+023</me:sumg>
                 </me:densityOfStates>
             </me:densityOfStatesList>
         </molecule>
@@ -271,61 +271,61 @@
             </me:energyTransferModel>
             <me:tmpnode_DOSCMethod name="ClassicalRotors" />
             <me:DOSCMethod default="true" name="ClassicalRotors" />
-            <me:densityOfStatesList calculated="20150425_013558">
+            <me:densityOfStatesList calculated="20150425_133610">
                 <me:description>Rovibronic partition function calculation at various temperatures. qtot : product of QM partition functions for vibrations (1-D harmonic oscillator) and classical partition functions for rotations.  sumc : cell based partition function. sumg : grain based partition function </me:description>
                 <me:densityOfStates>
                     <me:T>200</me:T>
                     <me:qtot>2.5434e+009</me:qtot>
                     <me:sumc>2.53746e+009</me:sumc>
-                    <me:sumg>2.48421e+009</me:sumg>
+                    <me:sumg>2.52388e+009</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>300</me:T>
                     <me:qtot>1.93441e+011</me:qtot>
                     <me:sumc>1.92981e+011</me:sumc>
-                    <me:sumg>1.91153e+011</me:sumg>
+                    <me:sumg>1.9252e+011</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>400</me:T>
                     <me:qtot>1.19367e+013</me:qtot>
                     <me:sumc>1.19077e+013</me:sumc>
-                    <me:sumg>1.18439e+013</me:sumg>
+                    <me:sumg>1.18917e+013</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>500</me:T>
                     <me:qtot>6.75826e+014</me:qtot>
                     <me:sumc>6.74158e+014</me:sumc>
-                    <me:sumg>6.71842e+014</me:sumg>
+                    <me:sumg>6.73577e+014</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>600</me:T>
                     <me:qtot>3.58224e+016</me:qtot>
-                    <me:sumc>3.57335e+016</me:sumc>
-                    <me:sumg>3.56481e+016</me:sumg>
+                    <me:sumc>3.57138e+016</me:sumc>
+                    <me:sumg>3.56922e+016</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>700</me:T>
                     <me:qtot>1.75932e+018</me:qtot>
-                    <me:sumc>1.75495e+018</me:sumc>
-                    <me:sumg>1.75187e+018</me:sumg>
+                    <me:sumc>1.71757e+018</me:sumc>
+                    <me:sumg>1.71656e+018</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>800</me:T>
                     <me:qtot>7.90095e+019</me:qtot>
-                    <me:sumc>7.88134e+019</me:sumc>
-                    <me:sumg>7.87074e+019</me:sumg>
+                    <me:sumc>6.59976e+019</me:sumc>
+                    <me:sumg>6.5924e+019</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>900</me:T>
                     <me:qtot>3.21505e+021</me:qtot>
-                    <me:sumc>3.20709e+021</me:sumc>
-                    <me:sumg>3.20368e+021</me:sumg>
+                    <me:sumc>1.70796e+021</me:sumc>
+                    <me:sumg>1.7043e+021</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>1000</me:T>
                     <me:qtot>1.17974e+023</me:qtot>
-                    <me:sumc>1.17683e+023</me:sumc>
-                    <me:sumg>1.17582e+023</me:sumg>
+                    <me:sumc>2.80705e+022</me:sumc>
+                    <me:sumg>2.79767e+022</me:sumg>
                 </me:densityOfStates>
             </me:densityOfStatesList>
         </molecule>
@@ -433,61 +433,61 @@
             <me:tmpnode_DOSCMethod name="ClassicalRotors" />
             <me:DOSCMethod default="true" name="ClassicalRotors" />
             <me:DistributionCalcMethod default="true" name="Boltzmann" />
-            <me:densityOfStatesList calculated="20150425_013559">
+            <me:densityOfStatesList calculated="20150425_133610">
                 <me:description>Rovibronic partition function calculation at various temperatures. qtot : product of QM partition functions for vibrations (1-D harmonic oscillator) and classical partition functions for rotations.  sumc : cell based partition function. sumg : grain based partition function </me:description>
                 <me:densityOfStates>
                     <me:T>200</me:T>
                     <me:qtot>5.86263e+009</me:qtot>
                     <me:sumc>5.97542e+009</me:sumc>
-                    <me:sumg>5.84993e+009</me:sumg>
+                    <me:sumg>5.94344e+009</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>300</me:T>
                     <me:qtot>8.8495e+011</me:qtot>
                     <me:sumc>9.04007e+011</me:sumc>
-                    <me:sumg>8.95442e+011</me:sumg>
+                    <me:sumg>9.01848e+011</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>400</me:T>
                     <me:qtot>9.23713e+013</me:qtot>
                     <me:sumc>9.44926e+013</me:sumc>
-                    <me:sumg>9.39864e+013</me:sumg>
+                    <me:sumg>9.43655e+013</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>500</me:T>
                     <me:qtot>7.82538e+015</me:qtot>
-                    <me:sumc>8.01279e+015</me:sumc>
-                    <me:sumg>7.98526e+015</me:sumg>
+                    <me:sumc>8.01277e+015</me:sumc>
+                    <me:sumg>8.00587e+015</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>600</me:T>
                     <me:qtot>5.68111e+017</me:qtot>
-                    <me:sumc>5.82125e+017</me:sumc>
-                    <me:sumg>5.80734e+017</me:sumg>
+                    <me:sumc>5.81491e+017</me:sumc>
+                    <me:sumg>5.81131e+017</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>700</me:T>
                     <me:qtot>3.58504e+019</me:qtot>
-                    <me:sumc>3.67544e+019</me:sumc>
-                    <me:sumg>3.66899e+019</me:sumg>
+                    <me:sumc>3.55316e+019</me:sumc>
+                    <me:sumg>3.55017e+019</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>800</me:T>
                     <me:qtot>1.97408e+021</me:qtot>
-                    <me:sumc>2.02471e+021</me:sumc>
-                    <me:sumg>2.02199e+021</me:sumg>
+                    <me:sumc>1.593e+021</me:sumc>
+                    <me:sumg>1.58956e+021</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>900</me:T>
                     <me:qtot>9.51128e+022</me:qtot>
-                    <me:sumc>9.7586e+022</me:sumc>
-                    <me:sumg>9.74822e+022</me:sumg>
+                    <me:sumc>4.47993e+022</me:sumc>
+                    <me:sumg>4.4606e+022</me:sumg>
                 </me:densityOfStates>
                 <me:densityOfStates>
                     <me:T>1000</me:T>
                     <me:qtot>4.02432e+024</me:qtot>
-                    <me:sumc>4.13014e+024</me:sumc>
-                    <me:sumg>4.12658e+024</me:sumg>
+                    <me:sumc>7.69171e+023</me:sumc>
+                    <me:sumg>7.64052e+023</me:sumg>
                 </me:densityOfStates>
             </me:densityOfStatesList>
         </molecule>
@@ -521,47 +521,47 @@
             </me:transitionState>
             <me:MCRCMethod name="SimpleRRKM" />
             <me:tunneling name="Eckart" />
-            <me:microRateList calculated="20150425_013559">
+            <me:microRateList calculated="20150425_133610">
                 <me:description>Microcanonical rate coefficients</me:description>
                 <me:microRate>
                     <me:T>100</me:T>
-                    <me:val>1.05111e-029</me:val>
+                    <me:val>9.54413e-030</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>200</me:T>
-                    <me:val>9.01827e-011</me:val>
+                    <me:val>8.84106e-011</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>300</me:T>
-                    <me:val>0.000508786</me:val>
+                    <me:val>0.000505171</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>400</me:T>
-                    <me:val>2.3548</me:val>
+                    <me:val>2.34651</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>500</me:T>
-                    <me:val>491.45</me:val>
+                    <me:val>485.626</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>600</me:T>
-                    <me:val>19505.5</me:val>
+                    <me:val>16392.3</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>700</me:T>
-                    <me:val>287992</me:val>
+                    <me:val>134598</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>800</me:T>
-                    <me:val>2.25209e+006</me:val>
+                    <me:val>400734</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>900</me:T>
-                    <me:val>1.14253e+007</me:val>
+                    <me:val>689337</me:val>
                 </me:microRate>
                 <me:microRate>
                     <me:T>1000</me:T>
-                    <me:val>4.25934e+007</me:val>
+                    <me:val>919677</me:val>
                 </me:microRate>
             </me:microRateList>
         </reaction>
@@ -585,8 +585,8 @@
         </me:PTs>
     </me:conditions>
     <me:modelParameters>
-        <me:grainSize units="cm-1">100.0</me:grainSize>
-        <me:energyAboveTheTopHill>100.0</me:energyAboveTheTopHill>
+        <me:grainSize units="cm-1">50.0</me:grainSize>
+        <me:energyAboveTheTopHill>20.0</me:energyAboveTheTopHill>
     </me:modelParameters>
     <me:control>
         <me:testMicroRates />
@@ -595,103 +595,103 @@
         <me:eigenvalues default="true">0</me:eigenvalues>
     </me:control>
     <metadataList xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:source>D:\hetanjin\smallSoftware\github\storageFiles\Templates\Template12\test\TS_1_1b.xml</dc:source>
+        <dc:source>TS_1_1b.xml</dc:source>
         <dc:creator>Mesmer v3.0</dc:creator>
-        <dc:date>20150425_013302</dc:date>
+        <dc:date>20150425_133551</dc:date>
         <dc:contributor>Administrator</dc:contributor>
     </metadataList>
-    <me:analysis calculated="20150425_013302">
+    <me:analysis calculated="20150425_133551">
         <me:description>All calculations shown</me:description>
         <me:rateList T="298.15" conc="4.92298e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -5.03803e+008 and the first IERE = -3.0951e+009 (last CSE)/(first IERE) ratio = 0.162774, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-5.03803e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-0.000387117</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">5.03803e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">0.000387117</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -5.01747e+008 and the first IERE = -3.22824e+009 (last CSE)/(first IERE) ratio = 0.155425, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-5.01747e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-0.000382067</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">5.01747e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">0.000382067</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="300" conc="4.89262e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -5.12977e+008 and the first IERE = -3.03312e+009 (last CSE)/(first IERE) ratio = 0.169125, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-5.12977e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-0.000472672</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">5.12977e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">0.000472672</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -5.10713e+008 and the first IERE = -3.16342e+009 (last CSE)/(first IERE) ratio = 0.161444, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-5.10713e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-0.000466204</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">5.10713e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">0.000466204</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="400" conc="3.66947e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.15645e+009 and the first IERE = -1.17171e+009 (last CSE)/(first IERE) ratio = 0.986975, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-1.15645e+009</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-1.70442</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.15645e+009</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">1.70442</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.15352e+009 and the first IERE = -1.22355e+009 (last CSE)/(first IERE) ratio = 0.942765, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-1.15352e+009</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-1.6066</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.15352e+009</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">1.6066</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="450" conc="3.26175e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -7.92874e+008 and the first IERE = -1.34589e+009 (last CSE)/(first IERE) ratio = 0.589109, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-7.92874e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-14.1228</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">7.92874e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">14.1228</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -8.37922e+008 and the first IERE = -1.53618e+009 (last CSE)/(first IERE) ratio = 0.545458, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-8.37922e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-13.1319</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">8.37922e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">13.1319</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="500" conc="2.93557e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -5.60122e+008 and the first IERE = -9.67823e+008 (last CSE)/(first IERE) ratio = 0.578745, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-5.60122e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-74.3971</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">5.60122e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">74.3971</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -6.11576e+008 and the first IERE = -1.30166e+009 (last CSE)/(first IERE) ratio = 0.469843, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-6.11576e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-63.6798</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">6.11576e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">63.6798</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="550" conc="2.6687e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -4.0996e+008 and the first IERE = -7.18459e+008 (last CSE)/(first IERE) ratio = 0.57061, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-4.0996e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-285.128</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">4.0996e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">285.128</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -4.76758e+008 and the first IERE = -1.10851e+009 (last CSE)/(first IERE) ratio = 0.430089, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-4.76758e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-221.445</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">4.76758e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">221.445</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="600" conc="2.44631e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -3.09006e+008 and the first IERE = -5.47761e+008 (last CSE)/(first IERE) ratio = 0.564126, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-3.09005e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-861.717</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">3.09005e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">861.717</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -3.95993e+008 and the first IERE = -9.84003e+008 (last CSE)/(first IERE) ratio = 0.402431, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-3.95992e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-604.564</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">3.95992e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">604.564</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="650" conc="2.25813e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -2.38725e+008 and the first IERE = -4.27156e+008 (last CSE)/(first IERE) ratio = 0.558871, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-2.38723e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-2170.77</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">2.38723e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">2170.77</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -3.49274e+008 and the first IERE = -9.04459e+008 (last CSE)/(first IERE) ratio = 0.38617, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-3.49273e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-1368.18</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">3.49273e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">1368.18</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="700" conc="2.09684e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.88323e+008 and the first IERE = -3.39598e+008 (last CSE)/(first IERE) ratio = 0.554545, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-1.88318e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-4741.64</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.88318e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">4741.64</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -3.20236e+008 and the first IERE = -8.42309e+008 (last CSE)/(first IERE) ratio = 0.380188, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-3.20233e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-2732.43</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">3.20233e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">2732.43</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="750" conc="1.95705e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.51244e+008 and the first IERE = -2.74523e+008 (last CSE)/(first IERE) ratio = 0.550936, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-1.51235e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-9243.55</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.51235e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">9243.55</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -3.02665e+008 and the first IERE = -7.94257e+008 (last CSE)/(first IERE) ratio = 0.381067, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-3.0266e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-4928.17</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">3.0266e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">4928.17</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="800" conc="1.83473e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.23361e+008 and the first IERE = -2.25157e+008 (last CSE)/(first IERE) ratio = 0.547889, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-1.23345e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-16433.3</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.23345e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">16433.3</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -2.91843e+008 and the first IERE = -7.55037e+008 (last CSE)/(first IERE) ratio = 0.386529, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-2.91835e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-8210.74</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">2.91835e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">8210.74</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="850" conc="1.72681e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -1.01987e+008 and the first IERE = -1.87031e+008 (last CSE)/(first IERE) ratio = 0.545292, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-1.01959e+008</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-27086.1</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">1.01959e+008</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">27086.1</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -2.84903e+008 and the first IERE = -7.21533e+008 (last CSE)/(first IERE) ratio = 0.394857, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-2.8489e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-12846.3</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">2.8489e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">12846.3</me:firstOrderRate>
         </me:rateList>
         <me:rateList T="900" conc="1.63087e+020" bathGas="He" me:units="s-1">
-            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -8.53229e+007 and the first IERE = -1.57115e+008 (last CSE)/(first IERE) ratio = 0.543059, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
-            <me:firstOrderLoss ref="QOOH_1b">-8.5281e+007</me:firstOrderLoss>
-            <me:firstOrderLoss ref="RO2_1">-41923.6</me:firstOrderLoss>
-            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">8.5281e+007</me:firstOrderRate>
-            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">41923.6</me:firstOrderRate>
+            <me:warning> WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).  The last CSE = -2.80101e+008 and the first IERE = -6.91875e+008 (last CSE)/(first IERE) ratio = 0.404843, which is less than an order of magnitude  Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable </me:warning>
+            <me:firstOrderLoss ref="QOOH_1b">-2.80082e+008</me:firstOrderLoss>
+            <me:firstOrderLoss ref="RO2_1">-19104.9</me:firstOrderLoss>
+            <me:firstOrderRate fromRef="QOOH_1b" toRef="RO2_1" reactionType="isomerization">2.80082e+008</me:firstOrderRate>
+            <me:firstOrderRate fromRef="RO2_1" toRef="QOOH_1b" reactionType="isomerization">19104.9</me:firstOrderRate>
         </me:rateList>
     </me:analysis>
 </me:mesmer>

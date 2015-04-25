@@ -44,3 +44,18 @@ class phys:
 	def hartreeTokcalmol(self, E):
 		return E*627.51
 
+	# return the index where T >= lowT and T <= highT in a temperature array
+	def TRangeIndex(self, temperature, lowT, highT):
+		lowT_index = 0
+		highT_index = len(temperature)
+		while lowT_index < highT_index:
+			if (temperature[lowT_index] - 400) < 1e-2:
+				lowT_index += 1
+			else:
+				break
+		while highT_index > lowT_index:
+			if (temperature[highT_index-1] - 900) > 1e-2:
+				highT_index -= 1
+			else:
+				break
+		return [lowT_index, highT_index]

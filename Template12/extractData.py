@@ -7,6 +7,8 @@ from xlutils.copy import copy
 import re
 import os
 
+import textExtractor
+
 __energy__ = 'cbs'
 
 ###################
@@ -34,7 +36,7 @@ for tmp_file in tmp_fileLists:
 		fr.close()	
 
 wb=open_workbook('template.xls')
-sh=wb.sheet_by_index(0)
+sh=wb.sheet_by_name('Reactions')
 
 #definition of goal parameters
 reacs_name = []					#reactants name list
@@ -106,18 +108,24 @@ total = len(TSs_name) 			#total number of reactions
 
 #definition of goal parameters
 multi = 0
+geom = ''
 freq=[]						#frequencies
 RSN = 0 					#external symmetry number
 rots = []					#rotational constants
+hessian = []
 energy = 0.0				#CBS-QB3 (0 K)
 
 #definetion of comparing pattern
 pattern_cbs = re.compile('^.*#.*[Cc][Bb][Ss]-[Qq][Bb]3.*$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
+pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
+pattern_standard = re.compile('^.*Standard orientation:.*$') 
+pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 pattern_freq = re.compile('^.*Frequencies -- *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)?$')
 pattern_RSN = re.compile('^.*Rotational symmetry number *([0-9]+).*$')
 pattern_rots = re.compile('^.*Rotational constants \(GHZ\): *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+)$')
 pattern2_rots = re.compile('^.*Rotational constant \(GHZ\): *(-?[0-9]+\.[0-9]+)$')
+pattern_freqSum = re.compile('^.*\\\\Freq\\\\.*$')
 if __energy__ == 'cbs':
 	pattern_energy = re.compile('^.*CBS-QB3 \(0 K\)= *(-?[0-9]+\.[0-9]+).*$')
 else:
@@ -129,11 +137,14 @@ count = 0					#count the num of line maybe tell() could be useful you could have
 #definition of flags
 cbs_done = -1
 multi_done = -1
+freqCom_done = -1
+standard_done = -1
+coordinate_done = -1
 freq_done = -1
 RSN_done = -1
 rots_done = -1
+freqSum_done = -1
 energy_done = -1
-
 
 #definition of temporary variables
 tmp_m = []		#match result 
@@ -146,12 +157,17 @@ tmp_energies = []
 tmp2_energies = []
 tmp_barrier = 0.0
 tmp_reverse_barrier = 0.0
+tmp_num = 0
 #sh=wb.sheet_by_index(1)
 #sh.put_cell(1,1,2,2,0)			#
 
 #build a new workbook
+sheets = [s.name for s in wb.sheets()]
 wb_new = copy(wb)
-sh=wb_new.get_sheet(1)				#if overwrite to use cell_overwrite_ok=True
+sh=wb_new.get_sheet(sheets.index('SpeciesInfo'))				#if overwrite to use cell_overwrite_ok=True
+sh2=wb_new.get_sheet(sheets.index('SpeciesGeom'))
+sh3=wb_new.get_sheet(sheets.index('SpeciesHessian'))
+
 sh.write(1,0,total)
 
 allSpecies_name = reacs_name + tmp_blankline + prods_name + tmp_blankline + TSs_name
@@ -178,12 +194,17 @@ for i in range(len(allSpecies_name)):
 		freq=[]						
 		RSN = 0 					
 		rots = []					
-		energy = 0.0				
-
+		hessian = []	
+		energy = 0.0
+			
 		multi_done = -1
+		freqCom_done = -1
+		standard_done = -1
+		coordinate_done = -1
 		freq_done = -1
 		RSN_done = -1
 		rots_done = -1
+		freqSum_done = -1
 		energy_done = -1
 
 		# only if __energy__ == 'cbs', then check whether the freq file is cbs file 
@@ -193,7 +214,7 @@ for i in range(len(allSpecies_name)):
 			cbs_done = 1
 
 		tmp_all_lines = freqFile.readlines()
-		for line in tmp_all_lines:
+		for (lineNum, line) in enumerate(tmp_all_lines):
 			if cbs_done != 1:
 				if line == tmp_all_lines[-1]:
 					print 'error: ' + tmp2_name + 'not cbs freq file'
@@ -201,10 +222,28 @@ for i in range(len(allSpecies_name)):
 				if tmp_m:
 					cbs_done = 1
 			elif multi_done != 1:
-					tmp_m = pattern_multi.match(line)
-					if tmp_m:
-						multi = tmp_m.group(1)
-						multi_done = 1
+				tmp_m = pattern_multi.match(line)
+				if tmp_m:
+					multi = tmp_m.group(1)
+					multi_done = 1
+			elif freqCom_done != 1:
+				tmp_m = pattern_freqCom.match(line)
+				if tmp_m:
+					freqCom_done = 1
+			elif standard_done != 1:
+				tmp_m = pattern_standard.match(line)
+				if tmp_m:
+					tmp_num = lineNum + 5
+					standard_done = 1
+			elif coordinate_done != 1:
+				tmp_m = pattern_endline.match(line)
+				if tmp_m:
+					if lineNum > tmp_num:
+						geom = textExtractor.geometryExtractor(tmp_all_lines[tmp_num: lineNum])
+						geom = geom.replace('\t','    ')
+						geom = geom.strip()
+						geom = geom.split('\n')
+						coordinate_done = 1
 			elif freq_done != 1:
 				tmp_m = pattern_freq.match(line)
 				if tmp_m:
@@ -221,7 +260,7 @@ for i in range(len(allSpecies_name)):
 					RSN = tmp_m.group(1)
 					RSN_done = 1
 			elif rots_done != 1:
-				tmp_m=pattern_rots.match(line)
+				tmp_m = pattern_rots.match(line)
 				if tmp_m:
 					rots.extend(tmp_m.groups())
 					rots_done = 1
@@ -233,7 +272,20 @@ for i in range(len(allSpecies_name)):
 						rots.append(rots[0])
 						rots[0] = '0.0'
 						rots_done = 1
-						break
+			elif freqSum_done != 1:
+				if freqSum_done < 0:
+					tmp_m = pattern_freqSum.match(line)
+					if tmp_m:
+						freqSum_done = 0
+						tmp_num = lineNum
+				elif line != '\n':
+					continue
+				else:
+					hessian = textExtractor.hessianExtractor(tmp_all_lines[tmp_num:lineNum])
+					if len(hessian) != ((3*len(geom))*(3*len(geom)+1)/2):
+						print 'Error! The size of hessian matrix does not equal to 3*N!'
+					freqSum_done = 1
+					break							
 		freqFile.close()
 
 		energyFile = file('energy/'+ tmp2_name + '.log','r')
@@ -252,6 +304,7 @@ for i in range(len(allSpecies_name)):
 		sh.write(tmp_row,2,allSpecies_name[i][j])
 		sh.write(tmp_row,3,float(energy))
 		sh.write(tmp_row,10,allSpecies_form[i][j])
+		print tmp2_name
 		sh.write(tmp_row,11,float(rots[0]))
 		sh.write(tmp_row,12,float(rots[1]))
 		sh.write(tmp_row,13,float(rots[2]))
@@ -296,6 +349,18 @@ for i in range(len(allSpecies_name)):
 				sh.write(tmp_row,21+k,float(freq[k]))
 			else:
 				sh.write(tmp_row,21+k,'error ' + str(freq[k]))
+
+		sh2.write(0, tmp_row-2, allSpecies_abbr[i][j])
+		sh2.write(1, tmp_row-2, allSpecies_name[i][j])
+		sh2.write(2, tmp_row-2, len(geom))
+		for (index, x) in enumerate(geom):
+			sh2.write(index+3, tmp_row-2, x)
+
+		sh3.write(0, tmp_row-2, allSpecies_abbr[i][j])
+		sh3.write(1, tmp_row-2, allSpecies_name[i][j])
+		sh3.write(2, tmp_row-2, len(hessian))
+		for (index, x) in enumerate(hessian):
+			sh3.write(index+3, tmp_row-2, x)
 
 		tmp_row += 1
 

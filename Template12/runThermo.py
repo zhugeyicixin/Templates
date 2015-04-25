@@ -59,8 +59,9 @@ for tmp_file in tmp_fileLists:
 	shutil.move('thermoInputATM/'+tmp_file,'thermoOutputATM')
 
 wb=open_workbook(name + '.xls')
+sheets=[s.name for s in wb.sheets()]
 wb_new = copy(wb)
-sh=wb_new.get_sheet(2)				#if overwrite to use cell_overwrite_ok=True
+sh=wb_new.get_sheet(sheets.index('Rate'))				#if overwrite to use cell_overwrite_ok=True
 sh.cell_overwrite_ok = True
 tmp_row = 3
 

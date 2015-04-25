@@ -1,6 +1,6 @@
 %mem=28GB
 %nprocshared=12
-%chk=D:\hetanjin\smallSoftware\Kuaipan\farnesane\dimethylheptane\calculationResult\thermo\Templates\Template13\freq\result_C3H7_45_b3631gd.chk
+%chk=D:\hetanjin\smallSoftware\github\storageFiles\Templates\Template13\freq\result_C3H7_45_b3631gd.chk
 #p freq ub3lyp/6-31g(d) scrf=check guess=tcheck
 geom=(connectivity,allcheck) genchk
 

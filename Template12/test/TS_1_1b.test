@@ -1,0 +1,1010 @@
+PT Grid 0 Condition: conc = 4.92298e+020, temp = 298.15, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 0.000405339 s-1 (298.15 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 5.30605e+008 s-1 (298.15 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84102e-011
+    300    0.000495501
+}
+
+Eq fraction matrix:
+{
+ -7.6052e-013            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  7.6052e-013
+}
+Equilibrium Fraction for QOOH_1b = 7.60517e-013
+Equilibrium Fraction for RO2_1 = 1
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -5.01747e+008 and the first IERE = -3.22824e+009
+(last CSE)/(first IERE) ratio = 0.155425, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+8.726243e-07	1.000000e+00	
+-8.726243e-07	7.614732e-13	
+}
+
+Z_matrix^(-1):
+{
+8.726243e-07	-1.145968e+06	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	0.000000e+00	
+-6.908935e-77	1.000000e+00	
+}
+
+Kr matrix:
+{
+-3.820671e-04	5.017472e+08	
+3.820671e-04	-5.017472e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -5.017472e+08
+RO2_1 loss = -3.820671e-04
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 5.017472e+08
+RO2_1 -> QOOH_1b = 3.820671e-04
+}
+}
+PT Grid 1 Condition: conc = 4.89262e+020, temp = 300, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 0.000495501 s-1 (300 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 5.4085e+008 s-1 (300 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84102e-011
+    300    0.000495501
+    400        1.41406
+}
+
+Eq fraction matrix:
+{
+ -9.1212e-013            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  9.1212e-013
+}
+Equilibrium Fraction for QOOH_1b = 9.12117e-013
+Equilibrium Fraction for RO2_1 = 1
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -5.10713e+008 and the first IERE = -3.16342e+009
+(last CSE)/(first IERE) ratio = 0.161444, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+-9.554315e-07	1.000000e+00	
+9.554315e-07	9.128493e-13	
+}
+
+Z_matrix^(-1):
+{
+-9.554315e-07	1.046648e+06	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-1.519291e-64	
+-1.381787e-76	1.000000e+00	
+}
+
+Kr matrix:
+{
+-4.662044e-04	5.107134e+08	
+4.662044e-04	-5.107134e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -5.107134e+08
+RO2_1 loss = -4.662044e-04
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 5.107134e+08
+RO2_1 -> QOOH_1b = 4.662044e-04
+}
+}
+PT Grid 2 Condition: conc = 3.66947e+020, temp = 400, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 1.98958 s-1 (400 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 1.35362e+009 s-1 (400 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84107e-011
+    300    0.000504385
+    400        1.98958
+    500        170.886
+}
+
+Eq fraction matrix:
+{
+ -1.4657e-009            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  1.4657e-009
+}
+Equilibrium Fraction for QOOH_1b = 1.46574e-009
+Equilibrium Fraction for RO2_1 = 1
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -1.15352e+009 and the first IERE = -1.22355e+009
+(last CSE)/(first IERE) ratio = 0.942765, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+3.731994e-05	1.000000e+00	
+-3.731994e-05	1.392778e-09	
+}
+
+Z_matrix^(-1):
+{
+3.731994e-05	-2.679533e+04	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-7.596454e-64	
+-1.379576e-72	1.000000e+00	
+}
+
+Kr matrix:
+{
+-1.606595e+00	1.153519e+09	
+1.606595e+00	-1.153519e+09	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -1.153519e+09
+RO2_1 loss = -1.606595e+00
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 1.153519e+09
+RO2_1 -> QOOH_1b = 1.606595e+00
+}
+}
+PT Grid 3 Condition: conc = 3.26175e+020, temp = 450, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 32.4233 s-1 (450 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 1.8241e+009 s-1 (450 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84107e-011
+    300    0.000504986
+    400        2.15144
+    500        231.925
+}
+
+Eq fraction matrix:
+{
+ -1.7733e-008            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  1.7733e-008
+}
+Equilibrium Fraction for QOOH_1b = 1.77332e-008
+Equilibrium Fraction for RO2_1 = 1
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -8.37922e+008 and the first IERE = -1.53618e+009
+(last CSE)/(first IERE) ratio = 0.545458, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+1.251878e-04	1.000000e+00	
+-1.251878e-04	1.567198e-08	
+}
+
+Z_matrix^(-1):
+{
+1.251878e-04	-7.988000e+03	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-7.596454e-65	
+-4.527840e-72	1.000000e+00	
+}
+
+Kr matrix:
+{
+-1.313189e+01	8.379218e+08	
+1.313189e+01	-8.379218e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -8.379218e+08
+RO2_1 loss = -1.313189e+01
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 8.379218e+08
+RO2_1 -> QOOH_1b = 1.313189e+01
+}
+}
+PT Grid 4 Condition: conc = 2.93557e+020, temp = 500, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 291.801 s-1 (500 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.20174e+009 s-1 (500 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300     0.00050515
+    400        2.24785
+    500        291.801
+    600        3521.43
+}
+
+Eq fraction matrix:
+{
+ -1.3226e-007            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  1.3226e-007
+}
+Equilibrium Fraction for QOOH_1b = 1.32262e-007
+Equilibrium Fraction for RO2_1 = 1
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -6.11576e+008 and the first IERE = -1.30166e+009
+(last CSE)/(first IERE) ratio = 0.469843, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+3.226827e-04	9.999999e-01	
+-3.226827e-04	1.041242e-07	
+}
+
+Z_matrix^(-1):
+{
+3.226828e-04	-3.099019e+03	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	0.000000e+00	
+-1.358352e-71	1.000000e+00	
+}
+
+Kr matrix:
+{
+-6.367980e+01	6.115756e+08	
+6.367980e+01	-6.115756e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -6.115756e+08
+RO2_1 loss = -6.367980e+01
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 6.115756e+08
+RO2_1 -> QOOH_1b = 6.367980e+01
+}
+}
+PT Grid 5 Condition: conc = 2.6687e+020, temp = 550, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 1673.23 s-1 (550 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.41542e+009 s-1 (550 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505148
+    400        2.29965
+    500        345.398
+    600        5045.95
+}
+
+Eq fraction matrix:
+{
+ -6.9148e-007            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  6.9148e-007
+}
+Equilibrium Fraction for QOOH_1b = 6.9148e-007
+Equilibrium Fraction for RO2_1 = 0.999999
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -4.76758e+008 and the first IERE = -1.10851e+009
+(last CSE)/(first IERE) ratio = 0.430089, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+6.815286e-04	9.999995e-01	
+-6.815286e-04	4.644815e-07	
+}
+
+Z_matrix^(-1):
+{
+6.815289e-04	-1.467289e+03	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-1.899114e-64	
+0.000000e+00	1.000000e+00	
+}
+
+Kr matrix:
+{
+-2.214453e+02	4.767578e+08	
+2.214453e+02	-4.767578e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -4.767578e+08
+RO2_1 loss = -2.214453e+02
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 4.767578e+08
+RO2_1 -> QOOH_1b = 2.214453e+02
+}
+}
+PT Grid 6 Condition: conc = 2.44631e+020, temp = 600, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 6794.93 s-1 (600 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.45861e+009 s-1 (600 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505139
+    400        2.32506
+    500        389.624
+    600        6794.93
+    700        26923.8
+}
+
+Eq fraction matrix:
+{
+ -2.7593e-006            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+           -1            1
+            1  2.7593e-006
+}
+Equilibrium Fraction for QOOH_1b = 2.75927e-006
+Equilibrium Fraction for RO2_1 = 0.999997
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -3.95993e+008 and the first IERE = -9.84003e+008
+(last CSE)/(first IERE) ratio = 0.402431, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+1.235598e-03	9.999985e-01	
+-1.235598e-03	1.526705e-06	
+}
+
+Z_matrix^(-1):
+{
+1.235600e-03	-8.093235e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-9.495568e-65	
+-1.086681e-70	1.000000e+00	
+}
+
+Kr matrix:
+{
+-6.045644e+02	3.959925e+08	
+6.045644e+02	-3.959925e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -3.959925e+08
+RO2_1 loss = -6.045644e+02
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 3.959925e+08
+RO2_1 -> QOOH_1b = 6.045644e+02
+}
+}
+PT Grid 7 Condition: conc = 2.25813e+020, temp = 650, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 20764 s-1 (650 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.32661e+009 s-1 (650 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300     0.00050515
+    400        2.33664
+    500        421.556
+    600        8533.59
+    700        38125.1
+}
+
+Eq fraction matrix:
+{
+ -8.9115e-006            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99999      0.99999
+      0.99999  8.9115e-006
+}
+Equilibrium Fraction for QOOH_1b = 8.91146e-006
+Equilibrium Fraction for RO2_1 = 0.999991
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -3.49274e+008 and the first IERE = -9.04459e+008
+(last CSE)/(first IERE) ratio = 0.38617, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+1.979192e-03	9.999961e-01	
+-1.979192e-03	3.917217e-06	
+}
+
+Z_matrix^(-1):
+{
+1.979200e-03	-5.052547e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	7.596454e-65	
+-2.943096e-70	1.000000e+00	
+}
+
+Kr matrix:
+{
+-1.368183e+03	3.492730e+08	
+1.368183e+03	-3.492730e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -3.492730e+08
+RO2_1 loss = -1.368183e+03
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 3.492730e+08
+RO2_1 -> QOOH_1b = 1.368183e+03
+}
+}
+PT Grid 8 Condition: conc = 2.09684e+020, temp = 700, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 53009.7 s-1 (700 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.17542e+009 s-1 (700 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505159
+    400        2.34238
+    500        446.699
+    600        10422.1
+    700        53009.7
+    800         114521
+}
+
+Eq fraction matrix:
+{
+ -2.4335e-005            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99998      0.99998
+      0.99998  2.4335e-005
+}
+Equilibrium Fraction for QOOH_1b = 2.43345e-005
+Equilibrium Fraction for RO2_1 = 0.999976
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -3.20236e+008 and the first IERE = -8.42309e+008
+(last CSE)/(first IERE) ratio = 0.380188, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+2.921040e-03	9.999915e-01	
+-2.921040e-03	8.532547e-06	
+}
+
+Z_matrix^(-1):
+{
+2.921065e-03	-3.423409e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	2.848670e-65	
+7.968998e-70	1.000000e+00	
+}
+
+Kr matrix:
+{
+-2.732426e+03	3.202329e+08	
+2.732426e+03	-3.202329e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -3.202329e+08
+RO2_1 loss = -2.732426e+03
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 3.202329e+08
+RO2_1 -> QOOH_1b = 2.732426e+03
+}
+}
+PT Grid 9 Condition: conc = 1.95705e+020, temp = 750, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 116447 s-1 (750 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 2.00398e+009 s-1 (750 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505164
+    400        2.34478
+    500        463.822
+    600        12222.2
+    700        70645.3
+    800         164514
+}
+
+Eq fraction matrix:
+{
+ -5.8037e-005            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99994      0.99994
+      0.99994  5.8033e-005
+}
+Equilibrium Fraction for QOOH_1b = 5.80332e-005
+Equilibrium Fraction for RO2_1 = 0.999942
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -3.02665e+008 and the first IERE = -7.94257e+008
+(last CSE)/(first IERE) ratio = 0.381067, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+4.035138e-03	9.999837e-01	
+-4.035138e-03	1.628260e-05	
+}
+
+Z_matrix^(-1):
+{
+4.035203e-03	-2.478190e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-4.178050e-64	
+-4.636508e-69	1.000000e+00	
+}
+
+Kr matrix:
+{
+-4.928172e+03	3.026600e+08	
+4.928172e+03	-3.026600e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -3.026600e+08
+RO2_1 loss = -4.928172e+03
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 3.026600e+08
+RO2_1 -> QOOH_1b = 4.928172e+03
+}
+}
+PT Grid 10 Condition: conc = 1.83473e+020, temp = 800, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 228306 s-1 (800 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 1.83952e+009 s-1 (800 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505169
+    400        2.34597
+    500         474.91
+    600        13848.4
+    700        90593.1
+    800         228306
+    900         360499
+}
+
+Eq fraction matrix:
+{
+  -0.00012397            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99988      0.99988
+      0.99988   0.00012396
+}
+Equilibrium Fraction for QOOH_1b = 0.000123955
+Equilibrium Fraction for RO2_1 = 0.999876
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -2.91843e+008 and the first IERE = -7.55037e+008
+(last CSE)/(first IERE) ratio = 0.386529, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+-5.304082e-03	9.999719e-01	
+5.304082e-03	2.813408e-05	
+}
+
+Z_matrix^(-1):
+{
+-5.304232e-03	1.885287e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	1.519291e-64	
+-1.159127e-69	1.000000e+00	
+}
+
+Kr matrix:
+{
+-8.210745e+03	2.918351e+08	
+8.210745e+03	-2.918351e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -2.918351e+08
+RO2_1 loss = -8.210745e+03
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 2.918351e+08
+RO2_1 -> QOOH_1b = 8.210745e+03
+}
+}
+PT Grid 11 Condition: conc = 1.72681e+020, temp = 850, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 410338 s-1 (850 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 1.69451e+009 s-1 (850 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300     0.00050517
+    400        2.34638
+    500        481.682
+    600        15245.7
+    700         112184
+    800         306939
+    900         505080
+}
+
+Eq fraction matrix:
+{
+   -0.0002419            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99976      0.99976
+      0.99976   0.00024184
+}
+Equilibrium Fraction for QOOH_1b = 0.000241843
+Equilibrium Fraction for RO2_1 = 0.999758
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -2.84903e+008 and the first IERE = -7.21533e+008
+(last CSE)/(first IERE) ratio = 0.394857, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+-6.714766e-03	9.999549e-01	
+6.714766e-03	4.509012e-05	
+}
+
+Z_matrix^(-1):
+{
+-6.715069e-03	1.489188e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	-1.139468e-64	
+0.000000e+00	1.000000e+00	
+}
+
+Kr matrix:
+{
+-1.284629e+04	2.848897e+08	
+1.284629e+04	-2.848897e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -2.848897e+08
+RO2_1 loss = -1.284629e+04
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 2.848897e+08
+RO2_1 -> QOOH_1b = 1.284629e+04
+}
+}
+PT Grid 12 Condition: conc = 1.63087e+020, temp = 900, diagonalization precision: double
+{
+
+Canonical first order forward rate constant of isomerization reaction R1 = 689337 s-1 (900 K)
+Canonical first order backward rate constant of isomerization reaction R1 = 1.57267e+009 s-1 (900 K)
+
+Canonical rate coefficients for R1, calculated from microcanonical rates
+{
+    100   9.54413e-030
+    200   8.84106e-011
+    300    0.000505171
+    400        2.34651
+    500        485.626
+    600        16392.3
+    700         134598
+    800         400734
+    900         689337
+   1000         919677
+}
+
+Eq fraction matrix:
+{
+  -0.00043789            1
+            1            1
+}
+inverse of Eq fraction matrix:
+{
+     -0.99956      0.99956
+      0.99956    0.0004377
+}
+Equilibrium Fraction for QOOH_1b = 0.000437698
+Equilibrium Fraction for RO2_1 = 0.999562
+
+Bartis Widom eigenvalue/eigenvector analysis
+
+Number of sinks in this system: 0
+
+There should be 1 zero eigenvalue (zero within numerical precision) and 1 chemically significant eigenvalues (CSEs)
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -2.80101e+008 and the first IERE = -6.91875e+008
+(last CSE)/(first IERE) ratio = 0.404843, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+
+Z_matrix: {
+8.258487e-03	9.999318e-01	
+-8.258487e-03	6.820726e-05	
+}
+
+Z_matrix^(-1):
+{
+8.259050e-03	-1.210793e+02	
+1.000000e+00	1.000000e+00	
+}
+
+Z_matrix * Z_matrix^(-1) [Identity matrix]:
+{
+1.000000e+00	8.546011e-65	
+2.318254e-69	1.000000e+00	
+}
+
+Kr matrix:
+{
+-1.910490e+04	2.800816e+08	
+1.910490e+04	-2.800816e+08	
+}
+
+First order & pseudo first order rate coefficients for loss rxns:
+{
+QOOH_1b loss = -2.800816e+08
+RO2_1 loss = -1.910490e+04
+}
+
+First order & pseudo first order rate coefficients for isomerization rxns:
+{
+QOOH_1b -> RO2_1 = 2.800816e+08
+RO2_1 -> QOOH_1b = 1.910490e+04
+}
+}
