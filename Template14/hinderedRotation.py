@@ -73,6 +73,7 @@ tmp_energy = 0.0
 tmp_dihedral = 0.0
 tmp_num = 0
 tmp_page = 1
+tmp_pic = 1
 
 pwd = os.getcwd()
 wb_new = Workbook()
@@ -104,9 +105,13 @@ for tmp_file in tmp_fileLists:
 		sh = wb_new.add_sheet(tmp_file)
 		sh_fit = wb_new.add_sheet(tmp_file + '_fit')
 		tmp_page = 1
+		tmp_pic = 1
 		tmp_fig = plt.figure(figsize=(22,12))
 		tmp_fig2 = plt.figure(figsize=(22,12))
 		tmp_fig3 = plt.figure(figsize=(22,12))
+		tmp_figs = [tmp_fig]
+		tmp_figs2 = [tmp_fig2]
+		tmp_figs3 = [tmp_fig3] 
 		print '\n------------------------------------ ' + tmp_file + ' ----------------------------------------'
 
 
@@ -405,27 +410,38 @@ for tmp_file in tmp_fileLists:
 					sh_fit.write(tmp_row2+2, tmp_col2+1+i, x, style_blue)
 
 				# draw figures
-				tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,tmp_num)
-				tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+				if tmp_num > (FIG_ROW*FIG_COL*tmp_pic):
+					tmp_pic += 1
+					print tmp_pic
+					tmp_fig = plt.figure(figsize=(22,12))
+					tmp_fig2 = plt.figure(figsize=(22,12))
+					tmp_fig3 = plt.figure(figsize=(22,12))
+					tmp_figs.append(tmp_fig)
+					tmp_figs2.append(tmp_fig2) 
+					tmp_figs3.append(tmp_fig3)  
+
+				tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,tmp_num - FIG_ROW*FIG_COL*(tmp_pic-1))
+				tmp_figs[tmp_pic-1].subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 				tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
 				tmp_ax.set_title(tmp_file2)
-				tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,tmp_num)
-				tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+				tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,tmp_num - FIG_ROW*FIG_COL*(tmp_pic-1))
+				tmp_figs2[tmp_pic-1].subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 				tmp_ax2.plot(lamm_dihedral, inertia, 'b*', dihedral_rad, fourier.func_cosFourier(dihedral_rad,*coeff_I),'r-')
 				tmp_ax2.set_title(tmp_file2)
-				tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,tmp_num)
-				tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+				tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,tmp_num - FIG_ROW*FIG_COL*(tmp_pic-1))
+				tmp_figs3[tmp_pic-1].subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 				tmp_ax3.plot(lamm_dihedral, rotConst, 'b*', dihedral_rad, fourier.func_cosFourier(dihedral_rad,*coeff_B),'r-')
 				tmp_ax3.set_title(tmp_file2)			
-		tmp_fig.show()
-		tmp_fig2.show()
-		tmp_fig3.show()
-		tmp_fig.savefig('V' + tmp_file + '.png',dpi=300)
-		tmp_fig2.savefig('I' + tmp_file + '.png',dpi=300)
-		tmp_fig3.savefig('B' + tmp_file + '.png',dpi=300)
-		plt.close(tmp_fig)
-		plt.close(tmp_fig2)
-		plt.close(tmp_fig3)
+		for i in range(tmp_pic):   
+			tmp_figs[i].show()
+			tmp_figs2[i].show()
+			tmp_figs3[i].show()
+			tmp_figs[i].savefig('V' + tmp_file + '_' + str(i+1) + '.png',dpi=300)
+			tmp_figs2[i].savefig('I' + tmp_file + '_' + str(i+1) + '.png',dpi=300)
+			tmp_figs3[i].savefig('B' + tmp_file + '_' + str(i+1) + '.png',dpi=300)
+			plt.close(tmp_figs[i])
+			plt.close(tmp_figs2[i])
+			plt.close(tmp_figs3[i])
 
 if os.path.exists('HR_fit.xls'):
 	os.remove('HR_fit.xls')

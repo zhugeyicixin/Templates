@@ -137,7 +137,7 @@ tmp_row = 1
 tmp_col = 2
 while tmp_row < sh4.nrows: 	
 	while tmp_col < sh4.ncols:
-		if sh.cell_value(tmp_row, tmp_col) != '':
+		if sh4.cell_value(tmp_row, tmp_col) != '':
 			HRNameMerge_dict[sh4.cell_value(tmp_row, tmp_col)] = sh4.cell_value(tmp_row, 0)
 			tmp_col += 1 
 		else:
@@ -442,7 +442,7 @@ for k in range(total):
 			tmp_bonds_ideal.sort()
 			if tmp_bonds_actual != tmp_bonds_ideal:
 				print 'Error! The actual hindered rotation is not the same as the theoretical analysis!'
-				print '\tmolecule: ', tmp_reactant.label
+				print '\tmolecule (reactant): ', tmp_reactant.label
 				print '\tactual rotations: ', tmp_bonds_actual
 				print '\ttheoretical rotations: ', tmp_bonds_ideal
 		tmp_reactant.setHinderedRotorQM1D(tmp_hinderedRotations)
@@ -497,7 +497,7 @@ for k in range(total):
 			tmp_bonds_ideal.sort()
 			if tmp_bonds_actual != tmp_bonds_ideal:
 				print 'Error! The actual hindered rotation is not the same as the theoretical analysis!'
-				print '\tmolecule: ', tmp_TS.label
+				print '\tmolecule (TS): ', tmp_TS.label
 				print '\tactual rotations: ', tmp_bonds_actual
 				print '\ttheoretical rotations: ', tmp_bonds_ideal
 		tmp_TS.setHinderedRotorQM1D(tmp_hinderedRotations)
@@ -553,7 +553,7 @@ for k in range(total):
 			tmp_bonds_ideal.sort()
 			if tmp_bonds_actual != tmp_bonds_ideal:
 				print 'Error! The actual hindered rotation is not the same as the theoretical analysis!'
-				print '\tmolecule: ', tmp_product.label
+				print '\tmolecule (product): ', tmp_product.label
 				print '\tactual rotations: ', tmp_bonds_actual
 				print '\ttheoretical rotations: ', tmp_bonds_ideal
 		tmp_product.setHinderedRotorQM1D(tmp_hinderedRotations)
