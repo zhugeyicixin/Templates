@@ -8,6 +8,6 @@ python runReverseThermo.py
 python collectEquilibriumConstants.py
 python thermoFitting.py
 python getMesmerInput.py
-python runMesmer.py
-python mesmerExtractFit.py
+rem python runMesmer.py
+rem python mesmerExtractFit.py
 pause

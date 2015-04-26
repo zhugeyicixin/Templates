@@ -16,8 +16,8 @@ __HR__ = False
 
 # input region
 mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0')
-mesmer1.setGrainSize(25.0)
-mesmer1.setEAboveTop(200.0)
+mesmer1.setGrainSize(20.0)
+mesmer1.setEAboveTop(300.0)
 
 # processing
 name = ''
