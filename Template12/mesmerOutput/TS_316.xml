@@ -299,8 +299,8 @@
     </me:PTs>
   </me:conditions>
   <me:modelParameters>
-    <me:grainSize units="cm-1">500.0</me:grainSize>
-    <me:energyAboveTheTopHill>20.0</me:energyAboveTheTopHill>
+    <me:grainSize units="cm-1">25.0</me:grainSize>
+    <me:energyAboveTheTopHill>200.0</me:energyAboveTheTopHill>
   </me:modelParameters>
   <me:control>
     <me:testMicroRates/>

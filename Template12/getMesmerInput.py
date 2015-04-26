@@ -16,8 +16,8 @@ __HR__ = False
 
 # input region
 mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0')
-mesmer1.setGrainSize(500.0)
-mesmer1.setEAboveTop(20.0)
+mesmer1.setGrainSize(25.0)
+mesmer1.setEAboveTop(200.0)
 
 # processing
 name = ''
@@ -416,7 +416,8 @@ for k in range(total):
 		tmp_bonds_ideal = []
 		tmp_hinderedRotations = []
 		if filename_R[k][i] not in HR_dict.keys():
-			print 'Error! There is no information for the hindered rotation of ' + filename_R[k][i]
+			if __HR__ == True:
+				print 'Error! There is no information for the hindered rotation of ' + filename_R[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_R[k][i]]:
 				tmp_axis = tmp_reactant.getBond(tmp_rot[0], tmp_rot[1])
@@ -471,7 +472,8 @@ for k in range(total):
 		tmp_bonds_ideal = []
 		tmp_hinderedRotations = []
 		if filename_TS[k][i] not in HR_dict.keys():
-			print 'Error! There is no information for the hindered rotation of ' + filename_TS[k][i]
+			if __HR__ == True:
+				print 'Error! There is no information for the hindered rotation of ' + filename_TS[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_TS[k][i]]:
 				tmp_hinderedRot = chem.rotation(rotBondAxis=tmp_TS.getBond(tmp_rot[0], tmp_rot[1]))
@@ -525,7 +527,8 @@ for k in range(total):
 		tmp_bonds_ideal = []
 		tmp_hinderedRotations = []
 		if filename_P[k][i] not in HR_dict.keys():
-			print 'Error! There is no information for the hindered rotation of ' + filename_P[k][i]
+			if __HR__ == True:
+				print 'Error! There is no information for the hindered rotation of ' + filename_P[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_P[k][i]]:
 				tmp_axis = tmp_product.getBond(tmp_rot[0], tmp_rot[1])

@@ -225,19 +225,19 @@ for (index, tmp_name) in enumerate(reacNames):
 	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_f_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_f[index]))
-	tmp_ax.plot(1000.0/T_fit, np.log(rate_f[index][2:13]), 'b*', 1000.0/T_fit, np.log(rate_f_fitted[-1][2:13]),'r-')
+	tmp_ax.plot(1000.0/T_fit, np.log10(rate_f[index][2:13]), 'b*', 1000.0/T_fit, np.log10(rate_f_fitted[-1][2:13]),'r-')
 	tmp_ax.set_title(tmp_name)
 
 	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_r_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_r[index]))
-	tmp_ax2.plot(1000.0/T_fit, np.log(rate_r[index][2:13]), 'b*', 1000.0/T_fit, np.log(rate_r_fitted[-1][2:13]),'r-')
+	tmp_ax2.plot(1000.0/T_fit, np.log10(rate_r[index][2:13]), 'b*', 1000.0/T_fit, np.log10(rate_r_fitted[-1][2:13]),'r-')
 	tmp_ax2.set_title(tmp_name)
 
 	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	Kconst_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_K[index]))
-	tmp_ax3.plot(1000.0/T_fit, np.log(Kconst[index][2:13]), 'b*', 1000.0/T_fit, np.log(Kconst_fitted[-1][2:13]),'r-')
+	tmp_ax3.plot(1000.0/T_fit, np.log10(Kconst[index][2:13]), 'b*', 1000.0/T_fit, np.log10(Kconst_fitted[-1][2:13]),'r-')
 	tmp_ax3.set_title(tmp_name)
 
 tmp_fig.show()
