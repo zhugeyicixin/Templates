@@ -299,7 +299,7 @@
     </me:PTs>
   </me:conditions>
   <me:modelParameters>
-    <me:grainSize units="cm-1">25.0</me:grainSize>
+    <me:grainSize units="cm-1">50.0</me:grainSize>
     <me:energyAboveTheTopHill>200.0</me:energyAboveTheTopHill>
   </me:modelParameters>
   <me:control>
