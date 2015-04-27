@@ -1,0 +1,33 @@
+begin
+Sun Apr 26 01:45:57 CST 2015
+ 
+TS_1_1b.xml
+out_TS_1_1b.xml
+TS_1_1c.xml
+out_TS_1_1c.xml
+TS_1_1d.xml
+out_TS_1_1d.xml
+TS_1_1e.xml
+out_TS_1_1e.xml
+TS_1_1f.xml
+out_TS_1_1f.xml
+TS_1_1g.xml
+out_TS_1_1g.xml
+TS_1_1h.xml
+out_TS_1_1h.xml
+TS_1_1.xml
+out_TS_1_1.xml
+TS_1_O1.xml
+out_TS_1_O1.xml
+[1]   5896 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[2]   5898 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[3]   5900 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[4]   5901 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[5]   5902 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[6]   5904 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[7]   5905 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[8]-  5907 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+[9]+  5908 Running                 /share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+ 
+date
+allJobsFinished

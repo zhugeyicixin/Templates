@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cd /home/hetanjin/Mesmer/test/mesmerInput
+echo begin >> log.text
+date >> log.text
+echo ' ' >> log.text
+for entry in `ls *.xml`
+do
+	echo $entry >> log.text
+	tmp_var=out_$entry
+	echo $tmp_var >> log.text
+	/share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+
+done
+
+jobs -l >> log.text
+wait
+echo ' ' >> log.text
+echo date >> log.text
+echo allJobsFinished >> log.text
+
+

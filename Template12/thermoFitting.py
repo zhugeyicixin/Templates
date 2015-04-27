@@ -11,10 +11,15 @@ import matplotlib.pyplot as plt
 import phys
 import arrhenius
 
+# constants
+phys1=phys.phys()
+
 # open workbook
 name = ''
 temperature=[298.15, 300, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500]
 T_fit = temperature[2:13]
+lowT_index = 2
+highT_index = 13
 pwd = os.getcwd()
 tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
@@ -24,6 +29,10 @@ for tmp_file in tmp_fileLists:
 		tmp_lines = fr.readlines()
 		tmp_line = tmp_lines[5].strip(' \n')
 		temperature = map(float, tmp_line.split())
+		tmp_line = tmp_lines[11].strip('\n')
+		tmp_line = map(int, tmp_line.split())
+		lowT_index, highT_index = phys1.TRangeIndex(temperature, tmp_line[0], tmp_line[1])
+		T_fit = temperature[lowT_index:highT_index]
 		fr.close()
 
 wb=open_workbook(name + '.xls')
@@ -35,7 +44,6 @@ FIG_ROW = 6
 FIG_COL = 5
 
 # variables
-phys1=phys.phys()
 num_reac=[]
 num_prod=[]
 TSs_abbr=[]
@@ -199,19 +207,19 @@ for (index, tmp_name) in enumerate(reacNames):
 	rate_r[index] = np.array(rate_r[index])
 	Kconst[index] = np.array(Kconst[index])	
 	
-	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_f[index][2:13], threshold=5e-2)
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_f[index][lowT_index: highT_index], threshold=5e-2)
 	if rela_RMS > 5e-2:
 		print 'reaction name:\t' + tmp_name + '\ttype:\tforward rate fitting\n---'
 	coeff_f.append(tmp_coeff)
 	deviation_f.append(tmp_deviation)
 
-	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_r[index][2:13], threshold=5e-2)
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, rate_r[index][lowT_index: highT_index], threshold=5e-2)
 	if rela_RMS > 5e-2:
 		print 'reaction name:\t' + tmp_name + '\ttype:\treverse rate fitting\n---'
 	coeff_r.append(tmp_coeff)
 	deviation_r.append(tmp_deviation)
 
-	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, Kconst[index][2:13], threshold=5e-2)
+	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(T_fit, Kconst[index][lowT_index: highT_index], threshold=5e-2)
 	if rela_RMS > 5e-2:
 		print 'reaction name:\t' + tmp_name + '\ttype:\tequilibrium constant fitting\n---'
 	coeff_K.append(tmp_coeff)
@@ -225,19 +233,19 @@ for (index, tmp_name) in enumerate(reacNames):
 	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_f_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_f[index]))
-	tmp_ax.plot(1000.0/T_fit, np.log10(rate_f[index][2:13]), 'b*', 1000.0/T_fit, np.log10(rate_f_fitted[-1][2:13]),'r-')
+	tmp_ax.plot(1000.0/T_fit, np.log10(rate_f[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(rate_f_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax.set_title(tmp_name)
 
 	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_r_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_r[index]))
-	tmp_ax2.plot(1000.0/T_fit, np.log10(rate_r[index][2:13]), 'b*', 1000.0/T_fit, np.log10(rate_r_fitted[-1][2:13]),'r-')
+	tmp_ax2.plot(1000.0/T_fit, np.log10(rate_r[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(rate_r_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax2.set_title(tmp_name)
 
 	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index+1)
 	tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	Kconst_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_K[index]))
-	tmp_ax3.plot(1000.0/T_fit, np.log10(Kconst[index][2:13]), 'b*', 1000.0/T_fit, np.log10(Kconst_fitted[-1][2:13]),'r-')
+	tmp_ax3.plot(1000.0/T_fit, np.log10(Kconst[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(Kconst_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax3.set_title(tmp_name)
 
 tmp_fig.show()

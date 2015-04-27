@@ -49,7 +49,7 @@ class phys:
 		lowT_index = 0
 		highT_index = len(temperature)
 		while lowT_index < highT_index:
-			if (temperature[lowT_index] - 400) < 1e-2:
+			if (temperature[lowT_index] - 400) < -1e-2:
 				lowT_index += 1
 			else:
 				break

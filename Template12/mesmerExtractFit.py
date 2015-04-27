@@ -15,6 +15,8 @@ import mesmer
 # open workbook
 name = ''
 temperature=[298.15, 300, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900]
+fit_lowT = 400
+fit_highT = 900
 pwd = os.getcwd()
 tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
@@ -24,6 +26,10 @@ for tmp_file in tmp_fileLists:
 		tmp_lines = fr.readlines()
 		tmp_line = tmp_lines[5].strip(' \n')
 		temperature = map(float, tmp_line.split())
+		tmp_line = tmp_lines[11].strip('\n')
+		tmp_line = map(int, tmp_line.split())
+		fit_lowT = tmp_line[0]
+		fit_highT = tmp_line[1]
 		fr.close()
 
 wb=open_workbook(name + '.xls')
@@ -151,7 +157,7 @@ for (index, tmp_file) in enumerate(tmp_fileLists):
 			sh.write(tmp_row+i, tmp_col+3, tmp_CanoRate[2][i])
 			sh.write(tmp_row+i, tmp_col+4, tmp_Kc[i])
 
-	TRange = phys1.TRangeIndex(tmp_CanoRate[0], 400, 900)
+	TRange = phys1.TRangeIndex(tmp_CanoRate[0], fit_lowT, fit_highT)
 	tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(tmp_CanoRate[0][TRange[0]: TRange[1]], tmp_CanoRate[1][TRange[0]: TRange[1]], threshold = 5e-2)
 	if rela_RMS > 5e-2:
 		print 'reaction name:\t' + tmp_name + '\ttype:\tforward micro high-pressure rate fitting\n---'

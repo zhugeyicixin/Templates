@@ -1,0 +1,91 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v3.0 compiled: -- Dec  3 2014 -- 15:04:56
+
+     Copyright (C) 2009-2013 by
+     Struan H. Robertson, David R. Glowacki, Chi-Hsiu Liang,
+     Chris Morley, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Parsing input xml file...
+TS_1_1e.xml
+
+The default value of me:calcMethod was used.
+In R1: Parsing reaction...
+In RO2_1: The default value of me:DOSCMethod was used.
+In RO2_1: The default value of me:DistributionCalcMethod was used.
+In RO2_1: No value of me:deltaEDown was supplied and the default value NEEDS TO BE CHECKED**
+In QOOH_1e: The default value of me:DOSCMethod was used.
+In QOOH_1e: The default value of me:DistributionCalcMethod was used.
+In QOOH_1e: No value of me:deltaEDown was supplied and the default value NEEDS TO BE CHECKED**
+In TS_1_1e: The default value of me:DOSCMethod was used.
+In R1: No crossing method used for R1
+All molecules are on the same energy basis: arbitary
+The default value of precision (or one of its attributes) was used.
+20atm, 298.15K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 300K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 400K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 450K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 500K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 550K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 600K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 650K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 700K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 750K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 800K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 850K at d precision with He
+The default value of precision (or one of its attributes) was used.
+20atm, 900K at d precision with He
+The default value of me:eigenvalues was used.
+Write metadata 20150426_014557
+
+File: "TS_1_1e.xml" successfully parsed.
+Main Calculation begins
+In FastLaplaceConvolution: 25660 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 25820 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 35040 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 40140 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 44960 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 49940 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 54740 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 59480 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 64220 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 68800 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 73700 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 78800 values in the FFT convolution routine were replaced by standard convolution
+In FastLaplaceConvolution: 82680 values in the FFT convolution routine were replaced by standard convolution
+Finish Calculation of P-T case
+ -- Total time elapsed: 17480 seconds.
+
+System saved to out_TS_1_1e.xml
