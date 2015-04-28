@@ -30,7 +30,7 @@ for tmp_file in tmp_fileLists:
 		tmp_line = tmp_lines[5].strip(' \n')
 		temperature = map(float, tmp_line.split())
 		tmp_line = tmp_lines[11].strip('\n')
-		tmp_line = map(int, tmp_line.split())
+		tmp_line = map(float, tmp_line.split())
 		lowT_index, highT_index = phys1.TRangeIndex(temperature, tmp_line[0], tmp_line[1])
 		T_fit = temperature[lowT_index:highT_index]
 		fr.close()

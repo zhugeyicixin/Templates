@@ -9,4 +9,4 @@ MESMER temperature list: [input: list of numbers]
 calculate hindered rotation in mesmer or not? [input: yes/no]
 no
 fitting temperature range (lowT=<T<=highT): [input: lowT, highT]
-400 900
+1500 2500
