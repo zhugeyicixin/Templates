@@ -116,7 +116,7 @@ class mesmer:
 				tmpnode_scalar.text = str(tmp_molecule.sigma)
 
 				tmpnode_energyTrans = meEtree.orderedSubElement(tmpnode_mole, '{%s}energyTransferModel' % self.nsmap['me'], ['{%s}type' % self.nsmap['xsi']], ['me:ExponentialDown'])
-				tmpnode_deltaE = meEtree.orderedSubElement(tmpnode_energyTrans, 'deltaEDown', ['units'], ['cm-1'])
+				tmpnode_deltaE = meEtree.orderedSubElement(tmpnode_energyTrans, '{%s}deltaEDown' % self.nsmap['me'], ['units'], ['cm-1'])
 				tmpnode_deltaE.text = str(tmp_molecule.exponentialDown)
 
 				tmpnode_DOSCMethod = meEtree.orderedSubElement(tmpnode_mole, '{%s}tmpnode_DOSCMethod' % self.nsmap['me'], ['name'], ['ClassicalRotors'])
