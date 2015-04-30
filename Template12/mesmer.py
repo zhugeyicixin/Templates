@@ -69,9 +69,21 @@ class mesmer:
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
 				
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
-				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
-				tmpnode_scalar.text = str(tmp_molecule.ZPE)
-				
+				if (tmp_molecule not in reaction.products) or (len(reaction.products) == 1):
+					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+					tmpnode_scalar.text = str(tmp_molecule.ZPE)
+				elif reaction.products.index(tmp_molecule) == 0:
+					tmpnode_scalar = meEtree.orderedElement('scalar', ['units'], ['kcal/mol'])
+					tmpnode_scalar.text = str(tmp_molecule.ZPE)
+					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_scalar, pretty_print=True))
+					tmpnode_property.append(tmpnode_comment)
+					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+					tmpnode_scalar.text = str(sum([x.ZPE for x in reaction.products])) 
+				else:
+					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+					tmpnode_scalar.text = str(tmp_molecule.ZPE)
+
+
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:rotConsts'])
 				tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
 				tmpnode_array.text = ''.join([str(x) + ' ' for x in tmp_molecule.rotConsts])
@@ -164,9 +176,15 @@ class mesmer:
 				tmpnode_reactant = meEtree.orderedSubElement(tmpnode_reaction, 'reactant')
 				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_reactant, 'molecule', ['ref', 'role'], [tmp_reactant.label, tmp_reactant.role])
 
-			for tmp_product in reaction.products:
-				tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
-				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
+			for (index,tmp_product) in enumerate(reaction.products):
+				if index == 0:
+					tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
+				else:
+					tmpnode_product = meEtree.orderedElement('product')
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
+					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_product, pretty_print=True))
+					tmpnode_reaction.append(tmpnode_comment)
 
 			if len(reaction.TSs) != 1:
 				print 'Error! The number of TS is not 1!', ''.join([str(x)+' ' for x in reaction.TSs]) 
