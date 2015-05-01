@@ -69,19 +69,8 @@ class mesmer:
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
 				
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
-				if (tmp_molecule not in reaction.products) or (len(reaction.products) == 1):
-					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
-					tmpnode_scalar.text = str(tmp_molecule.ZPE)
-				elif reaction.products.index(tmp_molecule) == 0:
-					tmpnode_scalar = meEtree.orderedElement('scalar', ['units'], ['kcal/mol'])
-					tmpnode_scalar.text = str(tmp_molecule.ZPE)
-					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_scalar, pretty_print=True))
-					tmpnode_property.append(tmpnode_comment)
-					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
-					tmpnode_scalar.text = str(sum([x.ZPE for x in reaction.products])) 
-				else:
-					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
-					tmpnode_scalar.text = str(tmp_molecule.ZPE)
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+				tmpnode_scalar.text = str(tmp_molecule.ZPE)
 
 
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:rotConsts'])
@@ -142,6 +131,37 @@ class mesmer:
 						for (index, tmp_angle) in enumerate(tmp_hinderRotor.angles):
 							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_hinderRotor.energies[index])])
 
+
+			if len(reaction.products) > 1:
+				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[(''.join([x.label + '+' for x in reaction.products]))[0:-1], 'a mix of all products to deal with the case that the number of products is larger than 1'])
+								
+				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
+				
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+				tmpnode_scalar.text = str(sum([x.ZPE for x in reaction.products]))
+
+				tmpnode_comment = etree.Comment('Note that the rotational constants come form the first product because it would not be used in the calculation')
+				tmpnode_propertyList.append(tmpnode_comment)
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:rotConsts'])
+				tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
+				tmpnode_array.text = ''.join([str(x) + ' ' for x in reaction.products[0].rotConsts])
+
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:frequenciesScaleFactor'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar')
+				tmpnode_scalar.text	= str(reactSys.freqScaleFactor)
+
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:vibFreqs'])
+				tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
+				tmp_array = []
+				for tmp_molecule in reaction.products:
+					tmp_array += tmp_molecule.frequencies
+				tmpnode_array.text = ''.join([str(x) + ' ' for x  in tmp_array])
+
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:MW'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
+				tmpnode_scalar.text = str(sum([x.getWeight() for x in reaction.products]))
+
 		for tmp_bathGas in reactSys.bathGas:
 			tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id'], [tmp_bathGas.label])
 			tmpnode_atom = meEtree.orderedSubElement(tmpnode_mole, 'atomArray')
@@ -176,15 +196,18 @@ class mesmer:
 				tmpnode_reactant = meEtree.orderedSubElement(tmpnode_reaction, 'reactant')
 				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_reactant, 'molecule', ['ref', 'role'], [tmp_reactant.label, tmp_reactant.role])
 
-			for (index,tmp_product) in enumerate(reaction.products):
-				if index == 0:
-					tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
-					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
-				else:
+			if len(reaction.products) > 1:
+				tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
+				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [(''.join([x.label + '+' for x in reaction.products]))[0:-1],'sink'])
+			for tmp_product in reaction.products:
+				if len(reaction.products) > 1:
 					tmpnode_product = meEtree.orderedElement('product')
 					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
 					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_product, pretty_print=True))
 					tmpnode_reaction.append(tmpnode_comment)
+				else:
+					tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
 
 			if len(reaction.TSs) != 1:
 				print 'Error! The number of TS is not 1!', ''.join([str(x)+' ' for x in reaction.TSs]) 

@@ -20,8 +20,14 @@ Template10用于提取scan中的坐标，生成各个反应坐标（键长等）
 用于gaussian后处理
 Template11用于提取指定目录格式下的log文件，并从log文件中提取出计算的能量汇总到excel中
 
-Template13用于hindered rotation中的inertia
+Template13用于hindered rotation中的inertia计算
 计算稳定物和过渡态的mominert（使用multiwell中的MomInert）
+
+Template14用于提取hindered rotation的能量和使用lamm计算inertia
+提取扫描过程中坐标，使用lamm计算inertia和rotational constant
+
 
 Template15用于修改提交用脚本
 可以用于在Tsinghua cluster和Prof. You's cluster之间切换
+
+Template16用于简单地只拟合阿伦尼乌斯方程

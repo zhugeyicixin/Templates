@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /home/hetanjin/Mesmer/test/mesmerInput
+cd /home/hetanjin/Mesmer/test/mesmerInput_1QOOH_woHR_50200
 echo begin >> log.text
 date >> log.text
 echo ' ' >> log.text
@@ -9,7 +9,7 @@ do
 	echo $entry >> log.text
 	tmp_var=out_$entry
 	echo $tmp_var >> log.text
-	/share/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+	/home/hetanjin/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
 
 done
 
