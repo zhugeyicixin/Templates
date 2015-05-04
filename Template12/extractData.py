@@ -158,6 +158,7 @@ tmp2_energies = []
 tmp_barrier = 0.0
 tmp_reverse_barrier = 0.0
 tmp_num = 0
+tmp_line = ''
 #sh=wb.sheet_by_index(1)
 #sh.put_cell(1,1,2,2,0)			#
 
@@ -227,9 +228,11 @@ for i in range(len(allSpecies_name)):
 					multi = tmp_m.group(1)
 					multi_done = 1
 			elif freqCom_done != 1:
-				tmp_m = pattern_freqCom.match(line)
-				if tmp_m:
-					freqCom_done = 1
+				if lineNum < len(tmp_all_lines) - 1:
+					tmp_line = tmp_all_lines[lineNum].strip() + tmp_all_lines[lineNum+1].strip()
+					tmp_m = pattern_freqCom.match(tmp_line)
+					if tmp_m:
+						freqCom_done = 1
 			elif standard_done != 1:
 				tmp_m = pattern_standard.match(line)
 				if tmp_m:
