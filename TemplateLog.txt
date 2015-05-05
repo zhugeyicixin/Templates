@@ -16,6 +16,9 @@ Template9 使用THERM批量计算thermodynamic data
 
 用于gaussian或者molpro计算
 Template10用于提取scan中的坐标，生成各个反应坐标（键长等）对应的输入文件 
+blsOptGenerator 用于提取单个扫描文件中的坐标进行优化
+b3lypGenerator 用于提取多个单点优化文件中的坐标进行再优化
+对于nosym的结果需要将pattern_standard = re.compile('^.*Standard orientation:.*$')中的Standard orientation改成Input orientation 
 
 用于gaussian后处理
 Template11用于提取指定目录格式下的log文件，并从log文件中提取出计算的能量汇总到excel中

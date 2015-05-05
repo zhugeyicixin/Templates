@@ -163,9 +163,7 @@
       </bondArray>
       <propertyList>
         <property dictRef="me:ZPE">
-          <!--<scalar units="kcal/mol">-74286.2847788</scalar>
--->
-          <scalar units="kcal/mol">-168611.242974</scalar>
+          <scalar units="kcal/mol">-74286.2847788</scalar>
         </property>
         <property dictRef="me:rotConsts">
           <array units="cm-1">1.09279767138 0.297276991538 0.258278011784 </array>
@@ -326,7 +324,7 @@
     </me:PTs>
   </me:conditions>
   <me:modelParameters>
-    <me:grainSize units="cm-1">50.0</me:grainSize>
+    <me:grainSize units="cm-1">50</me:grainSize>
     <me:energyAboveTheTopHill>200.0</me:energyAboveTheTopHill>
   </me:modelParameters>
   <me:control>

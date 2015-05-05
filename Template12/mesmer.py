@@ -15,7 +15,7 @@ import chem
 class mesmer:
 	location = ''
 	nsmap = {None: 'http://www.xml-cml.org/schema','me': 'http://www.chem.leeds.ac.uk/mesmer', 'xsi': 'http://www.w3.org/2001/XMLSchema-instance'}
-	grainSize = 100.0
+	grainSize = 100
 	eAboveTop = 100.0
 
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
@@ -24,7 +24,7 @@ class mesmer:
 	def __init__(self, location=''):
 		self.location = location
 		self.nsmap = OrderedDict(zip([None, 'me', 'xsi'], ['http://www.xml-cml.org/schema', 'http://www.chem.leeds.ac.uk/mesmer', 'http://www.w3.org/2001/XMLSchema-instance']))
-		self.grainSize = 50.0
+		self.grainSize = 50
 		self.eAboveTop = 200.0
 
 	def setGrainSize(self, grainSize):

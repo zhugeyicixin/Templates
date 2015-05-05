@@ -158,9 +158,10 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_TwoD_rotor.append(float(sh.cell_value(tmp_row,14)))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
-			if not tmp_i_freq[-1] > 0:
-				print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
+			if __barrier__ == True:
+				tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
+				if not tmp_i_freq[-1] > 0:
+					print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
 			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
 
 			tmp2_freq = []

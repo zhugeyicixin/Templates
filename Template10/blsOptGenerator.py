@@ -12,9 +12,9 @@ import shutil
 from geometryExtractor import *
 
 #input
-frozen_num1 = 8
-frozen_num2 = 11
-name = 'C3H7O2_57_gau_cas75vdz'
+frozen_num1 = 14
+frozen_num2 = 15
+name = 'RO2_beta_20_opt_b3D3cbsb7'
 
 #definition of parameters
 multi = 0
@@ -23,7 +23,8 @@ multi = 0
 pattern_name = re.compile('^.*_scan.*$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$')
-pattern_standard = re.compile('^.*Standard orientation:.*$') 
+# pattern_standard = re.compile('^.*Standard orientation:.*$')
+pattern_standard = re.compile('^.*Input orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 pattern_distance = re.compile('^.*R\(' + str(frozen_num1) + ',' + str(frozen_num2) + '\).*(-?[0-9]+\.[0-9]+).*-DE/DX.*$')
 
@@ -72,18 +73,16 @@ for tmp_file in tmp_fileLists:
 					if tmp_m:
 						multi = tmp_m.group(1)
 						multi_done = 1
-				elif standard_done != 1:
+				elif standard_done != 1 or coordinate_done != 1 or optimized_done != 1:
 					tmp_m = pattern_standard.match(tmp_line)
 					if tmp_m:
 						geom_start = i + 5
 						standard_done = 1
-				elif coordinate_done != 1:
 					tmp_m = pattern_endline.match(tmp_line)
 					if tmp_m:
 						if i>geom_start:
 							geom_end = i
-							coordinate_done = 1
-				elif optimized_done != 1:
+							coordinate_done = 1	
 					tmp_m = pattern_optimized.match(tmp_line)
 					if tmp_m:
 						distance_done = 0
@@ -109,24 +108,11 @@ for tmp_file in tmp_fileLists:
 '''%mem=28GB
 %nprocshared=12
 %chk=''' + name + '_' + tmp_R + '''.chk
-#p uhf/cc-pvdz
+#p ub3lyp/cbsb7 opt=modredundant freq scf=xqc EmpiricalDispersion=GD3
 
 ''' + name + ''' using cbs-qb3 to calculate energy
 
-0 ''' + multi + '\n' + geom.pop(0) + ''' 
---Link1--
-%mem=28GB
-%nprocshared=12
-%chk=''' + name + '_' + tmp_R + '''.chk
-#p casscf(7,5)/cc-pvdz guess=read geom=allcheck
-
-
-
-
-
-
-
-''')
+0 ''' + multi + '\n' + geom.pop(0) + '\nB ' + str(frozen_num1) + ' ' + str(frozen_num2) + ' F\n\n\n\n\n\n\n') 
 
 # molpro input template	
 # '''***,C3H7O2
@@ -164,21 +150,22 @@ for tmp_file in tmp_fileLists:
 				fw = file(name + '_' + tmp_R + '/' + name + '_' + tmp_R + '.job','w')
 				fw.write(
 # gaussian input template
-'''#BSUB -J ''' + name + '_' + tmp_R + '''
-#BSUB -q hpc_linux
-#BSUB -R "select[mem>42000]"
-#BSUB -n 12
-#BSUB -R "span[hosts=1]"
-#BSUB -o /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''/output.%J
-#BSUB -e /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''/error.%J
+# '''#BSUB -J ''' + name + '_' + tmp_R + '''
+# #BSUB -q hpc_linux
+# #BSUB -R "select[mem>42000]"
+# #BSUB -n 12
+# #BSUB -R "span[hosts=1]"
+# #BSUB -o /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''/output.%J
+# #BSUB -e /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''/error.%J
 
-cd /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''
-g09 ''' + name + '_' + tmp_R + '''.gjf ''' + name + '_' + tmp_R + '''.log
-formchk ''' + name + '_' + tmp_R + '''.chk
+# cd /work2/hexin_work/barrierless/C3H7O2/''' + name + '_' + tmp_R + '''
+# g09 ''' + name + '_' + tmp_R + '''.gjf ''' + name + '_' + tmp_R + '''.log
+# formchk ''' + name + '_' + tmp_R + '''.chk
 
 
 
-''')
+# ''')
+# G09 A.01
 # '''#!/bin/csh
 # #
 # #$ -cwd
@@ -189,7 +176,7 @@ formchk ''' + name + '_' + tmp_R + '''.chk
 # setenv g09root /share/apps
 # source $g09root/g09/bsd/g09.login
 
-# cd /home/hetanjin/DMH/barrierlessScale/C9H19O2_1_26/''' +  name + '_' + tmp_R + '''
+# cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
 # /share/apps/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
 # /share/apps/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
 
@@ -197,6 +184,25 @@ formchk ''' + name + '_' + tmp_R + '''.chk
 
 
 # ''')
+# G09 D.01
+'''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /home/hetanjin/apps/g09D01
+source $g09root/g09/bsd/g09.login
+
+cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
+$g09root/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
+$g09root/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
+
+
+
+
+''')
 
 # molpro input template
 # '''#!/bin/csh
