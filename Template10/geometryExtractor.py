@@ -5,6 +5,7 @@ elementDict={1:'H',6:'C',7:'N',8:'O',
 
 def geometryExtractor(lines):
 	geom = ''
+	# print lines
 	for tmp_line in lines:
 		tmp_line.strip()
 		tmp_line = tmp_line.split()

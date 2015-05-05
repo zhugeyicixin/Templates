@@ -14,7 +14,7 @@ from geometryExtractor import *
 #input
 frozen_num1 = 14
 frozen_num2 = 15
-name = 'RO2_beta_20_opt_b3D3cbsb7'
+name = 'RO2_beta_26_opt_b3cbsb7'
 
 #definition of parameters
 multi = 0
@@ -78,8 +78,9 @@ for tmp_file in tmp_fileLists:
 					if tmp_m:
 						geom_start = i + 5
 						standard_done = 1
+						coordinate_done = 0
 					tmp_m = pattern_endline.match(tmp_line)
-					if tmp_m:
+					if tmp_m and coordinate_done != 1:
 						if i>geom_start:
 							geom_end = i
 							coordinate_done = 1	
@@ -108,7 +109,7 @@ for tmp_file in tmp_fileLists:
 '''%mem=28GB
 %nprocshared=12
 %chk=''' + name + '_' + tmp_R + '''.chk
-#p ub3lyp/cbsb7 opt=modredundant freq scf=xqc EmpiricalDispersion=GD3
+#p ub3lyp/cbsb7 opt=modredundant freq scf=xqc
 
 ''' + name + ''' using cbs-qb3 to calculate energy
 
@@ -166,25 +167,6 @@ for tmp_file in tmp_fileLists:
 
 # ''')
 # G09 A.01
-# '''#!/bin/csh
-# #
-# #$ -cwd
-# #$ -j y
-# #$ -S /bin/csh
-# #
-# setenv GAUSS_SCRDIR /state/partition1
-# setenv g09root /share/apps
-# source $g09root/g09/bsd/g09.login
-
-# cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
-# /share/apps/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
-# /share/apps/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
-
-
-
-
-# ''')
-# G09 D.01
 '''#!/bin/csh
 #
 #$ -cwd
@@ -192,17 +174,36 @@ for tmp_file in tmp_fileLists:
 #$ -S /bin/csh
 #
 setenv GAUSS_SCRDIR /state/partition1
-setenv g09root /home/hetanjin/apps/g09D01
+setenv g09root /share/apps
 source $g09root/g09/bsd/g09.login
 
 cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
-$g09root/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
-$g09root/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
+/share/apps/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
+/share/apps/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
 
 
 
 
 ''')
+# G09 D.01
+# '''#!/bin/csh
+# #
+# #$ -cwd
+# #$ -j y
+# #$ -S /bin/csh
+# #
+# setenv GAUSS_SCRDIR /state/partition1
+# setenv g09root /home/hetanjin/apps/g09D01
+# source $g09root/g09/bsd/g09.login
+
+# cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
+# $g09root/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
+# $g09root/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
+
+
+
+
+# ''')
 
 # molpro input template
 # '''#!/bin/csh
