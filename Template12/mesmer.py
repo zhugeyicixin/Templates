@@ -216,7 +216,13 @@ class mesmer:
 				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_TS, 'molecule', ['ref', 'role'], [tmp_TS.label, tmp_TS.role])
 
 			meEtree.orderedSubElement(tmpnode_reaction, '{%s}MCRCMethod' % self.nsmap['me'], ['name'], ['SimpleRRKM'])
-			meEtree.orderedSubElement(tmpnode_reaction, '{%s}tunneling' % self.nsmap['me'], ['name'], ['Eckart'])
+			if abs(reaction.TSs[0].imfreq) > 1e-2:
+				meEtree.orderedSubElement(tmpnode_reaction, '{%s}tunneling' % self.nsmap['me'], ['name'], ['Eckart'])
+			else:
+				tmpnode_tunneling = meEtree.orderedElement('tunneling', ['name'], ['Eckart'])
+				tmpnode_comment = etree.Comment(etree.tostring(tmpnode_tunneling, pretty_print=True).replace('tunneling','me:tunneling'))
+				tmpnode_reaction.append(tmpnode_comment)
+
 
 		node_conditions = meEtree.orderedSubElement(root_mesmer, '{%s}conditions' % self.nsmap['me'])
 

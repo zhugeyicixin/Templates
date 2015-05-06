@@ -15,9 +15,9 @@ __barrier__ = True
 __HR__ = False
 
 # input region
-mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0')
+mesmer1 = mesmer.mesmer('D:\CYWsoftware\mesmer\Mesmer-3.0')
 mesmer1.setGrainSize(50)
-mesmer1.setEAboveTop(200.0)
+mesmer1.setEAboveTop(100.0)
 
 # processing
 name = ''
@@ -336,9 +336,12 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_rotConsts[-1] = phys1.GHZTocmm1(np.array(tmp_rotConsts[-1]))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
-			if not tmp_i_freq[-1] > 0:
-				print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
+			if __barrier__ == True:
+				tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
+				if not tmp_i_freq[-1] > 0:
+					print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
+			else:
+				tmp_i_freq.append(0.0)
 			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
 
 			tmp2_freq = []
