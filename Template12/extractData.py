@@ -295,9 +295,20 @@ for i in range(len(allSpecies_name)):
 					break							
 		freqFile.close()
 
+		if 'cbs' in __energy__:	
+			cbs_done = -1
+		else:
+			cbs_done = 1
+
 		energyFile = file('energy/'+ tmp2_name + '.log','r')
 		for line in energyFile.readlines():
-			if energy_done != 1:
+			if cbs_done != 1:
+				if line == tmp_all_lines[-1]:
+					print 'error: ' + tmp2_name + 'not cbs freq file'
+				tmp_m = pattern_cbs.match(line)
+				if tmp_m:
+					cbs_done = 1
+			elif energy_done != 1:
 				tmp_m = pattern_energy.match(line)
 				if tmp_m:
 					energy = tmp_m.group(1)
