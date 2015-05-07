@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 import phys
 import arrhenius
 
+__barrier__ = True
+
 # constants
 phys1=phys.phys()
 
@@ -27,6 +29,15 @@ for tmp_file in tmp_fileLists:
 		name = tmp_file[0:-5]
 		fr = file(tmp_file, 'r')
 		tmp_lines = fr.readlines()
+		tmp_line = tmp_lines[1].strip(' \n')
+		if tmp_line == 'barrier':
+			__barrier__ = True
+			print '\n-------------------------------------\nbarrier reactions\n-------------------------------------\n'
+		elif tmp_line == 'barrierless':
+			__barrier__ = False
+			print '\n-------------------------------------\nbarrierless reaction\n-------------------------------------\n'
+		else:
+			print '\n-------------------------------------\nWarning! Barrier or barrierless is not announced! Barrier is used as default!\n-------------------------------------\n'
 		tmp_line = tmp_lines[5].strip(' \n')
 		temperature = map(float, tmp_line.split())
 		tmp_line = tmp_lines[11].strip('\n')
@@ -125,7 +136,6 @@ for tmp_row in range(3, num_rows):
 			if reactionsDict[tmp_name][0] != 1:
 				print 'Error! The number of reactants is not 1 in the forward direction!' + reacNames[-1]
 
-
 	if tmp_name not in reactionsDict:
 		continue
 	tmp_col = 2
@@ -135,6 +145,15 @@ for tmp_row in range(3, num_rows):
 	if (tmp_row%(len(temperature)+1))==1:
 		rate_f.append(tmp_rate)
 		tmp_rate = []
+
+if __barrier__ == False :
+	reacNames.append('Lowest')
+	tmp_rate = []
+	tmp2_rate = []
+	for i in range(len(temperature)):
+		tmp2_rate = [rate_f[j][i] for j in range(len(rate_f))]
+		tmp_rate.append(min(tmp2_rate))
+	rate_f.append(tmp_rate)
 
 # read info of reverse reaction
 sh=wb.sheet_by_name('ReverseRate')
@@ -168,6 +187,14 @@ for tmp_row in range(3, num_rows):
 		rate_r.append(tmp_rate)
 		tmp_rate = []
 
+if __barrier__ == False :
+	tmp_rate = []
+	tmp2_rate = []
+	for i in range(len(temperature)):
+		tmp2_rate = [rate_r[j][i] for j in range(len(rate_r))]
+		tmp_rate.append(min(tmp2_rate))
+	rate_r.append(tmp_rate)
+
 # read info of equilibrium constants
 sh=wb.sheet_by_name('EquilibriumConstants')
 num_rows = sh.nrows
@@ -199,6 +226,9 @@ for tmp_row in range(2, num_rows):
 		Kconst.append(tmp_K)
 		tmp_K = []
 
+if __barrier__ == False :
+	Kconst.append(Kconst[-1])
+
 # fitting the parameters with arrhenius formula
 T_fit = np.array(T_fit)
 for (index, tmp_name) in enumerate(reacNames):
@@ -226,37 +256,50 @@ for (index, tmp_name) in enumerate(reacNames):
 	deviation_K.append(tmp_deviation)
 
 # draw figures
+tmp_pic = 1
 tmp_fig = plt.figure(figsize=(22,12))
 tmp_fig2 = plt.figure(figsize=(22,12))
 tmp_fig3 = plt.figure(figsize=(22,12))
+tmp_figs = [tmp_fig]
+tmp_figs2 = [tmp_fig2]
+tmp_figs3 = [tmp_fig3] 
 for (index, tmp_name) in enumerate(reacNames):
-	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1)
+	if index >= (FIG_ROW*FIG_COL*tmp_pic):
+		tmp_pic += 1
+		tmp_fig = plt.figure(figsize=(22,12))
+		tmp_fig2 = plt.figure(figsize=(22,12))
+		tmp_fig3 = plt.figure(figsize=(22,12))
+		tmp_figs.append(tmp_fig)
+		tmp_figs2.append(tmp_fig2) 
+		tmp_figs3.append(tmp_fig3)  
+	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index + 1 - FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_f_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_f[index]))
 	tmp_ax.plot(1000.0/T_fit, np.log10(rate_f[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(rate_f_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax.set_title(tmp_name)
 
-	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index+1)
+	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index + 1 - FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	rate_r_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_r[index]))
 	tmp_ax2.plot(1000.0/T_fit, np.log10(rate_r[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(rate_r_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax2.set_title(tmp_name)
 
-	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index+1)
+	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index + 1 - FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	Kconst_fitted.append(arrhenius.func_arrhenius(temperature,*coeff_K[index]))
 	tmp_ax3.plot(1000.0/T_fit, np.log10(Kconst[index][lowT_index: highT_index]), 'b*', 1000.0/T_fit, np.log10(Kconst_fitted[-1][lowT_index: highT_index]),'r-')
 	tmp_ax3.set_title(tmp_name)
 
-tmp_fig.show()
-tmp_fig2.show()
-tmp_fig3.show()
-tmp_fig.savefig('thermo_rate_forward' + '.png',dpi=300)
-tmp_fig2.savefig('thermo_rate_reverse' + '.png',dpi=300)
-tmp_fig3.savefig('thermo_equilibrium constants' + '.png',dpi=300)
-plt.close(tmp_fig)
-plt.close(tmp_fig2)
-plt.close(tmp_fig3)
+for i in range(tmp_pic):   
+	tmp_figs[i].show()
+	tmp_figs2[i].show()
+	tmp_figs3[i].show()
+	tmp_figs[i].savefig('thermo_rate_forward' + '_' + str(i+1) + '.png',dpi=300)
+	tmp_figs2[i].savefig('thermo_rate_reverse' + '_' + str(i+1) + '.png',dpi=300)
+	tmp_figs3[i].savefig('thermo_equilibrium constants' + '_' + str(i+1) + '.png',dpi=300)
+	plt.close(tmp_figs[i])
+	plt.close(tmp_figs2[i])
+	plt.close(tmp_figs3[i])
 
 # write to excel
 # write forward reaction
@@ -283,6 +326,9 @@ for (index, tmp_name) in enumerate(reacNames):
 		sh.write(tmp_row+i, tmp_col+2, rate_f[index][i])
 		sh.write(tmp_row+i, tmp_col+3, rate_f_fitted[index][i])
 		sh.write(tmp_row+i, tmp_col+4, (rate_f_fitted[index][i]-rate_f[index][i])/rate_f[index][i])
+		if __barrier__ == False and tmp_name == 'Lowest':
+			tmp2_rate = [rate_f[j][i] for j in range(len(rate_f))]
+			sh.write(tmp_row+i, tmp_col+5, reacNames[tmp2_rate.index(rate_f[index][i])])
 	tmp_row += len(temperature)+1	
 
 # write reverse reaction
@@ -308,6 +354,9 @@ for (index, tmp_name) in enumerate(reacNames):
 		sh.write(tmp_row+i, tmp_col+2, rate_r[index][i])
 		sh.write(tmp_row+i, tmp_col+3, rate_r_fitted[index][i])
 		sh.write(tmp_row+i, tmp_col+4, (rate_r_fitted[index][i]-rate_r[index][i])/rate_r[index][i])
+		if __barrier__ == False and tmp_name == 'Lowest':
+			tmp2_rate = [rate_r[j][i] for j in range(len(rate_r))]
+			sh.write(tmp_row+i, tmp_col+5, reacNames[tmp2_rate.index(rate_r[index][i])])
 	tmp_row += len(temperature)+1	
 
 # write equilibrium constants

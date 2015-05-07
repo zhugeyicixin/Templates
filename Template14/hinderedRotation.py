@@ -412,7 +412,6 @@ for tmp_file in tmp_fileLists:
 				# draw figures
 				if tmp_num > (FIG_ROW*FIG_COL*tmp_pic):
 					tmp_pic += 1
-					print tmp_pic
 					tmp_fig = plt.figure(figsize=(22,12))
 					tmp_fig2 = plt.figure(figsize=(22,12))
 					tmp_fig3 = plt.figure(figsize=(22,12))
