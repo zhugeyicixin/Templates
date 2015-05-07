@@ -31,6 +31,9 @@ for tmp_file in tmp_fileLists:
 		elif tmp_line == 'b3lyp':
 			__energy__ = 'b3lyp'
 			print '\n-------------------------------------\nb3lyp freq and energy are used in this calculation\n-------------------------------------\n'
+		elif tmp_line == 'cbsb3lyp':
+			__energy__ = 'cbsb3lyp'
+			print '\n-------------------------------------\ncbs verified and b3lyp freq and energy are used in this calculation\n-------------------------------------\n'
 		else:
 			print '\n-------------------------------------\nWarning! CBS or b3lyp energy is not announced! CBS is used as default!\n-------------------------------------\n'
 		fr.close()	
