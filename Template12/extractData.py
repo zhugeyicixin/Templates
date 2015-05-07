@@ -209,7 +209,8 @@ for i in range(len(allSpecies_name)):
 		energy_done = -1
 
 		# only if __energy__ == 'cbs', then check whether the freq file is cbs file 
-		if __energy__ == 'cbs':
+		# if __energy__ == 'cbs':
+		if 'cbs' in __energy__:	
 			cbs_done = -1
 		else:
 			cbs_done = 1
