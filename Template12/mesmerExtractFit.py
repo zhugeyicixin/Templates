@@ -90,6 +90,7 @@ totalNum = 0
 
 # read sketch info of all reaction
 sh=wb.sheet_by_name('Reactions')
+sh.cell_overwrite_ok = True
 num_rows = sh.nrows
 num_cols = sh.ncols
 for tmp_row in range(2,num_rows):

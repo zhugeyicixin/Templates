@@ -116,6 +116,7 @@ for tmp_row in range(2,num_rows):
 
 # read info of forward reaction
 sh=wb.sheet_by_name('Rate')
+sh.cell_overwrite_ok = True
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -157,6 +158,7 @@ if __barrier__ == False :
 
 # read info of reverse reaction
 sh=wb.sheet_by_name('ReverseRate')
+sh.cell_overwrite_ok = True
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 3
@@ -197,6 +199,7 @@ if __barrier__ == False :
 
 # read info of equilibrium constants
 sh=wb.sheet_by_name('EquilibriumConstants')
+sh.cell_overwrite_ok = True
 num_rows = sh.nrows
 num_cols = sh.ncols
 tmp_row = 2
