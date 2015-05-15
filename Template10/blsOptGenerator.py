@@ -11,10 +11,14 @@ import shutil
 
 from geometryExtractor import *
 
+__nosym__ = False
+
 #input
-frozen_num1 = 14
-frozen_num2 = 15
-name = 'RO2_beta_26_opt_b3cbsb7'
+frozen_num1 = 6
+frozen_num2 = 13
+name = 'B3LYP_1_OOQOOH'
+__nosym__ = False
+
 
 #definition of parameters
 multi = 0
@@ -23,8 +27,10 @@ multi = 0
 pattern_name = re.compile('^.*_scan.*$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$')
-# pattern_standard = re.compile('^.*Standard orientation:.*$')
-pattern_standard = re.compile('^.*Input orientation:.*$') 
+if __nosym__ == False:
+	pattern_standard = re.compile('^.*Standard orientation:.*$')
+else:
+	pattern_standard = re.compile('^.*Input orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 pattern_distance = re.compile('^.*R\(' + str(frozen_num1) + ',' + str(frozen_num2) + '\).*(-?[0-9]+\.[0-9]+).*-DE/DX.*$')
 
@@ -108,8 +114,8 @@ for tmp_file in tmp_fileLists:
 # gaussian input template
 '''%mem=28GB
 %nprocshared=12
-%chk=''' + name + '_' + tmp_R + '''.chk
-#p ub3lyp/cbsb7 opt=modredundant freq scf=xqc
+%chk=''' +'/scratch/'+ name + '_' + tmp_R + '''.chk
+#p opt=(modredundant) freq b3lyp/6-311++g(d,p) scf=xqc
 
 ''' + name + ''' using cbs-qb3 to calculate energy
 
@@ -146,7 +152,7 @@ for tmp_file in tmp_fileLists:
 # ''')
 
 				fw.close()
-				os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+				os.system("C:\\Users\\dell\\Desktop\\Spark\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name)
 
 				fw = file(name + '_' + tmp_R + '/' + name + '_' + tmp_R + '.job','w')
 				fw.write(
@@ -167,19 +173,21 @@ for tmp_file in tmp_fileLists:
 
 # ''')
 # G09 A.01
-'''#!/bin/csh
-#
-#$ -cwd
-#$ -j y
-#$ -S /bin/csh
-#
-setenv GAUSS_SCRDIR /state/partition1
-setenv g09root /share/apps
-source $g09root/g09/bsd/g09.login
+'''#BSUB -J ''' + name + '_' + tmp_R + '''
+#BSUB -q hpc_linux
+#BSUB -R "select[mem>30000]"
+#BSUB -n 12
+#BSUB -R "span[hosts=1]"
+#BSUB -o /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''/output.%J
+#BSUB -e /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''/error.%J
 
-cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + '''
-/share/apps/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
-/share/apps/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
+rm /scratch/*
+cd /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''
+g09 ''' + name + '_' + tmp_R + '''.gjf ''' + name + '_' + tmp_R + '''.log
+formchk /scratch/''' + name + '_' + tmp_R + '''.chk
+cp /scratch/''' + name + '_' + tmp_R + '''.chk ''' + name + '_' + tmp_R + '''.chk
+cp /scratch/''' + name + '_' + tmp_R + '''.fchk ''' + name + '_' + tmp_R + '''.fchk
+rm /scratch/*
 
 
 
@@ -222,7 +230,7 @@ cd /home/hetanjin/isobutanol/barrierless/RO2_beta/''' +  name + '_' + tmp_R + ''
 
 
 				fw.close()
-				os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+				os.system("C:\\Users\\dell\\Desktop\\Spark\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name)
 
 print 'input scripts generated successfully!'
 
