@@ -3,10 +3,10 @@ barrierless
 check the cbs freq and energy or not? [input: b3lyp/cbs]
 b3lyp
 temperature list: [input: list of numbers]
-400	450	500	550	600	650	700	750	800	850	900	950	1000	1050	1100	1150	1200	1250	1300	1350	1400	1450	1500	1550	1600	1650	1700	1750	1800	1850	1900	1950	2000
+250	298.15	300	400	500	600	800	1000	1300	1500	1800	2000
 MESMER temperature list: [input: list of numbers]
 298.15 300 400 450 500 550 600 650 700 750 800 850 900
 calculate hindered rotation in mesmer or not? [input: yes/no]
 no
 fitting temperature range (lowT=<T<=highT): [input: lowT, highT]
-400 2000
+500 1500
