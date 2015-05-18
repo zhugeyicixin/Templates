@@ -14,9 +14,9 @@ from geometryExtractor import *
 __nosym__ = False
 
 #input
-frozen_num1 = 6
-frozen_num2 = 13
-name = 'B3LYP_1_OOQOOH'
+frozen_num1 = 11
+frozen_num2 = 14
+name = '_RO2_1_opt_b3631gd'
 __nosym__ = False
 
 
@@ -115,7 +115,7 @@ for tmp_file in tmp_fileLists:
 '''%mem=28GB
 %nprocshared=12
 %chk=''' +'/scratch/'+ name + '_' + tmp_R + '''.chk
-#p opt=(modredundant) freq b3lyp/6-311++g(d,p) scf=xqc
+#p opt=(modredundant) freq b3lyp/6-31g(d)
 
 ''' + name + ''' using cbs-qb3 to calculate energy
 
@@ -152,7 +152,7 @@ for tmp_file in tmp_fileLists:
 # ''')
 
 				fw.close()
-				os.system("C:\\Users\\dell\\Desktop\\Spark\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name)
+				os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
 
 				fw = file(name + '_' + tmp_R + '/' + name + '_' + tmp_R + '.job','w')
 				fw.write(
@@ -173,26 +173,25 @@ for tmp_file in tmp_fileLists:
 
 # ''')
 # G09 A.01
-'''#BSUB -J ''' + name + '_' + tmp_R + '''
-#BSUB -q hpc_linux
-#BSUB -R "select[mem>30000]"
-#BSUB -n 12
-#BSUB -R "span[hosts=1]"
-#BSUB -o /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''/output.%J
-#BSUB -e /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''/error.%J
+'''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /share/apps
+source $g09root/g09/bsd/g09.login
 
-rm /scratch/*
-cd /work2/hexin_work/new_supplementation/''' + name + '_' + tmp_R + '''
-g09 ''' + name + '_' + tmp_R + '''.gjf ''' + name + '_' + tmp_R + '''.log
-formchk /scratch/''' + name + '_' + tmp_R + '''.chk
-cp /scratch/''' + name + '_' + tmp_R + '''.chk ''' + name + '_' + tmp_R + '''.chk
-cp /scratch/''' + name + '_' + tmp_R + '''.fchk ''' + name + '_' + tmp_R + '''.fchk
-rm /scratch/*
+cd /home/hetanjin/isobutane/Yibo/barrierless/''' +  name + '_' + tmp_R + '''
+$g09root/g09/g09 ''' +  name + '_' + tmp_R + '''.gjf
+$g09root/g09/formchk ''' +  name + '_' + tmp_R + '''.chk
 
 
 
 
 ''')
+#
 # G09 D.01
 # '''#!/bin/csh
 # #
@@ -230,7 +229,7 @@ rm /scratch/*
 
 
 				fw.close()
-				os.system("C:\\Users\\dell\\Desktop\\Spark\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name)
+				os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
 
 print 'input scripts generated successfully!'
 
