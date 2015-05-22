@@ -107,9 +107,13 @@ wb_new = copy(wb)
 sh=wb_new.get_sheet(sheets.index('MesmerRate'))				#if overwrite to use cell_overwrite_ok=True
 sh.cell_overwrite_ok = True
 
+tmp_pic = 1
 tmp_fig = plt.figure(figsize=(22,12))
 tmp_fig2 = plt.figure(figsize=(22,12))
 tmp_fig3 = plt.figure(figsize=(22,12))
+tmp_figs = [tmp_fig]
+tmp_figs2 = [tmp_fig2]
+tmp_figs3 = [tmp_fig3] 
 
 os.chdir('mesmerOutput')
 pwd = os.getcwd()
@@ -131,18 +135,26 @@ sh.write(2+(totalNum+2)*2, 29, 'Kc')
 
 tmp_row = 2
 for (index, tmp_file) in enumerate(tmp_fileLists):
+	if index >= (FIG_ROW*FIG_COL*tmp_pic):
+		tmp_pic += 1
+		tmp_fig = plt.figure(figsize=(22,12))
+		tmp_fig2 = plt.figure(figsize=(22,12))
+		tmp_fig3 = plt.figure(figsize=(22,12))
+		tmp_figs.append(tmp_fig)
+		tmp_figs2.append(tmp_fig2) 
+		tmp_figs3.append(tmp_fig3)  
 	tmp_num = 0
 	tmp_name = tmp_file[4:-4]
 	tmp_CanoRate, tmp_PhenoRate = mesmer1.readOutXml('mesmerOutput/' + tmp_file)
 	tmp_TSTRate = mesmer1.readOutTest('mesmerOutput/' + tmp_name + '.test')
 
-	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1)
+	tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1-FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	tmp_ax.set_title(tmp_name)
-	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index+1)
+	tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,index+1-FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	tmp_ax2.set_title(tmp_name)	
-	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index+1)
+	tmp_ax3 = tmp_fig3.add_subplot(FIG_ROW,FIG_COL,index+1-FIG_ROW*FIG_COL*(tmp_pic-1))
 	tmp_fig3.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 	tmp_ax3.set_title(tmp_name)				
 
@@ -312,16 +324,16 @@ for (index, tmp_file) in enumerate(tmp_fileLists):
 
 wb_new.save(name + '.xls')
 
-tmp_fig.show()
-tmp_fig2.show()
-tmp_fig3.show()
-tmp_fig.savefig('mesmer_rate_forward' + '.png',dpi=300)
-tmp_fig2.savefig('mesmer_rate_reverse' + '.png',dpi=300)
-tmp_fig3.savefig('mesmer_equilibrium constants' + '.png',dpi=300)
-plt.close(tmp_fig)
-plt.close(tmp_fig2)
-plt.close(tmp_fig3)
-
+for i in range(tmp_pic):   
+	tmp_figs[i].show()
+	tmp_figs2[i].show()
+	tmp_figs3[i].show()
+	tmp_figs[i].savefig('mesmer_rate_forward' + '_' + str(i+1) + '.png',dpi=300)
+	tmp_figs2[i].savefig('mesmer_rate_reverse' + '_' + str(i+1) + '.png',dpi=300)
+	tmp_figs3[i].savefig('mesmer_equilibrium constants' + '_' + str(i+1) + '.png',dpi=300)
+	plt.close(tmp_figs[i])
+	plt.close(tmp_figs2[i])
+	plt.close(tmp_figs3[i])
 
 print 'Mesmer output extracted and fiited successfully!\n'
 
