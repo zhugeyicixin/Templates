@@ -59,8 +59,11 @@ def fourier(x, y, n = -1, threshold = 1e-6):
     cycle_size = 2.0 * np.pi / step_length
     if (round(cycle_size) > len(x)):
         print 'Warning! Input data is shorter than a whole cycle!'
-    if (cycle_size - round(cycle_size)) > 1e-2:
+    if abs(cycle_size - round(cycle_size)) > 1e-2:
         print 'Warning! A cycle 360 degree is not a integral multiple of the step length!'
+    if abs(x[round(cycle_size)-1] - x[0] - 2*np.pi*35.0/36.0) > 1e-2 :
+        print cycle_size, abs(x[round(cycle_size)-1] - x[0] - 2*np.pi)
+        print 'Warning! There are possibly some pointes missing in a cycle! x[round(cycle_size)-1] - x[0] != 2*np.pi!'
     cycle_size = round(cycle_size)
 
     a[0] = np.average(y[0:cycle_size])
