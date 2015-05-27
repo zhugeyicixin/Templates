@@ -63,7 +63,7 @@ energy_done = 0
 optimized_done = 0
 dihedral_done = 0 
 standard_done = 0
-coordinate_done = 0
+coordinate_done = -1
 geom_start = 0
 geom_end = 0
 
@@ -134,6 +134,8 @@ for tmp_file in tmp_fileLists:
 				energy_done = 0
 				optimized_done = 0
 				dihedral_done = 0
+				standard_done = 0
+				coordinate_done = -1
 
 				atoms = []
 				steps = 0
@@ -174,7 +176,7 @@ for tmp_file in tmp_fileLists:
 							geom_start = i + 5
 							atomsNum = -5
 							coordinate_done = 0
-						if coordinate_done != 1:
+						if coordinate_done == 0:
 							tmp_m = pattern_endline.match(tmp_line)
 							if tmp_m:
 								if i > geom_start:
@@ -184,12 +186,12 @@ for tmp_file in tmp_fileLists:
 						if tmp_m:
 							tmp_energy = float(tmp_m.group(1))
 						tmp_m = pattern_optimized.match(tmp_line)
-						if tmp_m:
+						if tmp_m:	
 							energy.append(tmp_energy)
 							if (geom_end - geom_start) != atomsNum:
-								print 'Error! The number of atoms is not correct!'
+								print 'Warning! The number of atoms is not correct! The geometry of ' + str(tmp_dihedral+step_length) + ' is not reliable!'
 							tmp_mole = chem.molecule()	
-							tmp_mole.getLogGeom(tmp_lines[geom_start: geom_start + atomsNum])
+							tmp_mole.getLogGeom(tmp_lines[geom_start: geom_end])
 							tmp_mole.setLabel(tmp_file2[0:-4])
 							geoms.append(tmp_mole)
 							dihedral_done = 0 
@@ -222,7 +224,7 @@ for tmp_file in tmp_fileLists:
 
 							dihedral.append(tmp_dihedral)
 							standard_done = 0
-							coordinate_done = 0
+							coordinate_done = -1
 							energy_done = 0
 							optimized_done = 0
 							dihedral_done = 1 

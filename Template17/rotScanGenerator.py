@@ -52,6 +52,7 @@ if not os.path.exists('geom'):
 tmp_pwd = os.path.join(pwd,'geom')
 tmp_fileLists = os.listdir(tmp_pwd)
 
+print '\ngenerating .rot files\n'
 for tmp_file in tmp_fileLists:
 	if os.path.isdir(os.path.join(tmp_pwd, tmp_file)):
 		continue
@@ -108,7 +109,8 @@ for tmp_file in tmp_fileLists:
 			molecule1.fulfillBonds()
 			molecule1.generateRotScanFile()
 
-			cluster1.generateRotScanJobs(pwd)
+print '\ngenerating rotation scan jobs\n'
+cluster1.generateRotScanJobs(pwd)
 
 
 

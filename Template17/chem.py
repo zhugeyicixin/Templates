@@ -378,7 +378,7 @@ class molecule:
 		fw = file(os.path.join(self.label, ''.join([self.label, '.rot'])), 'w')	
 		fw.write('spinMultiplicity: '+str(self.spinMultiplicity)+'\n')
 		fw.write('\ngeometry:\n')
-		fw.write(''.join([''.join([x.symbol, ' ', str(x.coordinate[0]), ' ', str(x.coordinate[1]), ' ', str(x.coordinate[2]), '\n']) for x in self.atoms]))
+		fw.write(''.join(['%s %.8f %.8f %.8f\n' % (x.symbol, x.coordinate[0], x.coordinate[1], x.coordinate[2]) for x in self.atoms]))
 		fw.write('\nrotation information:\n')
 
 		for tmp_rotation in rotations:

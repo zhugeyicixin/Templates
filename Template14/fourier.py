@@ -66,6 +66,7 @@ def fourier(x, y, n = -1, threshold = 1e-6):
         print 'Warning! There are possibly some pointes missing in a cycle! x[round(cycle_size)-1] - x[0] != 2*np.pi!'
     cycle_size = round(cycle_size)
 
+
     a[0] = np.average(y[0:cycle_size])
     deviation = a[0] - y
 

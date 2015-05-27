@@ -137,13 +137,22 @@ tmp_row = 1
 tmp_col = 2
 while tmp_row < sh4.nrows: 	
 	while tmp_col < sh4.ncols:
+		if sh4.cell_value(tmp_row, 0) != '':
+			tmp_species = sh4.cell_value(tmp_row, 0)
+			HRNameMerge_dict[tmp_species] = tmp_species
 		if sh4.cell_value(tmp_row, tmp_col) != '':
-			HRNameMerge_dict[sh4.cell_value(tmp_row, tmp_col)] = sh4.cell_value(tmp_row, 0)
+			tmp_species = sh4.cell_value(tmp_row, tmp_col)
+			if tmp_species not in HRNameMerge_dict.keys():
+				HRNameMerge_dict[tmp_species] = sh4.cell_value(tmp_row, 0)
+			else:
+				print 'Warning! ' + tmp_species + ' appears more than once in hindered rotation name merging!'
 			tmp_col += 1 
 		else:
 			break
 	tmp_col = 2
 	tmp_row += 1		
+
+# print HRNameMerge_dict
 
 # Read the information about hindered rotation
 if __HR__ == True:
@@ -155,10 +164,12 @@ if __HR__ == True:
 			for tmp_row in range(0, num_rows, 30):
 				tmp_species = tmp_sheet.cell_value(tmp_row, 0)
 				tmp_species = tmp_species[0:-4]
-				if re.match('.*_[0-9]_scan', tmp_species):
-					tmp_species = tmp_species[0:-7]
+				# if re.match('.*_[0-9]_scan', tmp_species):
+					# tmp_species = tmp_species[0:-7]
 				if tmp_species in HRNameMerge_dict.keys():
 					tmp_species = HRNameMerge_dict[tmp_species]
+				else:
+					print 'Error! The hindered rotation of ' + tmp_species + ' in sheet ' + tmp_sheetName + ' has not been declared!'
 				tmp_rot = [int(tmp_sheet.cell_value(tmp_row+1,2)), int(tmp_sheet.cell_value(tmp_row+1,3)), tmp_sheet.cell_value(tmp_row+11,1), tmp_sheet.cell_value(tmp_row+12,1)]
 				if tmp_species not in HR_dict.keys():
 					HR_dict[tmp_species]=[tmp_rot]
@@ -420,7 +431,7 @@ for k in range(total):
 		tmp_hinderedRotations = []
 		if filename_R[k][i] not in HR_dict.keys():
 			if __HR__ == True:
-				print 'Error! There is no information for the hindered rotation of ' + filename_R[k][i]
+				print 'Warning! There is no information for the hindered rotation of ' + filename_R[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_R[k][i]]:
 				tmp_axis = tmp_reactant.getBond(tmp_rot[0], tmp_rot[1])
@@ -435,7 +446,7 @@ for k in range(total):
 					tmp_bonds_actual.append(tmp_bond)
 					tmp_hinderedRotations.append(tmp_hinderedRot)
 				else:
-					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond
+					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond, 'in', filename_R[k][i]
 			tmp_rotations = tmp_reactant.getRotations()
 			for tmp_rot in tmp_rotations:
 				tmp_bond = [tmp_rot.rotBondAxis.atom1.label, tmp_rot.rotBondAxis.atom2.label]
@@ -476,7 +487,7 @@ for k in range(total):
 		tmp_hinderedRotations = []
 		if filename_TS[k][i] not in HR_dict.keys():
 			if __HR__ == True:
-				print 'Error! There is no information for the hindered rotation of ' + filename_TS[k][i]
+				print 'Warning! There is no information for the hindered rotation of ' + filename_TS[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_TS[k][i]]:
 				tmp_hinderedRot = chem.rotation(rotBondAxis=tmp_TS.getBond(tmp_rot[0], tmp_rot[1]))
@@ -490,7 +501,7 @@ for k in range(total):
 					tmp_bonds_actual.append(tmp_bond)
 					tmp_hinderedRotations.append(tmp_hinderedRot)
 				else:
-					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond
+					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond, 'in', filename_TS[k][i]
 			tmp_rotations = tmp_TS.getRotations()
 			for tmp_rot in tmp_rotations:
 				tmp_bond = [tmp_rot.rotBondAxis.atom1.label, tmp_rot.rotBondAxis.atom2.label]
@@ -531,7 +542,7 @@ for k in range(total):
 		tmp_hinderedRotations = []
 		if filename_P[k][i] not in HR_dict.keys():
 			if __HR__ == True:
-				print 'Error! There is no information for the hindered rotation of ' + filename_P[k][i]
+				print 'Warning! There is no information for the hindered rotation of ' + filename_P[k][i]
 		else:
 			for tmp_rot in HR_dict[filename_P[k][i]]:
 				tmp_axis = tmp_product.getBond(tmp_rot[0], tmp_rot[1])
@@ -546,7 +557,7 @@ for k in range(total):
 					tmp_bonds_actual.append(tmp_bond)
 					tmp_hinderedRotations.append(tmp_hinderedRot)
 				else:
-					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond
+					print 'Error! There is a bond scanned more than once in hindered rotation processing!', tmp_bond, 'in', filename_P[k][i]
 			tmp_rotations = tmp_product.getRotations()
 			for tmp_rot in tmp_rotations:
 				tmp_bond = [tmp_rot.rotBondAxis.atom1.label, tmp_rot.rotBondAxis.atom2.label]

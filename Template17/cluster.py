@@ -6,8 +6,7 @@ import os
 # definetion of comparing pattern
 pattern_multi = re.compile('^.*spinMultiplicity: *([0-9]+).*$')
 pattern_atom = re.compile('^.*[A-Z] *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+).*$')
-pattern_rotation = re.compile('^.*([0-9]+) +([0-9]+) +([0-9]+) +([0-9]+).*$')
-
+pattern_rotation = re.compile('^ *([0-9]+) +([0-9]+) +([0-9]+) +([0-9]+).*$')
 pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
@@ -80,6 +79,7 @@ class cluster:
 						fr.close()
 
 						for tmp_rotation in rotations:
+
 							tmp_num = 1
 							tmp_dir = ''.join([tmp2_file[0:-4], '_', tmp_rotation[1], '_', tmp_rotation[2], '_', str(tmp_num), '_scan_b3631gd'])
 							tmp_dir_path = os.path.join(pathway, tmp_file, tmp_dir)
@@ -97,14 +97,14 @@ class cluster:
 								fw.write('/scratch/')
 							if self._dispersionD3 == False:
 								fw.write(tmp_dir + '''.chk
-#p ub3lyp/6-31g(d) opt=modredundant
+#p ub3lyp/6-31g(d) opt=modredundant nosym
 
 using ub3lyp/6-31G(d) to scan
 
 0 ''')
 							else:
 								fw.write(tmp_dir + '''.chk
-#p ub3lyp/6-31g(d) opt=modredundant EmpiricalDispersion=GD3
+#p ub3lyp/6-31g(d) opt=modredundant nosym EmpiricalDispersion=GD3
 
 using ub3lyp/6-31G(d) to scan
 
@@ -112,7 +112,8 @@ using ub3lyp/6-31G(d) to scan
 							fw.write(''.join([str(multi), '\n'] + tmp_lines[atom_begin: atom_done] + ['\n', \
 								'D ', tmp_rotation[0], ' ', tmp_rotation[1], ' ', tmp_rotation[2], ' ', tmp_rotation[3], ' ', 'S 40 10.0\n\n\n\n\n\n']))
 							fw.close()
-
+							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+							
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 							if self.name == 'cce':
 								if self._g09D01 == False:
@@ -193,7 +194,7 @@ $g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
 
 ''')
 							fw.close()
-
+							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
 
 
 
