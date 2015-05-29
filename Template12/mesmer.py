@@ -5,9 +5,15 @@ import os
 import numpy as np
 from lxml import etree
 import visual
+import fourier
+import phys
+import matplotlib.pyplot as plt
+from scipy import stats
 from collections import OrderedDict
 
 import chem
+
+phys1 = phys.phys()
 
 # units: 
 # grainSize: cm-1
@@ -17,6 +23,11 @@ class mesmer:
 	nsmap = {None: 'http://www.xml-cml.org/schema','me': 'http://www.chem.leeds.ac.uk/mesmer', 'xsi': 'http://www.w3.org/2001/XMLSchema-instance'}
 	grainSize = 100
 	eAboveTop = 100.0
+
+	rotPotentCheckFigs=[]
+	rotPotentCheckFIG_ROW = 6
+	rotPotentCheckFIG_COL = 5
+	rotPotentCheckFig_index = 0
 
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_TSTRate_r = re.compile('^.*Canonical.*first order backward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
@@ -32,6 +43,64 @@ class mesmer:
 
 	def setEAboveTop(self, eAboveTop):
 		self.eAboveTop = eAboveTop
+
+	def angleDependPotentCheck(self, angles, energies):
+		dihedral = np.array(angles)
+		dihedral_rad = phys1.degreeTorad(dihedral)
+		dihedral_rad = dihedral_rad - dihedral_rad[0]
+
+		energy_cmm1 = np.array(energies)
+		energy_cmm1 = energy_cmm1- energy_cmm1[0]
+
+		step_length = dihedral_rad[1] - dihedral_rad[0]
+		cycle_size = 2.0 * np.pi / step_length
+		useFittedData = False
+
+		if (round(cycle_size) > len(dihedral_rad)):
+			print 'Error! Hindered rotation check in mesmer! Input data is shorter than a whole cycle!'
+		if abs(cycle_size - round(cycle_size)) > 1e-2:
+			print 'Error! Hindered rotation check in mesmer! A cycle 360 degree is not a integral multiple of the step length!'
+
+		cycle_size = int(round(cycle_size))
+		refined_angles = angles[0: cycle_size]
+		refined_energies = energies[0: cycle_size]
+
+		if abs(dihedral_rad[cycle_size-1] - dihedral_rad[0] - 2*np.pi*35.0/36.0) > 1e-2:
+			print 'Warning! Hindered rotation check in mesmer! Fitted data used!'
+			print 'There are possibly some pointes missing in a cycle! x[round(cycle_size)-1] - x[0] != 2*np.pi!'
+			print cycle_size, abs(dihedral_rad[cycle_size-1] - dihedral_rad[0] - 2*np.pi)
+	
+			useFittedData = True		
+			
+			
+			coeff_V, deviation_V = fourier.fit_fourier_noGuess(dihedral_rad, energy_cmm1, threshold=np.std(energy_cmm1)/1e1)
+
+			mesmer.rotPotentCheckFig_index += 1
+			if mesmer.rotPotentCheckFig_index > mesmer.rotPotentCheckFIG_ROW * mesmer.rotPotentCheckFIG_COL:
+				mesmer.rotPotentCheckFig_index = 1
+			if mesmer.rotPotentCheckFig_index == 1:
+				tmp_fig = plt.figure(figsize=(22, 12))
+				mesmer.rotPotentCheckFigs.append(tmp_fig)
+			tmp_fig = mesmer.rotPotentCheckFigs[-1]
+			tmp_ax = tmp_fig.add_subplot(mesmer.rotPotentCheckFIG_ROW, mesmer.rotPotentCheckFIG_COL, mesmer.rotPotentCheckFig_index)
+			tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
+			tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
+			tmp_fig.savefig('HRUseFittedData_' + str(len(mesmer.rotPotentCheckFigs)) + '.png', dpi=300)
+			plt.close(tmp_fig)
+
+			det_dihedral = dihedral[1:] - dihedral[0:-1]
+			det_dihedral = np.round(det_dihedral)
+			step_length = stats.mode(det_dihedral)
+			step_length = step_length[0][0]
+			cycle_size = 360.0 / step_length
+			cycle_size = int(round(cycle_size))
+			refined_angles = np.array(range(cycle_size)) * step_length
+			dihedral_rad = phys1.degreeTorad(refined_angles)
+			refined_energies = fourier.func_fourier(dihedral_rad,*coeff_V)
+			refined_energies = refined_energies - refined_energies[0]
+
+		return refined_angles, refined_energies, useFittedData
+
 
 	def genInput(self, reactSys):
 		allMolecule = []
@@ -128,8 +197,12 @@ class mesmer:
 						tmpnode_bond = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}bondRef' % self.nsmap['me'])
 						tmpnode_bond.text = 'b'+str(tmp_molecule.bonds.index(tmp_hinderRotor.rotBondAxis)+1)
 						tmpnode_potential = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}HinderedRotorPotential' % self.nsmap['me'], ['format', 'units', 'expansionSize', 'UseSineTerms', 'scale'], ['numerical', 'cm-1', '9', 'yes', '1'])
-						for (index, tmp_angle) in enumerate(tmp_hinderRotor.angles):
-							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_hinderRotor.energies[index])])
+						
+						tmp_angles, tmp_energies, tmp_refined = self.angleDependPotentCheck(tmp_hinderRotor.angles, tmp_hinderRotor.energies)
+						if tmp_refined:
+							print 'Warning! Fitted data used in mesmer hindered rotation input!', tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']'
+						for (index, tmp_angle) in enumerate(tmp_angles):
+							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_energies[index])])
 
 
 			if len(reaction.products) > 1:

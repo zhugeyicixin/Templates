@@ -1,6 +1,7 @@
 # this is a class of chemistry 
 # it can be used to deal with infomation of atoms and molecules
 import visual
+import os
 
 import numpy as np
 import copy
@@ -128,6 +129,7 @@ class molecule:
 
 	_RingBanned = False
 
+	# the default geom and connectivity are from gjf file
 	def __init__(self, geom=[], connect=[], inputAtoms=[]):
 		self.bonds = []
 		self.label = ''
@@ -143,9 +145,9 @@ class molecule:
 		self.sigma = 0.0
 		self.exponentialDown = 0.0
 		self.hinderedRotorQM1D = []
-		role = ''
+		self.role = ''
 
-		_RingBanned = False
+		self._RingBanned = False
 
 		if inputAtoms == []:
 			self.atoms = []
@@ -266,6 +268,7 @@ class molecule:
 			weight += tmp_atom.mass
 		return	weight
 
+	# get the bond between atom1 and atom2
 	def getBond(self, atom1Label, atom2Label):
 		tmp_children = self.atoms[atom1Label-1].children
 		if self.atoms[atom2Label-1] in tmp_children:
@@ -276,6 +279,30 @@ class molecule:
 			tmp_bond = None
 		return tmp_bond
 
+	# this function is used to get the two parts if a molecule is divided by a certain bond with the tabuAtom, 
+	# this is the combination of atom.dividedGraph2 and a double check to guarantee the molecule is correctly divided into two parts. 
+	# Only proper for a bond not in a ring. Safer to be used
+	# if result==1, then end normally
+	# if result==0, the bond is in a cycle
+	# if result==-1, there are more than two groups
+	def connectedGraph2(self, bond):
+		result = 1
+		tmp_group1 = bond.atom1.dividedGraph2([bond.atom2])
+		# - is equal to .difference() for a set(), but freer parameters are allowed for .difference()
+		comple_group1 = list(set(self.atoms) - set(tmp_group1))
+		tmp_group2 = bond.atom2.dividedGraph2([bond.atom1])
+		tmp_set = set(comple_group1) - set(tmp_group2)
+		if len(tmp_set) > 0:
+			print 'Error! There are some atoms with labels ' + str([x.label for x in tmp_set]) + ' neither connected with ' + str(bond.atom1.label) + ' nor ' + str(bond.atom2.label) + '!'
+			result = -1
+		tmp_set = set(tmp_group2) - set(comple_group1)
+		if len(tmp_set) > 0:
+			# print 'Error! There are some rings in the molecule! Ring members are labeled as ' + str([x.label for x in tmp_set]) + ' , certainly also including ' + str(bond.atom1.label) + ' and ' + str(bond.atom2.label) + '.'
+			result = 0
+		return tmp_group1, tmp_group2, result
+
+	# get all rotations
+	# return a list of rotations 
 	def getRotations(self):
 		rotations = []
 		for tmp_atom in self.atoms:
@@ -300,28 +327,6 @@ class molecule:
 					tmp_rotation = rotation(tmp_atom.bonds[index], tmp_group1, tmp_group2)
 					rotations.append(tmp_rotation)
 		return rotations
-
-	# this function is used to get the two parts if a molecule is divided by a certain bond with the tabuAtom, 
-	# this is the combination of atom.dividedGraph2 and a double check to guarantee the molecule is correctly divided into two parts. 
-	# Only proper for a bond not in a ring. Safer to be used
-	# if result==1, then end normally
-	# if result==0, the bond is in a cycle
-	# if result==-1, there are more than two groups
-	def connectedGraph2(self, bond):
-		result = 1
-		tmp_group1 = bond.atom1.dividedGraph2([bond.atom2])
-		# - is equal to .difference() for a set(), but freer parameters are allowed for .difference()
-		comple_group1 = list(set(self.atoms) - set(tmp_group1))
-		tmp_group2 = bond.atom2.dividedGraph2([bond.atom1])
-		tmp_set = set(comple_group1) - set(tmp_group2)
-		if len(tmp_set) > 0:
-			print 'Error! There are some atoms with labels ' + str([x.label for x in tmp_set]) + ' neither connected with ' + str(bond.atom1.label) + ' nor ' + str(bond.atom2.label) + '!'
-			result = -1
-		tmp_set = set(tmp_group2) - set(comple_group1)
-		if len(tmp_set) > 0:
-			# print 'Error! There are some rings in the molecule! Ring members are labeled as ' + str([x.label for x in tmp_set]) + ' , certainly also including ' + str(bond.atom1.label) + ' and ' + str(bond.atom2.label) + '.'
-			result = 0
-		return tmp_group1, tmp_group2, result
 
 	def getAtomsNum(self):
 		return len(self.atoms)
@@ -364,6 +369,64 @@ class molecule:
 					self.atoms[j].addBond(tmp_bond)
 					self.bonds.append(tmp_bond)
 
+
+	def generateRotScanFile(self):
+		rotations = self.getRotations()
+
+		if not os.path.exists(self.label):
+			os.mkdir(self.label)
+		fw = file(os.path.join(self.label, ''.join([self.label, '.rot'])), 'w')	
+		fw.write('spinMultiplicity: '+str(self.spinMultiplicity)+'\n')
+		fw.write('\ngeometry:\n')
+		fw.write(''.join(['%s %.8f %.8f %.8f\n' % (x.symbol, x.coordinate[0], x.coordinate[1], x.coordinate[2]) for x in self.atoms]))
+		fw.write('\nrotation information:\n')
+
+		for tmp_rotation in rotations:
+			if tmp_rotation.rotBondAxis.atom1.label < tmp_rotation.rotBondAxis.atom2.label:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom1
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom2
+			else:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom2
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom1
+
+			neighbour1 = None
+			neighbour2 = None
+
+			# search the neighbour atom for atom1
+			# search C atoms as the neighbour in priority
+			for tmp_atom in tmp_atom1.children:
+				if tmp_atom.symbol == 'C' and tmp_atom != tmp_atom2:
+					neighbour1 = tmp_atom
+			# search other heavy atoms as the neighbour if C atom not found
+			if neighbour1 == None:
+				for tmp_atom in tmp_atom1.children:
+					if tmp_atom.symbol != 'H' and tmp_atom != tmp_atom2:
+						neighbour1 = tmp_atom
+			# search left atoms (H) as the neighbour if C and other heavy atoms not found
+			if neighbour1 == None:
+				for tmp_atom in tmp_atom1.children:
+					if tmp_atom != tmp_atom2:
+						neighbour1 = tmp_atom
+
+			# search the neighbour atom for atom2
+			# search C atoms as the neighbour in priority
+			for tmp_atom in tmp_atom2.children:
+				if tmp_atom.symbol == 'C' and tmp_atom != tmp_atom1:
+					neighbour2 = tmp_atom
+			# search other heavy atoms as the neighbour if C atom not found
+			if neighbour2 == None:
+				for tmp_atom in tmp_atom2.children:
+					if tmp_atom.symbol != 'H' and tmp_atom != tmp_atom1:
+						neighbour2 = tmp_atom
+			# search left atoms (H) as the neighbour if C and other heavy atoms not found
+			if neighbour2 == None:
+				for tmp_atom in tmp_atom2.children:
+					if tmp_atom != tmp_atom1:
+						neighbour2 = tmp_atom
+			fw.write(''.join([str(neighbour1.label), ' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), ' ', str(neighbour2.label), '\n']))
+
+		fw.write('\n\n\n\n\n')
+		fw.close()
 
 class atom:
 	symbol = ''
@@ -452,6 +515,7 @@ class rotation:
 	angles = []
 	energies = []
 
+	# rotBondAxis is a bond instance
 	def __init__(self, rotBondAxis, atomGroup1=[], atomGroup2=[]):
 		self.rotBondAxis = rotBondAxis
 		angles = []
