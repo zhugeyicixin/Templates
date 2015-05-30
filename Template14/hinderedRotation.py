@@ -123,6 +123,8 @@ for tmp_file in tmp_fileLists:
 		tmp_fileLists2 = os.listdir(tmp_pwd)
 		tmp_num = 0
 		for tmp_file2 in tmp_fileLists2:
+			if not re.search('\.log', tmp_file2):
+				continue
 			tmp_m = pattern_name.match(tmp_file2[0:-4])	
 			# if target file found
 			if tmp_m:
