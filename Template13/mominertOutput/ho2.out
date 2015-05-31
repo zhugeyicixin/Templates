@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                                        John R. Barker
+               Mominert-2014            University of Michigan
+                                        Ann Arbor, MI 48109-2143
+               Jan 2014                 jrbarker@umich.edu
+                                        (734) 763 6239
+
+              http://aoss.engin.umich.edu/multiwell/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        Suggested Literature Citation:
+
+        a) MultiWell-2014   Software, Jan 2014, designed and
+           maintained by J.R. Barker with contributors N.F. Ortiz,
+           J.M. Preses, L.L. Lohr, A. Maranzana, P.J. Stimac, T. L.
+           Nguyen, and T. J. Dhilip Kumar, University of Michigan,
+           Ann Arbor, MI; http://aoss.engin.umich.edu/multiwell/
+
+        b) J.R. Barker, Int. J. Chem. Kinetics, 33, 232-45 (2001)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ ho2                                                                                                 
+
+ NUMBER  TYPE         X           Y           Z
+    1     O         0.055286   -0.609633    0.000000
+    2     H        -0.884573   -0.870725    0.000000
+    3     O         0.055286    0.718474    0.000000
+
+
+PRINCIPAL MOMENTS OF INERTIA AND ROTATIONAL CONSTANTS
+  Ia =       0.8121   Ib =      14.9978   Ic =      15.8099   amu*ang^2
+  Ia =   1.3485E-40   Ib =   2.4904E-39   Ic =   2.6253E-39   g*cm^2
+  Ba =      20.7584   Bb =       1.1240   Bc =       1.0663   cm-1
+  Ba =  622321.4714   Bb =   33696.7966   Bc =   31965.9392   MHz
+  Ba =     622.3215   Bb =      33.6968   Bc =      31.9659   GHz
+

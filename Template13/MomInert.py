@@ -71,6 +71,7 @@ class MomInert:
 		molecule1 = chem.molecule(geom=tmp_lines[atom_start: atom_start + atomsNum], connect=tmp_lines[connect_start: connect_start + atomsNum])
 		if __OOSYSTEM__ == True:
 			molecule1.fulfillBonds()
+			molecule1.setRingBanned(False)
 			# molecule1.displayBonds()	
 		rotations = molecule1.getRotations()
 		fr.close()

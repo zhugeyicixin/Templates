@@ -1,0 +1,329 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+                                        John R. Barker
+               Mominert-2014            University of Michigan
+                                        Ann Arbor, MI 48109-2143
+               Jan 2014                 jrbarker@umich.edu
+                                        (734) 763 6239
+
+              http://aoss.engin.umich.edu/multiwell/
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        Suggested Literature Citation:
+
+        a) MultiWell-2014   Software, Jan 2014, designed and
+           maintained by J.R. Barker with contributors N.F. Ortiz,
+           J.M. Preses, L.L. Lohr, A. Maranzana, P.J. Stimac, T. L.
+           Nguyen, and T. J. Dhilip Kumar, University of Michigan,
+           Ann Arbor, MI; http://aoss.engin.umich.edu/multiwell/
+
+        b) J.R. Barker, Int. J. Chem. Kinetics, 33, 232-45 (2001)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ TS_2c_2                                                                                             
+
+ NUMBER  TYPE         X           Y           Z
+    1     C         3.231314   -0.592673   -0.838386
+    2     H         3.239848    0.198241   -1.590830
+    3     H         3.467951   -1.537006   -1.340449
+    4     H         4.024076   -0.400575   -0.110483
+    5     C         0.747654   -0.469177   -0.938849
+    6     H         0.894726    0.053068   -1.881824
+    7     C        -0.674120   -0.692682   -0.536936
+    8     H        -0.733520   -1.333225    0.345197
+    9     H        -1.183135   -1.228872   -1.348458
+   10     C        -1.413342    0.643191   -0.274547
+   11     H        -1.323461    1.270327   -1.169549
+   12     H        -0.879713    1.171624    0.520525
+   13     C        -2.907223    0.524925    0.096038
+   14     H        -3.257139    1.556132    0.235911
+   15     C        -3.753729   -0.090213   -1.027947
+   16     H        -3.507318   -1.144085   -1.190910
+   17     H        -4.819227   -0.040931   -0.784693
+   18     H        -3.603728    0.438581   -1.974284
+   19     C         1.838281   -1.557470    1.071701
+   20     H         1.797552   -2.614603    0.787112
+   21     H         2.730552   -1.401758    1.679599
+   22     H         0.968369   -1.336570    1.690553
+   23     C        -3.130853   -0.210244    1.425708
+   24     H        -4.182341   -0.163910    1.724215
+   25     H        -2.860658   -1.268362    1.353304
+   26     H        -2.535511    0.233629    2.229082
+   27     C         1.885502   -0.680310   -0.157884
+   28     O         1.887424    0.963720    0.860285
+   29     O         2.306346    2.070603    0.107876
+   30     H         3.271596    2.021639    0.167306
+
+
+
+  ATOMS   1 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS:  1  2  3  4
+
+  MOIETY 2 CONTAINS ATOMS:  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:     3.160   amu*Ang^2
+                                              5.247E-40   g*cm^2
+              Rotational constant:  B =         5.33484   cm-1
+                                    B =    159934.45987   MHz
+                                    B =       159.93446   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:   635.523   amu*Ang^2
+                                              1.055E-37   g*cm^2
+              Rotational constant:  B =         0.02653   cm-1
+                                    B =       795.21708   MHz
+                                    B =         0.79522   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT  1--27 BOND:    3.144   amu*Ang^2
+                                              5.221E-40   g*cm^2
+              Rotational constant:  B =         5.36137   cm-1
+                                    B =    160729.67694   MHz
+                                    B =       160.72968   GHz
+
+
+
+
+  ATOMS   5 AND   7 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS:  1  2  3  4  5  6 19 20 21 22 27 28 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  7  8  9 10 11 12 13 14 15 16 17 18 23 24 25 26
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:   355.722   amu*Ang^2
+                                              5.907E-38   g*cm^2
+              Rotational constant:  B =         0.04739   cm-1
+                                    B =      1420.71297   MHz
+                                    B =         1.42071   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:   156.193   amu*Ang^2
+                                              2.594E-38   g*cm^2
+              Rotational constant:  B =         0.10793   cm-1
+                                    B =      3235.60293   MHz
+                                    B =         3.23560   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT  5-- 7 BOND:  108.536   amu*Ang^2
+                                              1.802E-38   g*cm^2
+              Rotational constant:  B =         0.15532   cm-1
+                                    B =      4656.31590   MHz
+                                    B =         4.65632   GHz
+
+
+
+
+  ATOMS  10 AND   7 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 10 11 12 13 14 15 16 17 18 23 24 25 26
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 19 20 21 22 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:   235.388   amu*Ang^2
+                                              3.909E-38   g*cm^2
+              Rotational constant:  B =         0.07162   cm-1
+                                    B =      2147.00656   MHz
+                                    B =         2.14701   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:   844.788   amu*Ang^2
+                                              1.403E-37   g*cm^2
+              Rotational constant:  B =         0.01995   cm-1
+                                    B =       598.23180   MHz
+                                    B =         0.59823   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 10-- 7 BOND:  184.093   amu*Ang^2
+                                              3.057E-38   g*cm^2
+              Rotational constant:  B =         0.09157   cm-1
+                                    B =      2745.23837   MHz
+                                    B =         2.74524   GHz
+
+
+
+
+  ATOMS  13 AND  10 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 13 14 15 16 17 18 23 24 25 26
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 19 20 21 22 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:    72.111   amu*Ang^2
+                                              1.197E-38   g*cm^2
+              Rotational constant:  B =         0.23377   cm-1
+                                    B =      7008.29985   MHz
+                                    B =         7.00830   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:   411.727   amu*Ang^2
+                                              6.837E-38   g*cm^2
+              Rotational constant:  B =         0.04094   cm-1
+                                    B =      1227.46229   MHz
+                                    B =         1.22746   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 13--10 BOND:   61.364   amu*Ang^2
+                                              1.019E-38   g*cm^2
+              Rotational constant:  B =         0.27472   cm-1
+                                    B =      8235.76214   MHz
+                                    B =         8.23576   GHz
+
+
+
+
+  ATOMS  15 AND  13 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 15 16 17 18
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 19 20 21 22 23 24 25 26 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:     3.142   amu*Ang^2
+                                              5.218E-40   g*cm^2
+              Rotational constant:  B =         5.36444   cm-1
+                                    B =    160821.91104   MHz
+                                    B =       160.82191   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1972.270   amu*Ang^2
+                                              3.275E-37   g*cm^2
+              Rotational constant:  B =         0.00855   cm-1
+                                    B =       256.24235   MHz
+                                    B =         0.25624   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 15--13 BOND:    3.137   amu*Ang^2
+                                              5.210E-40   g*cm^2
+              Rotational constant:  B =         5.37299   cm-1
+                                    B =    161078.15339   MHz
+                                    B =       161.07815   GHz
+
+
+
+
+  ATOMS  23 AND  13 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 23 24 25 26
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:     3.144   amu*Ang^2
+                                              5.221E-40   g*cm^2
+              Rotational constant:  B =         5.36183   cm-1
+                                    B =    160743.64578   MHz
+                                    B =       160.74365   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  2497.699   amu*Ang^2
+                                              4.148E-37   g*cm^2
+              Rotational constant:  B =         0.00675   cm-1
+                                    B =       202.33784   MHz
+                                    B =         0.20234   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 23--13 BOND:    3.140   amu*Ang^2
+                                              5.214E-40   g*cm^2
+              Rotational constant:  B =         5.36858   cm-1
+                                    B =    160945.98362   MHz
+                                    B =       160.94598   GHz
+
+
+
+
+  ATOMS  19 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 19 20 21 22
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 23 24 25 26 27 28 29 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:     3.153   amu*Ang^2
+                                              5.235E-40   g*cm^2
+              Rotational constant:  B =         5.34678   cm-1
+                                    B =    160292.39297   MHz
+                                    B =       160.29239   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1699.264   amu*Ang^2
+                                              2.822E-37   g*cm^2
+              Rotational constant:  B =         0.00992   cm-1
+                                    B =       297.41057   MHz
+                                    B =         0.29741   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 19--27 BOND:    3.147   amu*Ang^2
+                                              5.226E-40   g*cm^2
+              Rotational constant:  B =         5.35670   cm-1
+                                    B =    160589.80354   MHz
+                                    B =       160.58980   GHz
+
+
+
+
+  ATOMS  28 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 28 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:    29.964   amu*Ang^2
+                                              4.976E-39   g*cm^2
+              Rotational constant:  B =         0.56259   cm-1
+                                    B =     16866.11672   MHz
+                                    B =        16.86612   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1577.896   amu*Ang^2
+                                              2.620E-37   g*cm^2
+              Rotational constant:  B =         0.01068   cm-1
+                                    B =       320.28667   MHz
+                                    B =         0.32029   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 28--27 BOND:   29.406   amu*Ang^2
+                                              4.883E-39   g*cm^2
+              Rotational constant:  B =         0.57328   cm-1
+                                    B =     17186.40340   MHz
+                                    B =        17.18640   GHz
+
+
+
+
+  ATOMS  29 AND  28 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:     0.897   amu*Ang^2
+                                              1.490E-40   g*cm^2
+              Rotational constant:  B =        18.78774   cm-1
+                                    B =    563242.27292   MHz
+                                    B =       563.24227   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1683.380   amu*Ang^2
+                                              2.795E-37   g*cm^2
+              Rotational constant:  B =         0.01001   cm-1
+                                    B =       300.21685   MHz
+                                    B =         0.30022   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 29--28 BOND:    0.897   amu*Ang^2
+                                              1.489E-40   g*cm^2
+              Rotational constant:  B =        18.79776   cm-1
+                                    B =    563542.48977   MHz
+                                    B =       563.54249   GHz
+
+
+
+PRINCIPAL MOMENTS OF INERTIA AND ROTATIONAL CONSTANTS
+  Ia =     289.2989   Ib =    1053.9577   Ic =    1103.1478   amu*ang^2
+  Ia =   4.8039E-38   Ib =   1.7501E-37   Ic =   1.8318E-37   g*cm^2
+  Ba =       0.0583   Bb =       0.0160   Bc =       0.0153   cm-1
+  Ba =    1746.9096   Bb =     479.5060   Bc =     458.1245   MHz
+  Ba =       1.7469   Bb =       0.4795   Bc =       0.4581   GHz
+
