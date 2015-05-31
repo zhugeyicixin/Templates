@@ -46,6 +46,8 @@ eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.colo
 # version 1.2 used for QOOH decomposition (carbonyl + alkene + OH)
 bondDisDict={
 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+'C': {'H': [1.5], 'C': [1.24740, 1.3860, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
+'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
 }
 
 bondOrderDict={
