@@ -36,8 +36,9 @@ Template15用于修改提交用脚本
 
 Template16用于简单地只拟合阿伦尼乌斯方程
 
-Templete17用于自动生成hindered rotation脚本
+Template17用于自动生成hindered rotation脚本
 
+Template18用于从gjf的几何信息中自动生成优化脚本
 
 
 
