@@ -83,7 +83,7 @@ for tmp_file in tmp_fileLists:
 				elif freqCom_done != 1:
 					if lineNum < len(tmp_lines) - 1:
 						tmp2_line = tmp_lines[lineNum].strip() + tmp_lines[lineNum+1].strip()
-						tmp_m = pattern_freqCom.match(tmp_line)
+						tmp_m = pattern_freqCom.match(tmp2_line)
 						if tmp_m:
 							freqCom_done = 1
 				elif standard_done != 1:
