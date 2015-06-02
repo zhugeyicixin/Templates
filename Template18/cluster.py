@@ -3,6 +3,7 @@
 import re
 import os
 import shutil
+import textExtractor
 
 # definetion of comparing pattern
 pattern_multi = re.compile('^.*spinMultiplicity: *([0-9]+).*$')
@@ -12,6 +13,13 @@ pattern_rotation = re.compile('^ *([0-9]+) +([0-9]+) +([0-9]+) +([0-9]+).*$')
 pattern_gjfCommand = re.compile('^.*#p?.*$')
 pattern_gjfMulti = re.compile('^.*([0-9]+) +([0-9]+).*$')
 pattern_blankLine = re.compile('^ *$')
+
+pattern_logMulti = re.compile('^.*Multiplicity = ([0-9]+).*$')
+pattern_logFreqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
+pattern_logStandard = re.compile('^.*Standard orientation:.*$') 
+pattern_logInput = re.compile('^.*Input orientation:.*$') 
+pattern_logEndline = re.compile('^.*---------------------------------------------------------------------.*$')
+
 
 class cluster:
 	name = ''
@@ -343,6 +351,175 @@ $g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
 ''')
 		fw.close()
 		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+
+	def generateJobFromLog(self, fileName, path='', nosym=False, jobName=''):
+		#variables
+		multi = 1
+
+		#flags
+		multi_done = -1
+		freqCom_done = -1
+		standard_done = -1
+		coordinate_done = -1
+
+		# temporary variables
+		tmp_m = []
+		tmp_num = 0
+				
+		if jobName == '':
+			tmp_dir = fileName[0:-4] + '_2_cbs'
+		else:
+			tmp_dir = jobName
+		if path == '':			
+			tmp_dir_path = tmp_dir
+			fr = file(fileName, 'r')
+		else:
+			tmp_dir_path = os.path.join(path, tmp_dir)
+			fr = file(os.path.join(path, fileName), 'r')
+
+		tmp_lines = fr.readlines()		
+		for (lineNum, tmp_line) in enumerate(tmp_lines):
+			if multi_done != 1:
+				tmp_m = pattern_logMulti.match(tmp_line)
+				if tmp_m:
+					multi = int(tmp_m.group(1))
+					multi_done = 1
+			elif freqCom_done != 1:
+				if lineNum < len(tmp_lines) - 1:
+					tmp2_line = tmp_lines[lineNum].strip() + tmp_lines[lineNum+1].strip()
+					tmp_m = pattern_logFreqCom.match(tmp2_line)
+					if tmp_m:
+						freqCom_done = 1
+			elif standard_done != 1:
+				if nosym == False:
+					tmp_m = pattern_logStandard.match(tmp_line)
+				else:
+					tmp_m = pattern_logInput.match(tmp_line)
+				if tmp_m:
+					tmp_num = lineNum + 5
+					standard_done = 1
+			elif coordinate_done != 1:
+				tmp_m = pattern_logEndline.match(tmp_line)
+				if tmp_m:
+					if lineNum > tmp_num:
+						tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
+						coordinate_done = 1
+
+		if os.path.exists(tmp_dir):
+			shutil.rmtree(tmp_dir)
+		os.mkdir(tmp_dir)					
+
+		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
+		fw.write(
+'''%mem=28GB
+%nprocshared=12
+%chk=''')
+		if self.name == 'Tsinghua100' and self._scratchStrategy == True:
+			fw.write('/scratch/')
+		if self._dispersionD3 == False:
+			fw.write(tmp_dir + '''.chk
+#p cbs-qb3
+
+using ub3lyp/6-31G(d) to scan
+
+0 ''')
+			fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
+		else:
+			fw.write(tmp_dir + '''.chk
+#p cbs-qb3 EmpiricalDispersion=GD3
+
+using ub3lyp/6-31G(d) to scan
+
+''')
+			fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
+
+		fw.close()
+		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+		
+		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
+		if self.name == 'cce':
+			if self._g09D01 == False:
+				fw.write(
+# cce cluster
+'''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /share/apps
+source $g09root/g09/bsd/g09.login
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+$g09root/g09/g09 ''' + tmp_dir + '''.gjf
+$g09root/g09/formchk ''' + tmp_dir + '''.chk
+
+
+
+''')
+			else:
+				fw.write(
+# cce cluster
+'''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /home/hetanjin/apps/g09D01
+source $g09root/g09/bsd/g09.login
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+$g09root/g09/g09 ''' + tmp_dir + '''.gjf
+$g09root/g09/formchk ''' + tmp_dir + '''.chk
+
+
+
+''')
+		elif self.name == 'Tsinghua100':
+			fw.write(
+# Tsinghua100 cluster
+'''#BSUB -J ''' + tmp_dir + '''
+#BSUB -q hpc_linux
+#BSUB -R "select[mem>30000]"
+#BSUB -n 12
+#BSUB -R "span[hosts=1]"
+#BSUB -o ''' + self.jobLocation + '/' + tmp_dir + '''/output.%J
+#BSUB -e ''' + self.jobLocation + '/' + tmp_dir + '''/error.%J
+
+export g09root=/home/hexin/gaussian
+export GAUSS_SCRDIR=/scratch
+source $g09root/g09/bsd/g09.profile''')
+
+			if self._scratchStrategy == True:
+				fw.write(
+'''rm /scratch/*
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+$g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
+$g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
+cp /scratch/''' + tmp_dir + '''.chk ''' + tmp_dir + '''.chk
+cp /scratch/''' + tmp_dir + '''.fchk ''' + tmp_dir + '''.fchk
+rm /scratch/*
+
+
+
+''')
+			else:
+				fw.write(
+'''cd ''' + self.jobLocation + '/' + tmp_dir + '''
+$g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
+$g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
+
+
+
+''')
+		fw.close()
+		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+
+
+
 
 
 

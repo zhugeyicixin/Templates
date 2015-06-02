@@ -40,6 +40,6 @@ Template17用于自动生成hindered rotation脚本
 
 Template18用于从gjf的几何信息中自动生成优化脚本
 
-
+Template19用于从log文件中提取出几何信息生成cbs-QB3脚本（或其他）
 
 
