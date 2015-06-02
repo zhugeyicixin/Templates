@@ -28,14 +28,31 @@ class cluster:
 	_g09D01 = False
 	_dispersionD3 = False
 	_scratchStrategy = True
-
+	_TS = False
 
 	def __init__(self, name, clusterPath):
 		self.name = name
 		self.jobLocation = clusterPath
 
+		self._g09D01 = False
+		self._dispersionD3 = False
+		self._scratchStrategy = True
+		self._TS = False
+
 	def setJobLocation(self, clusterPath):
 		self.jobLocation = clusterPath
+
+	def setG09D01(self, useG09D01):
+		self._g09D01 = useG09D01
+
+	def setDispersionD3(self, useDispersionD3):
+		self._dispersionD3 = useDispersionD3
+
+	def setScratchStractegy(self, useScratchStrategy):
+		self._scratchStrategy = useScratchStrategy		
+
+	def setTS(self, isTS):
+		self._TS = isTS		
 
 	def generateRotScanJobs(self, pathway=''):
 		# variables
@@ -254,22 +271,20 @@ $g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
 %chk=''')
 		if self.name == 'Tsinghua100' and self._scratchStrategy == True:
 			fw.write('/scratch/')
-		if self._dispersionD3 == False:
-			fw.write(tmp_dir + '''.chk
-#p ub3lyp/6-31g(d) opt freq
-
-using ub3lyp/6-31G(d) to scan
-
-''')
-			fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
+		fw.write(tmp_dir+'.chk\n')
+		if self._TS == False:
+			fw.write('#p ub3lyp/cbsb7 opt freq')
 		else:
-			fw.write(tmp_dir + '''.chk
-#p ub3lyp/6-31g(d) opt freq EmpiricalDispersion=GD3
-
+			fw.write('#p ub3lyp/cbsb7 opt=(TS, calcfc) freq')
+		if self._dispersionD3 == False:
+			fw.write('\n')
+		else:
+			fw.write(' EmpiricalDispersion=GD3\n')
+		fw.write('''
 using ub3lyp/6-31G(d) to scan
 
 ''')
-			fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
+		fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 		fw.close()
 		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
