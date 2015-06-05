@@ -157,7 +157,7 @@ setenv GAUSS_SCRDIR /state/partition1
 setenv g09root /share/apps
 source $g09root/g09/bsd/g09.login
 
-cd ''' + self.jobLocation + '/' + tmp_dir + '''
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
@@ -177,7 +177,7 @@ setenv GAUSS_SCRDIR /state/partition1
 setenv g09root /home/hetanjin/apps/g09D01
 source $g09root/g09/bsd/g09.login
 
-cd ''' + self.jobLocation + '/' + tmp_dir + '''
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
@@ -192,8 +192,8 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 #BSUB -R "select[mem>30000]"
 #BSUB -n 12
 #BSUB -R "span[hosts=1]"
-#BSUB -o ''' + self.jobLocation + '/' + tmp_dir + '''/output.%J
-#BSUB -e ''' + self.jobLocation + '/' + tmp_dir + '''/error.%J
+#BSUB -o ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''/output.%J
+#BSUB -e ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''/error.%J
 
 export g09root=/home/hexin/gaussian
 export GAUSS_SCRDIR=/scratch
@@ -204,7 +204,7 @@ source $g09root/g09/bsd/g09.profile
 								if self._scratchStrategy == True:
 									fw.write(
 '''rm /scratch/*
-cd ''' + self.jobLocation + '/' + tmp_dir + '''
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
 $g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
 cp /scratch/''' + tmp_dir + '''.chk ''' + tmp_dir + '''.chk
@@ -216,7 +216,7 @@ rm /scratch/*
 ''')
 								else:
 									fw.write(
-'''cd ''' + self.jobLocation + '/' + tmp_dir + '''
+'''cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
 $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
@@ -225,6 +225,14 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 ''')
 							fw.close()
 							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+						if self.name == 'cce':
+							if os.path.exists('submit12.sh'):
+								shutil.copy('submit12.sh', os.path.join(pathway, tmp_file))
+							if os.path.exists('submit24.sh'):
+								shutil.copy('submit24.sh', os.path.join(pathway, tmp_file))								
+						elif self.name == 'Tsinghua100':
+							if os.path.exists('submit.sh'):
+								shutil.copy('submit.sh', os.path.join(pathway, tmp_file))
 
 	def generateJobFromGjf(self, fileName, path='', jobName=''):
 		gjfCommand_done = -1

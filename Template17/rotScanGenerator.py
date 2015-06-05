@@ -16,7 +16,7 @@ import chem
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
-clusterPath = '/home/hetanjin/DMM3/DMM3'
+clusterPath = '/home/hetanjin/DMH/rotation'
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
@@ -110,12 +110,10 @@ for tmp_file in tmp_fileLists:
 			molecule1.generateRotScanFile()
 
 print '\ngenerating rotation scan jobs\n'
+
+# cluster1.setTS(True)
+cluster1.setScratchStractegy(False)
 cluster1.generateRotScanJobs(pwd)
-
-
-
-			
-
 
 
 print 'Rotation scan files generated successfully!'
