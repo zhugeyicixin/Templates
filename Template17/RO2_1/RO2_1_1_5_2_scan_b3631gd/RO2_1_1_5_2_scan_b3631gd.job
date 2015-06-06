@@ -1,0 +1,16 @@
+#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /share/apps
+source $g09root/g09/bsd/g09.login
+
+cd /home/hetanjin/propane/rotation/RO2_1/RO2_1_1_5_2_scan_b3631gd
+$g09root/g09/g09 RO2_1_1_5_2_scan_b3631gd.gjf
+$g09root/g09/formchk RO2_1_1_5_2_scan_b3631gd.chk
+
+
+

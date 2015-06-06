@@ -16,8 +16,8 @@ import chem
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
-clusterPath = '/home/hetanjin/DMH/QOOH_1d'
-jobName = 'QOOH_1d_6_cbs'
+clusterPath = '/home/hetanjin/propane'
+jobName = ''
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
@@ -39,6 +39,10 @@ tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
 	if re.search('\.log', tmp_file):
 		print tmp_file
+		if re.search('[Tt][Ss]', tmp_file):
+			cluster1.setTS(True)
+		else:
+			cluster1.setTS(False)
 		cluster1.generateJobFromLog(tmp_file,jobName=jobName)
 
 print 'Jobs generated successfully!'

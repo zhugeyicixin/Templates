@@ -446,22 +446,21 @@ $g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
 %chk=''')
 		if self.name == 'Tsinghua100' and self._scratchStrategy == True:
 			fw.write('/scratch/')
+		fw.write(tmp_dir+'.chk\n')
+		if self._TS == False:
+			fw.write('#p cbs-qb3')
+		else:
+			fw.write('#p cbs-qb3 opt=(TS, calcfc) freq')
 		if self._dispersionD3 == False:
-			fw.write(tmp_dir + '''.chk
-#p cbs-qb3
-
+			fw.write('\n')
+		else:
+			print 'Warning! It should be verified whether D3 could be used in CBS-QB3 calculation!'
+			fw.write(' EmpiricalDispersion=GD3\n')
+		fw.write('''
 using ub3lyp/6-31G(d) to scan
 
 0 ''')
-			fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
-		else:
-			fw.write(tmp_dir + '''.chk
-#p cbs-qb3 EmpiricalDispersion=GD3
-
-using ub3lyp/6-31G(d) to scan
-
-''')
-			fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
+		fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
 
 		fw.close()
 		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
