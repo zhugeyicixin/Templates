@@ -15,7 +15,7 @@ __barrier__ = True
 __HR__ = False
 
 # input region
-mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0')
+mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer-4.0')
 mesmer1.setGrainSize(50)
 mesmer1.setEAboveTop(200.0)
 

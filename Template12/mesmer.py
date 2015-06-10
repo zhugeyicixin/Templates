@@ -204,6 +204,8 @@ class mesmer:
 						for (index, tmp_angle) in enumerate(tmp_angles):
 							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_energies[index])])
 
+						tmpnode_calcMOI = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}CalculateInternalRotorInertia' % self.nsmap['me'], ['phaseDifference'], ['0.0'])
+
 
 			if len(reaction.products) > 1:
 				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[(''.join([x.label + '+' for x in reaction.products]))[0:-1], 'a mix of all products to deal with the case that the number of products is larger than 1'])

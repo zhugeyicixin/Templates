@@ -93,6 +93,9 @@ class MomInert:
 		bonds = []
 		I0s = []
 		B0s = []
+
+		inertia_done = -1
+
 		fr = file(directory + '/' + fileName, 'r')
 		tmp_lines = fr.readlines()
 		for tmp_line in tmp_lines:
@@ -100,8 +103,11 @@ class MomInert:
 			if tmp_m:
 				bonds.append(map(int, tmp_m.group(1,2)))
 				I0s.append(float(tmp_m.group(3)))
-			tmp_m = self.pattern_rotConst.match(tmp_line)
-			if tmp_m:
-				B0s.append(float(tmp_m.group(1)))
+				inertia_done = 1
+			if inertia_done == 1:
+				tmp_m = self.pattern_rotConst.match(tmp_line)
+				if tmp_m:
+					B0s.append(float(tmp_m.group(1)))
+					inertia_done = -1
 		return bonds, I0s, B0s
 
