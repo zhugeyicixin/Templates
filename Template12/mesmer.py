@@ -29,6 +29,7 @@ class mesmer:
 	rotPotentCheckFIG_COL = 5
 	rotPotentCheckFig_index = 0
 
+	pattern_xmlCanRate = re.compile('^.*Canonical rate coefficients.*$')
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_TSTRate_r = re.compile('^.*Canonical.*first order backward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 
@@ -204,8 +205,6 @@ class mesmer:
 						for (index, tmp_angle) in enumerate(tmp_angles):
 							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_energies[index])])
 
-						tmpnode_calcMOI = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}CalculateInternalRotorInertia' % self.nsmap['me'], ['phaseDifference'], ['0.0'])
-
 
 			if len(reaction.products) > 1:
 				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[(''.join([x.label + '+' for x in reaction.products]))[0:-1], 'a mix of all products to deal with the case that the number of products is larger than 1'])
@@ -341,12 +340,21 @@ class mesmer:
 		
 		tmp_T = []
 		tmp_val = []
-		for tmpnode_microRateList in root_mesmer.iter('{%s}microRateList' % self.nsmap['me']):
-			if tmpnode_microRateList[0].text == 'Microcanonical rate coefficients':
-				for tmpnode_microRate in tmpnode_microRateList.iter('{%s}microRate' % self.nsmap['me']):
-					tmp_T.append(float(tmpnode_microRate[0].text))
-					tmp_val.append(float(tmpnode_microRate[1].text))
-		canoRate = [np.array(tmp_T), np.array(tmp_val)]
+		tmp_rev = []
+		tmp_Keq = []
+		for tmpnode_canRateList in root_mesmer.iter('{%s}canonicalRateList' % self.nsmap['me']):
+			if self.pattern_xmlCanRate.match(tmpnode_canRateList[0].text):
+				for tmpnode_kinf in tmpnode_canRateList.iter('{%s}kinf' % self.nsmap['me']):
+					tmp_T.append(float(tmpnode_kinf[0].text))
+					tmp_val.append(float(tmpnode_kinf[1].text))
+					if len(tmpnode_kinf)>2:
+						tmp_rev.append(float(tmpnode_kinf[2].text))
+					if len(tmpnode_kinf)>3:
+						tmp_Keq.append(float(tmpnode_kinf[3].text))
+		if tmp_rev == []:
+			canoRate = [np.array(tmp_T), np.array(tmp_val)]
+		else:
+			canoRate = [np.array(tmp_T), np.array(tmp_val), np.array(tmp_rev), np.array(tmp_Keq)]
 
 		tmp_T = []
 		tmp_rate_f = []
