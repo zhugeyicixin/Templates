@@ -123,17 +123,16 @@ class cluster:
 							if self.name == 'Tsinghua100' and self._scratchStrategy == True:
 								fw.write('/scratch/')
 							if self._dispersionD3 == False:
-								fw.write(tmp_dir + '.chk\n')
-							if self._TS == False:
-								fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
+								fw.write(tmp_dir + '''.chk
+#p ub3lyp/6-31g(d) opt=modredundant nosym
+
+using ub3lyp/6-31G(d) to scan
+
+0 ''')
 							else:
-								fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
-							if self._dispersionD3 == False:
-								fw.write('\n')
-							else:
-								fw.write(' EmpiricalDispersion=GD3\n')
-							fw.write(
-'''
+								fw.write(tmp_dir + '''.chk
+#p ub3lyp/6-31g(d) opt=modredundant nosym EmpiricalDispersion=GD3
+
 using ub3lyp/6-31G(d) to scan
 
 0 ''')
