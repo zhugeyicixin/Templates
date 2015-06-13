@@ -383,7 +383,7 @@ class molecule:
 					self.bonds.append(tmp_bond)
 
 
-	def generateRotScanFile(self):
+	def generateRotScanFile(self, fixedBond=[]):
 		rotations = self.getRotations()
 
 		if not os.path.exists(self.label):
@@ -437,6 +437,10 @@ class molecule:
 					if tmp_atom != tmp_atom1:
 						neighbour2 = tmp_atom
 			fw.write(''.join([str(neighbour1.label), ' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), ' ', str(neighbour2.label), '\n']))
+
+		if fixedBond != []:
+			fw.write('\nfixed bond information:\n')
+			fw.write(str(fixedBond[0]) + ' ' + str(fixedBond[1]) + '\n')
 
 		fw.write('\n\n\n\n\n')
 		fw.close()

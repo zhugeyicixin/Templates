@@ -17,6 +17,7 @@ import chem
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
 clusterPath = '/home/hetanjin/propane/rotation'
+barrierless = 	False
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
@@ -26,15 +27,21 @@ cluster1 = cluster.cluster(clusterName, clusterPath)
 
 # definetion of comparing pattern
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
+pattern_fixBond = re.compile('^ *B *([0-9]+) *([0-9]+) *F *$')
 pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 
 #variables
 multi = 1
+fixedBond = []
 
 #flags
 multi_done = -1
+if  barrierless == True:
+	fixBond_done = -1
+else:
+	fixBond_done = 1
 freqCom_done = -1
 standard_done = -1
 coordinate_done = -1
@@ -66,8 +73,13 @@ for tmp_file in tmp_fileLists:
 			print 'Target file:\t' + tmp_file
 			
 			multi = 1
+			fixedBond = []
 
 			multi_done = -1
+			if barrierless == True:
+				fixBond_done = -1
+			else:
+				fixBond_done = 1
 			freqCom_done = -1
 			standard_done = -1
 			coordinate_done = -1
@@ -80,6 +92,11 @@ for tmp_file in tmp_fileLists:
 					if tmp_m:
 						multi = int(tmp_m.group(1))
 						multi_done = 1
+				elif fixBond_done != 1:
+					tmp_m = pattern_fixBond.match(tmp_line)
+					if tmp_m:
+						fixedBond = [int(tmp_m.group(1)), int(tmp_m.group(2))]
+						fixBond_done = 1
 				elif freqCom_done != 1:
 					if lineNum < len(tmp_lines) - 1:
 						tmp2_line = tmp_lines[lineNum].strip() + tmp_lines[lineNum+1].strip()
@@ -107,13 +124,13 @@ for tmp_file in tmp_fileLists:
 			molecule1.setRingBanned(True)
 
 			molecule1.fulfillBonds()
-			molecule1.generateRotScanFile()
+			molecule1.generateRotScanFile(fixedBond=fixedBond)
 
 print '\ngenerating rotation scan jobs\n'
 
-cluster1.setTS(True)
+# cluster1.setTS(True)
 cluster1.setScratchStractegy(False)
-cluster1.generateRotScanJobs(pwd)
+cluster1.generateRotScanJobs(pwd,barrierless=barrierless)
 
 
 print 'Rotation scan files generated successfully!'
