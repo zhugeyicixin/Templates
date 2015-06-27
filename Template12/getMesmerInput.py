@@ -440,6 +440,7 @@ for k in range(total):
 				tmp_angles = phys1.radTodegree(np.array(tmp_angles))
 				tmp_energies = textExtractor.floatFromSummary(tmp_rot[3])
 				tmp_hinderedRot.setPotential(tmp_angles, tmp_energies)
+				tmp_hinderedRot.detectPeriod()
 				tmp_bond = [tmp_rot[0], tmp_rot[1]]
 				tmp_bond.sort()
 				if not tmp_bond in tmp_bonds_actual:
@@ -495,6 +496,7 @@ for k in range(total):
 				tmp_angles = phys1.radTodegree(np.array(tmp_angles))
 				tmp_energies = textExtractor.floatFromSummary(tmp_rot[3])
 				tmp_hinderedRot.setPotential(tmp_angles, tmp_energies)
+				tmp_hinderedRot.detectPeriod()
 				tmp_bond = [tmp_rot[0], tmp_rot[1]]
 				tmp_bond.sort()
 				if not tmp_bond in tmp_bonds_actual:
@@ -551,6 +553,7 @@ for k in range(total):
 				tmp_angles = phys1.radTodegree(np.array(tmp_angles))
 				tmp_energies = textExtractor.floatFromSummary(tmp_rot[3])
 				tmp_hinderedRot.setPotential(tmp_angles, tmp_energies)
+				tmp_hinderedRot.detectPeriod()
 				tmp_bond = [tmp_rot[0], tmp_rot[1]]
 				tmp_bond.sort()
 				if not tmp_bond in tmp_bonds_actual:
