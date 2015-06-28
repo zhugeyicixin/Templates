@@ -383,7 +383,7 @@ class molecule:
 					self.bonds.append(tmp_bond)
 
 
-	def generateRotScanFile(self, fixedBond=[]):
+	def generateRotScanFile(self):
 		rotations = self.getRotations()
 
 		if not os.path.exists(self.label):
@@ -437,10 +437,6 @@ class molecule:
 					if tmp_atom != tmp_atom1:
 						neighbour2 = tmp_atom
 			fw.write(''.join([str(neighbour1.label), ' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), ' ', str(neighbour2.label), '\n']))
-
-		if fixedBond != []:
-			fw.write('\nfixed bond information:\n')
-			fw.write(str(fixedBond[0]) + ' ' + str(fixedBond[1]) + '\n')
 
 		fw.write('\n\n\n\n\n')
 		fw.close()
@@ -524,6 +520,84 @@ class bond:
 		self.atom2 = inputAtom2
 		self.bondOrder = inputBondOrder
 
+	def get1stOrderGroup(self):
+		elementRanking = {'C':1, 'H':2, 'O':3, 'N':4}
+
+		tmp_childrenSymbol = [x.symbol for x in self.atom1.children]
+		tmp_childrenSymbol.remove(self.atom2.symbol)
+		tmp_set = set(tmp_childrenSymbol)
+		tmp_set = sorted(tmp_set, key=elementRanking.__getitem__)
+		group1Str = self.atom1.symbol
+		for tmp_element in tmp_set:
+			group1Str += '/' + tmp_element
+			tmp_num = tmp_childrenSymbol.count(tmp_element)
+			if tmp_num > 1:
+				group1Str += str(tmp_num)
+
+		tmp_childrenSymbol = [x.symbol for x in self.atom2.children]
+		tmp_childrenSymbol.remove(self.atom1.symbol)
+		tmp_set = set(tmp_childrenSymbol)
+		tmp_set = sorted(tmp_set, key=elementRanking.__getitem__)
+		group2Str = self.atom2.symbol
+		for tmp_element in tmp_set:
+			group2Str += '/' + tmp_element
+			tmp_num = tmp_childrenSymbol.count(tmp_element)
+			if tmp_num > 1:
+				group2Str += str(tmp_num)
+		
+		return {self.atom1.label : group1Str, self.atom2.label : group2Str}
+
+	def get2ndOrderGroup(self):
+		tmp_bonds = self.atom1.bonds
+		tmp_groupStrs = []
+		for tmp_bond in tmp_bonds:
+			if tmp_bond == self:
+				continue
+			else:
+				if tmp_bond.atom1.label == self.atom1.label:
+					tmp_label = tmp_bond.atom2.label
+				else:
+					tmp_label = tmp_bond.atom1.label
+				tmp_groupStr = tmp_bond.get1stOrderGroup()
+				tmp_groupStrs.append(tmp_groupStr[tmp_label])
+		tmp_set = set(tmp_groupStrs)
+		tmp_set = sorted(tmp_set)
+		group1Str = self.atom1.symbol
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = tmp_groupStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				group1Str += '/(' + tmp_Str + ')'
+			else:
+				group1Str += '/' + tmp_Str
+			if tmp_num > 1:
+				group1Str += str(tmp_num)
+
+		tmp_bonds = self.atom2.bonds
+		tmp_groupStrs = []
+		for tmp_bond in tmp_bonds:
+			if tmp_bond == self:
+				continue
+			else:
+				if tmp_bond.atom1.label == self.atom2.label:
+					tmp_label = tmp_bond.atom2.label
+				else:
+					tmp_label = tmp_bond.atom1.label
+				tmp_groupStr = tmp_bond.get1stOrderGroup()
+				tmp_groupStrs.append(tmp_groupStr[tmp_label])
+		tmp_set = set(tmp_groupStrs)
+		tmp_set = sorted(tmp_set)
+		group2Str = self.atom2.symbol
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = tmp_groupStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				group2Str += '/(' + tmp_Str + ')'
+			else:
+				group2Str += '/' + tmp_Str
+			if tmp_num > 1:
+				group2Str += str(tmp_num)
+		
+		return {self.atom1.label: group1Str, self.atom2.label: group2Str}
+
 
 class rotation:
 	rotBondAxis = None
@@ -531,12 +605,14 @@ class rotation:
 	atomGroup2 = []
 	angles = []
 	energies = []
+	period = 1
 
 	# rotBondAxis is a bond instance
 	def __init__(self, rotBondAxis, atomGroup1=[], atomGroup2=[]):
 		self.rotBondAxis = rotBondAxis
-		angles = []
-		energies = []
+		self.angles = []
+		self.energies = []
+		self.period = 1
 		if atomGroup1 == []:
 			self.atomGroup1	= []
 		else:
@@ -588,6 +664,24 @@ class rotation:
 
 	def setPotential(self, angles, energies):
 		self.angles = angles
-		self.energies = energies	
+		self.energies = energies
+
+	def setPeriod(self, periodicity):
+		self.period = periodicity	
+
+	# This function is used to detect the periodicity automatically 
+	# it should be paid attention to that manually adjustment is needed for highly symmetric structure
+	def detectPeriod(self):
+		periodTable = {'C/H3': 3,
+		'C/H2': 2,
+		'C/(C/H3)2':2
+		}
+		tmp_2stOrderGroup = self.rotBondAxis.get2ndOrderGroup()
+		for tmp_group in periodTable.keys():
+			if tmp_group in tmp_2stOrderGroup.values():
+				# print tmp_group, tmp_2stOrderGroup
+				self.period = periodTable[tmp_group]
+				break
+
 
 
