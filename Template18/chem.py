@@ -383,7 +383,9 @@ class molecule:
 					self.bonds.append(tmp_bond)
 
 
-	def generateRotScanFile(self):
+	def generateRotScanFile(self, fixedBond=[]):
+		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
+
 		rotations = self.getRotations()
 
 		if not os.path.exists(self.label):
@@ -405,38 +407,28 @@ class molecule:
 			neighbour1 = None
 			neighbour2 = None
 
-			# search the neighbour atom for atom1
-			# search C atoms as the neighbour in priority
+			# search the neighbour atom for atom1, ranking in the order of distance, then in the order of element symbol, C, O, N, H
+			tmp_children = []
 			for tmp_atom in tmp_atom1.children:
-				if tmp_atom.symbol == 'C' and tmp_atom != tmp_atom2:
-					neighbour1 = tmp_atom
-			# search other heavy atoms as the neighbour if C atom not found
-			if neighbour1 == None:
-				for tmp_atom in tmp_atom1.children:
-					if tmp_atom.symbol != 'H' and tmp_atom != tmp_atom2:
-						neighbour1 = tmp_atom
-			# search left atoms (H) as the neighbour if C and other heavy atoms not found
-			if neighbour1 == None:
-				for tmp_atom in tmp_atom1.children:
-					if tmp_atom != tmp_atom2:
-						neighbour1 = tmp_atom
+				if tmp_atom != tmp_atom2:
+					tmp_children.append([tmp_atom.label, tmp_atom.symbol, tmp_atom1.distance(tmp_atom)])
+			tmp_children = sorted(tmp_children, key=lambda tmp_list: tmp_list[2])
+			tmp_children = sorted(tmp_children, key=lambda tmp_list: elementRanking[tmp_list[1]])
+			neighbour1 = tmp_children[0][0]
 
-			# search the neighbour atom for atom2
-			# search C atoms as the neighbour in priority
+			tmp_children = []
 			for tmp_atom in tmp_atom2.children:
-				if tmp_atom.symbol == 'C' and tmp_atom != tmp_atom1:
-					neighbour2 = tmp_atom
-			# search other heavy atoms as the neighbour if C atom not found
-			if neighbour2 == None:
-				for tmp_atom in tmp_atom2.children:
-					if tmp_atom.symbol != 'H' and tmp_atom != tmp_atom1:
-						neighbour2 = tmp_atom
-			# search left atoms (H) as the neighbour if C and other heavy atoms not found
-			if neighbour2 == None:
-				for tmp_atom in tmp_atom2.children:
-					if tmp_atom != tmp_atom1:
-						neighbour2 = tmp_atom
-			fw.write(''.join([str(neighbour1.label), ' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), ' ', str(neighbour2.label), '\n']))
+				if tmp_atom != tmp_atom1:
+					tmp_children.append([tmp_atom.label, tmp_atom.symbol, tmp_atom2.distance(tmp_atom)])
+			tmp_children = sorted(tmp_children, key=lambda tmp_list: tmp_list[2])
+			tmp_children = sorted(tmp_children, key=lambda tmp_list: elementRanking[tmp_list[1]])
+			neighbour2 = tmp_children[0][0]
+
+			fw.write(''.join([str(neighbour1), ' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), ' ', str(neighbour2), '\n']))
+
+		if fixedBond != []:
+			fw.write('\nfixed bond information:\n')
+			fw.write(str(fixedBond[0]) + ' ' + str(fixedBond[1]) + '\n')	
 
 		fw.write('\n\n\n\n\n')
 		fw.close()
