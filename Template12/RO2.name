@@ -10,3 +10,5 @@ calculate hindered rotation in mesmer or not? [input: yes/no]
 no
 fitting temperature range (lowT=<T<=highT): [input: lowT, highT]
 400 900
+to calculate thermodynamic data or rate constants with mesmer? [input: thermodynamic/rate] note that the NASA-formatted data fitted here need corrected with the standard formation at 298.15K enthalpy further, i.e. plus std_H(298.15). the default standard formation enthalpy is 0. the sixth coefficient is corresponding to the constant offset of enthalpy 
+thermodynamic

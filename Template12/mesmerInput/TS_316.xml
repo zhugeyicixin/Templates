@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<?xml-stylesheet type='text/xsl' href='file:///D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0/mesmer2.xsl' media='other'?>
-<?xml-stylesheet type='text/xsl' href='file:///D:/hetanjin/professionalSoftware/Mesmer/Mesmer-3.0/mesmer1.xsl' media='screen'?>
+<?xml-stylesheet type='text/xsl' href='file:///D:/hetanjin/professionalSoftware/Mesmer-4.0/mesmer2.xsl' media='other'?>
+<?xml-stylesheet type='text/xsl' href='file:///D:/hetanjin/professionalSoftware/Mesmer-4.0/mesmer1.xsl' media='screen'?>
 <me:mesmer xmlns:me="http://www.chem.leeds.ac.uk/mesmer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xml-cml.org/schema">
   <moleculeList>
-    <molecule id="RO2" description="C3H7O2 C3H7O2_61_b3631gd">
+    <molecule id="RO2" role="forThermo" description="C3H7O2 C3H7O2_61_b3631gd">
       <atomArray>
         <atom id="C1" elementType="C" x3="-1.91251" y3="-0.706941" z3="0.141897"/>
         <atom id="H2" elementType="H" x3="-1.364177" y3="-1.57081" z3="-0.246643"/>
@@ -32,8 +32,8 @@
         <bond id="b11" atomRefs2="O11 O12" order="1.0"/>
       </bondArray>
       <propertyList>
-        <property dictRef="me:ZPE">
-          <scalar units="kcal/mol">-168642.018574</scalar>
+        <property dictRef="me:Hf298">
+          <scalar units="kcal/mol" convention="thermodynamic298K">0.0</scalar>
         </property>
         <property dictRef="me:rotConsts">
           <array units="cm-1">0.432870129108 0.0901323541635 0.0815130579436 </array>
@@ -69,7 +69,7 @@
       </me:energyTransferModel>
       <me:tmpnode_DOSCMethod name="ClassicalRotors"/>
     </molecule>
-    <molecule id="TS_316" description="C3H7O2 C3H7O2_62_b3631gd_316">
+    <molecule id="TS_316" role="transitionState" description="C3H7O2 C3H7O2_62_b3631gd_316">
       <atomArray>
         <atom id="C1" elementType="C" x3="-1.679153" y3="-1.150902" z3="0.168936"/>
         <atom id="H2" elementType="H" x3="-0.682618" y3="-1.540713" z3="-0.06477"/>
@@ -97,8 +97,8 @@
         <bond id="b10" atomRefs2="O11 O12" order="1.5"/>
       </bondArray>
       <propertyList>
-        <property dictRef="me:ZPE">
-          <scalar units="kcal/mol">-168612.053089</scalar>
+        <property dictRef="me:Hf298">
+          <scalar units="kcal/mol" convention="thermodynamic298K">0.0</scalar>
         </property>
         <property dictRef="me:rotConsts">
           <array units="cm-1">0.260492210248 0.0575071171404 0.0513738741219 </array>
@@ -108,9 +108,6 @@
         </property>
         <property dictRef="me:frequenciesScaleFactor">
           <scalar>1.0</scalar>
-        </property>
-        <property dictRef="me:imFreqs">
-          <scalar units="cm-1">43.9605</scalar>
         </property>
         <!--<property dictRef="me:vibFreqs">
   <array units="cm-1">28.381 33.7953 47.9674 95.598 171.3865 256.5859 370.8571 509.0379 762.0678 890.3277 930.3477 1064.5474 1091.5125 1188.4306 1284.0339 1379.4589 1436.3852 1490.1593 1498.1938 1527.7104 1536.2864 1620.5114 2938.3895 3039.7293 3048.9953 3113.3795 3124.2687 3162.4548 3260.4959 </array>
@@ -137,7 +134,7 @@
       </me:energyTransferModel>
       <me:tmpnode_DOSCMethod name="ClassicalRotors"/>
     </molecule>
-    <molecule id="R" description="C3H7 C3H7_45_b3631gd">
+    <molecule id="R" role="forThermo" description="C3H7 C3H7_45_b3631gd">
       <atomArray>
         <atom id="C1" elementType="C" x3="1.228025" y3="-0.244599" z3="-0.040468"/>
         <atom id="H2" elementType="H" x3="1.301254" y3="-0.764945" z3="-1.001988"/>
@@ -162,8 +159,8 @@
         <bond id="b9" atomRefs2="C8 H10" order="1.0"/>
       </bondArray>
       <propertyList>
-        <property dictRef="me:ZPE">
-          <scalar units="kcal/mol">-74286.2847788</scalar>
+        <property dictRef="me:Hf298">
+          <scalar units="kcal/mol" convention="thermodynamic298K">0.0</scalar>
         </property>
         <property dictRef="me:rotConsts">
           <array units="cm-1">1.09279767138 0.297276991538 0.258278011784 </array>
@@ -199,7 +196,7 @@
       </me:energyTransferModel>
       <me:tmpnode_DOSCMethod name="ClassicalRotors"/>
     </molecule>
-    <molecule id="O2" description="O2 O2_31_b3631gd">
+    <molecule id="O2" role="forThermo" description="O2 O2_31_b3631gd">
       <atomArray>
         <atom id="O1" elementType="O" x3="0.0" y3="0.0" z3="0.607296"/>
         <atom id="O2" elementType="O" x3="0.0" y3="0.0" z3="-0.607296"/>
@@ -208,8 +205,8 @@
         <bond id="b1" atomRefs2="O1 O2" order="1.5"/>
       </bondArray>
       <propertyList>
-        <property dictRef="me:ZPE">
-          <scalar units="kcal/mol">-94324.9581951</scalar>
+        <property dictRef="me:Hf298">
+          <scalar units="kcal/mol" convention="thermodynamic298K">0.0</scalar>
         </property>
         <property dictRef="me:rotConsts">
           <array units="cm-1">1.42883834656 </array>
@@ -302,7 +299,8 @@
         <molecule ref="TS_316" role="transitionState"/>
       </me:transitionState>
       <me:MCRCMethod name="SimpleRRKM"/>
-      <me:tunneling name="Eckart"/>
+      <!--<me:tunneling name="Eckart"/>
+-->
     </reaction>
   </reactionList>
   <me:conditions>
@@ -328,7 +326,12 @@
     <me:energyAboveTheTopHill>200.0</me:energyAboveTheTopHill>
   </me:modelParameters>
   <me:control>
-    <me:testMicroRates/>
-    <me:testRateConstants/>
+    <me:calcMethod units="kJ/mol" xsi:type="me:thermodynamicTable">
+      <me:Tmin>300</me:Tmin>
+      <me:Tmid>1000</me:Tmid>
+      <me:Tmax>2300</me:Tmax>
+      <me:Tstep>100</me:Tstep>
+      <!--Note that the unit must be 'kJ/mol' because of the limitation of code for NASA format fitting-->
+    </me:calcMethod>
   </me:control>
 </me:mesmer>

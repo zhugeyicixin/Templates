@@ -13,6 +13,7 @@ import textExtractor
 
 __barrier__ = True
 __HR__ = False
+__thermo__ = False
 
 # input region
 mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer-4.0')
@@ -49,6 +50,15 @@ for tmp_file in tmp_fileLists:
 			print '\n-------------------------------------\nhindered rotation correction used\n-------------------------------------\n'
 		else:
 			print '\n-------------------------------------\nWarning! hindered rotation correction or not is not announced! Hindered rotation correction is not used as default!\n-------------------------------------\n'
+		tmp_line = tmp_lines[13].strip(' \n')
+		if tmp_line == 'thermodynamic':
+			__thermo__ = True
+			print '\n-------------------------------------\nthermodynamic data will be calculated\n-------------------------------------\n'
+		elif tmp_line == 'rate':
+			__thermo__ = False
+			print '\n-------------------------------------\nrate constants will be calculated\n-------------------------------------\n'
+		else:
+			print '\n-------------------------------------\nWarning! thermodynamic or rate computation is not announced! Rate constants will be calculated as default!\n-------------------------------------\n'		
 		fr.close()
 
 wb = open_workbook(name + '.xls')
@@ -583,6 +593,7 @@ for k in range(total):
 	tmp_system.addBathGas(bathDatabase.useBathGas('He'))
 	tmp_system.addPTpairs([[20, x] for x in temperature])
 	tmp_system.hinderedRotationCorrection(__HR__)
+	tmp_system.thermodynamic(__thermo__)
 	# if tmp_TS.label == 'TS_1_1b':
 	mesmer1.genInput(tmp_system)
 

@@ -67,6 +67,7 @@ class reactionSystem:
 	PTpairs = []
 
 	_hinderedRotation = True
+	_thermodynamic = True
 
 	def __init__(self):
 		self.freqScaleFactor = 1.0
@@ -94,6 +95,10 @@ class reactionSystem:
 
 	def hinderedRotationCorrection(self, HR):
 		self._hinderedRotation = HR
+
+	def thermodynamic(self, thermo):
+		self._thermodynamic = thermo
+
 
 class reaction:
 	reactants = []

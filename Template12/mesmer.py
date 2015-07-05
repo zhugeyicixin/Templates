@@ -126,7 +126,12 @@ class mesmer:
 				else:
 					allMolecule.append(tmp_molecule.label)
 
-				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[tmp_molecule.label, tmp_molecule.description])
+				if reactSys._thermodynamic == False:
+					tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'], [tmp_molecule.label, tmp_molecule.description])
+				elif tmp_molecule.role == 'transitionState':
+					tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id', 'role', 'description'], [tmp_molecule.label, 'transitionState', tmp_molecule.description])
+				else:
+					tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id', 'role','description'], [tmp_molecule.label, 'forThermo', tmp_molecule.description])
 				
 				tmpnode_atom = meEtree.orderedSubElement(tmpnode_mole, 'atomArray')
 				for tmp_atom in tmp_molecule.atoms:
@@ -138,10 +143,14 @@ class mesmer:
 				
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
 				
-				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
-				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
-				tmpnode_scalar.text = str(tmp_molecule.ZPE)
-
+				if reactSys._thermodynamic == False:
+					tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
+					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
+					tmpnode_scalar.text = str(tmp_molecule.ZPE)
+				else:
+					tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:Hf298'])
+					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units', 'convention'], ['kcal/mol', 'thermodynamic298K'])
+					tmpnode_scalar.text = '0.0'
 
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:rotConsts'])
 				tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
@@ -325,8 +334,21 @@ class mesmer:
 
 		node_control = meEtree.orderedSubElement(root_mesmer, '{%s}control' % self.nsmap['me'])
 
-		meEtree.orderedSubElement(node_control, '{%s}testMicroRates' % self.nsmap['me'])
-		meEtree.orderedSubElement(node_control, '{%s}testRateConstants' % self.nsmap['me'])
+		if reactSys._thermodynamic == False:
+			meEtree.orderedSubElement(node_control, '{%s}testMicroRates' % self.nsmap['me'])
+			meEtree.orderedSubElement(node_control, '{%s}testRateConstants' % self.nsmap['me'])
+		else:
+			tmpnode_calcMethod = meEtree.orderedSubElement(node_control, '{%s}calcMethod' % self.nsmap['me'], ['units', '{%s}type' % self.nsmap['xsi']], ['kJ/mol','me:thermodynamicTable'])
+			tmpnode_Tmin = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tmin' % self.nsmap['me'])
+			tmpnode_Tmin.text = '300'
+			tmpnode_Tmid = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tmid' % self.nsmap['me'])
+			tmpnode_Tmid.text = '1000'
+			tmpnode_Tmax = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tmax' % self.nsmap['me'])
+			tmpnode_Tmax.text = '2300'
+			tmpnode_Tstep = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tstep' % self.nsmap['me'])
+			tmpnode_Tstep.text = '100'
+			tmpnode_comment = etree.Comment('Note that the unit must be \'kJ/mol\' because of the limitation of code for NASA format fitting')
+			tmpnode_calcMethod.append(tmpnode_comment)
 
 		inputFile.write(reaction.TSs[0].label + '.xml', encoding='utf-8', xml_declaration=	True, pretty_print=True)
 
