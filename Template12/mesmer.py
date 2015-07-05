@@ -220,7 +220,7 @@ class mesmer:
 						tmpnode_calcMOI = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}CalculateInternalRotorInertia' % self.nsmap['me'], ['phaseDifference'], ['0.0'])
 
 
-			if len(reaction.products) > 1:
+			if len(reaction.products) > 1 and reactSys._thermodynamic == False:
 				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[(''.join([x.label + '+' for x in reaction.products]))[0:-1], 'a mix of all products to deal with the case that the number of products is larger than 1'])
 								
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
@@ -275,42 +275,42 @@ class mesmer:
 			tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
 			tmpnode_scalar.text = str(tmp_bathGas.getWeight())
 
-		node_reactionList = meEtree.orderedSubElement(root_mesmer, 'reactionList')
+		if reactSys._thermodynamic == False:
+			node_reactionList = meEtree.orderedSubElement(root_mesmer, 'reactionList')
 
-		for (index, reaction) in enumerate(reactSys.reactions):
-			tmpnode_reaction = meEtree.orderedSubElement(node_reactionList, 'reaction', ['id'], ['R'+str(index+1)])
+			for (index, reaction) in enumerate(reactSys.reactions):
+				tmpnode_reaction = meEtree.orderedSubElement(node_reactionList, 'reaction', ['id'], ['R'+str(index+1)])
 
-			for tmp_reactant in reaction.reactants:
-				tmpnode_reactant = meEtree.orderedSubElement(tmpnode_reaction, 'reactant')
-				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_reactant, 'molecule', ['ref', 'role'], [tmp_reactant.label, tmp_reactant.role])
+				for tmp_reactant in reaction.reactants:
+					tmpnode_reactant = meEtree.orderedSubElement(tmpnode_reaction, 'reactant')
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_reactant, 'molecule', ['ref', 'role'], [tmp_reactant.label, tmp_reactant.role])
 
-			if len(reaction.products) > 1:
-				tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
-				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [(''.join([x.label + '+' for x in reaction.products]))[0:-1],'sink'])
-			for tmp_product in reaction.products:
 				if len(reaction.products) > 1:
-					tmpnode_product = meEtree.orderedElement('product')
-					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
-					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_product, pretty_print=True))
-					tmpnode_reaction.append(tmpnode_comment)
-				else:
 					tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
-					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [(''.join([x.label + '+' for x in reaction.products]))[0:-1],'sink'])
+				for tmp_product in reaction.products:
+					if len(reaction.products) > 1:
+						tmpnode_product = meEtree.orderedElement('product')
+						tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
+						tmpnode_comment = etree.Comment(etree.tostring(tmpnode_product, pretty_print=True))
+						tmpnode_reaction.append(tmpnode_comment)
+					else:
+						tmpnode_product = meEtree.orderedSubElement(tmpnode_reaction, 'product')
+						tmpnode_molecule = meEtree.orderedSubElement(tmpnode_product, 'molecule', ['ref', 'role'], [tmp_product.label, tmp_product.role])
 
-			if len(reaction.TSs) != 1:
-				print 'Error! The number of TS is not 1!', ''.join([str(x)+' ' for x in reaction.TSs]) 
-			for tmp_TS in reaction.TSs:
-				tmpnode_TS = meEtree.orderedSubElement(tmpnode_reaction, '{%s}transitionState' % self.nsmap['me'])
-				tmpnode_molecule = meEtree.orderedSubElement(tmpnode_TS, 'molecule', ['ref', 'role'], [tmp_TS.label, tmp_TS.role])
+				if len(reaction.TSs) != 1:
+					print 'Error! The number of TS is not 1!', ''.join([str(x)+' ' for x in reaction.TSs]) 
+				for tmp_TS in reaction.TSs:
+					tmpnode_TS = meEtree.orderedSubElement(tmpnode_reaction, '{%s}transitionState' % self.nsmap['me'])
+					tmpnode_molecule = meEtree.orderedSubElement(tmpnode_TS, 'molecule', ['ref', 'role'], [tmp_TS.label, tmp_TS.role])
 
-			meEtree.orderedSubElement(tmpnode_reaction, '{%s}MCRCMethod' % self.nsmap['me'], ['name'], ['SimpleRRKM'])
-			if abs(reaction.TSs[0].imfreq) > 1e-2:
-				meEtree.orderedSubElement(tmpnode_reaction, '{%s}tunneling' % self.nsmap['me'], ['name'], ['Eckart'])
-			else:
-				tmpnode_tunneling = meEtree.orderedElement('tunneling', ['name'], ['Eckart'])
-				tmpnode_comment = etree.Comment(etree.tostring(tmpnode_tunneling, pretty_print=True).replace('tunneling','me:tunneling'))
-				tmpnode_reaction.append(tmpnode_comment)
-
+				meEtree.orderedSubElement(tmpnode_reaction, '{%s}MCRCMethod' % self.nsmap['me'], ['name'], ['SimpleRRKM'])
+				if abs(reaction.TSs[0].imfreq) > 1e-2:
+					meEtree.orderedSubElement(tmpnode_reaction, '{%s}tunneling' % self.nsmap['me'], ['name'], ['Eckart'])
+				else:
+					tmpnode_tunneling = meEtree.orderedElement('tunneling', ['name'], ['Eckart'])
+					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_tunneling, pretty_print=True).replace('tunneling','me:tunneling'))
+					tmpnode_reaction.append(tmpnode_comment)
 
 		node_conditions = meEtree.orderedSubElement(root_mesmer, '{%s}conditions' % self.nsmap['me'])
 
