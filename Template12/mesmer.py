@@ -169,15 +169,27 @@ class mesmer:
 					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['cm-1'])
 					tmpnode_scalar.text = str(tmp_molecule.imfreq)
 
-				tmpnode_property = meEtree.orderedElement('property', ['dictRef'], ['me:vibFreqs'])
-				tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
-				tmpnode_array.text = ''.join([str(x) + ' ' for x in tmp_molecule.frequencies])
-				tmpnode_comment = etree.Comment(etree.tostring(tmpnode_property, pretty_print=True))
-				tmpnode_propertyList.append(tmpnode_comment)
+				if len(tmp_molecule.atoms) > 2:
+					tmpnode_property = meEtree.orderedElement('property', ['dictRef'], ['me:vibFreqs'])
+					tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
+					tmpnode_array.text = ''.join([str(x) + ' ' for x in tmp_molecule.frequencies])
+					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_property, pretty_print=True))
+					tmpnode_propertyList.append(tmpnode_comment)
 
-				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['title', 'dictRef'], ['Hessian', 'me:hessian'])
-				tmpnode_matrix = meEtree.orderedSubElement(tmpnode_property, 'matrix', ['rows', 'matrixType', 'units'], [str(tmp_molecule.getAtomsNum()*3), 'squareSymmetricLT', 'Hartree/Bohr2'])
-				tmpnode_matrix.text = ''.join([str(x) + ' ' for x in tmp_molecule.hessian])
+					tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['title', 'dictRef'], ['Hessian', 'me:hessian'])
+					tmpnode_matrix = meEtree.orderedSubElement(tmpnode_property, 'matrix', ['rows', 'matrixType', 'units'], [str(tmp_molecule.getAtomsNum()*3), 'squareSymmetricLT', 'Hartree/Bohr2'])
+					tmpnode_matrix.text = ''.join([str(x) + ' ' for x in tmp_molecule.hessian])
+				else:
+					tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:vibFreqs'])
+					tmpnode_array = meEtree.orderedSubElement(tmpnode_property, 'array', ['units'], ['cm-1'])
+					tmpnode_array.text = ''.join([str(x) + ' ' for x in tmp_molecule.frequencies])
+
+					tmpnode_property = meEtree.orderedElement('property', ['title', 'dictRef'], ['Hessian', 'me:hessian'])
+					tmpnode_matrix = meEtree.orderedSubElement(tmpnode_property, 'matrix', ['rows', 'matrixType', 'units'], [str(tmp_molecule.getAtomsNum()*3), 'squareSymmetricLT', 'Hartree/Bohr2'])
+					tmpnode_matrix.text = ''.join([str(x) + ' ' for x in tmp_molecule.hessian])
+					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_property, pretty_print=True))
+					tmpnode_propertyList.append(tmpnode_comment)
+
 
 				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:MW'])
 				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
