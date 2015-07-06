@@ -53,9 +53,11 @@ prods_abbr = []					#productions Name Abbreviate list
 reacs_form = []					#reactants formula list
 TSs_form = []					#TSs formula list
 prods_form = []					#productions formula list
+thermoFactor_dict = {}
 
 #definition of temporary variables
 tmp_row = 2
+tmp_col = 0
 tmp_name = []
 tmp_abbr = []
 tmp_form = []
@@ -103,6 +105,30 @@ print TSs_name
 print prods_name
 print 'get reactions successfully!'
 
+wb=open_workbook('template.xls')
+sh=wb.sheet_by_name('thermoFactor')
+num_rows = sh.nrows
+num_cols = sh.ncols
+tmp_row = 1
+while tmp_row < num_rows: 	
+	if sh.cell_value(tmp_row, 0) != '':
+		tmp_species = sh.cell_value(tmp_row, 0)
+		tmp_thermoFactor = []
+		tmp_col = 1
+		while tmp_col < num_cols:
+			if sh.cell_value(tmp_row, tmp_col) != '':
+				tmp_thermoFactor.append(sh.cell_value(tmp_row, tmp_col))
+			else:
+				tmp_thermoFactor.append(0)
+			tmp_col += 1	
+		if tmp_species not in thermoFactor_dict.keys():
+			thermoFactor_dict[tmp_species] = tmp_thermoFactor
+		else:
+			print 'Warning! ' + tmp_species + 'appeared more than once in thermoFactor sheet! The first assignment is used!'
+	tmp_row += 1
+
+print 'get thermoFactor successfully!'
+
 total = len(TSs_name) 			#total number of reactions
 
 ###################
@@ -114,6 +140,7 @@ multi = 0
 geom = ''
 freq=[]						#frequencies
 RSN = 0 					#external symmetry number
+opticalNum = 0				#optical isomer number
 rots = []					#rotational constants
 hessian = []
 energy = 0.0				#CBS-QB3 (0 K)
@@ -196,7 +223,8 @@ for i in range(len(allSpecies_name)):
 		#reset all variables
 		multi = 0
 		freq=[]						
-		RSN = 0 					
+		RSN = 0
+		opticalNum = 0 					
 		rots = []					
 		hessian = []	
 		energy = 0.0
@@ -262,10 +290,15 @@ for i in range(len(allSpecies_name)):
 							freq.remove(None)
 						freq_done = 1
 			elif RSN_done != 1:
-				tmp_m=pattern_RSN.match(line)
-				if tmp_m:	
-					RSN = tmp_m.group(1)
-					RSN_done = 1
+				if tmp2_name in thermoFactor_dict.keys():
+					if thermoFactor_dict[tmp2_name][1] != 0:
+						RSN = thermoFactor_dict[tmp2_name][1]
+						RSN_done = 1
+				else:
+					tmp_m=pattern_RSN.match(line)
+					if tmp_m:	
+						RSN = tmp_m.group(1)
+						RSN_done = 1
 			elif rots_done != 1:
 				tmp_m = pattern_rots.match(line)
 				if tmp_m:
@@ -294,6 +327,13 @@ for i in range(len(allSpecies_name)):
 					freqSum_done = 1
 					break							
 		freqFile.close()
+
+		
+		if tmp2_name in thermoFactor_dict.keys():
+			if thermoFactor_dict[tmp2_name][0] != 0:
+				opticalNum = thermoFactor_dict[tmp2_name][0]
+		if opticalNum == 0:
+			opticalNum = 1
 
 		if 'cbs' in __energy__:	
 			cbs_done = -1
@@ -329,7 +369,8 @@ for i in range(len(allSpecies_name)):
 		sh.write(tmp_row,14,np.sqrt(float(rots[1])*float(rots[2])))
 		sh.write(tmp_row,15,int(RSN))
 		sh.write(tmp_row,16,int(multi))
-		sh.write(tmp_row,17,allSpecies_name[i][j])
+		sh.write(tmp_row,17,int(opticalNum))
+		sh.write(tmp_row,19,allSpecies_name[i][j])
 		
 		tmp2_energies.append(float(energy))
 
@@ -349,7 +390,7 @@ for i in range(len(allSpecies_name)):
 			sh.write(tmp_row,6, tmp_reverse_barrier)
 			sh.write(tmp_row,7,627.51*tmp_barrier)
 			sh.write(tmp_row,8,627.51*tmp_reverse_barrier)
-			sh.write(tmp_row,18,-float(freq[0]))
+			sh.write(tmp_row,20,-float(freq[0]))
 			freq.pop(0)
 		else:
 			# sh.write(tmp_row,4,'Error')
@@ -361,12 +402,12 @@ for i in range(len(allSpecies_name)):
 			sh.write(tmp_row,7,627.51*tmp_barrier)
 			sh.write(tmp_row,8,627.51*tmp_reverse_barrier)
 
-		sh.write(tmp_row,19,len(freq))
+		sh.write(tmp_row,21,len(freq))
 		for k in range(len(freq)):
 			if float(freq[k]) > 0:
-				sh.write(tmp_row,21+k,float(freq[k]))
+				sh.write(tmp_row,23+k,float(freq[k]))
 			else:
-				sh.write(tmp_row,21+k,'error ' + str(freq[k]))
+				sh.write(tmp_row,23+k,'error ' + str(freq[k]))
 
 		sh2.write(0, tmp_row-2, allSpecies_abbr[i][j])
 		sh2.write(1, tmp_row-2, allSpecies_name[i][j])

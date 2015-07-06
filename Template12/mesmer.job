@@ -1,6 +1,7 @@
 #!/bin/sh
 
-cd /home/hetanjin/Mesmer/test/mesmerInput_1QOOH_woHR_50200
+cd /home/hetanjin/Mesmer/DMH_thermo/QOOH_4_decomposition_thermo_HR_50200
+echo ' ' >> log.text
 echo begin >> log.text
 date >> log.text
 echo ' ' >> log.text
@@ -9,7 +10,14 @@ do
 	echo $entry >> log.text
 	tmp_var=out_$entry
 	echo $tmp_var >> log.text
-	/home/hetanjin/apps/Mesmer3.0/bin/mesmer ${entry} -o ${tmp_var} -N &
+	tmp_var2=log_${entry%.xml}
+	echo tmp_var2 >> log.text
+	echo ' ' >> ${tmp_var2}.text
+	echo "${entry}" >> ${tmp_var2}.text
+	echo begin >> ${tmp_var2}.text
+	date >> ${tmp_var2}.text
+	echo ' ' >> ${tmp_var2}.text
+	/home/hetanjin/apps/Mesmer4.1_sineMOI/bin/mesmer ${entry} -o ${tmp_var} -N &>> ${tmp_var2}.text &
 
 done
 

@@ -217,13 +217,13 @@
         <property dictRef="me:frequenciesScaleFactor">
           <scalar>1.0</scalar>
         </property>
-        <!--<property dictRef="me:vibFreqs">
-  <array units="cm-1">1658.8545 </array>
+        <property dictRef="me:vibFreqs">
+          <array units="cm-1">1658.8545 </array>
+        </property>
+        <!--<property title="Hessian" dictRef="me:hessian">
+  <matrix rows="6" matrixType="squareSymmetricLT" units="Hartree/Bohr2">0.83283691 0.0 8.358e-05 0.0 0.0 8.358e-05 -0.83283691 0.0 0.0 0.83283691 0.0 -8.358e-05 0.0 0.0 8.358e-05 0.0 0.0 -8.358e-05 0.0 0.0 8.358e-05 </matrix>
 </property>
 -->
-        <property title="Hessian" dictRef="me:hessian">
-          <matrix rows="6" matrixType="squareSymmetricLT" units="Hartree/Bohr2">0.83283691 0.0 8.358e-05 0.0 0.0 8.358e-05 -0.83283691 0.0 0.0 0.83283691 0.0 -8.358e-05 0.0 0.0 8.358e-05 0.0 0.0 -8.358e-05 0.0 0.0 8.358e-05 </matrix>
-        </property>
         <property dictRef="me:MW">
           <scalar units="amu">31.998</scalar>
         </property>
@@ -242,26 +242,6 @@
       </me:energyTransferModel>
       <me:tmpnode_DOSCMethod name="ClassicalRotors"/>
     </molecule>
-    <molecule id="R+O2" description="a mix of all products to deal with the case that the number of products is larger than 1">
-      <propertyList>
-        <property dictRef="me:ZPE">
-          <scalar units="kcal/mol">-168611.242974</scalar>
-        </property>
-        <!--Note that the rotational constants come form the first product because it would not be used in the calculation-->
-        <property dictRef="me:rotConsts">
-          <array units="cm-1">1.09279767138 0.297276991538 0.258278011784 </array>
-        </property>
-        <property dictRef="me:frequenciesScaleFactor">
-          <scalar>1.0</scalar>
-        </property>
-        <property dictRef="me:vibFreqs">
-          <array units="cm-1">121.7531 252.1989 368.6367 464.8618 761.1924 890.1136 930.0672 1064.3147 1092.6768 1186.8995 1284.1897 1378.5613 1435.9134 1490.0593 1499.9626 1527.8813 1535.5095 2937.6365 3033.7604 3046.8596 3111.7998 3119.1777 3160.591 3258.0873 1658.8545 </array>
-        </property>
-        <property dictRef="me:MW">
-          <scalar units="amu">75.087</scalar>
-        </property>
-      </propertyList>
-    </molecule>
     <molecule id="He">
       <atomArray>
         <atom id="He1" elementType="He"/>
@@ -279,30 +259,6 @@
       </propertyList>
     </molecule>
   </moleculeList>
-  <reactionList>
-    <reaction id="R1">
-      <reactant>
-        <molecule ref="RO2" role="modelled"/>
-      </reactant>
-      <product>
-        <molecule ref="R+O2" role="sink"/>
-      </product>
-      <!--<product>
-  <molecule ref="R" role="sink"/>
-</product>
--->
-      <!--<product>
-  <molecule ref="O2" role="sink"/>
-</product>
--->
-      <me:transitionState>
-        <molecule ref="TS_266" role="transitionState"/>
-      </me:transitionState>
-      <me:MCRCMethod name="SimpleRRKM"/>
-      <!--<me:tunneling name="Eckart"/>
--->
-    </reaction>
-  </reactionList>
   <me:conditions>
     <me:bathGas>He</me:bathGas>
     <me:PTs>

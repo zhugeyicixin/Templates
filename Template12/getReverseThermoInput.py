@@ -114,10 +114,10 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_TwoD_rotor.append(float(sh.cell_value(tmp_row,14)))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
+			tmp_num_freq.append(int(sh.cell_value(tmp_row,21)))
 			tmp2_freq = []
 			for col_num in range(tmp_num_freq[-1]): 
-				tmp2_freq.append(float(sh.cell_value(tmp_row,21+col_num)))
+				tmp2_freq.append(float(sh.cell_value(tmp_row,23+col_num)))
 			tmp_freq.append(tmp2_freq)
 			tmp_row += 1
 
@@ -159,14 +159,14 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
 			if __barrier__ == True:
-				tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
+				tmp_i_freq.append(float(sh.cell_value(tmp_row,20)))
 				if not tmp_i_freq[-1] > 0:
 					print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
-			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
+			tmp_num_freq.append(int(sh.cell_value(tmp_row,21)))
 
 			tmp2_freq = []
 			for col_num in range(tmp_num_freq[-1]): 
-				tmp2_freq.append(float(sh.cell_value(tmp_row,21+col_num)))
+				tmp2_freq.append(float(sh.cell_value(tmp_row,23+col_num)))
 			tmp_freq.append(tmp2_freq)
 			tmp_row += 1
 

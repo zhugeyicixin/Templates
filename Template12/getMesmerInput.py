@@ -220,11 +220,11 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_rotConsts[-1] = phys1.GHZTocmm1(np.array(tmp_rotConsts[-1]))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
+			tmp_num_freq.append(int(sh.cell_value(tmp_row,21)))
 
 			tmp2_freq = []
 			for tmp_col in range(tmp_num_freq[-1]): 
-				tmp2_freq.append(float(sh.cell_value(tmp_row,21+tmp_col)))
+				tmp2_freq.append(float(sh.cell_value(tmp_row,23+tmp_col)))
 			tmp_freq.append(tmp2_freq)
 			
 			tmp2_geom = []
@@ -290,11 +290,11 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_rotConsts[-1] = phys1.GHZTocmm1(np.array(tmp_rotConsts[-1]))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
+			tmp_num_freq.append(int(sh.cell_value(tmp_row,21)))
 
 			tmp2_freq = []
 			for tmp_col in range(tmp_num_freq[-1]): 
-				tmp2_freq.append(float(sh.cell_value(tmp_row,21+tmp_col)))
+				tmp2_freq.append(float(sh.cell_value(tmp_row,23+tmp_col)))
 			tmp_freq.append(tmp2_freq)
 			
 			tmp2_geom = []
@@ -358,16 +358,16 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
 			if __barrier__ == True:
-				tmp_i_freq.append(float(sh.cell_value(tmp_row,18)))
+				tmp_i_freq.append(float(sh.cell_value(tmp_row,20)))
 				if not tmp_i_freq[-1] > 0:
 					print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
 			else:
 				tmp_i_freq.append(0.0)
-			tmp_num_freq.append(int(sh.cell_value(tmp_row,19)))
+			tmp_num_freq.append(int(sh.cell_value(tmp_row,21)))
 
 			tmp2_freq = []
 			for tmp_col in range(tmp_num_freq[-1]): 
-				tmp2_freq.append(float(sh.cell_value(tmp_row,21+tmp_col)))
+				tmp2_freq.append(float(sh.cell_value(tmp_row,23+tmp_col)))
 			tmp_freq.append(tmp2_freq)
 			
 			tmp2_geom = []

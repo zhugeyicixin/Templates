@@ -87,11 +87,11 @@ while sh.cell_value(row_index,0) != '':
 		TwoD_rotor_R.append(float(sh.cell_value(row_index,14)))
 		RSN_R.append(int(sh.cell_value(row_index,15)))
 		multi_R.append(int(sh.cell_value(row_index,16)))
-		num_freq_R.append(int(sh.cell_value(row_index,19)))
+		num_freq_R.append(int(sh.cell_value(row_index,21)))
 
 		tmp_freq = []
 		for col_num in range(num_freq_R[-1]): 
-			tmp_freq.append(sh.cell_value(row_index,21+col_num))
+			tmp_freq.append(sh.cell_value(row_index,23+col_num))
 		freq_R.append(tmp_freq)			
 	row_index += 1
 
@@ -114,14 +114,14 @@ while sh.cell_value(row_index,0) != '':
 		TwoD_rotor_TS.append(float(sh.cell_value(row_index,14)))
 		RSN_TS.append(int(sh.cell_value(row_index,15)))
 		multi_TS.append(int(sh.cell_value(row_index,16)))
-		i_freq_TS.append(sh.cell_value(row_index,18))
+		i_freq_TS.append(sh.cell_value(row_index,20))
 		if not i_freq_TS[-1] > 0:
 			print 'Error! There is some problem with the imaginary frequency of ' + name_TS[-1]	
-		num_freq_TS.append(int(sh.cell_value(row_index,19)))
+		num_freq_TS.append(int(sh.cell_value(row_index,21)))
 
 		tmp_freq = []
 		for col_num in range(num_freq_TS[-1]): 
-			tmp_freq.append(sh.cell_value(row_index,21+col_num))
+			tmp_freq.append(sh.cell_value(row_index,23+col_num))
 		freq_TS.append(tmp_freq)			
 	row_index += 1
 	if row_index >= sh.nrows:
@@ -172,7 +172,7 @@ formula_R[k] + '''
 1. (blank comment line)
 2. (blank comment line)
 3. (blank comment line)
-1   1   1
+''' + str(RSN_TS[k]) + '''   1   1
 0.0   ''' + str(multi_TS[k]) + '\n' + str(num_freq_TS[k]+2) + "\tHAR GHZ\n")
 	else:
 		fw.write("ctst\t" + name_TS[k]  + "  " + str(energy_TS[k]) + " 0.0 0.0" + '''\t!!!!!!!!!!!    <= loose TS
