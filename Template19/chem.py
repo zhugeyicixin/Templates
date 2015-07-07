@@ -67,6 +67,7 @@ class reactionSystem:
 	PTpairs = []
 
 	_hinderedRotation = True
+	_thermodynamic = True
 
 	def __init__(self):
 		self.freqScaleFactor = 1.0
@@ -94,6 +95,10 @@ class reactionSystem:
 
 	def hinderedRotationCorrection(self, HR):
 		self._hinderedRotation = HR
+
+	def thermodynamic(self, thermo):
+		self._thermodynamic = thermo
+
 
 class reaction:
 	reactants = []
@@ -590,6 +595,57 @@ class bond:
 		
 		return {self.atom1.label: group1Str, self.atom2.label: group2Str}
 
+	def get3rdOrderGroup(self):
+		tmp_bonds = self.atom1.bonds
+		tmp_groupStrs = []
+		for tmp_bond in tmp_bonds:
+			if tmp_bond == self:
+				continue
+			else:
+				if tmp_bond.atom1.label == self.atom1.label:
+					tmp_label = tmp_bond.atom2.label
+				else:
+					tmp_label = tmp_bond.atom1.label
+				tmp_groupStr = tmp_bond.get2ndOrderGroup()
+				tmp_groupStrs.append(tmp_groupStr[tmp_label])
+		tmp_set = set(tmp_groupStrs)
+		tmp_set = sorted(tmp_set)
+		group1Str = self.atom1.symbol
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = tmp_groupStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				group1Str += '/(' + tmp_Str + ')'
+			else:
+				group1Str += '/' + tmp_Str
+			if tmp_num > 1:
+				group1Str += str(tmp_num)
+
+		tmp_bonds = self.atom2.bonds
+		tmp_groupStrs = []
+		for tmp_bond in tmp_bonds:
+			if tmp_bond == self:
+				continue
+			else:
+				if tmp_bond.atom1.label == self.atom2.label:
+					tmp_label = tmp_bond.atom2.label
+				else:
+					tmp_label = tmp_bond.atom1.label
+				tmp_groupStr = tmp_bond.get2ndOrderGroup()
+				tmp_groupStrs.append(tmp_groupStr[tmp_label])
+		tmp_set = set(tmp_groupStrs)
+		tmp_set = sorted(tmp_set)
+		group2Str = self.atom2.symbol
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = tmp_groupStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				group2Str += '/(' + tmp_Str + ')'
+			else:
+				group2Str += '/' + tmp_Str
+			if tmp_num > 1:
+				group2Str += str(tmp_num)
+		
+		return {self.atom1.label: group1Str, self.atom2.label: group2Str}
+
 
 class rotation:
 	rotBondAxis = None
@@ -668,10 +724,10 @@ class rotation:
 		'C/H2': 2,
 		'C/(C/H3)2':2
 		}
-		tmp_2stOrderGroup = self.rotBondAxis.get2ndOrderGroup()
+		tmp_3rdOrderGroup = self.rotBondAxis.get3rdOrderGroup()
 		for tmp_group in periodTable.keys():
-			if tmp_group in tmp_2stOrderGroup.values():
-				# print tmp_group, tmp_2stOrderGroup
+			if tmp_group in tmp_3rdOrderGroup.values():
+				# print tmp_group, tmp_3rdOrderGroup
 				self.period = periodTable[tmp_group]
 				break
 
