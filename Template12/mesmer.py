@@ -356,7 +356,7 @@ class mesmer:
 			tmpnode_Tmid = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tmid' % self.nsmap['me'])
 			tmpnode_Tmid.text = '1000'
 			tmpnode_Tmax = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tmax' % self.nsmap['me'])
-			tmpnode_Tmax.text = '2300'
+			tmpnode_Tmax.text = '2500'
 			tmpnode_Tstep = meEtree.orderedSubElement(tmpnode_calcMethod, '{%s}Tstep' % self.nsmap['me'])
 			tmpnode_Tstep.text = '100'
 			tmpnode_comment = etree.Comment('Note that the unit must be \'kJ/mol\' because of the limitation of code for NASA format fitting')
@@ -443,6 +443,81 @@ class mesmer:
 		else:
 			TSTRate = [np.array(tmp_T), np.array(tmp_rate_f), np.array(tmp_rate_r)]
 		return TSTRate
+
+	def calcSysTunneling(self, reactSys):
+		if len(reactSys.reactions) > 1:
+			print 'Error! Tunneling effect calculation of more than 1 reaction is not supported yet!'
+		for reaction in reactSys.reactions:
+			EZ_reactant = 0.0
+			EZ_TS = 0.0
+			EZ_product = 0.0
+			ZPVE_reactant = 0.0
+			ZPVE_TS = 0.0
+			ZPVE_product = 0.0
+			for tmp_reactant in reaction.reactants:
+				EZ_reactant += tmp_reactant.ZPE
+				ZPVE_reactant += np.sum(tmp_reactant.frequencies)
+			if len(reaction.TSs) != 1:
+				print 'Error! The number of TS is not 1!', ''.join([str(x)+' ' for x in reaction.TSs]) 
+			for tmp_TS in reaction.TSs:
+				EZ_TS += tmp_TS.ZPE
+				ZPVE_TS += np.sum(tmp_TS.frequencies)
+				v_img = tmp_TS.imfreq
+			for tmp_product in reaction.products:
+				EZ_product += tmp_product.ZPE
+				ZPVE_product += np.sum(tmp_product.frequencies)
+			ZPVE_reactant = phys1.cmm1Tokcalmol(ZPVE_reactant)/2.0
+			ZPVE_TS = phys1.cmm1Tokcalmol(ZPVE_TS)/2.0
+			ZPVE_product = phys1.cmm1Tokcalmol(ZPVE_product)/2.0
+			VZ1 = EZ_TS - EZ_reactant
+			VZ2 = EZ_TS - EZ_product
+			VC1 = VZ1 - (ZPVE_TS - ZPVE_reactant)
+			VC2 = VZ2 - (ZPVE_TS - ZPVE_product)
+		temperature = sorted(set([tmp_PT[1] for tmp_PT in reactSys.PTpairs]))
+		return self.calcTunneling(VZ1, VZ2, VC1, VC2, v_img, temperature, step=1.0/100.0, E_max=10.0)
+		
+	# this script is used to calculate Eckart tunneling factor
+	# unit: VZ1 VZ2 VC1 VC2 [kcal/mol]
+	# v_img [cm^-1]
+	# VZ is the barrier with ZPE correction
+	# VC is the classic barrier without ZPE correction
+	# the default setting is the same as Mesmer
+	# if setting VC the same as VZ, than the method is the same as MultiWell
+	def calcTunneling(self, VZ1, VZ2, VC1, VC2, v_img, temperature, step = 1.0/100.0, E_max = 10.0):
+		# all energy unit would be transformed as cm^-1
+		VZ1 = phys1.kcalmolTocmm1(VZ1)
+		VZ2 = phys1.kcalmolTocmm1(VZ2)
+		VC1 = phys1.kcalmolTocmm1(VC1)
+		VC2 = phys1.kcalmolTocmm1(VC2)
+		k = phys1.JoulTocmm1(phys1.k)
+		tunnelingCoeff = []
+
+		A = VC1 - VC2
+		B = (np.sqrt(VC1) + np.sqrt(VC2)) ** 2
+		cc = (A-B) * (A+B) / 2.0 / v_img / B**1.5
+		avg = 4*B*cc**2 - 1
+		dd = np.pi * np.sqrt(abs(avg))
+		if VZ1 <= VZ2:
+		    E_0 = 0
+		else:
+		    E_0 = VZ1 - VZ2
+
+		for tmp_T in temperature:
+			dE = k * tmp_T * step
+			E = np.array(range(int(E_max/step + np.ceil(VZ1/dE))))
+			E = dE*E + E_0
+			aa = 2 * np.pi * cc * np.sqrt(E+VC1-VZ1)
+			bb = 2 * np.pi * cc * np.sqrt(E+VC2-VZ1)
+			if avg > 0:
+			    K = 2 * np.sinh(aa) * np.sinh(bb) / (np.cosh(aa+bb) + np.cosh(dd))
+			else:
+			    K = 2 * np.sinh(aa) * np.sinh(bb) / (np.cosh(aa+bb) + np.cos(dd))
+			kT_m1 = 1 / k / tmp_T
+			Q = np.sum(K*np.exp(-E*kT_m1)) * step
+			tau = np.exp(VZ1*kT_m1) * Q
+			tunnelingCoeff.append(tau)
+
+		return tunnelingCoeff
 
 
 class meEtree:

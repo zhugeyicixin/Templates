@@ -17,6 +17,8 @@ class phys:
 	atm = 101325.0
 	# avogadro constant
 	NA = 6.022e23
+	# boltzmann constant
+	k = 1.3806488E-23
 
 	def __init__(self,h=6.62606957E-34,c=299792458):
 		self.h = h
@@ -27,7 +29,28 @@ class phys:
 
 	# hatree to cm^-1
 	def hatreeTocmm1(self, E):
-		return self.hatreeToJoul(E)/self.h/self.c/100.0
+		return self.JoulTocmm1(self.hatreeToJoul(E))
+
+	def hartreeTokcalmol(self, E):
+		return E*627.51		
+
+	def JoulTocmm1(self, E):
+		return E/self.h/self.c/100.0
+
+	def JoulTocal(self, E):
+		return E/4.184
+
+	def cmm1ToJoul(self, E):
+		return E*self.h*self.c*100.0
+
+	def cmm1TokJmol(self, E):
+		return self.cmm1ToJoul(E)*self.NA/1000.0
+
+	def cmm1Tocal(self, E):
+		return self.JoulTocal(self.cmm1ToJoul(E))
+
+	def cmm1Tokcalmol(self, E):
+		return self.JoulTocal(self.cmm1TokJmol(E))
 
 	def degreeTorad(self, alpha):
 		return alpha/180.0*np.pi
@@ -41,8 +64,8 @@ class phys:
 	def radTodegree(self, beta):
 		return beta/np.pi*180.0
 
-	def hartreeTokcalmol(self, E):
-		return E*627.51
+	def kcalmolTocmm1(self, E):
+		return self.JoulTocmm1(self.calToJoul(E*1000)/self.NA)
 
 	# return the index where T >= lowT and T <= highT in a temperature array
 	def TRangeIndex(self, temperature, lowT, highT):

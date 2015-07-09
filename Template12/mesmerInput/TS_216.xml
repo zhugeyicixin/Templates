@@ -286,7 +286,7 @@
     <me:calcMethod units="kJ/mol" xsi:type="me:thermodynamicTable">
       <me:Tmin>300</me:Tmin>
       <me:Tmid>1000</me:Tmid>
-      <me:Tmax>2300</me:Tmax>
+      <me:Tmax>2500</me:Tmax>
       <me:Tstep>100</me:Tstep>
       <!--Note that the unit must be 'kJ/mol' because of the limitation of code for NASA format fitting-->
     </me:calcMethod>

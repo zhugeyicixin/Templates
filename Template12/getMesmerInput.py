@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import numpy as np
+from xlutils.copy import copy
 
 import mesmer
 import chem
@@ -78,6 +79,7 @@ reacs_line = 0  					# Total number of reactants line in excel, not equal to tho
 prods_line = 0 						# Total number of products line in excel, not equal to those in activated reactions, would changed while reading, it's used to count lines
 HR_dict = {}						# the dict of hindered rotations, including all the scanned rotations in HR_fit.xls
 HRNameMerge_dict={} 				# the dict of file names need to be merged in case that different file name were given in hindered rotation scan 
+tunnelingEffects = [] 
 # max_freq=75
 
 # parameters of R 
@@ -596,8 +598,28 @@ for k in range(total):
 	tmp_system.thermodynamic(__thermo__)
 	# if tmp_TS.label == 'TS_1_1b':
 	mesmer1.genInput(tmp_system)
+	tunnelingEffects.append(mesmer1.calcSysTunneling(tmp_system))
+	# print tunnelingEffects
 
 	shutil.move(tmp_TSs[0].label + '.xml', 'mesmerInput/' + tmp_TSs[0].label + '.xml')
+
+# write tunnelingEffects to excel
+wb=open_workbook(name + '.xls')
+sheets=[s.name for s in wb.sheets()]
+wb_new = copy(wb)
+sh=wb_new.get_sheet(sheets.index('TunnelingCoeff'))				#if overwrite to use cell_overwrite_ok=True
+sh.cell_overwrite_ok = True
+tmp_row = 1
+
+for k in range(total):
+	sh.write(tmp_row, 0, name_TS[k][0])
+	for i in range(len(temperature)):
+		sh.write(tmp_row + i, 1, temperature[i])
+		sh.write(tmp_row + i, 2, tunnelingEffects[k][i])
+	tmp_row += len(temperature)+1
+
+wb_new.save(name + '.xls')
+
 
 print '\nMesmer input generated successfully!\n'		
 
