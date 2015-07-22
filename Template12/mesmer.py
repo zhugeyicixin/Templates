@@ -32,6 +32,11 @@ class mesmer:
 	pattern_xmlCanRate = re.compile('^.*Canonical rate coefficients.*$')
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_TSTRate_r = re.compile('^.*Canonical.*first order backward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
+	pattern_thermoBegin = re.compile('^.*thermodynamic data based on qtot begin: *([\_A-Za-z0-9]+).*$')
+	pattern_testThermo = re.compile('^.*temperature Q, H\(T\)-H\(0\), S, and Cp.*: *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+).*$')
+	pattern_thermoEnd = re.compile('^.*thermodynamic data based on qtot end: *([A-Za-z0-9_]+).*$')
+	pattern_testNASA1 = re.compile('^.*[0-9]+\.[0-9]* *[0-9]+\.[0-9]* *[0-9]+\.[0-9]*.*1$')
+	pattern_testNASA2 = re.compile('^.*[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *2$')
 
 	def __init__(self, location=''):
 		self.location = location
@@ -262,30 +267,31 @@ class mesmer:
 				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
 				tmpnode_scalar.text = str(sum([x.getWeight() for x in reaction.products]))
 
-		for tmp_bathGas in reactSys.bathGas:
-			tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id'], [tmp_bathGas.label])
-			tmpnode_atom = meEtree.orderedSubElement(tmpnode_mole, 'atomArray')
-			for tmp_atom in tmp_bathGas.atoms:
-				meEtree.orderedSubElement(tmpnode_atom, 'atom', ['id', 'elementType'], [tmp_atom.symbol+str(tmp_atom.label), tmp_atom.symbol])
+		if reactSys._thermodynamic == False:
+			for tmp_bathGas in reactSys.bathGas:
+				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id'], [tmp_bathGas.label])
+				tmpnode_atom = meEtree.orderedSubElement(tmpnode_mole, 'atomArray')
+				for tmp_atom in tmp_bathGas.atoms:
+					meEtree.orderedSubElement(tmpnode_atom, 'atom', ['id', 'elementType'], [tmp_atom.symbol+str(tmp_atom.label), tmp_atom.symbol])
 
-			if len(tmp_bathGas.bonds) > 0:
-				tmpnode_bond = meEtree.orderedSubElement(tmpnode_mole, 'bondArray')
-				for tmp_bond in tmp_bathGas.bonds:
-					meEtree.orderedSubElement(tmpnode_bond, 'bond', ['atomRefs2', 'order'], [''.join([tmp_bond.atom1.symbol, str(tmp_bond.atom1.label), ' ', tmp_bond.atom2.symbol, str(tmp_bond.atom2.label)]), str(tmp_bond.order)])
+				if len(tmp_bathGas.bonds) > 0:
+					tmpnode_bond = meEtree.orderedSubElement(tmpnode_mole, 'bondArray')
+					for tmp_bond in tmp_bathGas.bonds:
+						meEtree.orderedSubElement(tmpnode_bond, 'bond', ['atomRefs2', 'order'], [''.join([tmp_bond.atom1.symbol, str(tmp_bond.atom1.label), ' ', tmp_bond.atom2.symbol, str(tmp_bond.atom2.label)]), str(tmp_bond.order)])
 
-			tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
-			
-			tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:epsilon'])
-			tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar')
-			tmpnode_scalar.text = str(tmp_bathGas.epsilon)
+				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
+				
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:epsilon'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar')
+				tmpnode_scalar.text = str(tmp_bathGas.epsilon)
 
-			tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:sigma'])
-			tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar')
-			tmpnode_scalar.text = str(tmp_bathGas.sigma)
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:sigma'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar')
+				tmpnode_scalar.text = str(tmp_bathGas.sigma)
 
-			tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:MW'])
-			tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
-			tmpnode_scalar.text = str(tmp_bathGas.getWeight())
+				tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:MW'])
+				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
+				tmpnode_scalar.text = str(tmp_bathGas.getWeight())
 
 		if reactSys._thermodynamic == False:
 			node_reactionList = meEtree.orderedSubElement(root_mesmer, 'reactionList')
@@ -324,17 +330,18 @@ class mesmer:
 					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_tunneling, pretty_print=True).replace('tunneling','me:tunneling'))
 					tmpnode_reaction.append(tmpnode_comment)
 
-		node_conditions = meEtree.orderedSubElement(root_mesmer, '{%s}conditions' % self.nsmap['me'])
+		if reactSys._thermodynamic == False:
+			node_conditions = meEtree.orderedSubElement(root_mesmer, '{%s}conditions' % self.nsmap['me'])
 
-		if len(reactSys.bathGas) != 1:
-			print 'Error! The number of bath gas is not 1', ''.join([str(x)+' ' for x in reactSys.bathGas])
-		for tmp_bathGas in reactSys.bathGas:
-			tmpnode_bathGas = meEtree.orderedSubElement(node_conditions, '{%s}bathGas' % self.nsmap['me'])
-			tmpnode_bathGas.text = tmp_bathGas.label
+			if len(reactSys.bathGas) != 1:
+				print 'Error! The number of bath gas is not 1', ''.join([str(x)+' ' for x in reactSys.bathGas])
+			for tmp_bathGas in reactSys.bathGas:
+				tmpnode_bathGas = meEtree.orderedSubElement(node_conditions, '{%s}bathGas' % self.nsmap['me'])
+				tmpnode_bathGas.text = tmp_bathGas.label
 
-		tmpnode_PTs = meEtree.orderedSubElement(node_conditions, '{%s}PTs' % self.nsmap['me'])
-		for tmp_PT in reactSys.PTpairs:
-			meEtree.orderedSubElement(tmpnode_PTs, '{%s}PTpair' % self.nsmap['me'], ['units', 'P', 'T'], ['atm', str(tmp_PT[0]), str(tmp_PT[1])])
+			tmpnode_PTs = meEtree.orderedSubElement(node_conditions, '{%s}PTs' % self.nsmap['me'])
+			for tmp_PT in reactSys.PTpairs:
+				meEtree.orderedSubElement(tmpnode_PTs, '{%s}PTpair' % self.nsmap['me'], ['units', 'P', 'T'], ['atm', str(tmp_PT[0]), str(tmp_PT[1])])
 
 		node_modelParameters = meEtree.orderedSubElement(root_mesmer, '{%s}modelParameters' % self.nsmap['me'])
 
@@ -418,35 +425,101 @@ class mesmer:
 
 		return canoRate, phenoRate
 
-	def readOutTest(self, fileName):
-		TSTRate = []
+	def readOutTest(self, fileName, thermodynamic = False):
+		if thermodynamic == False:
+			TSTRate = []
 
-		tmp_T = []
-		tmp_rate_f = []
-		tmp_rate_r = []
+			tmp_T = []
+			tmp_rate_f = []
+			tmp_rate_r = []
 
-		fr = file(fileName, 'r')
-		tmp_lines = fr.readlines()
-		for tmp_line in tmp_lines:
-			tmp_m = self.pattern_TSTRate_f.match(tmp_line)
-			if tmp_m:
-				tmp_T.append(float(tmp_m.group(2)))
-				tmp_rate_f.append(float(tmp_m.group(1)))
-			tmp_m = self.pattern_TSTRate_r.match(tmp_line)
-			if tmp_m:
-				if (float(tmp_m.group(2)) - tmp_T[-1]) < 1E-2:
-					tmp_rate_r.append(float(tmp_m.group(1)))
-				else:
-					print 'Error! The forward and reverse TST rate in the Mesmer test file is not in pairs!', fileName
-		if tmp_rate_r == []:
-			TSTRate = [np.array(tmp_T), np.array(tmp_rate_f)]
+			fr = file(fileName, 'r')
+			tmp_lines = fr.readlines()
+			for tmp_line in tmp_lines:
+				tmp_m = self.pattern_TSTRate_f.match(tmp_line)
+				if tmp_m:
+					tmp_T.append(float(tmp_m.group(2)))
+					tmp_rate_f.append(float(tmp_m.group(1)))
+				tmp_m = self.pattern_TSTRate_r.match(tmp_line)
+				if tmp_m:
+					if (float(tmp_m.group(2)) - tmp_T[-1]) < 1E-2:
+						tmp_rate_r.append(float(tmp_m.group(1)))
+					else:
+						print 'Error! The forward and reverse TST rate in the Mesmer test file is not in pairs!', fileName
+			if tmp_rate_r == []:
+				TSTRate = [np.array(tmp_T), np.array(tmp_rate_f)]
+			else:
+				TSTRate = [np.array(tmp_T), np.array(tmp_rate_f), np.array(tmp_rate_r)]
+			return TSTRate
 		else:
-			TSTRate = [np.array(tmp_T), np.array(tmp_rate_f), np.array(tmp_rate_r)]
-		return TSTRate
+			tmp_names = []
+			tmp_temperatures = []
+			tmp_thermos = []
+			tmp_NASAs = []
 
-	def calcSysTunneling(self, reactSys):
+			begin_done = -1
+			thermo_done = -1
+			NASA_done = -1
+
+			totLineNum = 0
+
+			tmp_temperature = []
+			tmp_thermo = []
+
+			fr = file(fileName, 'r')
+			tmp_lines = fr.readlines()
+			for (index, tmp_line) in enumerate(tmp_lines):
+				totLineNum = len(tmp_lines)
+				if begin_done != 1:
+					tmp_m = self.pattern_thermoBegin.match(tmp_line)
+					if tmp_m:
+						tmp_names.append(tmp_m.group(1))
+						thermo_done = -1
+						tmp_temperature = []
+						tmp_Q = []
+						tmp_H = []
+						tmp_S = []
+						tmp_Cp = []
+						NASA_done = -1
+						begin_done = 1
+				elif thermo_done != 1:
+					tmp_m = self.pattern_testThermo.match(tmp_line)
+					if tmp_m:					
+						tmp_temperature.append(float(tmp_m.group(1)))
+						tmp_Q.append(float(tmp_m.group(2)))
+						tmp_H.append(float(tmp_m.group(3)))
+						tmp_S.append(float(tmp_m.group(4)))
+						tmp_Cp.append(float(tmp_m.group(5)))
+					tmp_m = self.pattern_thermoEnd.match(tmp_line)
+					if tmp_m:
+						if tmp_m.group(1) == tmp_names[-1]:
+							tmp_temperatures.append(tmp_temperature)
+							tmp_thermos.append([tmp_Q, tmp_H, tmp_S, tmp_Cp])
+							thermo_done = 1
+						else:
+							print 'Error! The thermodynamic data of ' + tmp_names[-1] + ' does not end normally!'
+				elif NASA_done != 1:
+					if index > totLineNum-2:
+						tmp_NASAs.append('')
+						begin_done = -1
+						NASA_done = 1
+					tmp_m = self.pattern_thermoBegin.match(tmp_lines[index+1])
+					if tmp_m:
+						tmp_NASAs.append('')
+						begin_done = -1
+						NASA_done = 1
+					tmp_m = self.pattern_testNASA1.match(tmp_line.strip())
+					if tmp_m:
+						tmp2_m = self.pattern_testNASA2.match(tmp_lines[index+1].strip())
+						if tmp2_m:
+							tmp_NASAs.append(''.join(tmp_lines[index: index+4]).strip())
+							begin_done = -1
+							NASA_done = 1
+			return tmp_names, tmp_temperatures, tmp_thermos, tmp_NASAs
+
+	def calcSysTunnelling(self, reactSys):
 		if len(reactSys.reactions) > 1:
-			print 'Error! Tunneling effect calculation of more than 1 reaction is not supported yet!'
+			print 'Error! Tunnelling effect calculation of more than 1 reaction is not supported yet!'
 		for reaction in reactSys.reactions:
 			EZ_reactant = 0.0
 			EZ_TS = 0.0
@@ -474,23 +547,23 @@ class mesmer:
 			VC1 = VZ1 - (ZPVE_TS - ZPVE_reactant)
 			VC2 = VZ2 - (ZPVE_TS - ZPVE_product)
 		temperature = sorted(set([tmp_PT[1] for tmp_PT in reactSys.PTpairs]))
-		return self.calcTunneling(VZ1, VZ2, VC1, VC2, v_img, temperature, step=1.0/100.0, E_max=10.0)
+		return self.calcTunnelling(VZ1, VZ2, VC1, VC2, v_img, temperature, step=1.0/100.0, E_max=10.0)
 		
-	# this script is used to calculate Eckart tunneling factor
+	# this script is used to calculate Eckart tunnelling factor
 	# unit: VZ1 VZ2 VC1 VC2 [kcal/mol]
 	# v_img [cm^-1]
 	# VZ is the barrier with ZPE correction
 	# VC is the classic barrier without ZPE correction
 	# the default setting is the same as Mesmer
 	# if setting VC the same as VZ, than the method is the same as MultiWell
-	def calcTunneling(self, VZ1, VZ2, VC1, VC2, v_img, temperature, step = 1.0/100.0, E_max = 10.0):
+	def calcTunnelling(self, VZ1, VZ2, VC1, VC2, v_img, temperature, step = 1.0/100.0, E_max = 10.0):
 		# all energy unit would be transformed as cm^-1
 		VZ1 = phys1.kcalmolTocmm1(VZ1)
 		VZ2 = phys1.kcalmolTocmm1(VZ2)
 		VC1 = phys1.kcalmolTocmm1(VC1)
 		VC2 = phys1.kcalmolTocmm1(VC2)
 		k = phys1.JoulTocmm1(phys1.k)
-		tunnelingCoeff = []
+		tunnellingCoeff = []
 
 		A = VC1 - VC2
 		B = (np.sqrt(VC1) + np.sqrt(VC2)) ** 2
@@ -515,9 +588,9 @@ class mesmer:
 			kT_m1 = 1 / k / tmp_T
 			Q = np.sum(K*np.exp(-E*kT_m1)) * step
 			tau = np.exp(VZ1*kT_m1) * Q
-			tunnelingCoeff.append(tau)
+			tunnellingCoeff.append(tau)
 
-		return tunnelingCoeff
+		return tunnellingCoeff
 
 
 class meEtree:

@@ -40,8 +40,6 @@ for tmp_file in tmp_fileLists:
 			print '\n-------------------------------------\nbarrierless reaction\n-------------------------------------\n'
 		else:
 			print '\n-------------------------------------\nWarning! Barrier or barrierless is not announced! Barrier is used as default!\n-------------------------------------\n'
-		tmp_line = tmp_lines[7].strip(' \n')
-		temperature = map(float, tmp_line.split())
 		tmp_line = tmp_lines[9].strip(' \n')
 		if tmp_line == 'no':
 			__HR__ = False
@@ -60,6 +58,11 @@ for tmp_file in tmp_fileLists:
 			print '\n-------------------------------------\nrate constants will be calculated\n-------------------------------------\n'
 		else:
 			print '\n-------------------------------------\nWarning! thermodynamic or rate computation is not announced! Rate constants will be calculated as default!\n-------------------------------------\n'		
+		if __thermo__ == False:
+			tmp_line = tmp_lines[7].strip(' \n')
+		else:
+			tmp_line = tmp_lines[5].strip(' \n')
+		temperature = map(float, tmp_line.split())	
 		fr.close()
 
 wb = open_workbook(name + '.xls')
@@ -79,7 +82,7 @@ reacs_line = 0  					# Total number of reactants line in excel, not equal to tho
 prods_line = 0 						# Total number of products line in excel, not equal to those in activated reactions, would changed while reading, it's used to count lines
 HR_dict = {}						# the dict of hindered rotations, including all the scanned rotations in HR_fit.xls
 HRNameMerge_dict={} 				# the dict of file names need to be merged in case that different file name were given in hindered rotation scan 
-tunnelingEffects = [] 
+tunnellingEffects = [] 
 # max_freq=75
 
 # parameters of R 
@@ -598,16 +601,16 @@ for k in range(total):
 	tmp_system.thermodynamic(__thermo__)
 	# if tmp_TS.label == 'TS_1_1b':
 	mesmer1.genInput(tmp_system)
-	tunnelingEffects.append(mesmer1.calcSysTunneling(tmp_system))
-	# print tunnelingEffects
+	tunnellingEffects.append(mesmer1.calcSysTunnelling(tmp_system))
+	# print tunnellingEffects
 
 	shutil.move(tmp_TSs[0].label + '.xml', 'mesmerInput/' + tmp_TSs[0].label + '.xml')
 
-# write tunnelingEffects to excel
+# write tunnellingEffects to excel
 wb=open_workbook(name + '.xls')
 sheets=[s.name for s in wb.sheets()]
 wb_new = copy(wb)
-sh=wb_new.get_sheet(sheets.index('TunnelingCoeff'))				#if overwrite to use cell_overwrite_ok=True
+sh=wb_new.get_sheet(sheets.index('TunnellingCoeff'))				#if overwrite to use cell_overwrite_ok=True
 sh.cell_overwrite_ok = True
 tmp_row = 1
 
@@ -615,7 +618,7 @@ for k in range(total):
 	sh.write(tmp_row, 0, name_TS[k][0])
 	for i in range(len(temperature)):
 		sh.write(tmp_row + i, 1, temperature[i])
-		sh.write(tmp_row + i, 2, tunnelingEffects[k][i])
+		sh.write(tmp_row + i, 2, tunnellingEffects[k][i])
 	tmp_row += len(temperature)+1
 
 wb_new.save(name + '.xls')

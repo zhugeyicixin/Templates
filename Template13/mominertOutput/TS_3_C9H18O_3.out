@@ -291,6 +291,151 @@
 
 
 
+
+  ATOMS  28 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 28 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:    56.335   amu*Ang^2
+                                              9.355E-39   g*cm^2
+              Rotational constant:  B =         0.29924   cm-1
+                                    B =      8970.91391   MHz
+                                    B =         8.97091   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1274.294   amu*Ang^2
+                                              2.116E-37   g*cm^2
+              Rotational constant:  B =         0.01323   cm-1
+                                    B =       396.59540   MHz
+                                    B =         0.39660   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 28--27 BOND:   53.950   amu*Ang^2
+                                              8.959E-39   g*cm^2
+              Rotational constant:  B =         0.31247   cm-1
+                                    B =      9367.50930   MHz
+                                    B =         9.36751   GHz
+
+
+
+
+  ATOMS  29 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 28 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:    37.646   amu*Ang^2
+                                              6.251E-39   g*cm^2
+              Rotational constant:  B =         0.44779   cm-1
+                                    B =     13424.52763   MHz
+                                    B =        13.42453   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1149.575   amu*Ang^2
+                                              1.909E-37   g*cm^2
+              Rotational constant:  B =         0.01466   cm-1
+                                    B =       439.62248   MHz
+                                    B =         0.43962   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 29--27 BOND:   36.452   amu*Ang^2
+                                              6.053E-39   g*cm^2
+              Rotational constant:  B =         0.46246   cm-1
+                                    B =     13864.15010   MHz
+                                    B =        13.86415   GHz
+
+
+
+
+  ATOMS  30 AND  27 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS: 28 29 30
+
+  MOIETY 2 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:    17.535   amu*Ang^2
+                                              2.912E-39   g*cm^2
+              Rotational constant:  B =         0.96139   cm-1
+                                    B =     28821.68366   MHz
+                                    B =        28.82168   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:  1190.765   amu*Ang^2
+                                              1.977E-37   g*cm^2
+              Rotational constant:  B =         0.01416   cm-1
+                                    B =       424.41527   MHz
+                                    B =         0.42442   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 30--27 BOND:   17.280   amu*Ang^2
+                                              2.869E-39   g*cm^2
+              Rotational constant:  B =         0.97554   cm-1
+                                    B =     29246.09893   MHz
+                                    B =        29.24610   GHz
+
+
+
+
+  ATOMS  28 AND  30 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+
+  MOIETY 2 CONTAINS ATOMS: 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:  1415.819   amu*Ang^2
+                                              2.351E-37   g*cm^2
+              Rotational constant:  B =         0.01191   cm-1
+                                    B =       356.95180   MHz
+                                    B =         0.35695   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:     0.000   amu*Ang^2
+                                              1.557E-71   g*cm^2
+              Rotational constant:  B = ***************   cm-1
+                                    B = ***************   MHz
+                                    B = ***************   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 28--30 BOND:    0.000   amu*Ang^2
+                                              1.557E-71   g*cm^2
+              Rotational constant:  B = ***************   cm-1
+                                    B = ***************   MHz
+                                    B = ***************   GHz
+
+
+
+
+  ATOMS  29 AND  30 DEFINE INTERNAL ROTATION AXIS
+
+  MOIETY 1 CONTAINS ATOMS:  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+
+  MOIETY 2 CONTAINS ATOMS: 30
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #1:  1750.938   amu*Ang^2
+                                              2.908E-37   g*cm^2
+              Rotational constant:  B =         0.00963   cm-1
+                                    B =       288.63326   MHz
+                                    B =         0.28863   GHz
+
+
+  MOMENT OF INERTIA ABOUT BOND FOR MOIETY #2:     0.000   amu*Ang^2
+                                              5.934E-72   g*cm^2
+              Rotational constant:  B = ***************   cm-1
+                                    B = ***************   MHz
+                                    B = ***************   GHz
+
+
+  REDUCED MOMENT OF INERTIA ABOUT 29--30 BOND:    0.000   amu*Ang^2
+                                              5.934E-72   g*cm^2
+              Rotational constant:  B = ***************   cm-1
+                                    B = ***************   MHz
+                                    B = ***************   GHz
+
+
+
 PRINCIPAL MOMENTS OF INERTIA AND ROTATIONAL CONSTANTS
   Ia =     272.7123   Ib =     991.7370   Ic =    1185.3663   amu*ang^2
   Ia =   4.5285E-38   Ib =   1.6468E-37   Ic =   1.9683E-37   g*cm^2

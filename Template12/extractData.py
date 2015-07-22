@@ -294,7 +294,7 @@ for i in range(len(allSpecies_name)):
 					if thermoFactor_dict[tmp2_name][1] != 0:
 						RSN = thermoFactor_dict[tmp2_name][1]
 						RSN_done = 1
-				if RSN_done != 1:
+				else:
 					tmp_m=pattern_RSN.match(line)
 					if tmp_m:	
 						RSN = tmp_m.group(1)

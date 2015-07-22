@@ -34,6 +34,9 @@ class phys:
 	def hartreeTokcalmol(self, E):
 		return E*627.51		
 
+	def kcalmolTohartree(self,E):
+		return E/627.51
+
 	def JoulTocmm1(self, E):
 		return E/self.h/self.c/100.0
 
