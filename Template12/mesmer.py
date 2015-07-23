@@ -580,8 +580,12 @@ class mesmer:
 			dE = k * tmp_T * step
 			E = np.array(range(int(E_max/step + np.ceil(VZ1/dE))))
 			E = dE*E + E_0
-			aa = 2 * np.pi * cc * np.sqrt(E+VC1-VZ1)
-			bb = 2 * np.pi * cc * np.sqrt(E+VC2-VZ1)
+			tmp_E = E + VC1 - VZ1
+			tmp_E[tmp_E < 0]=0.0
+			aa = 2 * np.pi * cc * np.sqrt(tmp_E)
+			tmp_E = E + VC2 - VZ1
+			tmp_E[tmp_E < 0] = 0.0
+			bb = 2 * np.pi * cc * np.sqrt(tmp_E)
 			if avg > 0:
 			    K = 2 * np.sinh(aa) * np.sinh(bb) / (np.cosh(aa+bb) + np.cosh(dd))
 			else:

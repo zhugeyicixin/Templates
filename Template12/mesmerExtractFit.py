@@ -583,7 +583,7 @@ else:
 		tmp_y = np.array(rate_r[index])
 		tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(tmp_x[TRange[0]: TRange[1]], tmp_y[TRange[0]: TRange[1]], threshold = 5e-2)		
 		if rela_RMS > 5e-2:
-			print 'reaction name:\t' + tmp_name + '\ttype:\reverse high-pressure rate fitting\n---'
+			print 'reaction name:\t' + tmp_name + '\ttype:\rreverse high-pressure rate fitting\n---'
 		tmp_fitted = arrhenius.func_arrhenius(tmp_x, *tmp_coeff)
 		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_x
 		coeff_r.append(tmp_coeff)
@@ -597,7 +597,7 @@ else:
 		tmp_y = np.array(Kconst[index])
 		tmp_coeff, tmp_deviation, rela_RMS = arrhenius.fit_arrhenius_noGuess(tmp_x[TRange[0]: TRange[1]], tmp_y[TRange[0]: TRange[1]], threshold = 5e-2)		
 		if rela_RMS > 5e-2:
-			print 'reaction name:\t' + tmp_name + '\ttype:\equilibrium constant fitting\n---'
+			print 'reaction name:\t' + tmp_name + '\ttype:\tequilibrium constant fitting\n---'
 		tmp_fitted = arrhenius.func_arrhenius(tmp_x, *tmp_coeff)
 		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_x
 		coeff_K.append(tmp_coeff)
