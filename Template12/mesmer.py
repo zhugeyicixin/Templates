@@ -50,7 +50,7 @@ class mesmer:
 	def setEAboveTop(self, eAboveTop):
 		self.eAboveTop = eAboveTop
 
-	def angleDependPotentCheck(self, angles, energies):
+	def angleDependPotentCheck(self, angles, energies, description=''):
 		dihedral = np.array(angles)
 		dihedral_rad = phys1.degreeTorad(dihedral)
 		dihedral_rad = dihedral_rad - dihedral_rad[0]
@@ -91,6 +91,7 @@ class mesmer:
 			tmp_ax = tmp_fig.add_subplot(mesmer.rotPotentCheckFIG_ROW, mesmer.rotPotentCheckFIG_COL, mesmer.rotPotentCheckFig_index)
 			tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
 			tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
+			tmp_ax.set_title(description)
 			tmp_fig.savefig('HRUseFittedData_' + str(len(mesmer.rotPotentCheckFigs)) + '.png', dpi=300)
 			plt.close(tmp_fig)
 
@@ -225,7 +226,7 @@ class mesmer:
 						tmpnode_bond.text = 'b'+str(tmp_molecule.bonds.index(tmp_hinderRotor.rotBondAxis)+1)
 						tmpnode_potential = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}HinderedRotorPotential' % self.nsmap['me'], ['format', 'units', 'expansionSize', 'UseSineTerms', 'scale'], ['numerical', 'cm-1', '9', 'yes', '1'])
 						
-						tmp_angles, tmp_energies, tmp_refined = self.angleDependPotentCheck(tmp_hinderRotor.angles, tmp_hinderRotor.energies)
+						tmp_angles, tmp_energies, tmp_refined = self.angleDependPotentCheck(tmp_hinderRotor.angles, tmp_hinderRotor.energies, description=''.join([tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']']))
 						if tmp_refined:
 							print 'Warning! Fitted data used in mesmer hindered rotation input!', tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']'
 						for (index, tmp_angle) in enumerate(tmp_angles):
