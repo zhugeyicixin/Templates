@@ -79,9 +79,7 @@ def getFormationH(formula, refQMMethod, refEnthalpy0, H298mH0):
 			print 'Error! The elements are more than C H and O!'
 	if x+y+z==0:
 		print 'Error! x+y+z can not be 0!'
-	print	refEnthalpy0 + phys1.kcalmolTohartree(H298mH0/1000)
 	formationH = phys1.hartreeTokcalmol(refEnthalpy0 - x*moleBase['C'].refH298[refQMMethod] - y/2.0*moleBase['H2'].refH298[refQMMethod] - z/2.0*moleBase['O2'].refH298[refQMMethod]) + H298mH0/1000.0 + x*moleBase['C'].formationH 
-	print formationH
 	return formationH
 
 # unit: NIST data: [cal][mol][k]

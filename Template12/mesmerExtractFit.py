@@ -437,7 +437,6 @@ else:
 	# write species data and rate and equilibrium constants
 	tmp_row = 2
 	for (index, tmp_file) in enumerate(tmp_fileLists):
-		print tmp_file
 		tmp_species = []
 		tmp_species.append(reactionsDict[tmp_file[0:-5]][2])
 		tmp_species.append(tmp_file[0:-5])
