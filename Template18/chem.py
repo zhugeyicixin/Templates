@@ -145,6 +145,10 @@ class molecule:
 	description = ''
 	role = ''
 
+	formationH = 0.0
+	refH0 = {}
+	refH298 = {}
+
 	_RingBanned = False
 
 	# the default geom and connectivity are from gjf file
@@ -164,6 +168,9 @@ class molecule:
 		self.exponentialDown = 0.0
 		self.hinderedRotorQM1D = []
 		self.role = ''
+		self.formationH = 0.0
+		self.refH0 = {}
+		self.refH298 = {}
 
 		self._RingBanned = False
 
@@ -277,6 +284,15 @@ class molecule:
 	def setRole(self, role):
 		self.role = role
 	
+	def setFormationH(self, formationEnthalpy):
+		self.formationH = formationEnthalpy
+
+	def setRefH0(self, refEnthalpy):
+		self.refH0 = refEnthalpy
+	
+	def setRefH298(self, refEnthalpy):
+		self.refH298 = refEnthalpy
+
 	def setRingBanned(self, banned):
 		self._RingBanned = banned
 
