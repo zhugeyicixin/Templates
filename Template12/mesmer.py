@@ -469,8 +469,8 @@ class mesmer:
 
 			fr = file(fileName, 'r')
 			tmp_lines = fr.readlines()
+			totLineNum = len(tmp_lines)
 			for (index, tmp_line) in enumerate(tmp_lines):
-				totLineNum = len(tmp_lines)
 				if begin_done != 1:
 					tmp_m = self.pattern_thermoBegin.match(tmp_line)
 					if tmp_m:
@@ -504,11 +504,12 @@ class mesmer:
 						tmp_NASAs.append('')
 						begin_done = -1
 						NASA_done = 1
-					tmp_m = self.pattern_thermoBegin.match(tmp_lines[index+1])
-					if tmp_m:
-						tmp_NASAs.append('')
-						begin_done = -1
-						NASA_done = 1
+					else:
+						tmp_m = self.pattern_thermoBegin.match(tmp_lines[index+1])
+						if tmp_m:
+							tmp_NASAs.append('')
+							begin_done = -1
+							NASA_done = 1
 					tmp_m = self.pattern_testNASA1.match(tmp_line.strip())
 					if tmp_m:
 						tmp2_m = self.pattern_testNASA2.match(tmp_lines[index+1].strip())
