@@ -571,7 +571,7 @@ else:
 		if rela_RMS > 5e-2:
 			print 'reaction name:\t' + tmp_name + '\ttype:\tforward high-pressure rate fitting\n---'
 		tmp_fitted = arrhenius.func_arrhenius(tmp_x, *tmp_coeff)
-		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_x
+		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_y
 		coeff_f.append(tmp_coeff)
 		deviation_f.append(tmp_fitted - tmp_y)
 		sh.write(tmp_row, tmp_col, tmp_name)
@@ -585,7 +585,7 @@ else:
 		if rela_RMS > 5e-2:
 			print 'reaction name:\t' + tmp_name + '\ttype:\rreverse high-pressure rate fitting\n---'
 		tmp_fitted = arrhenius.func_arrhenius(tmp_x, *tmp_coeff)
-		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_x
+		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_y
 		coeff_r.append(tmp_coeff)
 		deviation_r.append(tmp_fitted - tmp_y)
 		sh.write(tmp_row+len(tmp_fileLists)+2, tmp_col, tmp_name)
@@ -599,7 +599,7 @@ else:
 		if rela_RMS > 5e-2:
 			print 'reaction name:\t' + tmp_name + '\ttype:\tequilibrium constant fitting\n---'
 		tmp_fitted = arrhenius.func_arrhenius(tmp_x, *tmp_coeff)
-		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_x
+		tmp_relaRMS = (tmp_fitted - tmp_y)/tmp_y
 		coeff_K.append(tmp_coeff)
 		deviation_K.append(tmp_fitted - tmp_y)
 		sh.write(tmp_row+(len(tmp_fileLists)+2)*2, tmp_col, tmp_name)
