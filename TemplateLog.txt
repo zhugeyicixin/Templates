@@ -42,4 +42,5 @@ Template18用于从gjf的几何信息中自动生成优化脚本
 
 Template19用于从log文件中提取出几何信息生成cbs-QB3脚本（或其他）
 
-
+Template20用于提取hindered rotation的能量和使用lamm计算inertia
+提取扫描过程中坐标，使用lamm计算inertia和rotational constant
