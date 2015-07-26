@@ -14,7 +14,7 @@ import textExtractor
 
 __barrier__ = True
 __HR__ = False
-__thermo__ = False
+__thermo__ = 'rate'
 
 # input region
 mesmer1 = mesmer.mesmer('D:/hetanjin/professionalSoftware/Mesmer-4.0')
