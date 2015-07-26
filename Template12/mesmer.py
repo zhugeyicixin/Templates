@@ -33,7 +33,7 @@ class mesmer:
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_TSTRate_r = re.compile('^.*Canonical.*first order backward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_thermoBegin = re.compile('^.*thermodynamic data based on qtot begin: *([\_\=A-Za-z0-9]+).*$')
-	pattern_testThermo = re.compile('^.*temperature Q, H\(T\)-H\(0\), S, and Cp.*: *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+).*$')
+	pattern_testThermo = re.compile('^.*temperature, Q, H\(T\)-H\(0\), S, and Cp.*: *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+).*$')
 	pattern_thermoEnd = re.compile('^.*thermodynamic data based on qtot end: *([\_\=A-Za-z0-9]+).*$')
 	pattern_testNASA1 = re.compile('^.*[0-9]+\.[0-9]* *[0-9]+\.[0-9]* *[0-9]+\.[0-9]*.*1$')
 	pattern_testNASA2 = re.compile('^.*[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *2$')
