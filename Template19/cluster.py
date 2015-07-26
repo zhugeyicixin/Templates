@@ -125,15 +125,9 @@ class cluster:
 							if self._dispersionD3 == False:
 								fw.write(tmp_dir + '.chk\n')
 							if self._TS == False:
-								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
-								else:
-									fw.write('#p b3lyp/6-31g(d) opt=modredundant nosym')									
+								fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
 							else:
-								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
-								else:
-									fw.write('#p b3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
+								fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
 							if self._dispersionD3 == False:
 								fw.write('\n')
 							else:
@@ -269,7 +263,6 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 				tmp_m = pattern_gjfMulti.match(tmp_line)
 				if tmp_m:
 					lineStart = lineNum
-					multi = int(tmp_m.group(2))
 					geomDone = 0
 					gjfMulti_done = 1
 			elif geomDone != 1:
@@ -291,15 +284,9 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 			fw.write('/scratch/')
 		fw.write(tmp_dir+'.chk\n')
 		if self._TS == False:
-			if multi != 1:
-				fw.write('#p ub3lyp/cbsb7 opt freq')
-			else:
-				fw.write('#p b3lyp/cbsb7 opt freq')
+			fw.write('#p ub3lyp/cbsb7 opt freq')
 		else:
-			if multi != 1:
-				fw.write('#p ub3lyp/cbsb7 opt=(TS, calcfc) freq')
-			else:
-				fw.write('#p b3lyp/cbsb7 opt=(TS, calcfc) freq')				
+			fw.write('#p ub3lyp/cbsb7 opt=(TS, calcfc) freq')
 		if self._dispersionD3 == False:
 			fw.write('\n')
 		else:

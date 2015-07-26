@@ -9,6 +9,7 @@ import textExtractor
 pattern_multi = re.compile('^.*spinMultiplicity: *([0-9]+).*$')
 pattern_atom = re.compile('^.*[A-Z] *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+) *(-?[0-9]+\.[0-9]+).*$')
 pattern_rotation = re.compile('^ *([0-9]+) +([0-9]+) +([0-9]+) +([0-9]+).*$')
+pattern_fixBond = re.compile('^ *([0-9]+) ([0-9]+).*$')
 
 pattern_gjfCommand = re.compile('^.*#p?.*$')
 pattern_gjfMulti = re.compile('^.*([0-9]+) +([0-9]+).*$')
@@ -54,15 +55,21 @@ class cluster:
 	def setTS(self, isTS):
 		self._TS = isTS		
 
-	def generateRotScanJobs(self, pathway=''):
+	def generateRotScanJobs(self, pathway='',barrierless=False):
 		# variables
 		rotations = []
+		fixedBond = []
 
 		# flags
 		multi_done = -1
 		atom_begin = -1
 		atom_done = -1
 		rotation_done = -1
+		if barrierless == True:
+			fixBond_done = -1
+		else: 
+			fixBond_done = 1
+
 
 		if pathway == '':
 			pathway = os.getcwd()
@@ -77,8 +84,13 @@ class cluster:
 						atom_begin = -1
 						atom_done = -1
 						rotation_done = -1
+						if barrierless == True:
+							fixBond_done = -1
+						else:
+							fixBond_done = 1
 
 						rotations = []
+						fixedBond = []
 
 						fr = file(os.path.join(pathway, tmp_file, tmp2_file), 'r')
 						tmp_lines = fr.readlines()
@@ -103,6 +115,11 @@ class cluster:
 									rotation_done = 0
 								elif rotation_done == 0:
 									rotation_done =1
+							elif fixBond_done != 1:
+								tmp_m = pattern_fixBond.match(tmp_line)
+								if tmp_m:
+									fixedBond = [int(tmp_m.group(1)), int(tmp_m.group(2))]
+									fixBond_done = 1
 						fr.close()
 
 						for tmp_rotation in rotations:
@@ -125,15 +142,9 @@ class cluster:
 							if self._dispersionD3 == False:
 								fw.write(tmp_dir + '.chk\n')
 							if self._TS == False:
-								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
-								else:
-									fw.write('#p b3lyp/6-31g(d) opt=modredundant nosym')									
+								fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
 							else:
-								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
-								else:
-									fw.write('#p b3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
+								fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
 							if self._dispersionD3 == False:
 								fw.write('\n')
 							else:
@@ -144,7 +155,10 @@ using ub3lyp/6-31G(d) to scan
 
 0 ''')
 							fw.write(''.join([str(multi), '\n'] + tmp_lines[atom_begin: atom_done] + ['\n', \
-								'D ', tmp_rotation[0], ' ', tmp_rotation[1], ' ', tmp_rotation[2], ' ', tmp_rotation[3], ' ', 'S 40 10.0\n\n\n\n\n\n']))
+								'D ', tmp_rotation[0], ' ', tmp_rotation[1], ' ', tmp_rotation[2], ' ', tmp_rotation[3], ' ', 'S 40 10.0\n']))
+							if barrierless == True:
+								fw.write(''.join(['B ', str(fixedBond[0]),' ', str(fixedBond[1]), ' F\n']))
+							fw.write('\n\n\n\n\n')
 							fw.close()
 							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
 							
@@ -269,7 +283,6 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 				tmp_m = pattern_gjfMulti.match(tmp_line)
 				if tmp_m:
 					lineStart = lineNum
-					multi = int(tmp_m.group(2))
 					geomDone = 0
 					gjfMulti_done = 1
 			elif geomDone != 1:
@@ -291,15 +304,9 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 			fw.write('/scratch/')
 		fw.write(tmp_dir+'.chk\n')
 		if self._TS == False:
-			if multi != 1:
-				fw.write('#p ub3lyp/cbsb7 opt freq')
-			else:
-				fw.write('#p b3lyp/cbsb7 opt freq')
+			fw.write('#p ub3lyp/cbsb7 opt freq')
 		else:
-			if multi != 1:
-				fw.write('#p ub3lyp/cbsb7 opt=(TS, calcfc) freq')
-			else:
-				fw.write('#p b3lyp/cbsb7 opt=(TS, calcfc) freq')				
+			fw.write('#p ub3lyp/cbsb7 opt=(TS, calcfc) freq')
 		if self._dispersionD3 == False:
 			fw.write('\n')
 		else:
