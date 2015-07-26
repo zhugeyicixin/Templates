@@ -32,9 +32,9 @@ class mesmer:
 	pattern_xmlCanRate = re.compile('^.*Canonical rate coefficients.*$')
 	pattern_TSTRate_f = re.compile('^.*Canonical.*first order forward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
 	pattern_TSTRate_r = re.compile('^.*Canonical.*first order backward rate constant.*= *([\-\.\+eE0-9]+).*\(([\-\.\+eE0-9]+) *K\).*$')
-	pattern_thermoBegin = re.compile('^.*thermodynamic data based on qtot begin: *([\_A-Za-z0-9]+).*$')
+	pattern_thermoBegin = re.compile('^.*thermodynamic data based on qtot begin: *([\_\=A-Za-z0-9]+).*$')
 	pattern_testThermo = re.compile('^.*temperature Q, H\(T\)-H\(0\), S, and Cp.*: *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+).*$')
-	pattern_thermoEnd = re.compile('^.*thermodynamic data based on qtot end: *([A-Za-z0-9_]+).*$')
+	pattern_thermoEnd = re.compile('^.*thermodynamic data based on qtot end: *([\_\=A-Za-z0-9]+).*$')
 	pattern_testNASA1 = re.compile('^.*[0-9]+\.[0-9]* *[0-9]+\.[0-9]* *[0-9]+\.[0-9]*.*1$')
 	pattern_testNASA2 = re.compile('^.*[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *2$')
 
@@ -132,7 +132,7 @@ class mesmer:
 				else:
 					allMolecule.append(tmp_molecule.label)
 
-				if reactSys._thermodynamic == False:
+				if reactSys._thermodynamic == 'rate':
 					tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'], [tmp_molecule.label, tmp_molecule.description])
 				elif tmp_molecule.role == 'transitionState':
 					tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id', 'role', 'description'], [tmp_molecule.label, 'transitionState', tmp_molecule.description])
@@ -149,7 +149,7 @@ class mesmer:
 				
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
 				
-				if reactSys._thermodynamic == False:
+				if reactSys._thermodynamic == 'rate':
 					tmpnode_property = meEtree.orderedSubElement(tmpnode_propertyList, 'property', ['dictRef'], ['me:ZPE'])
 					tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['kcal/mol'])
 					tmpnode_scalar.text = str(tmp_molecule.ZPE)
@@ -238,7 +238,7 @@ class mesmer:
 						tmpnode_calcMOI = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}CalculateInternalRotorInertia' % self.nsmap['me'], ['phaseDifference'], ['0.0'])
 
 
-			if len(reaction.products) > 1 and reactSys._thermodynamic == False:
+			if len(reaction.products) > 1 and reactSys._thermodynamic == 'rate':
 				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id','description'],[(''.join([x.label + '+' for x in reaction.products]))[0:-1], 'a mix of all products to deal with the case that the number of products is larger than 1'])
 								
 				tmpnode_propertyList = meEtree.orderedSubElement(tmpnode_mole, 'propertyList')
@@ -268,7 +268,7 @@ class mesmer:
 				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
 				tmpnode_scalar.text = str(sum([x.getWeight() for x in reaction.products]))
 
-		if reactSys._thermodynamic == False:
+		if reactSys._thermodynamic == 'rate':
 			for tmp_bathGas in reactSys.bathGas:
 				tmpnode_mole = meEtree.orderedSubElement(node_moleculeList, 'molecule', ['id'], [tmp_bathGas.label])
 				tmpnode_atom = meEtree.orderedSubElement(tmpnode_mole, 'atomArray')
@@ -294,7 +294,7 @@ class mesmer:
 				tmpnode_scalar = meEtree.orderedSubElement(tmpnode_property, 'scalar', ['units'], ['amu'])
 				tmpnode_scalar.text = str(tmp_bathGas.getWeight())
 
-		if reactSys._thermodynamic == False:
+		if reactSys._thermodynamic == 'rate':
 			node_reactionList = meEtree.orderedSubElement(root_mesmer, 'reactionList')
 
 			for (index, reaction) in enumerate(reactSys.reactions):
@@ -331,7 +331,7 @@ class mesmer:
 					tmpnode_comment = etree.Comment(etree.tostring(tmpnode_tunneling, pretty_print=True).replace('tunneling','me:tunneling'))
 					tmpnode_reaction.append(tmpnode_comment)
 
-		if reactSys._thermodynamic == False:
+		if reactSys._thermodynamic == 'rate':
 			node_conditions = meEtree.orderedSubElement(root_mesmer, '{%s}conditions' % self.nsmap['me'])
 
 			if len(reactSys.bathGas) != 1:
@@ -354,7 +354,7 @@ class mesmer:
 
 		node_control = meEtree.orderedSubElement(root_mesmer, '{%s}control' % self.nsmap['me'])
 
-		if reactSys._thermodynamic == False:
+		if reactSys._thermodynamic == 'rate':
 			meEtree.orderedSubElement(node_control, '{%s}testMicroRates' % self.nsmap['me'])
 			meEtree.orderedSubElement(node_control, '{%s}testRateConstants' % self.nsmap['me'])
 		else:

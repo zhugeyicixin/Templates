@@ -51,14 +51,17 @@ for tmp_file in tmp_fileLists:
 			print '\n-------------------------------------\nWarning! hindered rotation correction or not is not announced! Hindered rotation correction is not used as default!\n-------------------------------------\n'
 		tmp_line = tmp_lines[13].strip(' \n')
 		if tmp_line == 'thermodynamic':
-			__thermo__ = True
-			print '\n-------------------------------------\nthermodynamic data will be calculated\n-------------------------------------\n'
+			__thermo__ = 'thermodynamic'
+			print '\n-------------------------------------\nthermodynamic data will be extracted\n-------------------------------------\n'
+		elif tmp_line == 'singleThermodynamic':
+			__thermo__ = 'singleThermodynamic'
+			print '\n-------------------------------------\nthermodynamic data for single molecule will be extracted\n-------------------------------------\n'			
 		elif tmp_line == 'rate':
-			__thermo__ = False
-			print '\n-------------------------------------\nrate constants will be calculated\n-------------------------------------\n'
+			__thermo__ = 'rate'
+			print '\n-------------------------------------\nrate constants will be extracted\n-------------------------------------\n'
 		else:
-			print '\n-------------------------------------\nWarning! thermodynamic or rate computation is not announced! Rate constants will be calculated as default!\n-------------------------------------\n'		
-		if __thermo__ == False:
+			print '\n-------------------------------------\nWarning! thermodynamic or rate computation is not announced! Rate constants will be extracted as default!\n-------------------------------------\n'		
+		if __thermo__ == 'rate':
 			tmp_line = tmp_lines[7].strip(' \n')
 		else:
 			tmp_line = tmp_lines[5].strip(' \n')
@@ -362,7 +365,7 @@ while sh.cell_value(tmp_row,0) != '':
 			tmp_rotConsts[-1] = phys1.GHZTocmm1(np.array(tmp_rotConsts[-1]))
 			tmp_RSN.append(int(sh.cell_value(tmp_row,15)))
 			tmp_multi.append(int(sh.cell_value(tmp_row,16)))
-			if __barrier__ == True:
+			if __barrier__ == True and __thermo__ != 'singleThermodynamic':
 				tmp_i_freq.append(float(sh.cell_value(tmp_row,20)))
 				if not tmp_i_freq[-1] > 0:
 					print 'Error! There is some problem with the imaginary frequency of ' + tmp_name[-1]	
@@ -601,27 +604,29 @@ for k in range(total):
 	tmp_system.thermodynamic(__thermo__)
 	# if tmp_TS.label == 'TS_1_1b':
 	mesmer1.genInput(tmp_system)
-	tunnellingEffects.append(mesmer1.calcSysTunnelling(tmp_system))
+	if __thermo__ != 'singleThermodynamic':
+		tunnellingEffects.append(mesmer1.calcSysTunnelling(tmp_system))
 	# print tunnellingEffects
 
 	shutil.move(tmp_TSs[0].label + '.xml', 'mesmerInput/' + tmp_TSs[0].label + '.xml')
 
 # write tunnellingEffects to excel
-wb=open_workbook(name + '.xls')
-sheets=[s.name for s in wb.sheets()]
-wb_new = copy(wb)
-sh=wb_new.get_sheet(sheets.index('TunnellingCoeff'))				#if overwrite to use cell_overwrite_ok=True
-sh.cell_overwrite_ok = True
-tmp_row = 1
+if __thermo__ != 'singleThermodynamic':
+	wb=open_workbook(name + '.xls')
+	sheets=[s.name for s in wb.sheets()]
+	wb_new = copy(wb)
+	sh=wb_new.get_sheet(sheets.index('TunnellingCoeff'))				#if overwrite to use cell_overwrite_ok=True
+	sh.cell_overwrite_ok = True
+	tmp_row = 1
 
-for k in range(total):
-	sh.write(tmp_row, 0, name_TS[k][0])
-	for i in range(len(temperature)):
-		sh.write(tmp_row + i, 1, temperature[i])
-		sh.write(tmp_row + i, 2, tunnellingEffects[k][i])
-	tmp_row += len(temperature)+1
+	for k in range(total):
+		sh.write(tmp_row, 0, name_TS[k][0])
+		for i in range(len(temperature)):
+			sh.write(tmp_row + i, 1, temperature[i])
+			sh.write(tmp_row + i, 2, tunnellingEffects[k][i])
+		tmp_row += len(temperature)+1
 
-wb_new.save(name + '.xls')
+	wb_new.save(name + '.xls')
 
 
 print '\nMesmer input generated successfully!\n'		

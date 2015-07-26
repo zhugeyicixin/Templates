@@ -13,7 +13,7 @@ import arrhenius
 import mesmer
 import thermoDatabase
 
-__thermo__ = False
+__thermo__ = 'rate'
 
 # open .name file to read the command and open workbook
 name = ''
@@ -50,10 +50,13 @@ for tmp_file in tmp_fileLists:
 		fit_highT = tmp_line[1]
 		tmp_line = tmp_lines[13].strip(' \n')
 		if tmp_line == 'thermodynamic':
-			__thermo__ = True
+			__thermo__ = 'thermodynamic'
 			print '\n-------------------------------------\nthermodynamic data will be extracted\n-------------------------------------\n'
+		elif tmp_line == 'singleThermodynamic':
+			__thermo__ = 'singleThermodynamic'
+			print '\n-------------------------------------\nthermodynamic data for single molecule will be extracted\n-------------------------------------\n'			
 		elif tmp_line == 'rate':
-			__thermo__ = False
+			__thermo__ = 'rate'
 			print '\n-------------------------------------\nrate constants will be extracted\n-------------------------------------\n'
 		else:
 			print '\n-------------------------------------\nWarning! thermodynamic or rate computation is not announced! Rate constants will be extracted as default!\n-------------------------------------\n'		
@@ -140,7 +143,7 @@ for tmp_row in range(2,num_rows):
 
 
 # write output data to excel, fit and draw or extract the thermodynamic data and the NASA coefficients
-if __thermo__ == False:
+if __thermo__ == 'rate':
 	wb_new = copy(wb)
 	sh=wb_new.get_sheet(sheets.index('MesmerRate'))				#if overwrite to use cell_overwrite_ok=True
 	sh.cell_overwrite_ok = True
@@ -184,7 +187,7 @@ if __thermo__ == False:
 		tmp_num = 0
 		tmp_name = tmp_file[4:-4]
 		tmp_CanoRate, tmp_PhenoRate = mesmer1.readOutXml('mesmerOutput/' + tmp_file)
-		tmp_TSTRate = mesmer1.readOutTest('mesmerOutput/' + tmp_name + '.test', thermodynamic = __thermo__)
+		tmp_TSTRate = mesmer1.readOutTest('mesmerOutput/' + tmp_name + '.test', thermodynamic = False)
 
 		tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,index+1-FIG_ROW*FIG_COL*(tmp_pic-1))
 		tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
@@ -373,7 +376,7 @@ if __thermo__ == False:
 		plt.close(tmp_figs2[i])
 		plt.close(tmp_figs3[i])
 
-else:
+elif __thermo__ == 'thermodynamic':
 	# read tunnelling effect
 	sh=wb.sheet_by_name('TunnellingCoeff')
 	num_rows = sh.nrows
@@ -428,7 +431,7 @@ else:
 
 	all_thermoData = []
 	for (index, tmp_file) in enumerate(tmp_fileLists):
-		tmp_names, tmp_temperatures, tmp_thermos, tmp_NASAs = mesmer1.readOutTest('mesmerOutput/' + tmp_file, thermodynamic = __thermo__)
+		tmp_names, tmp_temperatures, tmp_thermos, tmp_NASAs = mesmer1.readOutTest('mesmerOutput/' + tmp_file, thermodynamic = True)
 		tmp_dict = {}
 		for j in range(len(tmp_names)):
 			tmp_dict[tmp_names[j]] = [tmp_temperatures[j], tmp_thermos[j], tmp_NASAs[j]]
@@ -442,6 +445,7 @@ else:
 		tmp_species.append(tmp_file[0:-5])
 		tmp_species += reactionsDict[tmp_file[0:-5]][3]
 
+		print all_thermoData[index].keys()
 		tmp_deltaHs = [0.0]*len(all_thermoData[index][tmp_file[0:-5]][0])
 		tmp_deltaSs = [0.0]*len(all_thermoData[index][tmp_file[0:-5]][0])
 
@@ -503,7 +507,8 @@ else:
 			tmp_row += 1
 		rate_f.append(tmp_kfs)
 		rate_r.append(tmp_krs)
-		Kconst.append(tmp_Kcs)
+		Kconst.append(tmp_Kcs)		
+		
 		tmp_row += 1
 
 	# write NASA format summary
@@ -619,6 +624,90 @@ else:
 	plt.close(tmp_fig)
 	plt.close(tmp_fig2)
 	plt.close(tmp_fig3)		
+
+	wb_new.save(name + '.xls')
+
+elif __thermo__ == 'singleThermodynamic':
+	# read energy data
+	sh=wb.sheet_by_name('SpeciesInfo')
+	num_rows = sh.nrows
+	num_cols = sh.ncols
+
+	for tmp_row in range(3,num_rows):
+		tmp_name = sh.cell_value(tmp_row, 1)
+		if tmp_name != '':
+			if tmp_name not in absEnergyDict.keys():
+				absEnergyDict[tmp_name] = float(sh.cell_value(tmp_row, 3))
+				formulaDict[tmp_name] = sh.cell_value(tmp_row, 10)
+		if sh.cell_value(tmp_row, 4) == 'T':
+			if tmp_name not in relaEnergyDict.keys():
+				relaEnergyDict[tmp_name] = [-float(sh.cell_value(tmp_row, 7)), -float(sh.cell_value(tmp_row, 8))]
+
+	# read and write thermodynamic data
+	wb_new = copy(wb)
+	sh = wb_new.get_sheet(sheets.index('thermodynamicData'))
+	sh.cell_overwrite_ok = True
+
+	os.chdir('mesmerOutput')
+	pwd = os.getcwd()
+	tmp_fileLists = os.listdir(pwd)
+	tmp_fileLists = [tmp_file for tmp_file in tmp_fileLists if re.search('.test', tmp_file)]
+	os.chdir('..')
+
+	totalNum = len(tmp_fileLists)
+
+	all_thermoData = []
+	for (index, tmp_file) in enumerate(tmp_fileLists):
+		tmp_names, tmp_temperatures, tmp_thermos, tmp_NASAs = mesmer1.readOutTest('mesmerOutput/' + tmp_file, thermodynamic = True)
+		tmp_dict = {}
+		for j in range(len(tmp_names)):
+			tmp_dict[tmp_names[j]] = [tmp_temperatures[j], tmp_thermos[j], tmp_NASAs[j]]
+		all_thermoData.append(tmp_dict)
+		
+	# write species data and rate and equilibrium constants
+	tmp_row = 2
+	for (index, tmp_file) in enumerate(tmp_fileLists):
+		tmp_species = []
+		tmp_species.append(tmp_file[0:-5])
+
+		print all_thermoData[index].keys()
+
+		# write species data
+		tmp_col = 17
+		for (index2, tmp_name) in enumerate(tmp_species):
+			if tmp_name in all_thermoData[index].keys():
+				sh.write(tmp_row, tmp_col, tmp_name)
+				sh.write(tmp_row, tmp_col+6, all_thermoData[index][tmp_name][2])
+				sh.write(tmp_row, tmp_col+7, ' ')
+				for i in range(len(all_thermoData[index][tmp_name][0])):						
+					sh.write(tmp_row, tmp_col+1, all_thermoData[index][tmp_name][0][i])
+					sh.write(tmp_row, tmp_col+2, all_thermoData[index][tmp_name][1][0][i])
+					sh.write(tmp_row, tmp_col+3, all_thermoData[index][tmp_name][1][1][i])
+					sh.write(tmp_row, tmp_col+4, all_thermoData[index][tmp_name][1][2][i])
+					sh.write(tmp_row, tmp_col+5, all_thermoData[index][tmp_name][1][3][i])
+					tmp_row += 1
+			else:
+				print 'Error! The thermodynamic data of ' + tmp_name + ' is missing!'
+		tmp_row += 1 
+
+	# write NASA format summary
+	tmp_row = 2
+	for (index, tmp_file) in enumerate(tmp_fileLists):
+		tmp_species = []
+		tmp_species.append(tmp_file[0:-5])
+
+		tmp_col = 5 
+		for tmp_name in tmp_species:
+			if tmp_name in all_thermoData[index].keys():
+				tmp_H298 = thermoDatabase.getFormationH(formulaDict[tmp_name], QMMethodDict[__energy__], absEnergyDict[tmp_name], all_thermoData[index][tmp_name][1][1][0])
+				sh.write(tmp_row, tmp_col, tmp_name)
+				sh.write(tmp_row, tmp_col+1, tmp_file[0:-5])
+				sh.write(tmp_row, tmp_col+3, ' ')
+				sh.write(tmp_row, tmp_col+2, thermoDatabase.NSSAH298Correction(all_thermoData[index][tmp_name][2], tmp_H298))
+				tmp_row += 1
+			else:
+				print 'Error! The thermodynamic data of ' + tmp_name + ' is missing!' 
+		tmp_row += 1
 
 	wb_new.save(name + '.xls')
 
