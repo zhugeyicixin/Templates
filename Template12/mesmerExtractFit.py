@@ -394,9 +394,9 @@ elif __thermo__ == 'thermodynamic':
 				tunnellingEnd_done = -1
 				tunnellingBegin_done = 1
 		elif tunnellingEnd_done != 1:			
-			if sh.cell_value(tmp_row, 1) != ''  and tmp_row+1 < num_rows:
+			if sh.cell_value(tmp_row, 1) != '':
 				tmp_tunnellingCoeff[float(sh.cell_value(tmp_row, 1))] = float(sh.cell_value(tmp_row, 2))
-			else:
+			if sh.cell_value(tmp_row, 1) == ''  or tmp_row+1 == num_rows:
 				tunnellingDict[tmp_name] = tmp_tunnellingCoeff
 				tunnellingBegin_done = -1
 				tunnellingEnd_done = 1
