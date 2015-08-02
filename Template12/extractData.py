@@ -353,7 +353,7 @@ for i in range(len(allSpecies_name)):
 				if tmp_m:
 					energy = tmp_m.group(1)
 					energy_done = 1
-		energyFile.close
+		energyFile.close()
 
 		#write info
 		tmp_index = i - (total+1)*(tmp_class-1)					#tmp_index is the NO. of reaction
