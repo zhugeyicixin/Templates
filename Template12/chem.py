@@ -740,6 +740,8 @@ class rotation:
 		'C/H2': 2,
 		'C/(C/H3)2':2
 		}
+		# use 3rd order group to avoid recognition error form molecule and radical
+		# if C atom exists in 2nd order, it would be important whether there are only H atoms connecting
 		tmp_3rdOrderGroup = self.rotBondAxis.get3rdOrderGroup()
 		for tmp_group in periodTable.keys():
 			if tmp_group in tmp_3rdOrderGroup.values():
