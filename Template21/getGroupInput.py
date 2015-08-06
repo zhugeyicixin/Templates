@@ -1,0 +1,294 @@
+# this is used to get group additivity input files
+from xlwt import *
+from xlrd import *
+
+import chem
+
+#####################################################################
+# read data from the database excel file and generate input file
+#####################################################################
+wb=open_workbook('database.xls')
+sh=wb.sheet_by_name('speciesInfo')
+
+# definition of variables
+all_moles = []
+all_groups = set()
+groupIndex = {}
+
+# definition of temporary variables
+tmp_name = ''
+tmp_energy = 0.0
+tmp_geom = ''
+num_rows = sh.nrows
+num_cols = sh.ncols
+tmp_groups = []
+
+# read info from database
+for tmp_row in xrange(1, num_rows):
+	tmp_groups = []
+	tmp_mole = chem.molecule()
+
+	tmp_name = sh.cell_value(tmp_row, 0)
+	tmp_energy = sh.cell_value(tmp_row, 4)
+	tmp_geom = sh.cell_value(tmp_row, 7)
+	tmp_geom = tmp_geom.strip()
+	tmp_geom = tmp_geom.split('\n')
+	tmp_mole.getGjfGeom(tmp_geom)
+	tmp_mole.setZPE(tmp_energy)
+	tmp_mole.setLabel(tmp_name)
+	tmp_mole.fulfillBonds()
+	tmp_groups = tmp_mole.get1stOrderGroup()
+	all_moles.append(tmp_mole)
+	tmp_mole.calcFormula()
+	all_groups = all_groups | set(tmp_groups)
+
+# generate input file
+# method 1
+groupIndex = {}
+all_groups = sorted(list(all_groups))
+N = len(all_groups)
+n = len(all_moles)
+
+wb2 = Workbook()
+sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+
+tmp2_row = 0
+tmp2_col = 0
+sh2.write(tmp2_row, tmp2_col, 'ID')
+sh2.write(tmp2_row, tmp2_col+1, 'Name')
+sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
+sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
+sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+
+tmp2_row = 1
+sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
+
+tmp2_col = 5
+for i in xrange(N*(N+3)/2):
+	sh2.write(tmp2_row, tmp2_col+i, i+1)
+
+tmp2_row = 2 
+for i in xrange(N):
+	sh2.write(tmp2_row, tmp2_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp2_col
+	tmp2_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh2.write(tmp2_row, tmp2_col, tmp_text)
+		groupIndex[tmp_text] = tmp2_col
+		tmp2_col += 1
+
+tmp2_row = 3
+tmp2_col = 5
+for i in xrange(n):
+	for j in xrange(N*(N+3)/2):
+		sh2.write(tmp2_row+i, tmp2_col+j, 0.0)
+
+tmp2_row = 3
+tmp2_col = 0
+for (index, tmp_mole) in enumerate(all_moles):
+	tmp_groupVector = {}
+
+	sh2.write(tmp2_row, tmp2_col, index+1)
+	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
+	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
+
+	tmp_groupVector = tmp_mole.getGroupVector1()
+	for tmp_vectorEle in tmp_groupVector.keys():
+		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+	
+	tmp2_row += 1
+
+wb2.save('inputFile_1.xls')
+
+
+# generate input file
+# method 2
+groupIndex = {}
+all_groups = sorted(list(all_groups))
+N = len(all_groups)
+n = len(all_moles)
+
+wb2 = Workbook()
+sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+
+tmp2_row = 0
+tmp2_col = 0
+sh2.write(tmp2_row, tmp2_col, 'ID')
+sh2.write(tmp2_row, tmp2_col+1, 'Name')
+sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
+sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
+sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+
+tmp2_row = 1
+sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
+
+tmp2_col = 5
+for i in xrange(N*(N+3)/2):
+	sh2.write(tmp2_row, tmp2_col+i, i+1)
+
+tmp2_row = 2 
+for i in xrange(N):
+	sh2.write(tmp2_row, tmp2_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp2_col
+	tmp2_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh2.write(tmp2_row, tmp2_col, tmp_text)
+		groupIndex[tmp_text] = tmp2_col
+		tmp2_col += 1
+
+tmp2_row = 3
+tmp2_col = 5
+for i in xrange(n):
+	for j in xrange(N*(N+3)/2):
+		sh2.write(tmp2_row+i, tmp2_col+j, 0.0)
+
+tmp2_row = 3
+tmp2_col = 0
+for (index, tmp_mole) in enumerate(all_moles):
+	tmp_groupVector = {}
+
+	sh2.write(tmp2_row, tmp2_col, index+1)
+	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
+	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
+
+	tmp_groupVector = tmp_mole.getGroupVector2()
+	for tmp_vectorEle in tmp_groupVector.keys():
+		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+	
+	tmp2_row += 1
+
+wb2.save('inputFile_2.xls')
+
+
+# generate input file
+# method 3
+groupIndex = {}
+all_groups = sorted(list(all_groups))
+N = len(all_groups)
+n = len(all_moles)
+
+wb2 = Workbook()
+sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+
+tmp2_row = 0
+tmp2_col = 0
+sh2.write(tmp2_row, tmp2_col, 'ID')
+sh2.write(tmp2_row, tmp2_col+1, 'Name')
+sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
+sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
+sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+
+tmp2_row = 1
+sh2.write(tmp2_row, tmp2_col+3, N*2)
+
+tmp2_col = 5
+for i in xrange(N*2):
+	sh2.write(tmp2_row, tmp2_col+i, i+1)
+
+tmp2_row = 2 
+for i in xrange(N):
+	sh2.write(tmp2_row, tmp2_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp2_col
+	tmp2_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh2.write(tmp2_row, tmp2_col, tmp_text)
+	groupIndex[tmp_text] = tmp2_col
+	tmp2_col += 1
+
+tmp2_row = 3
+tmp2_col = 5
+for i in xrange(n):
+	for j in xrange(N*2):
+		sh2.write(tmp2_row+i, tmp2_col+j, 0.0)
+
+tmp2_row = 3
+tmp2_col = 0
+for (index, tmp_mole) in enumerate(all_moles):
+	tmp_groupVector = {}
+
+	sh2.write(tmp2_row, tmp2_col, index+1)
+	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
+	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
+
+	tmp_groupVector = tmp_mole.getGroupVector3()
+	for tmp_vectorEle in tmp_groupVector.keys():
+		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+	
+	tmp2_row += 1
+
+wb2.save('inputFile_3.xls')
+
+
+# generate input file
+# method 3
+groupIndex = {}
+all_groups = sorted(list(all_groups))
+N = len(all_groups)
+n = len(all_moles)
+
+wb2 = Workbook()
+sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+
+tmp2_row = 0
+tmp2_col = 0
+sh2.write(tmp2_row, tmp2_col, 'ID')
+sh2.write(tmp2_row, tmp2_col+1, 'Name')
+sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
+sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
+sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+
+tmp2_row = 1
+sh2.write(tmp2_row, tmp2_col+3, N*2)
+
+tmp2_col = 5
+for i in xrange(N*2):
+	sh2.write(tmp2_row, tmp2_col+i, i+1)
+
+tmp2_row = 2 
+for i in xrange(N):
+	sh2.write(tmp2_row, tmp2_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp2_col
+	tmp2_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh2.write(tmp2_row, tmp2_col, tmp_text)
+	groupIndex[tmp_text] = tmp2_col
+	tmp2_col += 1
+
+tmp2_row = 3
+tmp2_col = 5
+for i in xrange(n):
+	for j in xrange(N*2):
+		sh2.write(tmp2_row+i, tmp2_col+j, 0.0)
+
+tmp2_row = 3
+tmp2_col = 0
+for (index, tmp_mole) in enumerate(all_moles):
+	tmp_groupVector = {}
+
+	sh2.write(tmp2_row, tmp2_col, index+1)
+	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
+	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
+
+	tmp_groupVector = tmp_mole.getGroupVector4()
+	for tmp_vectorEle in tmp_groupVector.keys():
+		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+	
+	tmp2_row += 1
+
+wb2.save('inputFile_4.xls')
+
+
