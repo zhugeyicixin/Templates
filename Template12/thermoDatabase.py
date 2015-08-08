@@ -16,8 +16,8 @@ tmp_mole.setDescription('gas-phase Carbon atom, charge: 0, multiplicity: 3')
 tmp_mole.setFormationH(171.2882409)
 # tmp_mole.setFormationH(169.5)
 # computational reference energies at 0 K using ab initio, unit is a.u.
-tmp_mole.setRefH0({'CBS-QB3': -37.785377})
-tmp_mole.setRefH298({'CBS-QB3': -37.783017})
+tmp_mole.setRefH0({'CBS-QB3': -37.785377, 'B3LYP/6-31G(d)': -37.846280, 'M062X/def2TZVP': -37.842511})
+tmp_mole.setRefH298({'CBS-QB3': -37.783017, 'B3LYP/6-31G(d)': -37.843920, 'M062X/def2TZVP': -37.840150})
 moleBase[tmp_mole.label] = tmp_mole
 
 tmp_mole = chem.molecule()
@@ -26,8 +26,8 @@ tmp_mole.setDescription('gas-phase H2, charge: 0, multiplicity: 1')
 # standard enthalpy of formation in 298.15 K, 1 atm, unit is kcal/mol
 tmp_mole.setFormationH(0)
 # computational reference energies at 0 K using ab initio, unit is a.u.
-tmp_mole.setRefH0({'CBS-QB3': -1.166083})
-tmp_mole.setRefH298({'CBS-QB3': -1.162778})
+tmp_mole.setRefH0({'CBS-QB3': -1.166083, 'B3LYP/6-31G(d)': -1.165337, 'M062X/def2TZVP': -1.158161})
+tmp_mole.setRefH298({'CBS-QB3': -1.162778, 'B3LYP/6-31G(d)': -1.162033, 'M062X/def2TZVP': -1.154857})
 moleBase[tmp_mole.label] = tmp_mole
 
 tmp_mole = chem.molecule()
@@ -36,8 +36,8 @@ tmp_mole.setDescription('gas-phase O2, charge: 0, multiplicity: 3')
 # standard enthalpy of formation in 298.15 K, 1 atm, unit is kcal/mol
 tmp_mole.setFormationH(0)
 # computational reference energies at 0 K using ab initio, unit is a.u.
-tmp_mole.setRefH0({'CBS-QB3': -150.164604})
-tmp_mole.setRefH298({'CBS-QB3': -150.161296})
+tmp_mole.setRefH0({'CBS-QB3': -150.164604, 'B3LYP/6-31G(d)': -150.316263, 'M062X/def2TZVP': -150.323158})
+tmp_mole.setRefH298({'CBS-QB3': -150.161296, 'B3LYP/6-31G(d)': -150.312956, 'M062X/def2TZVP': -150.319852})
 moleBase[tmp_mole.label] = tmp_mole
 
 def useThermoData(species):

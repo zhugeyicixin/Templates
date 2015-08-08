@@ -144,6 +144,7 @@ class molecule:
 	hinderedRotorQM1D = []
 	description = ''
 	role = ''
+	formula = ''
 
 	formationH = 0.0
 	refH0 = {}
@@ -167,7 +168,9 @@ class molecule:
 		self.sigma = 0.0
 		self.exponentialDown = 0.0
 		self.hinderedRotorQM1D = []
+		self.description = ''
 		self.role = ''
+		self.formula = ''
 		self.formationH = 0.0
 		self.refH0 = {}
 		self.refH298 = {}
@@ -283,7 +286,10 @@ class molecule:
 
 	def setRole(self, role):
 		self.role = role
-	
+
+	def serFormula(self, formula):
+		self.formula = formula
+
 	def setFormationH(self, formationEnthalpy):
 		self.formationH = formationEnthalpy
 
@@ -454,6 +460,296 @@ class molecule:
 		fw.write('\n\n\n\n\n')
 		fw.close()
 
+	# get the formula of the molecule	
+	def calcFormula(self):
+		elementRanking = {'C':1, 'H':2, 'O':3, 'N':4}
+		tmp_formula = ''
+
+		atomList = [x.symbol for x in self.atoms]
+		atomSet = set(atomList)
+		atomSet = sorted(atomSet, key=elementRanking.__getitem__)
+		for tmp_element in atomSet:
+			tmp_formula += tmp_element
+			tmp_num = atomList.count(tmp_element)
+			if tmp_num > 1:
+				tmp_formula += str(tmp_num)  
+
+		self.formula = tmp_formula
+
+	# the groups returned is in the order of atoms-ranking in atomList, which is self.atoms as default 
+	def get1stOrderGroup(self, inputAtomList=[]):
+		atomList = []
+		if inputAtomList == []:
+			for tmp_atom in self.atoms:
+				if tmp_atom.symbol != 'H':
+					atomList.append(tmp_atom) 
+		else:
+			atomList = inputAtomList
+		tmp_groups = []
+		for tmp_atom in  atomList:
+			if tmp_atom.symbol == 'H':
+				continue
+			tmp_groups.append(tmp_atom.get1stOrderGroup())
+		return tmp_groups 
+
+	# return the group additivity vector in method 1
+	# i.e. group A - group B 1.0/distance
+	# the vector returned is a dict
+	def getGroupVector1(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupSet = list(tmp_groupSet)
+		N_group = len(tmp_groupSet)
+		for i in xrange(N_group):
+			for j in xrange(i, N_group):
+				tmp_list = sorted([tmp_groupSet[i], tmp_groupSet[j]])
+				tmp_text = tmp_list[0] + '-' + tmp_list[1]
+				tmp_groupVector[tmp_text] = 0
+
+		distances = self.getDistanceMatrix(atomList)
+		# check the distance matrix
+		# print [x.label for x in atomList]
+		# for tmp in distances:
+		# 	print tmp
+		for i in xrange(n_nonH):
+			for j in xrange(i+1, n_nonH):
+				if not np.isnan(distances[i][j]):
+					tmp_list = sorted([tmp_groups[i], tmp_groups[j]])
+					tmp_text = tmp_list[0] + '-' + tmp_list[1]
+					tmp_groupVector[tmp_text] += 1.0/distances[i][j]  		
+  
+		return tmp_groupVector
+
+	# return the group additivity vector in method 2
+	# i.e. group A - group B exp(-distance)
+	# the vector returned is a dict
+	def getGroupVector2(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupSet = list(tmp_groupSet)
+		N_group = len(tmp_groupSet)
+		for i in xrange(N_group):
+			for j in xrange(i, N_group):
+				tmp_list = sorted([tmp_groupSet[i], tmp_groupSet[j]])
+				tmp_text = tmp_list[0] + '-' + tmp_list[1]
+				tmp_groupVector[tmp_text] = 0
+
+		distances = self.getDistanceMatrix(atomList)
+		# check the distance matrix
+		# print [x.label for x in atomList]
+		# for tmp in distances:
+		# 	print tmp
+		for i in xrange(n_nonH):
+			for j in xrange(i+1, n_nonH):
+				if not np.isnan(distances[i][j]):
+					tmp_list = sorted([tmp_groups[i], tmp_groups[j]])
+					tmp_text = tmp_list[0] + '-' + tmp_list[1]
+					tmp_groupVector[tmp_text] += np.exp(-distances[i][j])  		
+  
+		return tmp_groupVector
+
+	# return the group additivity vector in method 3
+	# i.e. group A - all other groups 1.0/distance
+	# the vector returned is a dict
+	def getGroupVector3(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupSet = list(tmp_groupSet)
+		N_group = len(tmp_groupSet)
+		for i in xrange(N_group):
+			tmp_text = tmp_groupSet[i] + ' - other Groups'
+			tmp_groupVector[tmp_text] = 0
+
+		distances = self.getDistanceMatrix(atomList)
+		# check the distance matrix
+		# print [x.label for x in atomList]
+		# for tmp in distances:
+		# 	print tmp
+		for i in xrange(n_nonH):
+			tmp_text = tmp_groups[i] + ' - other Groups'
+			for j in xrange(n_nonH):
+				if not np.isnan(distances[i][j]):
+					if tmp_groups[i] != tmp_groups[j]:
+						tmp_groupVector[tmp_text] += 1.0/distances[i][j]
+					else:
+						tmp_groupVector[tmp_text] += 1.0/distances[i][j]/2.0
+
+		return tmp_groupVector
+
+	# return the group additivity vector in method 4
+	# i.e. group A - all other groups exp(-distance)
+	# the vector returned is a dict
+	def getGroupVector4(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupSet = list(tmp_groupSet)
+		N_group = len(tmp_groupSet)
+		for i in xrange(N_group):
+			tmp_text = tmp_groupSet[i] + ' - other Groups'
+			tmp_groupVector[tmp_text] = 0
+
+		distances = self.getDistanceMatrix(atomList)
+		# check the distance matrix
+		# print [x.label for x in atomList]
+		# for tmp in distances:
+		# 	print tmp
+		for i in xrange(n_nonH):
+			tmp_text = tmp_groups[i] + ' - other Groups'
+			for j in xrange(n_nonH):
+				if not np.isnan(distances[i][j]):
+					if tmp_groups[i] != tmp_groups[j]:
+						tmp_groupVector[tmp_text] += np.exp(-distances[i][j])
+					else:
+						tmp_groupVector[tmp_text] += np.exp(-distances[i][j])/2.0
+
+		return tmp_groupVector
+
+	# get the distance matrix describling the distance between different groups
+	# this is the same as a TSP (travel saleman problem) solver
+	def getDistanceMatrix(self, atomList):
+		n = len(atomList)
+		if n > 1:
+			tmp_distances = self.getDistanceMatrix(atomList[0:-1])
+			adjacentAtoms = []
+			for (index, tmp_atom) in enumerate(atomList[0: -1]):
+				if tmp_atom in atomList[-1].children:
+					tmp_distances[index].append(1.0)
+					adjacentAtoms.append(tmp_atom)
+				else:
+					tmp_distances[index].append(np.nan)
+			for (index, tmp_atom) in enumerate(atomList[0: -1]):
+				if tmp_atom not in adjacentAtoms:
+					tmp_disList = []
+					for tmp_adjAtom in adjacentAtoms:
+						tmp_distance = tmp_distances[index][atomList.index(tmp_adjAtom)]
+						if not np.isnan(tmp_distance):
+							tmp_disList.append(tmp_distance+1.0)
+					if len(tmp_disList) > 0:
+						tmp_distances[index][-1] = min(tmp_disList)
+			for i in xrange(n-1):
+				for j in xrange(i+1, n-1):
+					tmp_distance = tmp_distances[i][-1] + tmp_distances[j][-1]
+					if not np.isnan(tmp_distance):
+						if tmp_distance < tmp_distances[i][j]:
+							tmp_distances[i][j] = tmp_distance
+							tmp_distances[j][i] = tmp_distance
+			tmp_distances.append([])
+			for i in xrange(n-1):
+				tmp_distances[-1].append(tmp_distances[i][-1])
+			tmp_distances[-1].append(np.nan)
+		else:
+			tmp_distances = [[np.nan]]
+		return tmp_distances
+
+   
 class atom:
 	symbol = ''
 	label = 0
@@ -481,7 +777,7 @@ class atom:
 		for tmp_bond in inputBonds:
 			self.addBond(tmp_bond)
 
-	def addBond(self,bond):
+	def addBond(self,bond): 
 		# print 'atoms:\t' + str(bond.atom1.label) + '\t' + str(bond.atom2.label)
 		if bond.atom1.label == self.label and bond.atom2.label != self.label:
 			if bond.atom2 not in self.children:
@@ -517,8 +813,29 @@ class atom:
 	def distance(self, atom2):
 		tmp = np.array(self.coordinate)-np.array(atom2.coordinate)
 		tmp = (sum(tmp**2))**0.5
-		return tmp		
+		return tmp
 
+	def get1stOrderGroup(self):
+		elementRanking = {'C':10, 'C1.5':11, 'C2.0':12, 'H':20, 'O':30, 'N':40}
+
+		tmp_childrenSymbol = []
+		for (index, tmp_atom) in enumerate(self.children):
+			if (self.bonds[index].bondOrder - 1.0) < 1E-2:
+				tmp_childrenSymbol.append(tmp_atom.symbol)
+			else:
+				tmp_childrenSymbol.append(tmp_atom.symbol + '%.1f' % self.bonds[index].bondOrder)	
+		tmp_set = set(tmp_childrenSymbol)
+		if not tmp_set.issubset(set(elementRanking.keys())):
+			print 'Error! There is some new groups not in the ranking weight set', tmp_set-set(elementRanking.keys())
+		tmp_set = sorted(tmp_set, key=elementRanking.__getitem__)
+		groupStr = self.symbol
+		for tmp_element in tmp_set:
+			groupStr += '/' + tmp_element
+			tmp_num = tmp_childrenSymbol.count(tmp_element)
+			if tmp_num > 1:
+				groupStr += str(tmp_num)		
+		return groupStr
+						
 
 class bond:
 	atom1 = atom()
