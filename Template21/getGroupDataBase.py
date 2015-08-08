@@ -10,6 +10,7 @@ import chem
 # extract geometry and energy form log file
 ###########################################
 # get commands from .name file
+__energy__ = 'b3lyp'
 pwd = os.getcwd()
 tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:
@@ -22,7 +23,7 @@ for tmp_file in tmp_fileLists:
 			# note that if __energy__ == 'cbs', a cbs freq check would be used. 
 			# Sometimes another opt and freq would be done before cbs. This check is used to skip reading the information of other methods. 
 			print '\n-------------------------------------\ncbs freq and energy are used in this calculation\n-------------------------------------\n'
-		elif re.match('b3lyp', tmp_line) != None:
+		elif re.match('b3lyp', (tmp_line.strip()).lower()) != None:
 			__energy__ = 'b3lyp'
 			print '\n-------------------------------------\nb3lyp freq and energy are used in this calculation\n-------------------------------------\n'
 		elif tmp_line == 'cbsb3lyp':

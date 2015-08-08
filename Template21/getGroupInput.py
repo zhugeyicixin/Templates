@@ -1,12 +1,14 @@
 # this is used to get group additivity input files
 from xlwt import *
 from xlrd import *
+import re
+import os 
 
 import chem
 import thermoDatabase
-import re
 
 # get commands from .name file
+__energy__ = 'b3lyp'
 pwd = os.getcwd()
 tmp_fileLists = os.listdir(pwd)
 for tmp_file in tmp_fileLists:

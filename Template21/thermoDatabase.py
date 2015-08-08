@@ -13,7 +13,9 @@ tmp_mole = chem.molecule()
 tmp_mole.setLabel('C')
 tmp_mole.setDescription('gas-phase Carbon atom, charge: 0, multiplicity: 3')
 # standard enthalpy of formation in 298.15 K, 1 atm, unit is kcal/mol
+# NIST DATA
 tmp_mole.setFormationH(171.2882409)
+# Tanjin's empirical data
 # tmp_mole.setFormationH(169.5)
 # computational reference energies at 0 K using ab initio, unit is a.u.
 tmp_mole.setRefH0({'CBS-QB3': -37.785377, 'B3LYP/6-31G(d)': -37.846280, 'M062X/def2TZVP': -37.842511})
