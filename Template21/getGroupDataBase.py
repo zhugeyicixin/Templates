@@ -22,7 +22,7 @@ for tmp_file in tmp_fileLists:
 			# note that if __energy__ == 'cbs', a cbs freq check would be used. 
 			# Sometimes another opt and freq would be done before cbs. This check is used to skip reading the information of other methods. 
 			print '\n-------------------------------------\ncbs freq and energy are used in this calculation\n-------------------------------------\n'
-		elif tmp_line == 'b3lyp':
+		elif re.match('b3lyp', tmp_line) != None:
 			__energy__ = 'b3lyp'
 			print '\n-------------------------------------\nb3lyp freq and energy are used in this calculation\n-------------------------------------\n'
 		elif tmp_line == 'cbsb3lyp':
