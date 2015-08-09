@@ -35,8 +35,9 @@ class mesmer:
 	pattern_thermoBegin = re.compile('^.*thermodynamic data based on qtot begin: *([\_\=A-Za-z0-9]+).*$')
 	pattern_testThermo = re.compile('^.*temperature, Q, H\(T\)-H\(0\), S, and Cp.*: *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+) *([\-\.\+eE0-9]+).*$')
 	pattern_thermoEnd = re.compile('^.*thermodynamic data based on qtot end: *([\_\=A-Za-z0-9]+).*$')
-	pattern_testNASA1 = re.compile('^.*[0-9]+\.[0-9]* *[0-9]+\.[0-9]* *[0-9]+\.[0-9]*.*1$')
+	pattern_testNASA1 = re.compile('^.*G *[0-9]+\.[0-9]* *[0-9]+\.[0-9]* *[0-9]+\.[0-9]*.*1$')
 	pattern_testNASA2 = re.compile('^.*[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *2$')
+	pattern_testNASA3 = re.compile('^.*[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *[\-\.\+eE0-9]+ *3$')
 
 	def __init__(self, location=''):
 		self.location = location
@@ -500,7 +501,7 @@ class mesmer:
 						else:
 							print 'Error! The thermodynamic data of ' + tmp_names[-1] + ' does not end normally!'
 				elif NASA_done != 1:
-					if index > totLineNum-2:
+					if index > totLineNum-3:
 						tmp_NASAs.append('')
 						begin_done = -1
 						NASA_done = 1
@@ -511,9 +512,10 @@ class mesmer:
 							begin_done = -1
 							NASA_done = 1
 					tmp_m = self.pattern_testNASA1.match(tmp_line.strip())
-					if tmp_m:
+					if tmp_m and NASA_done != 1:
 						tmp2_m = self.pattern_testNASA2.match(tmp_lines[index+1].strip())
-						if tmp2_m:
+						tmp3_m = self.pattern_testNASA3.match(tmp_lines[index+2].strip())
+						if tmp2_m and tmp3_m:
 							tmp_NASAs.append(''.join(tmp_lines[index: index+4]).strip())
 							begin_done = -1
 							NASA_done = 1
