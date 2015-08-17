@@ -388,7 +388,9 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 export g09root=/home/hexin/gaussian
 export GAUSS_SCRDIR=/scratch
-source $g09root/g09/bsd/g09.profile''')
+source $g09root/g09/bsd/g09.profile
+
+''')
 
 			if self._scratchStrategy == True:
 				fw.write(
