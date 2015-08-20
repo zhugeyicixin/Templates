@@ -37,7 +37,7 @@ class cluster:
 
 		self._g09D01 = False
 		self._dispersionD3 = False
-		self._scratchStrategy = True
+		self._scratchStrategy = False
 		self._TS = False
 
 	def setJobLocation(self, clusterPath):
