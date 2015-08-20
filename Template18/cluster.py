@@ -28,7 +28,7 @@ class cluster:
 
 	_g09D01 = False
 	_dispersionD3 = False
-	_scratchStrategy = True
+	_scratchStrategy = False
 	_TS = False
 
 	def __init__(self, name, clusterPath):
@@ -409,7 +409,7 @@ rm /scratch/*
 				fw.write(
 '''cd ''' + self.jobLocation + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
-$g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
+$g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 
@@ -576,7 +576,7 @@ rm /scratch/*
 				fw.write(
 '''cd ''' + self.jobLocation + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf ''' + tmp_dir + '''.log
-$g09root/g09/formchk /scratch/''' + tmp_dir + '''.chk
+$g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 
