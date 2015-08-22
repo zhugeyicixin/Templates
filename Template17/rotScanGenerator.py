@@ -18,6 +18,7 @@ import chem
 clusterName = 'cce'
 clusterPath = '/home/hetanjin/propane/rotation'
 barrierless = 	False
+rotCH3 = False
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
@@ -124,7 +125,7 @@ for tmp_file in tmp_fileLists:
 			molecule1.setRingBanned(True)
 
 			molecule1.fulfillBonds()
-			molecule1.generateRotScanFile(fixedBond=fixedBond)
+			molecule1.generateRotScanFile(fixedBond=fixedBond, rotCH3=rotCH3)
 
 print '\ngenerating rotation scan jobs\n'
 

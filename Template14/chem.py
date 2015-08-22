@@ -410,7 +410,7 @@ class molecule:
 					self.bonds.append(tmp_bond)
 
 
-	def generateRotScanFile(self, fixedBond=[]):
+	def generateRotScanFile(self, fixedBond=[], rotCH3=True):
 		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
 
 		rotations = self.getRotations()
@@ -424,6 +424,10 @@ class molecule:
 		fw.write('\nrotation information:\n')
 
 		for tmp_rotation in rotations:
+			if rotCH3 == False:
+				tmp_3rdOrderGroup = tmp_rotation.rotBondAxis.get1stOrderGroup()
+				if 'C/H3' in tmp_3rdOrderGroup.values():
+					continue
 			if tmp_rotation.rotBondAxis.atom1.label < tmp_rotation.rotBondAxis.atom2.label:
 				tmp_atom1 = tmp_rotation.rotBondAxis.atom1
 				tmp_atom2 = tmp_rotation.rotBondAxis.atom2
