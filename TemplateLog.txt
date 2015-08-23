@@ -44,3 +44,7 @@ Template19用于从log文件中提取出几何信息生成cbs-QB3脚本（或其
 
 Template20用于提取hindered rotation的能量和使用lamm计算inertia
 提取扫描过程中坐标，使用lamm计算inertia和rotational constant
+
+Template21 用于生成group additivity中的输入向量
+
+Template22 用于玩minecraft游戏
