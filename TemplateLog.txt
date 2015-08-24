@@ -48,3 +48,5 @@ Template20用于提取hindered rotation的能量和使用lamm计算inertia
 Template21 用于生成group additivity中的输入向量
 
 Template22 用于玩minecraft游戏
+
+Template23 用于批量重命名
