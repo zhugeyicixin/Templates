@@ -88,6 +88,8 @@ n = len(all_moles)
 
 wb2 = Workbook()
 sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
+sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
 
 tmp2_row = 0
 tmp2_col = 0
@@ -118,6 +120,64 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp2_col
 		tmp2_col += 1
 
+tmp3_row = 0
+tmp3_col = 0
+sh3.write(tmp3_row, tmp3_col, 'ID')
+sh3.write(tmp3_row, tmp3_col+1, 'Name')
+sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
+sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
+sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+
+tmp3_row = 1
+sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
+
+tmp3_col = 5
+for i in xrange(N*(N+3)/2):
+	sh3.write(tmp3_row, tmp3_col+i, i+1)
+
+tmp3_row = 2 
+for i in xrange(N):
+	sh3.write(tmp3_row, tmp3_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp3_col
+	tmp3_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh3.write(tmp3_row, tmp3_col, tmp_text)
+		groupIndex[tmp_text] = tmp3_col
+		tmp3_col += 1
+
+tmp4_row = 0
+tmp4_col = 0
+sh4.write(tmp4_row, tmp4_col, 'ID')
+sh4.write(tmp4_row, tmp4_col+1, 'Name')
+sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
+sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
+sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+
+tmp4_row = 1
+sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
+
+tmp4_col = 5
+for i in xrange(N*(N+3)/2):
+	sh4.write(tmp4_row, tmp4_col+i, i+1)
+
+tmp4_row = 2 
+for i in xrange(N):
+	sh4.write(tmp4_row, tmp4_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp4_col
+	tmp4_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh4.write(tmp4_row, tmp4_col, tmp_text)
+		groupIndex[tmp_text] = tmp4_col
+		tmp4_col += 1
+
 tmp2_row = 3
 tmp2_col = 5
 for i in xrange(n):
@@ -126,6 +186,10 @@ for i in xrange(n):
 
 tmp2_row = 3
 tmp2_col = 0
+tmp3_row = 3
+tmp3_col = 0
+tmp4_row = 3
+tmp4_col = 0
 for (index, tmp_mole) in enumerate(all_moles):
 	tmp_groupVector = {}
 
@@ -136,6 +200,25 @@ for (index, tmp_mole) in enumerate(all_moles):
 	tmp_groupVector = tmp_mole.getGroupVector1()
 	for tmp_vectorEle in tmp_groupVector.keys():
 		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+
+	if not tmp_mole.existRings():
+		sh3.write(tmp3_row, tmp3_col, index+1)
+		sh3.write(tmp3_row, tmp3_col+1, tmp_mole.label)
+		sh3.write(tmp3_row, tmp3_col+2, tmp_mole.ZPE)
+		for j in xrange(N*(N+3)/2):
+			sh3.write(tmp3_row, tmp3_col+5+j, 0.0)
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh3.write(tmp3_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp3_row += 1
+	else:
+		sh4.write(tmp4_row, tmp4_col, index+1)
+		sh4.write(tmp4_row, tmp4_col+1, tmp_mole.label)
+		sh4.write(tmp4_row, tmp4_col+2, tmp_mole.ZPE)
+		for j in xrange(N*(N+3)/2):
+			sh4.write(tmp4_row, tmp4_col+5+j, 0.0)
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh4.write(tmp4_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp4_row += 1
 	
 	tmp2_row += 1
 
@@ -151,6 +234,8 @@ n = len(all_moles)
 
 wb2 = Workbook()
 sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
+sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
 
 tmp2_row = 0
 tmp2_col = 0
@@ -181,8 +266,70 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp2_col
 		tmp2_col += 1
 
+tmp3_row = 0
+tmp3_col = 0
+sh3.write(tmp3_row, tmp3_col, 'ID')
+sh3.write(tmp3_row, tmp3_col+1, 'Name')
+sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
+sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
+sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+
+tmp3_row = 1
+sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
+
+tmp3_col = 5
+for i in xrange(N*(N+3)/2):
+	sh3.write(tmp3_row, tmp3_col+i, i+1)
+
+tmp3_row = 2 
+for i in xrange(N):
+	sh3.write(tmp3_row, tmp3_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp3_col
+	tmp3_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh3.write(tmp3_row, tmp3_col, tmp_text)
+		groupIndex[tmp_text] = tmp3_col
+		tmp3_col += 1
+
+tmp4_row = 0
+tmp4_col = 0
+sh4.write(tmp4_row, tmp4_col, 'ID')
+sh4.write(tmp4_row, tmp4_col+1, 'Name')
+sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
+sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
+sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+
+tmp4_row = 1
+sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
+
+tmp4_col = 5
+for i in xrange(N*(N+3)/2):
+	sh4.write(tmp4_row, tmp4_col+i, i+1)
+
+tmp4_row = 2 
+for i in xrange(N):
+	sh4.write(tmp4_row, tmp4_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp4_col
+	tmp4_col += 1	
+
+for i in xrange(N):
+	for j in xrange(i, N):
+		tmp_list = sorted([all_groups[i], all_groups[j]])
+		tmp_text = tmp_list[0] + '-' + tmp_list[1]
+		sh4.write(tmp4_row, tmp4_col, tmp_text)
+		groupIndex[tmp_text] = tmp4_col
+		tmp4_col += 1
+
 tmp2_row = 3
 tmp2_col = 5
+tmp3_row = 3
+tmp3_col = 0
+tmp4_row = 3
+tmp4_col = 0
 for i in xrange(n):
 	for j in xrange(N*(N+3)/2):
 		sh2.write(tmp2_row+i, tmp2_col+j, 0.0)
@@ -196,9 +343,30 @@ for (index, tmp_mole) in enumerate(all_moles):
 	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
 	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
 
+	sh3.write(tmp3_row, tmp3_col, index+1)
+	sh3.write(tmp3_row, tmp3_col+1, tmp_mole.label)
+	sh3.write(tmp3_row, tmp3_col+2, tmp_mole.ZPE)
+	for j in xrange(N*(N+3)/2):
+		sh3.write(tmp3_row, tmp3_col+5+j, 0.0)
+
+	sh4.write(tmp4_row, tmp4_col, index+1)
+	sh4.write(tmp4_row, tmp4_col+1, tmp_mole.label)
+	sh4.write(tmp4_row, tmp4_col+2, tmp_mole.ZPE)
+	for j in xrange(N*(N+3)/2):
+		sh4.write(tmp4_row, tmp4_col+5+j, 0.0)
+
 	tmp_groupVector = tmp_mole.getGroupVector2()
 	for tmp_vectorEle in tmp_groupVector.keys():
 		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+
+	if not tmp_mole.existRings():
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh3.write(tmp3_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp3_row += 1
+	else:
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh4.write(tmp4_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp4_row += 1
 	
 	tmp2_row += 1
 
@@ -214,6 +382,8 @@ n = len(all_moles)
 
 wb2 = Workbook()
 sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
+sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
 
 tmp2_row = 0
 tmp2_col = 0
@@ -243,6 +413,62 @@ for i in xrange(N):
 	groupIndex[tmp_text] = tmp2_col
 	tmp2_col += 1
 
+tmp3_row = 0
+tmp3_col = 0
+sh3.write(tmp3_row, tmp3_col, 'ID')
+sh3.write(tmp3_row, tmp3_col+1, 'Name')
+sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
+sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
+sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+
+tmp3_row = 1
+sh3.write(tmp3_row, tmp3_col+3, N*2)
+
+tmp3_col = 5
+for i in xrange(N*2):
+	sh3.write(tmp3_row, tmp3_col+i, i+1)
+
+tmp3_row = 2 
+for i in xrange(N):
+	sh3.write(tmp3_row, tmp3_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp3_col
+	tmp3_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh3.write(tmp3_row, tmp3_col, tmp_text)
+	groupIndex[tmp_text] = tmp3_col
+	tmp3_col += 1
+
+tmp4_row = 0
+tmp4_col = 0
+sh4.write(tmp4_row, tmp4_col, 'ID')
+sh4.write(tmp4_row, tmp4_col+1, 'Name')
+sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
+sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
+sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+
+tmp4_row = 1
+sh4.write(tmp4_row, tmp4_col+3, N*2)
+
+tmp4_col = 5
+for i in xrange(N*2):
+	sh4.write(tmp4_row, tmp4_col+i, i+1)
+
+tmp4_row = 2 
+for i in xrange(N):
+	sh4.write(tmp4_row, tmp4_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp4_col
+	tmp4_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh4.write(tmp4_row, tmp4_col, tmp_text)
+	groupIndex[tmp_text] = tmp4_col
+	tmp4_col += 1
+
 tmp2_row = 3
 tmp2_col = 5
 for i in xrange(n):
@@ -251,6 +477,10 @@ for i in xrange(n):
 
 tmp2_row = 3
 tmp2_col = 0
+tmp3_row = 3
+tmp3_col = 0
+tmp4_row = 3
+tmp4_col = 0
 for (index, tmp_mole) in enumerate(all_moles):
 	tmp_groupVector = {}
 
@@ -258,9 +488,30 @@ for (index, tmp_mole) in enumerate(all_moles):
 	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
 	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
 
+	sh3.write(tmp3_row, tmp3_col, index+1)
+	sh3.write(tmp3_row, tmp3_col+1, tmp_mole.label)
+	sh3.write(tmp3_row, tmp3_col+2, tmp_mole.ZPE)
+	for j in xrange(N*2):
+		sh3.write(tmp3_row, tmp3_col+5+j, 0.0)
+
+	sh4.write(tmp4_row, tmp4_col, index+1)
+	sh4.write(tmp4_row, tmp4_col+1, tmp_mole.label)
+	sh4.write(tmp4_row, tmp4_col+2, tmp_mole.ZPE)
+	for j in xrange(N*2):
+		sh4.write(tmp4_row, tmp4_col+5+j, 0.0)
+
 	tmp_groupVector = tmp_mole.getGroupVector3()
 	for tmp_vectorEle in tmp_groupVector.keys():
 		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+
+	if not tmp_mole.existRings():
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh3.write(tmp3_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp3_row += 1
+	else:
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh4.write(tmp4_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp4_row += 1
 	
 	tmp2_row += 1
 
@@ -268,7 +519,7 @@ wb2.save('inputFile_3.xls')
 
 
 # generate input file
-# method 3
+# method 4
 groupIndex = {}
 all_groups = sorted(list(all_groups))
 N = len(all_groups)
@@ -276,6 +527,8 @@ n = len(all_moles)
 
 wb2 = Workbook()
 sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
+sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
+sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
 
 tmp2_row = 0
 tmp2_col = 0
@@ -298,12 +551,67 @@ for i in xrange(N):
 	groupIndex[all_groups[i]] = tmp2_col
 	tmp2_col += 1	
 
-
 for i in xrange(N):
 	tmp_text = all_groups[i] + ' - other Groups'
 	sh2.write(tmp2_row, tmp2_col, tmp_text)
 	groupIndex[tmp_text] = tmp2_col
 	tmp2_col += 1
+
+tmp3_row = 0
+tmp3_col = 0
+sh3.write(tmp3_row, tmp3_col, 'ID')
+sh3.write(tmp3_row, tmp3_col+1, 'Name')
+sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
+sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
+sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+
+tmp3_row = 1
+sh3.write(tmp3_row, tmp3_col+3, N*2)
+
+tmp3_col = 5
+for i in xrange(N*2):
+	sh3.write(tmp3_row, tmp3_col+i, i+1)
+
+tmp3_row = 2 
+for i in xrange(N):
+	sh3.write(tmp3_row, tmp3_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp3_col
+	tmp3_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh3.write(tmp3_row, tmp3_col, tmp_text)
+	groupIndex[tmp_text] = tmp3_col
+	tmp3_col += 1
+
+tmp4_row = 0
+tmp4_col = 0
+sh4.write(tmp4_row, tmp4_col, 'ID')
+sh4.write(tmp4_row, tmp4_col+1, 'Name')
+sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
+sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
+sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+
+tmp4_row = 1
+sh4.write(tmp4_row, tmp4_col+3, N*2)
+
+tmp4_col = 5
+for i in xrange(N*2):
+	sh4.write(tmp4_row, tmp4_col+i, i+1)
+
+tmp4_row = 2 
+for i in xrange(N):
+	sh4.write(tmp4_row, tmp4_col, all_groups[i])
+	groupIndex[all_groups[i]] = tmp4_col
+	tmp4_col += 1	
+
+
+for i in xrange(N):
+	tmp_text = all_groups[i] + ' - other Groups'
+	sh4.write(tmp4_row, tmp4_col, tmp_text)
+	groupIndex[tmp_text] = tmp4_col
+	tmp4_col += 1
 
 tmp2_row = 3
 tmp2_col = 5
@@ -313,6 +621,10 @@ for i in xrange(n):
 
 tmp2_row = 3
 tmp2_col = 0
+tmp3_row = 3
+tmp3_col = 0
+tmp4_row = 3
+tmp4_col = 0
 for (index, tmp_mole) in enumerate(all_moles):
 	tmp_groupVector = {}
 
@@ -320,9 +632,30 @@ for (index, tmp_mole) in enumerate(all_moles):
 	sh2.write(tmp2_row, tmp2_col+1, tmp_mole.label)
 	sh2.write(tmp2_row, tmp2_col+2, tmp_mole.ZPE)
 
+	sh3.write(tmp3_row, tmp3_col, index+1)
+	sh3.write(tmp3_row, tmp3_col+1, tmp_mole.label)
+	sh3.write(tmp3_row, tmp3_col+2, tmp_mole.ZPE)
+	for j in xrange(N*2):
+		sh3.write(tmp3_row, tmp3_col+5+j, 0.0)
+
+	sh4.write(tmp4_row, tmp4_col, index+1)
+	sh4.write(tmp4_row, tmp4_col+1, tmp_mole.label)
+	sh4.write(tmp4_row, tmp4_col+2, tmp_mole.ZPE)
+	for j in xrange(N*2):
+		sh4.write(tmp4_row, tmp4_col+5+j, 0.0)
+
 	tmp_groupVector = tmp_mole.getGroupVector4()
 	for tmp_vectorEle in tmp_groupVector.keys():
 		sh2.write(tmp2_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+
+	if not tmp_mole.existRings():
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh3.write(tmp3_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp3_row += 1
+	else:
+		for tmp_vectorEle in tmp_groupVector.keys():
+			sh4.write(tmp4_row, groupIndex[tmp_vectorEle], tmp_groupVector[tmp_vectorEle])
+		tmp4_row += 1
 	
 	tmp2_row += 1
 

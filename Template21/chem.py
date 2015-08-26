@@ -368,6 +368,21 @@ class molecule:
 					rotations.append(tmp_rotation)
 		return rotations
 
+	def existRings(self):
+		ringDetectResult = False
+		for tmp_atom in self.atoms:
+			if tmp_atom.childrenNum() == 1:
+				continue
+			for (index, tmp_atom2) in enumerate(tmp_atom.children):
+				if tmp_atom2.childrenNum() == 1:
+					continue
+				if tmp_atom.label > tmp_atom2.label:
+					continue
+				tmp_group1, tmp_group2, tmp_result = self.connectedGraph2(tmp_atom.bonds[index])
+				if tmp_result == 0:
+					ringDetectResult = True
+		return ringDetectResult
+ 
 	def getAtomsNum(self):
 		return len(self.atoms)
 
