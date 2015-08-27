@@ -68,7 +68,7 @@ sheets=[s.name for s in wb.sheets()]
 # constants
 mesmer1 = mesmer.mesmer()
 phys1 = phys.phys()
-QMMethodDict = {'cbs': 'CBS-QB3', 'b3lyp': 'B3LYP'}
+QMMethodDict = {'cbs': 'CBS-QB3', 'b3lyp': 'B3LYP/6-31G(d)'}
 # the number of rows and columns of the displayed fitting figures
 FIG_ROW = 6
 FIG_COL = 5
