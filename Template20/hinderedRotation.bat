@@ -1,3 +1,3 @@
 @echo off
-python hinderedRotation.py
+python rigidScan.py
 pause
