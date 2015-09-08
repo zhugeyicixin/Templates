@@ -14,9 +14,11 @@ tmp_mole.setLabel('C')
 tmp_mole.setDescription('gas-phase Carbon atom, charge: 0, multiplicity: 3')
 # standard enthalpy of formation in 298.15 K, 1 atm, unit is kcal/mol
 # NIST DATA
-tmp_mole.setFormationH(171.2882409)
-# Tanjin's empirical data
-# tmp_mole.setFormationH(169.5)
+# tmp_mole.setFormationH(171.2882409)
+# Tanjin's empirical HO averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.119052083
+# tmp_mole.setFormationH(169.7035843)
+# Tanjin's empirical HR averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.134300929
+tmp_mole.setFormationH(169.5852139)
 # computational reference energies at 0 K using ab initio, unit is a.u.
 tmp_mole.setRefH0({'CBS-QB3': -37.785377, 'B3LYP/6-31G(d)': -37.846280, 'M062X/def2TZVP': -37.842511})
 tmp_mole.setRefH298({'CBS-QB3': -37.783017, 'B3LYP/6-31G(d)': -37.843920, 'M062X/def2TZVP': -37.840150})
