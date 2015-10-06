@@ -1,7 +1,7 @@
 用于Thermo in Multiwell计算
-Template4和5是最完整的版本 可以计算正逆反应 （还需要改进其中的symmetry number、optical isomers和multiplicity的部分，对于一般的ridical还可以，但是不适用于有对称性的molecule，同时有手性碳原子的结构还需要benchmark进行对比）
-Template4使用freq文件中第一次的freq
-Template5检查freq是否有cbs部分，只能使用cbs部分的freq，找不到会报错
+//旧版报废 Template4和5是最完整的版本 可以计算正逆反应 （还需要改进其中的symmetry number、optical isomers和multiplicity的部分，对于一般的ridical还可以，但是不适用于有对称性的molecule，同时有手性碳原子的结构还需要benchmark进行对比）
+//旧版报废 Template4使用freq文件中第一次的freq
+//旧版报废 Template5检查freq是否有cbs部分，只能使用cbs部分的freq，找不到会报错
 //旧版报废 Template6用于计算barrierless reactions
 Template12用于计算barrier/barrierless reaction, 其中的能量可以选择（cbs开关和能量提取关键字）,温度也可以选择
 
@@ -49,3 +49,10 @@ Template21 用于生成group additivity中的输入向量
 Template22 用于玩minecraft游戏
 
 Template23 用于批量重命名
+
+Template24 用于生成conformer searching和能量最小化，生成newGroupAdditivity的能量数据
+
+Template25 用于替换某些关键词句
+
+Template26 用于在大量文件中选取某些需要的
+
