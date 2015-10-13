@@ -1,0 +1,15 @@
+%mem=6GB
+%nprocshared=4
+%chk=C_1_opt_B3L.chk
+# b3lyp/6-31g(d) opt freq
+
+Title Card Required
+
+0 3
+ C                 0.00000000   0.00000000    0.00000000
+
+
+ 
+ 
+ 
+ 

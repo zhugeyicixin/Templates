@@ -1,0 +1,349 @@
+ Entering Gaussian System, Link 0=/home/hetanjin/apps/g09D01/g09/g09
+ Input=O2_2_SP_M06.gjf
+ Output=O2_2_SP_M06.log
+ Initial command:
+ /home/hetanjin/apps/g09D01/g09/l1.exe "/state/partition1/Gau-12958.inp" -scrdir="/state/partition1/"
+ Entering Link 1 = /home/hetanjin/apps/g09D01/g09/l1.exe PID=     12960.
+  
+ Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2013,
+            Gaussian, Inc.  All Rights Reserved.
+  
+ This is part of the Gaussian(R) 09 program.  It is based on
+ the Gaussian(R) 03 system (copyright 2003, Gaussian, Inc.),
+ the Gaussian(R) 98 system (copyright 1998, Gaussian, Inc.),
+ the Gaussian(R) 94 system (copyright 1995, Gaussian, Inc.),
+ the Gaussian 92(TM) system (copyright 1992, Gaussian, Inc.),
+ the Gaussian 90(TM) system (copyright 1990, Gaussian, Inc.),
+ the Gaussian 88(TM) system (copyright 1988, Gaussian, Inc.),
+ the Gaussian 86(TM) system (copyright 1986, Carnegie Mellon
+ University), and the Gaussian 82(TM) system (copyright 1983,
+ Carnegie Mellon University). Gaussian is a federally registered
+ trademark of Gaussian, Inc.
+  
+ This software contains proprietary and confidential information,
+ including trade secrets, belonging to Gaussian, Inc.
+  
+ This software is provided under written license and may be
+ used, copied, transmitted, or stored only in accord with that
+ written license.
+  
+ The following legend is applicable only to US Government
+ contracts under FAR:
+  
+                    RESTRICTED RIGHTS LEGEND
+  
+ Use, reproduction and disclosure by the US Government is
+ subject to restrictions as set forth in subparagraphs (a)
+ and (c) of the Commercial Computer Software - Restricted
+ Rights clause in FAR 52.227-19.
+  
+ Gaussian, Inc.
+ 340 Quinnipiac St., Bldg. 40, Wallingford CT 06492
+  
+  
+ ---------------------------------------------------------------
+ Warning -- This program may not be used in any manner that
+ competes with the business of Gaussian, Inc. or will provide
+ assistance to any competitor of Gaussian, Inc.  The licensee
+ of this program is prohibited from giving any competitor of
+ Gaussian, Inc. access to this program.  By using this program,
+ the user acknowledges that Gaussian, Inc. is engaged in the
+ business of creating and licensing software in the field of
+ computational chemistry and represents and warrants to the
+ licensee that it is not a competitor of Gaussian, Inc. and that
+ it will not use this program in any manner prohibited above.
+ ---------------------------------------------------------------
+  
+
+ Cite this work as:
+ Gaussian 09, Revision D.01,
+ M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, 
+ M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, B. Mennucci, 
+ G. A. Petersson, H. Nakatsuji, M. Caricato, X. Li, H. P. Hratchian, 
+ A. F. Izmaylov, J. Bloino, G. Zheng, J. L. Sonnenberg, M. Hada, 
+ M. Ehara, K. Toyota, R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, 
+ Y. Honda, O. Kitao, H. Nakai, T. Vreven, J. A. Montgomery, Jr., 
+ J. E. Peralta, F. Ogliaro, M. Bearpark, J. J. Heyd, E. Brothers, 
+ K. N. Kudin, V. N. Staroverov, T. Keith, R. Kobayashi, J. Normand, 
+ K. Raghavachari, A. Rendell, J. C. Burant, S. S. Iyengar, J. Tomasi, 
+ M. Cossi, N. Rega, J. M. Millam, M. Klene, J. E. Knox, J. B. Cross, 
+ V. Bakken, C. Adamo, J. Jaramillo, R. Gomperts, R. E. Stratmann, 
+ O. Yazyev, A. J. Austin, R. Cammi, C. Pomelli, J. W. Ochterski, 
+ R. L. Martin, K. Morokuma, V. G. Zakrzewski, G. A. Voth, 
+ P. Salvador, J. J. Dannenberg, S. Dapprich, A. D. Daniels, 
+ O. Farkas, J. B. Foresman, J. V. Ortiz, J. Cioslowski, 
+ and D. J. Fox, Gaussian, Inc., Wallingford CT, 2013.
+ 
+ ******************************************
+ Gaussian 09:  ES64L-G09RevD.01 24-Apr-2013
+                 6-Oct-2015 
+ ******************************************
+ %mem=6GB
+ %nprocshared=4
+ Will use up to    4 processors via shared memory.
+ %chk=O2_2_SP_M06.chk
+ ----------------
+ # M062X/def2TZVP
+ ----------------
+ 1/38=1/1;
+ 2/12=2,17=6,18=5,40=1/2;
+ 3/5=44,7=101,11=2,16=1,25=1,30=1,74=-55/1,2,3;
+ 4//1;
+ 5/5=2,38=5/2;
+ 6/7=2,8=2,9=2,10=2,28=1/1;
+ 99/5=1,9=1/99;
+ -------------------
+ Title Card Required
+ -------------------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 3
+ O                     0.        0.        0.6073 
+ O                     0.        0.       -0.6073 
+ 
+                          Input orientation:                          
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        0.000000    0.000000    0.607296
+      2          8           0        0.000000    0.000000   -0.607296
+ ---------------------------------------------------------------------
+ Stoichiometry    O2(3)
+ Framework group  D*H[C*(O.O)]
+ Deg. of freedom     1
+ Full point group                 D*H     NOp   8
+ Largest Abelian subgroup         D2H     NOp   8
+ Largest concise Abelian subgroup C2      NOp   2
+                         Standard orientation:                         
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        0.000000    0.000000    0.607296
+      2          8           0        0.000000    0.000000   -0.607296
+ ---------------------------------------------------------------------
+ Rotational constants (GHZ):      0.0000000     42.8355584     42.8355584
+ Standard basis: def2TZVP (5D, 7F)
+ There are    17 symmetry adapted cartesian basis functions of AG  symmetry.
+ There are     3 symmetry adapted cartesian basis functions of B1G symmetry.
+ There are     8 symmetry adapted cartesian basis functions of B2G symmetry.
+ There are     8 symmetry adapted cartesian basis functions of B3G symmetry.
+ There are     3 symmetry adapted cartesian basis functions of AU  symmetry.
+ There are    17 symmetry adapted cartesian basis functions of B1U symmetry.
+ There are     8 symmetry adapted cartesian basis functions of B2U symmetry.
+ There are     8 symmetry adapted cartesian basis functions of B3U symmetry.
+ There are    14 symmetry adapted basis functions of AG  symmetry.
+ There are     3 symmetry adapted basis functions of B1G symmetry.
+ There are     7 symmetry adapted basis functions of B2G symmetry.
+ There are     7 symmetry adapted basis functions of B3G symmetry.
+ There are     3 symmetry adapted basis functions of AU  symmetry.
+ There are    14 symmetry adapted basis functions of B1U symmetry.
+ There are     7 symmetry adapted basis functions of B2U symmetry.
+ There are     7 symmetry adapted basis functions of B3U symmetry.
+    62 basis functions,   102 primitive gaussians,    72 cartesian basis functions
+     9 alpha electrons        7 beta electrons
+       nuclear repulsion energy        27.8837184419 Hartrees.
+ NAtoms=    2 NActive=    2 NUniq=    1 SFac= 4.00D+00 NAtFMM=   60 NAOKFM=F Big=F
+ Integral buffers will be    131072 words long.
+ Raffenetti 2 integral format.
+ Two-electron integral symmetry is turned on.
+ One-electron integrals computed using PRISM.
+   8 Symmetry operations used in ECPInt.
+ ECPInt:  NShTT=     253 NPrTT=     864 LenC2=     253 LenP2D=     795.
+ LDataN:  DoStor=T MaxTD1= 6 Len=  172
+ NBasis=    62 RedAO= T EigKep=  2.85D-03  NBF=    14     3     7     7     3    14     7     7
+ NBsUse=    62 1.00D-06 EigRej= -1.00D+00 NBFU=    14     3     7     7     3    14     7     7
+ ExpMin= 1.75D-01 ExpMax= 2.70D+04 ExpMxC= 9.22D+02 IAcc=1 IRadAn=         1 AccDes= 0.00D+00
+ Harris functional with IExCor= 1009 and IRadAn=       1 diagonalized for initial guess.
+ HarFok:  IExCor= 1009 AccDes= 0.00D+00 IRadAn=         1 IDoV= 1 UseB2=F ITyADJ=14
+ ICtDFT=  3500011 ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ FoFCou: FMM=F IPFlag=           0 FMFlag=      100000 FMFlg1=           0
+         NFxFlg=           0 DoJE=T BraDBF=F KetDBF=T FulRan=T
+         wScrn=  0.000000 ICntrl=     500 IOpCl=  0 I1Cent=   200000004 NGrid=           0
+         NMat0=    1 NMatS0=      1 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
+ Petite list used in FoFCou.
+ Initial guess orbital symmetries:
+ Alpha Orbitals:
+       Occupied  (SGG) (SGU) (SGG) (SGU) (SGG) (PIU) (PIU) (PIG)
+                 (PIG)
+       Virtual   (SGU) (SGG) (PIU) (PIU) (SGU) (SGG) (PIG) (PIG)
+                 (SGU) (DLTG) (DLTG) (PIU) (PIU) (DLTU) (DLTU)
+                 (SGG) (SGU) (PIG) (PIG) (PIU) (PIU) (SGG) (PIG)
+                 (PIG) (SGU) (SGG) (SGU) (DLTG) (DLTG) (PIU) (PIU)
+                 (PHIU) (PHIU) (SGG) (PHIG) (PHIG) (DLTU) (DLTU)
+                 (DLTG) (DLTG) (DLTU) (DLTU) (PIG) (PIG) (SGU)
+                 (PIU) (PIU) (PIG) (PIG) (SGG) (SGU) (SGG) (SGU)
+ Beta  Orbitals:
+       Occupied  (SGG) (SGU) (SGG) (SGU) (SGG) (PIU) (PIU)
+       Virtual   (PIG) (PIG) (SGU) (SGG) (PIU) (PIU) (SGU) (SGG)
+                 (PIG) (PIG) (SGU) (DLTG) (DLTG) (PIU) (PIU) (DLTU)
+                 (DLTU) (SGG) (SGU) (PIG) (PIG) (PIU) (PIU) (SGG)
+                 (PIG) (PIG) (SGU) (SGG) (SGU) (DLTG) (DLTG) (PIU)
+                 (PIU) (PHIU) (PHIU) (SGG) (PHIG) (PHIG) (DLTU)
+                 (DLTU) (DLTG) (DLTG) (DLTU) (DLTU) (PIG) (PIG)
+                 (SGU) (PIU) (PIU) (PIG) (PIG) (SGG) (SGU) (SGG)
+                 (SGU)
+ The electronic state of the initial guess is 3-SGG.
+ Initial guess <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0000 S= 1.0000
+ Keep R1 and R2 ints in memory in symmetry-blocked form, NReq=3909794.
+ Requested convergence on RMS density matrix=1.00D-08 within 128 cycles.
+ Requested convergence on MAX density matrix=1.00D-06.
+ Requested convergence on             energy=1.00D-06.
+ No special actions if energy rises.
+ Integral accuracy reduced to 1.0D-05 until final iterations.
+ Initial convergence to 1.0D-05 achieved.  Increase integral accuracy.
+ SCF Done:  E(UM062X) =  -150.326078470     A.U. after   12 cycles
+            NFock= 12  Conv=0.20D-08     -V/T= 2.0040
+ <Sx>= 0.0000 <Sy>= 0.0000 <Sz>= 1.0000 <S**2>= 2.0127 S= 1.0042
+ <L.S>= 0.000000000000E+00
+ Annihilation of the first spin contaminant:
+ S**2 before annihilation     2.0127,   after     2.0001
+
+ **********************************************************************
+
+            Population analysis using the SCF density.
+
+ **********************************************************************
+
+ Orbital symmetries:
+ Alpha Orbitals:
+       Occupied  (SGG) (SGU) (SGG) (SGU) (PIU) (PIU) (SGG) (PIG)
+                 (PIG)
+       Virtual   (SGU) (SGG) (PIU) (PIU) (SGG) (SGU) (PIG) (PIG)
+                 (SGU) (DLTG) (DLTG) (PIU) (PIU) (DLTU) (DLTU)
+                 (SGG) (PIG) (PIG) (SGU) (PIU) (PIU) (SGG) (SGU)
+                 (PIG) (PIG) (SGG) (SGU) (DLTG) (DLTG) (PIU) (PIU)
+                 (PHIU) (PHIU) (SGG) (PHIG) (PHIG) (DLTU) (DLTU)
+                 (DLTG) (DLTG) (DLTU) (DLTU) (PIG) (PIG) (SGU)
+                 (PIU) (PIU) (PIG) (PIG) (SGG) (SGU) (SGG) (SGU)
+ Beta  Orbitals:
+       Occupied  (SGG) (SGU) (SGG) (SGU) (SGG) (PIU) (PIU)
+       Virtual   (PIG) (PIG) (SGU) (SGG) (PIU) (PIU) (SGG) (SGU)
+                 (PIG) (PIG) (SGU) (DLTG) (DLTG) (PIU) (PIU) (DLTU)
+                 (DLTU) (SGG) (SGU) (PIG) (PIG) (PIU) (PIU) (SGG)
+                 (SGU) (PIG) (PIG) (SGG) (SGU) (DLTG) (DLTG) (PIU)
+                 (PIU) (PHIU) (PHIU) (SGG) (PHIG) (PHIG) (DLTU)
+                 (DLTU) (DLTG) (DLTG) (PIG) (PIG) (DLTU) (DLTU)
+                 (SGU) (PIU) (PIU) (PIG) (PIG) (SGG) (SGU) (SGG)
+                 (SGU)
+ The electronic state is 3-SGG.
+ Alpha  occ. eigenvalues --  -19.79163 -19.79128  -1.44241  -0.96919  -0.66901
+ Alpha  occ. eigenvalues --   -0.66901  -0.64287  -0.40495  -0.40495
+ Alpha virt. eigenvalues --    0.22566   0.36983   0.41632   0.41632   0.47597
+ Alpha virt. eigenvalues --    0.47788   0.53050   0.53050   0.77808   1.26784
+ Alpha virt. eigenvalues --    1.26799   1.33879   1.33879   1.65959   1.65981
+ Alpha virt. eigenvalues --    1.88696   2.14008   2.14008   2.15327   2.44432
+ Alpha virt. eigenvalues --    2.44432   2.54978   2.77573   2.78261   2.78261
+ Alpha virt. eigenvalues --    2.90108   4.26524   4.59878   4.59905   4.63954
+ Alpha virt. eigenvalues --    4.63954   4.93431   4.93431   4.98365   5.16504
+ Alpha virt. eigenvalues --    5.16504   5.68021   5.68022   6.02731   6.02753
+ Alpha virt. eigenvalues --    6.23231   6.23255   6.26515   6.26515   6.34131
+ Alpha virt. eigenvalues --    6.38699   6.38699   7.16411   7.16411   7.38011
+ Alpha virt. eigenvalues --    8.58016  43.10047  43.63785
+  Beta  occ. eigenvalues --  -19.76717 -19.76649  -1.36962  -0.86111  -0.59071
+  Beta  occ. eigenvalues --   -0.53333  -0.53333
+  Beta virt. eigenvalues --   -0.05812  -0.05812   0.24746   0.36917   0.43458
+  Beta virt. eigenvalues --    0.43458   0.46653   0.50158   0.54851   0.54851
+  Beta virt. eigenvalues --    0.78377   1.29176   1.29181   1.37398   1.37398
+  Beta virt. eigenvalues --    1.70530   1.70536   1.89667   2.16320   2.16675
+  Beta virt. eigenvalues --    2.16675   2.51642   2.51642   2.58507   2.80536
+  Beta virt. eigenvalues --    2.84337   2.84337   2.92936   4.28068   4.62061
+  Beta virt. eigenvalues --    4.62068   4.63810   4.63810   4.96037   4.96037
+  Beta virt. eigenvalues --    4.99141   5.19421   5.19421   5.69966   5.69974
+  Beta virt. eigenvalues --    6.13635   6.13639   6.30775   6.30775   6.34100
+  Beta virt. eigenvalues --    6.34106   6.38727   6.42502   6.42502   7.16279
+  Beta virt. eigenvalues --    7.16279   7.40851   8.56769  43.10197  43.64021
+          Condensed to atoms (all electrons):
+               1          2
+     1  O    7.874472   0.125528
+     2  O    0.125528   7.874472
+          Atomic-Atomic Spin Densities.
+               1          2
+     1  O    1.403463  -0.403463
+     2  O   -0.403463   1.403463
+ Mulliken charges and spin densities:
+               1          2
+     1  O    0.000000   1.000000
+     2  O    0.000000   1.000000
+ Sum of Mulliken charges =   0.00000   2.00000
+ Mulliken charges and spin densities with hydrogens summed into heavy atoms:
+               1          2
+     1  O    0.000000   1.000000
+     2  O    0.000000   1.000000
+ Electronic spatial extent (au):  <R**2>=             43.7738
+ Charge=              0.0000 electrons
+ Dipole moment (field-independent basis, Debye):
+    X=              0.0000    Y=              0.0000    Z=              0.0000  Tot=              0.0000
+ Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=            -10.0302   YY=            -10.0302   ZZ=            -10.4735
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Traceless Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=              0.1478   YY=              0.1478   ZZ=             -0.2956
+   XY=              0.0000   XZ=              0.0000   YZ=              0.0000
+ Octapole moment (field-independent basis, Debye-Ang**2):
+  XXX=              0.0000  YYY=              0.0000  ZZZ=              0.0000  XYY=              0.0000
+  XXY=              0.0000  XXZ=              0.0000  XZZ=              0.0000  YZZ=              0.0000
+  YYZ=              0.0000  XYZ=              0.0000
+ Hexadecapole moment (field-independent basis, Debye-Ang**3):
+ XXXX=             -7.2040 YYYY=             -7.2040 ZZZZ=            -29.0140 XXXY=              0.0000
+ XXXZ=              0.0000 YYYX=              0.0000 YYYZ=              0.0000 ZZZX=              0.0000
+ ZZZY=              0.0000 XXYY=             -2.4013 XXZZ=             -6.2854 YYZZ=             -6.2854
+ XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=              0.0000
+ N-N= 2.788371844188D+01 E-N=-4.111934162507D+02  KE= 1.497316130539D+02
+ Symmetry AG   KE= 6.953381307300D+01
+ Symmetry B1G  KE= 4.562697635950D-34
+ Symmetry B2G  KE= 3.060720419870D+00
+ Symmetry B3G  KE= 3.060720419870D+00
+ Symmetry AU   KE= 1.486446899349D-33
+ Symmetry B1U  KE= 6.507245558901D+01
+ Symmetry B2U  KE= 4.501951776088D+00
+ Symmetry B3U  KE= 4.501951776088D+00
+                          Isotropic Fermi Contact Couplings
+        Atom                 a.u.       MegaHertz       Gauss      10(-4) cm-1
+     1  O(17)              0.15750     -47.73912     -17.03450     -15.92405
+     2  O(17)              0.15750     -47.73912     -17.03450     -15.92405
+ --------------------------------------------------------
+       Center         ----  Spin Dipole Couplings  ----
+                      3XX-RR        3YY-RR        3ZZ-RR
+ --------------------------------------------------------
+     1   Atom        1.284460      1.284460     -2.568920
+     2   Atom        1.284460      1.284460     -2.568920
+ --------------------------------------------------------
+                        XY            XZ            YZ
+ --------------------------------------------------------
+     1   Atom        0.000000      0.000000      0.000000
+     2   Atom        0.000000      0.000000      0.000000
+ --------------------------------------------------------
+
+
+ ---------------------------------------------------------------------------------
+              Anisotropic Spin Dipole Couplings in Principal Axis System
+ ---------------------------------------------------------------------------------
+
+       Atom             a.u.   MegaHertz   Gauss  10(-4) cm-1        Axes
+
+              Baa    -2.5689   185.885    66.328    62.005  0.0000  0.0000  1.0000
+     1 O(17)  Bbb     1.2845   -92.943   -33.164   -31.002  0.9991 -0.0434  0.0000
+              Bcc     1.2845   -92.943   -33.164   -31.002  0.0434  0.9991  0.0000
+ 
+              Baa    -2.5689   185.885    66.328    62.005  0.0000  0.0000  1.0000
+     2 O(17)  Bbb     1.2845   -92.943   -33.164   -31.002  1.0000  0.0000  0.0000
+              Bcc     1.2845   -92.943   -33.164   -31.002  0.0000  1.0000  0.0000
+ 
+
+ ---------------------------------------------------------------------------------
+
+ 1\1\GINC-COMPUTE-0-15\SP\UM062X\def2TZVP\O2(3)\HETANJIN\06-Oct-2015\0\
+ \# M062X/def2TZVP\\Title Card Required\\0,3\O,0,0.,0.,0.607296\O,0,0.,
+ 0.,-0.607296\\Version=ES64L-G09RevD.01\State=3-SGG\HF=-150.3260785\S2=
+ 2.012699\S2-1=0.\S2A=2.000078\RMSD=2.029e-09\Dipole=0.,0.,0.\Quadrupol
+ e=0.1098738,0.1098738,-0.2197475,0.,0.,0.\PG=D*H [C*(O1.O1)]\\@
+
+
+ GOOD SENSE ABOUT TRIVIALITIES IS BETTER THAN NONSENSE
+ ABOUT THINGS THAT MATTER
+
+                                       -- MAX BEERBOHM
+ Job cpu time:       0 days  0 hours  0 minutes  6.2 seconds.
+ File lengths (MBytes):  RWF=      5 Int=      0 D2E=      0 Chk=      2 Scr=      1
+ Normal termination of Gaussian 09 at Tue Oct  6 16:44:04 2015.

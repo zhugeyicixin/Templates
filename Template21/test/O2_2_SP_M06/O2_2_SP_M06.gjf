@@ -1,0 +1,16 @@
+%mem=6GB
+%nprocshared=4
+%chk=O2_2_SP_M06.chk
+# M062X/def2TZVP
+
+Title Card Required
+
+0 3
+ O                  0.00000000    0.00000000    0.60729600
+ O                  0.00000000    0.00000000   -0.60729600
+
+
+ 
+ 
+ 
+ 

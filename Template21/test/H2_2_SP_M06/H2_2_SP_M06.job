@@ -1,0 +1,16 @@
+#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /home/hetanjin/apps/g09D01
+source $g09root/g09/bsd/g09.login
+
+cd /home/hetanjin/newGroupAdditivityFrog2/reference/H2_2_SP_M06
+$g09root/g09/g09 H2_2_SP_M06.gjf
+$g09root/g09/formchk H2_2_SP_M06.chk
+
+
+
