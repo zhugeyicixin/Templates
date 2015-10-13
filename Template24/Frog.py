@@ -9,7 +9,7 @@ import re
 
 class Frog:
 	# public constants
-	pattern_mol2Energy = re.compile('^.*VDW energy = ([\.0-9]+).*$')
+	pattern_mol2Energy = re.compile('^.*VDW energy = ([\.\-0-9]+).*$')
 	pattern_mol2AtomStart = re.compile('^.*@<TRIPOS>ATOM.*$')
 	pattern_mol2Atom = re.compile('^ *[0-9]+ +([a-zA-Z]+)[0-9]+ +([\-\.0-9]+) +([\-\.0-9]+) +([\-\.0-9]+).*$')
 
