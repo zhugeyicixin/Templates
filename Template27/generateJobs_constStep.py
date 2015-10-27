@@ -2,9 +2,9 @@ import shutil
 import os
 
 # input parameters
-factor = 0.5
+factor = 2
 # unit : K
-temperature = 650
+temperature = 850
 # unit : atm
 pressure = 10
 phi = 1
@@ -19,8 +19,10 @@ fileNuminDir = 20
 
 
 # temporary variables
-dirNum = 1
+dirNum = 0
 fileNum = 0
+dirName = ''
+fileName = ''
 
 reactionSplit=range(1, reactionNum+2, increment)
 if reactionSplit[-1] != reactionNum+1:
@@ -36,11 +38,9 @@ else:
 	shutil.copy('submit12.sh', workName)
 
 for i in xrange(0, len(reactionSplit)-1):
-	if fileNum >= fileNuminDir:
-		fileNum = 0
+	if (fileNum%fileNuminDir) == 0:
 		dirNum += 1
-	dirName = 'Factor' + '%0.1f'%factor + '_' + '%03d'%(dirNum)
-	if fileNum == 0:
+		dirName = 'Factor' + '%0.1f'%factor + '_' + '%03d'%(dirNum)
 		if os.path.exists(os.path.join(workName, dirName)):
 			shutil.rmtree(os.path.join(workName, dirName))
 		os.mkdir(os.path.join(workName, dirName))
