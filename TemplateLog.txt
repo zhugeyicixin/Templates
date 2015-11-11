@@ -56,3 +56,12 @@ Template25 用于替换某些关键词句
 
 Template26 用于在大量文件中选取某些需要的
 
+Template27 用于cantera的ignition delay sensitivity文件生成和分析
+
+Template28 用于chemikin导出的ROP中的路径分析和相对速率计算
+
+Template29 用于生成提交到Tianhe或者Tianhe2的脚本
+
+Template30 用于检测.log是否正常完成
+
+

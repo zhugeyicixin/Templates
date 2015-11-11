@@ -3,7 +3,6 @@
 from numpy import *
 from xlrd import *
 from xlwt import *
-from xlutils.copy import copy
 from re import *
 import re
 import os
@@ -43,7 +42,9 @@ for tmp_file in tmp_fileLists:
 			# lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
 			fw.seek(0)
 			fw.truncate()
-			lines[2] = '#p B3LYP/6-31G(d) opt=(tight,gdiis) int=ultrafine\n'
+			# lines[0] = '%mem=16GB\n'
+			# lines[1] = '%nprocshared=12\n'
+			# lines[2] = '#p B3LYP/6-31G(d) opt=(gdiis,tight) int=ultrafine freq \n'
 			fw.writelines(lines)
 			fw.close()
 			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
