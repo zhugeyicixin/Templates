@@ -2,8 +2,6 @@
 # Read from specifically formatted excel sheet and store them as data arrays
 from xlrd import *
 from xlwt import *
-import pyExcelerator
-from xlutils.copy import copy
 from re import *
 import re
 import os
@@ -16,7 +14,7 @@ import chem
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_5'
+clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_3'
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')

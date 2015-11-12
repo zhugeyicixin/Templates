@@ -9,15 +9,15 @@ import time
 #input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_2'
+clusterName = 'Tianhe'
+clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n+2_3'
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
-
+cluster1.setG09D01(True)	
 # definetion of comparing pattern
 
 #variables

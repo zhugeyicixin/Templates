@@ -12,21 +12,25 @@ import cluster
 # input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_7'
+# clusterName = 'cce'
+# clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_2'
+clusterName = 'Tianhe'
+clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n'
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
+cluster1._g09D01=True
 
-pattern_file = re.compile('^(C[0-9]*H[0-9]*_[0-9]*).*\.log$')
+pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*_+[r0-9]+_+[CO0-9]+).*\.log$')
 pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
+pattern_gjfFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*_+[r0-9]+_+[CO0-9]+).*\.gjf$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$') 
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_input = re.compile('^.*Input orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 # pattern_energy = re.compile('^.*Sum of electronic and zero-point Energies= *(-?[0-9]+\.[0-9]+).*$')
-pattern_energy = re.compile('^.*SCF Done:  E\([RU]PM6\) = ([\-\.0-9Ee]+) +A\.U\. after.*$')
+pattern_energy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *([\-\.0-9Ee]+) +A\.U\. after.*$')
 pattern_end = re.compile('^.*Normal termination of Gaussian 09.*$')
 
 # variables
@@ -48,42 +52,61 @@ tmp_energy = 0.0
 error_file_num = 0
 
 # extract energies
-if os.path.exists('_e_conformerB3LYPGjfs'):
-	shutil.rmtree('_e_conformerB3LYPGjfs')
-os.mkdir('_e_conformerB3LYPGjfs')
+if os.path.exists('_i_radicalSPEnergy'):
+	shutil.rmtree('_i_radicalSPEnergy')
+os.mkdir('_i_radicalSPEnergy')
 
-os.chdir('_d_conformerPM6Gjfs')
+os.chdir('_h_radicalGeneration')
 tmp_folderLists = os.listdir('.')
 for tmp_folder in tmp_folderLists:
 	logExist = 0
 	tmp_energy = 0.0
 	if os.path.isfile(tmp_folder):
-		continue
-	tmp_fileList = os.listdir(tmp_folder)
-	for tmp_file in tmp_fileList:
-		tmp_m = pattern_file.match(tmp_file)
+		tmp_m = pattern_logFile.match(tmp_folder)
 		if tmp_m:
-			logExist = 1
 			tmp_name = tmp_m.group(1)
 			if tmp_name not in energyDict.keys():
 				energyDict[tmp_name] = {} 
-			fr = file(os.path.join(tmp_folder, tmp_file), 'r')
+			fr = file(os.path.join(tmp_folder), 'r')
 			tmp_lines = fr.readlines()
-			print tmp_file
 			tmp2_m = pattern_end.match(tmp_lines[-1])
 			if not tmp2_m:
-				print 'Error! ' + tmp_file + ' not ends normally!'
+				print 'Error! ' + tmp_folder + ' not ends normally!'
 				error_file_num += 1
 			else:
 				for tmp_line in tmp_lines:
 					tmp3_m = pattern_energy.match(tmp_line)
 					if tmp3_m:
 						tmp_energy = float(tmp3_m.group(1))
-				energyDict[tmp_name][tmp_file[0:-4]] = tmp_energy
+				energyDict[tmp_name][tmp_folder[0:-4]] = tmp_energy
 			fr.close()
-	if logExist != 1:
-		print 'Error! The name of folder is not invalid! ' + tmp_folder	
-		error_file_num += 1	
+	else:
+		tmp_fileList = os.listdir(tmp_folder)
+		# print tmp_folder
+		print tmp_folder
+		for tmp_file in tmp_fileList:
+			tmp_m = pattern_logFile.match(tmp_file)
+			if tmp_m:
+				logExist = 1
+				tmp_name = tmp_m.group(1)
+				if tmp_name not in energyDict.keys():
+					energyDict[tmp_name] = {} 
+				fr = file(os.path.join(tmp_folder, tmp_file), 'r')
+				tmp_lines = fr.readlines()
+				tmp2_m = pattern_end.match(tmp_lines[-1])
+				if not tmp2_m:
+					print 'Error! ' + tmp_file + ' not ends normally!'
+					error_file_num += 1
+				else:
+					for tmp_line in tmp_lines:
+						tmp3_m = pattern_energy.match(tmp_line)
+						if tmp3_m:
+							tmp_energy = float(tmp3_m.group(1))
+					energyDict[tmp_name][tmp_file[0:-4]] = tmp_energy
+				fr.close()
+		if logExist != 1:
+			print 'Error! The name of folder is not invalid! ' + tmp_folder	
+			error_file_num += 1	
 
 # write to excel
 wb_new = Workbook()
@@ -132,7 +155,7 @@ for tmp_mole in  molecules:
 		tmp_col += 1
 	# this code is used to copy the lowest-energy file to LogFileCollection directory
 	# if len(sortedDict) > 0:
-	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_e_conformerB3LYPGjfs', sortedDict[0][0]+'.log'))
+	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_i_radicalSPEnergy', sortedDict[0][0]+'.log'))
 	# else:
 	# 	print 'Error! There is no file corresponding to molecule ' + tmp_mole
 wb_new.save('EnergyCollection.xls')
@@ -141,18 +164,15 @@ wb_new.save('EnergyCollection.xls')
 for tmp_mole in molecules:
 	tmp_dict = energyDict[tmp_mole]
 	sortedDict = sorted(tmp_dict.items(), key=lambda d:d[1])
-	for tmp_file in sortedDict[0:10]:
-		tmp_m = pattern_fileConf.match(tmp_file[0])
-		if not tmp_m:
-			print 'Error! Not structure from conformer searching!'
-			continue
-		
+	if len(sortedDict) > 0:
+		tmp_file = sortedDict[0]
+		fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
+
 		multi_done = 0
 		optimized_done = 0
 		standard_done = 0
 		coordinate_done =0
 
-		fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
 		tmp_lines = fr.readlines()
 		for (lineNum, tmp_line) in enumerate(tmp_lines):
 			if multi_done != 1:
@@ -175,7 +195,7 @@ for tmp_mole in molecules:
 					if lineNum > tmp_num:
 						tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
 						coordinate_done = 1
-		fw = file(os.path.join('..', '_e_conformerB3LYPGjfs', tmp_file[0]+'.gjf'), 'w')
+		fw = file(os.path.join('..', '_i_radicalSPEnergy', tmp_file[0]+'.gjf'), 'w')
 		fw.write(
 '''%mem=28GB
 %nprocshared=12
@@ -187,10 +207,12 @@ using B3LYP/6-31G(d) to do opt and freq calc.
 0 '''+str(multi) + '\n' + tmp_geom + '\n\n\n\n\n\n')
 		fw.close()
 		fr.close()
+	else:
+		print 'Error! There is no jobs about molecule ' + tmp_mole
 os.chdir('../')
 
-# generate B3LYP jobs from Gjfs in _e_conformerB3LYPGjfs
-os.chdir('_e_conformerB3LYPGjfs')
+# generate B3LYP jobs from Gjfs in _i_radicalSPEnergy
+os.chdir('_i_radicalSPEnergy')
 tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('\.gjf', tmp_file):
@@ -198,9 +220,9 @@ for tmp_file in tmp_fileList:
 			cluster1.setTS(True)
 		else:
 			cluster1.setTS(False)
-		tmp_m = pattern_fileConf.match(tmp_file)
+		tmp_m = pattern_gjfFile.match(tmp_file)
 		if tmp_m:
-			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_1_opt_B3L' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine')
+			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_3_opt_M06' ,command='#p M062X/def2TZVP')
 os.chdir('../')
 
 print '---------------------------------------\nLog of task 1\n'
