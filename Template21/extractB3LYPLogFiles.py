@@ -37,6 +37,9 @@ for tmp_file in tmp_fileLists:
 		fr = file(tmp_file,'r')
 		tmp_lines = fr.readlines()
 		fr.close()
+		tmp_m = re.match('.*am1.*',tmp_lines[85].lower())
+		if tmp_m:
+			print 'am1 used! ' + tmp_file
 		tmp_m = pattern_end.match(tmp_lines[-1])
 		if tmp_m:
 			succcess = 1
