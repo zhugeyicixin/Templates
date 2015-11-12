@@ -1015,6 +1015,27 @@ class molecule:
 		
 		return tmp_routes, tmp_distances
 
+	# assume this is a molecule and generate all possible radicals
+	# every H on heavy atoms is removed to generate radical 
+	def generateRadicals(self):
+		# get all non-H atom list
+		allAtoms = []
+		parentGeom = []
+		radicals = {}
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)		
+		for tmp_atom in self.atoms:
+			parentGeom.append(tmp_atom.symbol + '    ' + '%.8f'%tmp_atom.coordinate[0] + '    ' + '%.8f'%tmp_atom.coordinate[1] + '    ' + '%.8f'%tmp_atom.coordinate[2] + ' \n')
+		for (index, tmp_atom) in enumerate(self.atoms):
+			if tmp_atom.symbol == 'H':
+				tmp_radical = parentGeom[0:index] + parentGeom[index+1:]
+				if len(tmp_atom.children) == 1:
+					radicals[''.join(tmp_radical)] = tmp_atom.children[0].symbol + str(tmp_atom.children[0].label)
+				else:
+					print 'Error! There is a hydrogen bond across H ' + str(tmp_atom.label) + '!'
+		return radicals
+
    
 class atom:
 	symbol = ''
