@@ -1,6 +1,6 @@
 # this is a class of chemistry 
 # it can be used to deal with infomation of atoms and molecules
-import visual
+# import visual
 import os
 
 import numpy as np
@@ -13,7 +13,9 @@ elementDict={1:'H', 2:'He', 6:'C', 7:'N', 8:'O',
 
 eleWeightDict={'H': 1.008, 'He': 4.0026, 'C': 12.011, 'O': 15.999, 'N': 14.007}
 
-eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
+# eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
+eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
+
 
 # gaussian default bond length threshold parameters
 # bondDisDict={
