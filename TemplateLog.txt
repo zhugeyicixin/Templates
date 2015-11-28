@@ -64,4 +64,11 @@ Template29 用于生成提交到Tianhe或者Tianhe2的脚本
 
 Template30 用于检测.log是否正常完成
 
+Template31 用于在同类分子中随机选取若干个进行后续计算
+
+Template32 用于统计各类分子的个数
+
+
+
+
 
