@@ -159,6 +159,7 @@ class molecule:
 	formula = ''
 
 	formationH = 0.0
+	# ref enthalpy is the key-value pairs of method-enthalpy
 	refH0 = {}
 	refH298 = {}
 
@@ -192,6 +193,7 @@ class molecule:
 		if inputAtoms == []:
 			self.atoms = []
 			atomsNum = len(geom)
+			# gjf geometry as default
 			for i in range(0, atomsNum):
 				tmp_line = geom[i]
 				tmp_line.strip()
@@ -214,6 +216,7 @@ class molecule:
 		else:
 			self.atoms = copy.deepcopy(inputAtoms)
 
+	# get atom symbol and the coordinate from .log format geometry text lines
 	def getLogGeom(self, geom):
 		self.atoms = []
 		for tmp_line in geom:
@@ -222,6 +225,8 @@ class molecule:
 			tmp_atom = atom(elementDict[tmp_line[1]] , int(tmp_line[0]), map(float, tmp_line[3:6]))
 			self.atoms.append(tmp_atom)
 
+	# get atom symbol and the coordinate from .gjf format geometry text lines
+	# this is the same as .xyz format
 	def getGjfGeom(self, geom):
 		self.atoms = []
 		for (i,tmp_line) in enumerate(geom):
@@ -1014,6 +1019,26 @@ class molecule:
 			tmp_distances = [[[]]]
 		
 		return tmp_routes, tmp_distances
+	# assume this is a molecule and generate all possible radicals
+	# every H on heavy atoms is removed to generate radical 
+	def generateRadicals(self):
+		# get all non-H atom list
+		allAtoms = []
+		parentGeom = []
+		radicals = {}
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)		
+		for tmp_atom in self.atoms:
+			parentGeom.append(tmp_atom.symbol + '    ' + '%.8f'%tmp_atom.coordinate[0] + '    ' + '%.8f'%tmp_atom.coordinate[1] + '    ' + '%.8f'%tmp_atom.coordinate[2] + ' \n')
+		for (index, tmp_atom) in enumerate(self.atoms):
+			if tmp_atom.symbol == 'H':
+				tmp_radical = parentGeom[0:index] + parentGeom[index+1:]
+				if len(tmp_atom.children) == 1:
+					radicals[''.join(tmp_radical)] = tmp_atom.children[0].symbol + str(tmp_atom.children[0].label)
+				else:
+					print 'Error! There is a hydrogen bond across H ' + str(tmp_atom.label) + '!'
+		return radicals
 
    
 class atom:

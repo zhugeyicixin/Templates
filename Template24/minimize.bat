@@ -6,4 +6,6 @@ python _d_PM6FromConfSearch.py
 python _e_B3YPFromPM6.py
 python _f_lowestEnergyFromB3LYP.py
 python _g_SPEnergyFromOpt.py
+python _h_radicalFromOpt.py
+python _i_radicalSPEnergyFromOpt.py
 pause

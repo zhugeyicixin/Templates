@@ -43,10 +43,23 @@ eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.colo
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
 
-# version 1.2 used for QOOH decomposition (carbonyl + alkene + OH)
+# # version 1.2 used for QOOH decomposition (carbonyl + alkene + OH)
+# bondDisDict={
+# 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+# 'C': {'H': [1.5], 'C': [1.24740, 1.3860, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
+# 'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
+# }
+
+# bondOrderDict={
+# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+# }
+
+# version 1.3 used for new group additivity
 bondDisDict={
 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
-'C': {'H': [1.5], 'C': [1.24740, 1.3860, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
+'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
 'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
 }
 
@@ -55,7 +68,6 @@ bondOrderDict={
 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 }
-
 
 # units:
 # P: atm
@@ -373,6 +385,7 @@ class molecule:
 					rotations.append(tmp_rotation)
 		return rotations
 
+	# judge if ring structure exsits in the species
 	def existRings(self):
 		ringDetectResult = False
 		for tmp_atom in self.atoms:
@@ -387,7 +400,60 @@ class molecule:
 				if tmp_result == 0:
 					ringDetectResult = True
 		return ringDetectResult
- 
+
+	# get the number of members in the ring structure if ring exists 
+	# only used for single-ring structure
+	def getRingSize(self):
+		ringSize = 0
+
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+		
+		# follow the depth ranking to find a ring
+		visitedAtom = []
+		trace = []
+		for tmp_atom in atomList:
+			visitedAtom.append(tmp_atom)
+			trace.append(tmp_atom)
+			tmp_num = 0
+			for tmp2_atom in tmp_atom.children:
+				if tmp2_atom.symbol != 'H':
+					tmp_num += 1
+			if tmp_num == 1:
+				trace.pop(-1)
+				while len(trace) > 0:
+					tmp_list = []
+					for tmp2_atom in trace[-1].children:
+						if tmp2_atom.symbol != 'H':
+							tmp_list.append(tmp2_atom)
+					if set(tmp_list).issubset(set(visitedAtom)):
+						trace.pop(-1)
+					else:
+						break
+			else:
+				for (index, tmp2_atom) in enumerate(trace[0:-2]):
+					if tmp2_atom in tmp_atom.children:
+						ringSize = len(trace) - index
+						break
+		return ringSize
+
 	def getAtomsNum(self):
 		return len(self.atoms)
 
@@ -736,8 +802,135 @@ class molecule:
 
 		return tmp_groupVector
 
+	# return the group additivity vector in method 5
+	# i.e. group A - group B 1.0/distance for distances of all possible routes
+	# the vector returned is a dict
+	def getGroupVector5(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupSet = list(tmp_groupSet)
+		N_group = len(tmp_groupSet)
+		for i in xrange(N_group):
+			for j in xrange(i, N_group):
+				tmp_list = sorted([tmp_groupSet[i], tmp_groupSet[j]])
+				tmp_text = tmp_list[0] + '-' + tmp_list[1]
+				tmp_groupVector[tmp_text] = 0
+
+		routes, distances = self.getAllRoutesMatrix(atomList)
+		# check the distance matrix
+		# print [x.label for x in atomList]
+		# print '--------------------------------'
+		# print self.label
+		# for i in xrange(len(distances)):
+		# 	for j in xrange(len(distances)):
+		# 		print '(', atomList[i].label, ', ', atomList[j].label, ')', routes[i][j]
+		# 		print '(', atomList[i].label, ', ', atomList[j].label, ')', distances[i][j]				
+		# print ' '
+
+		for i in xrange(n_nonH):
+			for j in xrange(i+1, n_nonH):
+				if len(distances[i][j]) > 0:
+					tmp_list = sorted([tmp_groups[i], tmp_groups[j]])
+					tmp_text = tmp_list[0] + '-' + tmp_list[1]
+					# tmp_groupVector[tmp_text] += sum([1.0/x for x in distances[i][j]]) 
+					tmp_groupVector[tmp_text] += sum([np.exp(-x) for x in distances[i][j]])   							  		
+  
+		return tmp_groupVector
+
+	# return the conventioanl group additivity vector
+	# i.e. groups, GAUCHE, 1-5 interaction
+	# the vector returned is a dict
+	def getConventionalGAVector(self):
+		tmp_groupVector = {}
+		n = len(self.atoms)
+		# get all non-H atom list
+		allAtoms = []
+		for tmp_atom in self.atoms:
+			if tmp_atom.symbol != 'H':
+				allAtoms.append(tmp_atom)
+		# get the atomList in depth first search ranking
+		atomList = []
+		atomList.append(allAtoms[0])
+		allAtoms.remove(allAtoms[0])
+		parentIndex = 0
+		while allAtoms != []:
+			for tmp_atom in atomList[parentIndex].children:
+				if tmp_atom.symbol != 'H' and tmp_atom in allAtoms :
+					atomList.insert(parentIndex+1, tmp_atom)
+					allAtoms.remove(tmp_atom)
+			parentIndex += 1
+			if parentIndex == len(atomList):
+				break
+
+		# group info one by one
+		tmp_groups = self.get1stOrderGroup(atomList)
+		n_nonH = len(tmp_groups)		
+		tmp_groupSet = set(tmp_groups)
+		for tmp_group in tmp_groupSet:
+			tmp_groupVector[tmp_group] = tmp_groups.count(tmp_group)
+		
+		# interaction between two groups
+		tmp_groupVector['GAUCHE'] = 0
+		tmp_groupVector['1-5_interaction'] = 0
+		GAUCHETable = [
+		[0, 0, 0, 0],
+		[0, 0, 1, 2],
+		[0, 1, 2, 4],
+		[0, 2, 4, 6]
+		]
+		oneFiveIntTable=[
+		[0, 0, 0, 0],
+		[0, 0, 0, 0],
+		[0, 0, 0, 1],
+		[0, 0, 1, 2]
+		]
+		for (index, tmp_atom) in enumerate(atomList):
+			for tmp_child in tmp_atom.children:
+				if tmp_child.symbol == 'H':
+					continue
+				if tmp_child not in atomList[index+1:]:
+					pass
+				else:
+					tmp_groupVector['GAUCHE'] += GAUCHETable[tmp_atom.nonHChildrenNum()-1][tmp_child.nonHChildrenNum()-1]
+				for tmp_grandson in tmp_child.children:
+					if tmp_grandson.symbol == 'H':
+						continue
+					if tmp_grandson not in atomList[index+1:]:
+						pass
+					else:
+						tmp_groupVector['1-5_interaction'] += oneFiveIntTable[tmp_atom.nonHChildrenNum()-1][tmp_grandson.nonHChildrenNum()-1]
+		return tmp_groupVector
+
+
 	# get the distance matrix describling the distance between different groups
-	# this is the same as a TSP (travel saleman problem) solver
+	# this is not the same as a TSP (travel saleman problem) solver
 	def getDistanceMatrix(self, atomList):
 		n = len(atomList)
 		if n > 1:
@@ -773,6 +966,59 @@ class molecule:
 			tmp_distances = [[np.nan]]
 		return tmp_distances
 
+	# get the distance matrix describling all the possible route and distance between different groups
+	def getAllRoutesMatrix(self, atomList):
+		n = len(atomList)
+		if n > 1:
+			tmp_routes, tmp_distances = self.getAllRoutesMatrix(atomList[0:-1])
+			adjacentAtoms = []
+			tmp_routes.append([])
+			tmp_distances.append([])
+			for (index, tmp_atom) in enumerate(atomList[0: -1]):
+				if tmp_atom in atomList[-1].children:
+					tmp_routes[-1].append([[tmp_atom.label]])
+					tmp_distances[-1].append([1.0])
+					adjacentAtoms.append(tmp_atom)
+				else:
+					tmp_routes[-1].append([])
+					tmp_distances[-1].append([])
+			for (index, tmp_atom) in enumerate(atomList[0: -1]): 
+					tmp_routeList = []
+					tmp_disList = []
+					for tmp_adjAtom in adjacentAtoms:
+						tmp_route = tmp_routes[atomList.index(tmp_adjAtom)][index]
+						tmp_distance = tmp_distances[atomList.index(tmp_adjAtom)][index]
+						if len(tmp_distance) > 0:
+							tmp_routeList += [[tmp_adjAtom.label]+x for x  in tmp_route]
+							tmp_disList += [x+1.0 for x in tmp_distance]
+					if len(tmp_disList) > 0:
+						tmp_routes[-1][index] += tmp_routeList
+						tmp_distances[-1][index] += tmp_disList
+			for i in xrange(n-1):
+				tmp_routes[i].append([x[-2::-1]+[atomList[-1].label] for x in tmp_routes[-1][i]])
+				tmp_distances[i].append(copy.deepcopy(tmp_distances[-1][i]))
+			tmp_routes[-1].append([])
+			tmp_distances[-1].append([])
+
+			for i in xrange(n-1):
+				for j in xrange(i+1, n-1):
+					tmp_route = []
+					tmp_distance = []
+					for x in xrange(len(tmp_distances[-1][i])):
+						for y in xrange(len(tmp_distances[-1][j])):
+							tmp_list = tmp_routes[i][-1][x] + tmp_routes[-1][j][y]
+							tmp_set = set([atomList[i].label] + tmp_list)
+							if len(tmp_set) == (len(tmp_list)+1):
+								tmp_routes[i][j] += [tmp_list]
+								tmp_distances[i][j] += [tmp_distances[i][-1][x] + tmp_distances[-1][j][y]]
+								# tmp_routes[j][i] += [tmp_list[-2::-1]+[atomList[i].label]]
+								tmp_routes[j][i] += [tmp_routes[j][-1][y] + tmp_routes[-1][i][x]]
+								tmp_distances[j][i] += [tmp_distances[j][-1][y] + tmp_distances[-1][i][x]]
+		else:
+			tmp_routes = [[[]]]
+			tmp_distances = [[[]]]
+		
+		return tmp_routes, tmp_distances
 	# assume this is a molecule and generate all possible radicals
 	# every H on heavy atoms is removed to generate radical 
 	def generateRadicals(self):
@@ -854,6 +1100,13 @@ class atom:
 
 	def childrenNum(self):
 		return len(self.children)
+
+	def nonHChildrenNum(self):
+		number = 0
+		for tmp_child in self.children:
+			if tmp_child.symbol != 'H':
+				number += 1
+		return number
 
 	def distance(self, atom2):
 		tmp = np.array(self.coordinate)-np.array(atom2.coordinate)

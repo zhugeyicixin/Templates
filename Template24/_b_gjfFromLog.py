@@ -10,8 +10,10 @@ import textExtractor
 #input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'Tianhe'
-clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n+2_3'
+clusterName = 'cce'
+clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
+# clusterName = 'Tianhe'
+# clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n+2_4'
 
 # symbol indicating the position
 pattern_name = re.compile('^(C[0-9]*H[0-9]*_[0-9]*)_.*$')

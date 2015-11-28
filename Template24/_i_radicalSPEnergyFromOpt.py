@@ -12,14 +12,14 @@ import cluster
 # input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-# clusterName = 'cce'
-# clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_2'
-clusterName = 'Tianhe'
-clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n'
+clusterName = 'cce'
+clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_2'
+# clusterName = 'Tianhe2'
+# clusterPath = '/vol-th/home/you1/hetanjin/newGroupAdditivityFrog2/CnH2n_2'
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
-cluster1._g09D01=True
+cluster1._g09D01=True 
 
 pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*_+[r0-9]+_+[CO0-9]+).*\.log$')
 pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')

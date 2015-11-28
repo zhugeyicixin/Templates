@@ -368,7 +368,7 @@ do
 done
 			'''
 		else:
-			print 'sh submit4.sh ' + tmp_dir
+			print 'sh submit12.sh ' + tmp_dir
 			print 'sleep 5'
 
 		tmp_lines = fr.readlines()
@@ -402,8 +402,8 @@ done
 ''')
 		else:
 			fw.write(
-'''%mem=6GB
-%nprocshared=4
+'''%mem=28GB
+%nprocshared=12
 ''')
 # %chk=''')
 		# if self.name == 'Tsinghua100' and self._scratchStrategy == True:
@@ -933,7 +933,7 @@ $$$$
 '''#!/bin/sh
 
 cd ''' + self.jobLocation + '/' + tmp_dir + '''
-python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 50 &>> log_''' + tmp_dir + '''.txt
+python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 250 &>> log_''' + tmp_dir + '''.txt
 
 
 ''')
