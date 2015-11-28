@@ -1,6 +1,6 @@
 %mem=28GB
 %nprocshared=12
-%chk=TS_3e_35_cbs_on_7_14_22_1_scan_b3631gd.chk
+%chk=TS_3e_35_cbs_on_7_13_14_3_scan_b3631gd.chk
 #p ub3lyp/6-31g(d) opt=modredundant nosym
 
 using ub3lyp/6-31G(d) to scan
@@ -37,7 +37,7 @@ H 4.34501200 -1.13851200 -0.59683200
 H 3.55995100 -1.65515400 0.90279500
 H 1.00464600 -0.56048000 1.41545800
 
-D 13 14 22 25 S 40 10.0
+D 10 13 14 22 S 40 10.0
 
 
 

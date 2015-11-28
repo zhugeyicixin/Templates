@@ -1,6 +1,6 @@
 %mem=28GB
 %nprocshared=12
-%chk=RO2_1_1_5_1_scan_b3631gd.chk
+%chk=RO2_1_5_8_3_scan_b3631gd.chk
 #p ub3lyp/6-31g(d) opt=modredundant nosym
 
 using ub3lyp/6-31G(d) to scan
@@ -19,7 +19,7 @@ H 0.16526400 0.65379800 1.27702700
 O 1.45903800 0.41876300 -0.31555000
 O 2.00257600 -0.63485600 0.26170700
 
-D 4 1 5 8 S 40 10.0
+D 1 5 8 11 S 40 10.0
 
 
 
