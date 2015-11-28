@@ -1,4 +1,4 @@
 @echo off
-python getGroupDataBase.py
+python getGroupDataBaseFromLog.py
 python getGroupInput.py
 pause

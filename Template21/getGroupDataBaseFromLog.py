@@ -2,6 +2,7 @@
 from xlwt import *
 import os
 import re
+import xlsxwriter
 
 import textExtractor
 import chem
@@ -228,9 +229,8 @@ for tmp_file in tmp_fileLists:
 ###########################################
 # write info to excel
 ###########################################
-wb = Workbook()
-sh = wb.add_sheet('speciesInfo')
-sh.cell_overwrite_ok = True
+wb = xlsxwriter.Workbook('database.xlsx')
+sh = wb.add_worksheet('speciesInfo')
 
 tmp_row = 0
 tmp_col = 0
@@ -268,5 +268,5 @@ for i in xrange(speciesNum):
 	sh.write(tmp_row, tmp_col+12, textExtractor.geometryExtractor(geom[i]).replace('\t','    '))
 	tmp_row += 1
 
-wb.save('database.xls')
+wb.close()
 
