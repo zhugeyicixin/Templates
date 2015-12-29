@@ -172,7 +172,7 @@ using ub3lyp/6-31G(d) to scan
 								fw.write(''.join(['B ', str(fixedBond[0]),' ', str(fixedBond[1]), ' F\n']))
 							fw.write('\n\n\n\n\n')
 							fw.close()
-							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+							os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 							
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 							if self.name == 'cce':
@@ -256,7 +256,7 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 ''')
 							fw.close()
-							os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+							os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 						if self.name == 'cce':
 							if os.path.exists('submit12.sh'):
 								shutil.copy('submit12.sh', os.path.join(pathway, tmp_file))
@@ -349,7 +349,7 @@ using ''' + QMmethod + ''' to do opt and freq calc.
 		fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 		fw.close()
-		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -434,7 +434,7 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 ''')
 		fw.close()
-		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 
 	def generateJobFromLog(self, fileName, path='', nosym=False, jobName=''):
 		#variables
@@ -517,7 +517,7 @@ using ub3lyp/6-31G(d) to scan
 		fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
 
 		fw.close()
-		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -601,7 +601,7 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 ''')
 		fw.close()
-		os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 
 	# this function is used to convert gjf to sdf format for conformer searching
 	# the parameter path should be left as ''
@@ -685,14 +685,14 @@ using ub3lyp/6-31G(d) to scan
 			fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 			fw.close()
-			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.xyz'), 'w')
 			fw.write(str(lineEnd - lineStart - 1) + '\n')
 			fw.write(tmp_file[0:-4] + '\n')
 			fw.write(''.join(tmp_lines[lineStart+1: lineEnd]) + '\n\n\n\n\n')
 			fw.close()
-			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 
 			os.system('D:\\hetanjin\\professionalSoftware\\OpenBabel-2.3.72\\babel.exe -ixyz ' + os.path.join(tmp_dir_path, tmp_dir+'.xyz') + ' -osdf ' + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
 			
@@ -717,7 +717,7 @@ $$$$
 				fw.close()
 			elif tmp_num[1] > len(tmp_molecule.bonds):
 				print 'Error! Open babel bond number > len(tmp_molecule.bonds)', tmp_dir
-			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 			fw.write(
@@ -730,7 +730,7 @@ python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smil
 
 ''')
 			fw.close()
-			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
 
 		# generate the script to run jmol 
 		# fw = file('gjfToJmol.jmol', 'w')
@@ -767,4 +767,4 @@ python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smil
 		# 	fw = file(os.path.join(tmp_dir_path, tmp_dir+'.sdf'), 'w')
 		# 	fw.writelines(tmp_lines)
 		# 	fw.close()
-		# 	os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+		# 	os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
