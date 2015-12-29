@@ -178,7 +178,7 @@ using ub3lyp/6-31G(d) to scan
 								fw.write(''.join(['B ', str(fixedBond[0]),' ', str(fixedBond[1]), ' F\n']))
 							fw.write('\n\n\n\n\n')
 							fw.close()
-							os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+							os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 							
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 							if self.name == 'cce':
@@ -318,7 +318,7 @@ yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 
 ''')									
 							fw.close()
-							os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+							os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 						if self.name == 'cce':
 							if os.path.exists('submit12.sh'):
 								shutil.copy('submit12.sh', os.path.join(pathway, tmp_file))
@@ -368,7 +368,7 @@ do
 done
 			'''
 		else:
-			print 'sh submit4.sh ' + tmp_dir
+			print 'sh submit12.sh ' + tmp_dir
 			print 'sleep 5'
 
 		tmp_lines = fr.readlines()
@@ -402,8 +402,8 @@ done
 ''')
 		else:
 			fw.write(
-'''%mem=6GB
-%nprocshared=4
+'''%mem=28GB
+%nprocshared=12
 ''')
 # %chk=''')
 		# if self.name == 'Tsinghua100' and self._scratchStrategy == True:
@@ -433,7 +433,7 @@ using ''' + QMmethod + ''' to do opt and freq calc.
 		fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 		fw.close()
-		os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -574,7 +574,7 @@ yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 
 ''')				
 		fw.close()
-		os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 	def generateJobFromLog(self, fileName, path='', nosym=False, jobName=''):
 		#variables
@@ -663,7 +663,7 @@ using ub3lyp/6-31G(d) to scan
 		fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
 
 		fw.close()
-		os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -803,7 +803,7 @@ yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 
 ''')				
 		fw.close()
-		os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 	# this function is used to convert gjf to sdf format for conformer searching
 	# the parameter path should be left as ''
@@ -893,14 +893,14 @@ using ub3lyp/6-31G(d) to scan
 			fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 			fw.close()
-			os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.xyz'), 'w')
 			fw.write(str(lineEnd - lineStart - 1) + '\n')
 			fw.write(tmp_file[0:-4] + '\n')
 			fw.write(''.join(tmp_lines[lineStart+1: lineEnd]) + '\n\n\n\n\n')
 			fw.close()
-			os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 			os.system('E:\\hetanjin\\softwares\\OpenBabel-2.3.72\\babel.exe -ixyz ' + os.path.join(tmp_dir_path, tmp_dir+'.xyz') + ' -osdf ' + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
 			
@@ -925,7 +925,7 @@ $$$$
 				fw.close()
 			elif tmp_num[1] > len(tmp_molecule.bonds):
 				print 'Error! Open babel bond number > len(tmp_molecule.bonds)', tmp_dir
-			os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 			fw.write(
@@ -933,12 +933,12 @@ $$$$
 '''#!/bin/sh
 
 cd ''' + self.jobLocation + '/' + tmp_dir + '''
-python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 50 &>> log_''' + tmp_dir + '''.txt
+python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 250 &>> log_''' + tmp_dir + '''.txt
 
 
 ''')
 			fw.close()
-			os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 		# generate the script to run jmol 
 		# fw = file('gjfToJmol.jmol', 'w')
@@ -975,4 +975,4 @@ python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smil
 		# 	fw = file(os.path.join(tmp_dir_path, tmp_dir+'.sdf'), 'w')
 		# 	fw.writelines(tmp_lines)
 		# 	fw.close()
-		# 	os.system("E:\\hetanjin\\GithubFiles\\Templates\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+		# 	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')

@@ -13,7 +13,7 @@ import cluster
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_7'
+clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)

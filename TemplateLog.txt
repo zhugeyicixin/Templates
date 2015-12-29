@@ -1,4 +1,7 @@
 用于Thermo in Multiwell计算
+//旧版报废 Template1
+//旧版报废 Template2
+//旧版报废 Template3
 //旧版报废 Template4和5是最完整的版本 可以计算正逆反应 （还需要改进其中的symmetry number、optical isomers和multiplicity的部分，对于一般的ridical还可以，但是不适用于有对称性的molecule，同时有手性碳原子的结构还需要benchmark进行对比）
 //旧版报废 Template4使用freq文件中第一次的freq
 //旧版报废 Template5检查freq是否有cbs部分，只能使用cbs部分的freq，找不到会报错
@@ -63,5 +66,12 @@ Template28 用于chemikin导出的ROP中的路径分析和相对速率计算
 Template29 用于生成提交到Tianhe或者Tianhe2的脚本
 
 Template30 用于检测.log是否正常完成
+
+Template31 用于在同类分子中随机选取若干个进行后续计算
+
+Template32 用于统计各类分子的个数
+
+
+
 
 

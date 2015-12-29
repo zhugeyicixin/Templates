@@ -1,10 +1,10 @@
 # this is used to get group additivity input files
-from xlwt import *
-from xlrd import *
 import re
 import os 
 import time
 import numpy as np
+import xlsxwriter
+import xlrd
 
 import chem
 import thermoDatabase
@@ -39,7 +39,7 @@ for tmp_file in tmp_fileLists:
 #####################################################################
 # read data from the database excel file and generate input file
 #####################################################################
-wb=open_workbook('database.xls')
+wb=xlrd.open_workbook('database.xlsx')
 sh=wb.sheet_by_name('speciesInfo')
 
 # definition of variables
@@ -47,7 +47,7 @@ all_moles = []
 all_groups = set()
 groupIndex = {}
 
-# definition of temporary variables
+# definition of t emporary variables
 tmp_name = ''
 tmp_energy = 0.0
 tmp_geom = ''
@@ -94,10 +94,10 @@ groupIndex = {}
 all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('inputFile_1.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -232,17 +232,17 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('inputFile_1.xls')
+wb2.close()
 
 vectorGroups = []
 vertorMole = []
 acyclicVecIndex = []
 cyclicVecIndex = []
 
-wb3 = Workbook()
-sh5 = wb3.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh6 = wb3.add_sheet('acyclic', cell_overwrite_ok = True)
-sh7 = wb3.add_sheet('cyclic', cell_overwrite_ok = True)
+wb3 = xlsxwriter.Workbook('inputFile_m1.xlsx')
+sh5 = wb3.add_worksheet('inputVectors')
+sh6 = wb3.add_worksheet('acyclic')
+sh7 = wb3.add_worksheet('cyclic')
 
 tmp5_row = 0
 tmp5_col = 0
@@ -255,7 +255,7 @@ sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
 
 tmp5_col = 5
 for i in xrange(N*(N+3)/2):
-	sh2.write(tmp5_row, tmp5_col+i, i+1)
+	sh5.write(tmp5_row, tmp5_col+i, i+1)
 
 tmp5_row = 2 
 for i in xrange(N):
@@ -271,8 +271,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp5_col
 		tmp5_col += 1
 
-sh5.write(tmp5_row, tmp5_col+1, 'Name')
-sh5.write(tmp5_row, tmp5_col+2, 'ReferenceEnergy')
+sh5.write(tmp5_row, tmp5_col+2, 'Name')
+sh5.write(tmp5_row, tmp5_col+3, 'ReferenceEnergy')
 
 tmp6_row = 0
 tmp6_col = 0
@@ -301,8 +301,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp6_col
 		tmp6_col += 1
 
-sh6.write(tmp6_row, tmp6_col+1, 'Name')
-sh6.write(tmp6_row, tmp6_col+2, 'ReferenceEnergy')
+sh6.write(tmp6_row, tmp6_col+2, 'Name')
+sh6.write(tmp6_row, tmp6_col+3, 'ReferenceEnergy')
 
 tmp7_row = 0
 tmp7_col = 0
@@ -393,6 +393,7 @@ for i in xrange(len(vectorGroups)):
 
 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
 	for tmp_item in tmp_list:
+		# print tmp5_col, tmp_item[0], tmp_item[1]
 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
 		tmp5_col += 2
@@ -413,7 +414,7 @@ for i in xrange(len(vectorGroups)):
 
 	tmp5_row += 1
 
-wb3.save('inputFile_m1.xls')
+wb3.close()
 
 
 # generate input file
@@ -425,10 +426,10 @@ all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
 
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('inputFile_2.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -563,17 +564,17 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('inputFile_2.xls')
+wb2.close()
 
 vectorGroups = []
 vertorMole = []
 acyclicVecIndex = []
 cyclicVecIndex = []
 
-wb3 = Workbook()
-sh5 = wb3.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh6 = wb3.add_sheet('acyclic', cell_overwrite_ok = True)
-sh7 = wb3.add_sheet('cyclic', cell_overwrite_ok = True)
+wb3 = xlsxwriter.Workbook('inputFile_m2.xlsx')
+sh5 = wb3.add_worksheet('inputVectors')
+sh6 = wb3.add_worksheet('acyclic')
+sh7 = wb3.add_worksheet('cyclic')
 
 tmp5_row = 0
 tmp5_col = 0
@@ -586,7 +587,7 @@ sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
 
 tmp5_col = 5
 for i in xrange(N*(N+3)/2):
-	sh2.write(tmp5_row, tmp5_col+i, i+1)
+	sh5.write(tmp5_row, tmp5_col+i, i+1)
 
 tmp5_row = 2 
 for i in xrange(N):
@@ -602,8 +603,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp5_col
 		tmp5_col += 1
 
-sh5.write(tmp5_row, tmp5_col+1, 'Name')
-sh5.write(tmp5_row, tmp5_col+2, 'ReferenceEnergy')
+sh5.write(tmp5_row, tmp5_col+2, 'Name')
+sh5.write(tmp5_row, tmp5_col+3, 'ReferenceEnergy')
 
 tmp6_row = 0
 tmp6_col = 0
@@ -632,8 +633,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp6_col
 		tmp6_col += 1
 
-sh6.write(tmp6_row, tmp6_col+1, 'Name')
-sh6.write(tmp6_row, tmp6_col+2, 'ReferenceEnergy')
+sh6.write(tmp6_row, tmp6_col+2, 'Name')
+sh6.write(tmp6_row, tmp6_col+3, 'ReferenceEnergy')
 
 tmp7_row = 0
 tmp7_col = 0
@@ -743,7 +744,7 @@ for i in xrange(len(vectorGroups)):
 
 	tmp5_row += 1
 
-wb3.save('inputFile_m2.xls')
+wb3.close()
 
 # generate input file
 # method 3
@@ -754,10 +755,10 @@ all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
 
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('inputFile_3.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -888,7 +889,7 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('inputFile_3.xls')
+wb2.close()
 
 
 # generate input file
@@ -900,10 +901,10 @@ all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
 
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('inputFile_4.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -1034,7 +1035,7 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('inputFile_4.xls')
+wb2.close()
 
 # generate input file
 # method 5
@@ -1045,10 +1046,10 @@ all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
 
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('inputFile_5.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -1183,17 +1184,17 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('inputFile_5.xls')
+wb2.close()
 
 vectorGroups = []
 vertorMole = []
 acyclicVecIndex = []
 cyclicVecIndex = []
 
-wb3 = Workbook()
-sh5 = wb3.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh6 = wb3.add_sheet('acyclic', cell_overwrite_ok = True)
-sh7 = wb3.add_sheet('cyclic', cell_overwrite_ok = True)
+wb3 = xlsxwriter.Workbook('inputFile_m5.xlsx')
+sh5 = wb3.add_worksheet('inputVectors')
+sh6 = wb3.add_worksheet('acyclic')
+sh7 = wb3.add_worksheet('cyclic')
 
 tmp5_row = 0
 tmp5_col = 0
@@ -1206,7 +1207,7 @@ sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
 
 tmp5_col = 5
 for i in xrange(N*(N+3)/2):
-	sh2.write(tmp5_row, tmp5_col+i, i+1)
+	sh5.write(tmp5_row, tmp5_col+i, i+1)
 
 tmp5_row = 2 
 for i in xrange(N):
@@ -1222,8 +1223,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp5_col
 		tmp5_col += 1
 
-sh5.write(tmp5_row, tmp5_col+1, 'Name')
-sh5.write(tmp5_row, tmp5_col+2, 'ReferenceEnergy')
+sh5.write(tmp5_row, tmp5_col+2, 'Name')
+sh5.write(tmp5_row, tmp5_col+3, 'ReferenceEnergy')
 
 tmp6_row = 0
 tmp6_col = 0
@@ -1252,8 +1253,8 @@ for i in xrange(N):
 		groupIndex[tmp_text] = tmp6_col
 		tmp6_col += 1
 
-sh6.write(tmp6_row, tmp6_col+1, 'Name')
-sh6.write(tmp6_row, tmp6_col+2, 'ReferenceEnergy')
+sh6.write(tmp6_row, tmp6_col+2, 'Name')
+sh6.write(tmp6_row, tmp6_col+3, 'ReferenceEnergy')
 
 tmp7_row = 0
 tmp7_col = 0
@@ -1363,7 +1364,7 @@ for i in xrange(len(vectorGroups)):
 
 	tmp5_row += 1
 
-wb3.save('inputFile_m5.xls')
+wb3.close()
 
 # just used for alkanes
 # generate input file
@@ -1375,10 +1376,10 @@ all_groups = sorted(list(all_groups))
 N = len(all_groups)
 n = len(all_moles)
 
-wb2 = Workbook()
-sh2 = wb2.add_sheet('inputVectors', cell_overwrite_ok = True)
-sh3 = wb2.add_sheet('acyclic', cell_overwrite_ok = True)
-sh4 = wb2.add_sheet('cyclic', cell_overwrite_ok = True)
+wb2 = xlsxwriter.Workbook('conventionalGA.xlsx')
+sh2 = wb2.add_worksheet('inputVectors')
+sh3 = wb2.add_worksheet('acyclic')
+sh4 = wb2.add_worksheet('cyclic')
 
 tmp2_row = 0
 tmp2_col = 0
@@ -1507,4 +1508,4 @@ for (index, tmp_mole) in enumerate(all_moles):
 	
 	tmp2_row += 1
 
-wb2.save('conventionalGA.xls')
+wb2.close()

@@ -139,7 +139,13 @@ class cluster:
 								tmp_dir_path = os.path.join(pathway, tmp_file, tmp_dir)
 							os.mkdir(tmp_dir_path)
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
-							fw.write(
+							if self.name == 'Tianhe' or self.name == 'Tianhe2':
+								fw.write(
+'''%mem=16GB
+%nprocshared=12
+%chk=''')
+							else:
+								fw.write(
 '''%mem=28GB
 %nprocshared=12
 %chk=''')
@@ -172,7 +178,11 @@ using ub3lyp/6-31G(d) to scan
 								fw.write(''.join(['B ', str(fixedBond[0]),' ', str(fixedBond[1]), ' F\n']))
 							fw.write('\n\n\n\n\n')
 							fw.close()
+<<<<<<< HEAD
 							os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+							os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 							
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 							if self.name == 'cce':
@@ -255,8 +265,68 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 ''')
+							elif self.name == 'Tianhe':
+								if self._g09D01 == False:
+									fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+								else:
+									fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you/scratch
+export g09root=/vol-th/home/you/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+							elif self.name == 'Tianhe2':
+								if self._g09D01 == False:
+									fw.write(
+# Tianhe cluster you1
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you1/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+								else:
+									fw.write(
+# Tianhe cluster you1
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you1/scratch
+export g09root=/vol-th/home/you1/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')									
 							fw.close()
+<<<<<<< HEAD
 							os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+							os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 						if self.name == 'cce':
 							if os.path.exists('submit12.sh'):
 								shutil.copy('submit12.sh', os.path.join(pathway, tmp_file))
@@ -265,6 +335,10 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 						elif self.name == 'Tsinghua100':
 							if os.path.exists('submit.sh'):
 								shutil.copy('submit.sh', os.path.join(pathway, tmp_file))
+						elif self.name == 'Tianhe' or self.name == 'Tianhe2':
+							if os.path.exists('submitTH.sh'):
+								shutil.copy('submitTH.sh', os.path.join(pathway, tmp_file))
+
 
 	def generateJobFromGjf(self, fileName, path='', jobName='', method='', freq=True, command=''):
 		QMmethod = 'B3LYP/6-31G(d)'
@@ -290,8 +364,20 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 			tmp_dir_path = os.path.join(path, tmp_dir)
 			fr = file(os.path.join(path, fileName), 'r')
 
-		print 'sh submit4.sh ' + tmp_dir
-		print 'sleep 5'
+		if self.name == 'Tianhe' or self.name == 'Tianhe2':
+			print 'sh submitTH.sh ' + tmp_dir + '''
+sleep 1
+numJobs=`yhq |grep TH_NET | wc -l` 
+while ((numJobs>28))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq | grep TH_NET | wc -l`  
+done
+			'''
+		else:
+			print 'sh submit12.sh ' + tmp_dir
+			print 'sleep 5'
 
 		tmp_lines = fr.readlines()
 		for (lineNum, tmp_line) in  enumerate(tmp_lines):
@@ -317,9 +403,15 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 		os.mkdir(tmp_dir)					
 
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
-		fw.write(
-'''%mem=6GB
-%nprocshared=4
+		if self.name == 'Tianhe' or self.name == 'Tianhe2':
+			fw.write(
+'''%mem=16GB
+%nprocshared=12
+''')
+		else:
+			fw.write(
+'''%mem=28GB
+%nprocshared=12
 ''')
 # %chk=''')
 		# if self.name == 'Tsinghua100' and self._scratchStrategy == True:
@@ -349,7 +441,11 @@ using ''' + QMmethod + ''' to do opt and freq calc.
 		fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 		fw.close()
+<<<<<<< HEAD
 		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -389,11 +485,11 @@ source $g09root/g09/bsd/g09.login
 
 cd ''' + self.jobLocation + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
-$g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 
 ''')
+# $g09root/g09/formchk ''' + tmp_dir + '''.chk
 		elif self.name == 'Tsinghua100':
 			fw.write(
 # Tsinghua100 cluster
@@ -433,8 +529,68 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 ''')
+		elif self.name == 'Tianhe':
+			if self._g09D01 == False:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+			else:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you/scratch
+export g09root=/vol-th/home/you/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+		elif self.name == 'Tianhe2':
+			if self._g09D01 == False:
+				fw.write(
+# Tianhe cluster you1
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you1/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+			else:
+				fw.write(
+# Tianhe cluster you1
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you1/scratch
+export g09root=/vol-th/home/you1/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')				
 		fw.close()
+<<<<<<< HEAD
 		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
 	def generateJobFromLog(self, fileName, path='', nosym=False, jobName=''):
 		#variables
@@ -494,7 +650,13 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 		os.mkdir(tmp_dir)					
 
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
-		fw.write(
+		if self.name == 'Tianhe' or self.name == 'Tianhe2':
+			fw.write(
+'''%mem=16GB
+%nprocshared=12
+%chk=''')
+		else:
+			fw.write(
 '''%mem=28GB
 %nprocshared=12
 %chk=''')
@@ -517,7 +679,11 @@ using ub3lyp/6-31G(d) to scan
 		fw.write(''.join([str(multi), '\n', tmp_geom]) + '\n\n\n\n\n')
 
 		fw.close()
+<<<<<<< HEAD
 		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 		
 		fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 		if self.name == 'cce':
@@ -600,8 +766,68 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 
 
 ''')
+		elif self.name == 'Tianhe':
+			if self._g09D01 == False:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+			else:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you/scratch
+export g09root=/vol-th/home/you/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+		elif self.name == 'Tianhe2':
+			if self._g09D01 == False:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+cd  ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 /vol-th/home/you1/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')
+			else:
+				fw.write(
+# Tianhe cluster
+'''#!/bin/bash
+
+export GAUSS_SCRDIR=/vol-th/home/you1/scratch
+export g09root=/vol-th/home/you1/softwares/gaussian/g09D01
+
+source $g09root/g09/bsd/g09.profile
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+yhrun -pTH_NET -c12 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')				
 		fw.close()
+<<<<<<< HEAD
 		os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
 	# this function is used to convert gjf to sdf format for conformer searching
 	# the parameter path should be left as ''
@@ -657,7 +883,13 @@ $g09root/g09/formchk ''' + tmp_dir + '''.chk
 			os.mkdir(tmp_dir)					
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
-			fw.write(
+			if self.name == 'Tianhe' or self.name == 'Tianhe2':
+				fw.write(
+'''%mem=16GB
+%nprocshared=12
+%chk=''')					
+			else:
+				fw.write(
 '''%mem=28GB
 %nprocshared=12
 %chk=''')
@@ -685,16 +917,24 @@ using ub3lyp/6-31G(d) to scan
 			fw.write(''.join(tmp_lines[lineStart: lineEnd]) + '\n\n\n\n\n')
 
 			fw.close()
+<<<<<<< HEAD
 			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.xyz'), 'w')
 			fw.write(str(lineEnd - lineStart - 1) + '\n')
 			fw.write(tmp_file[0:-4] + '\n')
 			fw.write(''.join(tmp_lines[lineStart+1: lineEnd]) + '\n\n\n\n\n')
 			fw.close()
+<<<<<<< HEAD
 			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
-			os.system('D:\\hetanjin\\professionalSoftware\\OpenBabel-2.3.72\\babel.exe -ixyz ' + os.path.join(tmp_dir_path, tmp_dir+'.xyz') + ' -osdf ' + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+			os.system('E:\\hetanjin\\softwares\\OpenBabel-2.3.72\\babel.exe -ixyz ' + os.path.join(tmp_dir_path, tmp_dir+'.xyz') + ' -osdf ' + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
 			
 			fr = file(os.path.join(tmp_dir_path, tmp_dir+'.sdf'), 'r')
 			tmp2_lines = fr.readlines()
@@ -717,7 +957,11 @@ $$$$
 				fw.close()
 			elif tmp_num[1] > len(tmp_molecule.bonds):
 				print 'Error! Open babel bond number > len(tmp_molecule.bonds)', tmp_dir
+<<<<<<< HEAD
 			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+=======
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
 			fw = file(os.path.join(tmp_dir_path, tmp_dir+'.job'), 'w')
 			fw.write(
@@ -725,12 +969,16 @@ $$$$
 '''#!/bin/sh
 
 cd ''' + self.jobLocation + '/' + tmp_dir + '''
-python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 50 &>> log_''' + tmp_dir + '''.txt
+python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smiles -logFile ''' + tmp_dir + '''.log -ounsolved Unsolved.data -wrkPath . -eini 100.0 -mcsteps 100 -emax 50 -i3Dsdf ''' + tmp_dir + '''.sdf -osdf out_''' + tmp_dir + '''.sdf -unambiguate -mini -multi 250 &>> log_''' + tmp_dir + '''.txt
 
 
 ''')
 			fw.close()
+<<<<<<< HEAD
 			os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ fw.name + ' > log_dos2unix.txt 2>&1')
+=======
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master
 
 		# generate the script to run jmol 
 		# fw = file('gjfToJmol.jmol', 'w')
@@ -767,4 +1015,8 @@ python /home/hetanjin/apps/Frog2/www_iMolecule.py -osmi ''' + tmp_dir + '''.smil
 		# 	fw = file(os.path.join(tmp_dir_path, tmp_dir+'.sdf'), 'w')
 		# 	fw.writelines(tmp_lines)
 		# 	fw.close()
+<<<<<<< HEAD
 		# 	os.system("D:\\Download\dos2unix\dos2unix-6.0.6-win64\\bin\dos2unix.exe"+ os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+=======
+		# 	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + os.path.join(tmp_dir_path, tmp_dir+'.sdf') + ' > log_dos2unix.txt 2>&1')
+>>>>>>> origin/master

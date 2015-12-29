@@ -13,7 +13,7 @@ import cluster
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_7'
+clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
@@ -141,7 +141,7 @@ wb_new.save('EnergyCollection.xls')
 for tmp_mole in molecules:
 	tmp_dict = energyDict[tmp_mole]
 	sortedDict = sorted(tmp_dict.items(), key=lambda d:d[1])
-	for tmp_file in sortedDict[0:10]:
+	for tmp_file in sortedDict[0:50]:
 		tmp_m = pattern_fileConf.match(tmp_file[0])
 		if not tmp_m:
 			print 'Error! Not structure from conformer searching!'

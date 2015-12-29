@@ -4,7 +4,6 @@ import re
 import os
 import numpy as np
 from lxml import etree
-import visual
 import fourier
 import phys
 import matplotlib.pyplot as plt
