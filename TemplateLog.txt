@@ -1,4 +1,4 @@
-用于Thermo in Multiwell计算
+﻿用于Thermo in Multiwell计算
 //旧版报废 Template1
 //旧版报废 Template2
 //旧版报废 Template3
@@ -71,6 +71,9 @@ Template31 用于在同类分子中随机选取若干个进行后续计算
 
 Template32 用于统计各类分子的个数
 
+Template33 用于提取chemkin输出的rate of production,协助路径分析。
+ 
+Template34 用于网络爬虫acadRela
 
 
 

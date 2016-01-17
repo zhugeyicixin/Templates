@@ -1,0 +1,738 @@
+http://www.sciencedirect.com/science/article/pii/S0378775303002647
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002787
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002763
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300274X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002775
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002726
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002751
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002672
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002659
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002738
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002064
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002040
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001988
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001976
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002702
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002696
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001873
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300185X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001897
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001836
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001824
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002635
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300260X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002611
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002593
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002581
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002246
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002714
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002684
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002660
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002623
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002258
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001538
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001496
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300154X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001514
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001472
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001460
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001678
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001642
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001654
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001563
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001526
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001502
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002453
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001605
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002441
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001629
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002428
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001484
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300243X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002416
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002398
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002386
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002404
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303002374
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001794
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001848
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001812
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001800
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001733
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001782
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001770
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001757
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001721
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001769
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300171X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001447
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001435
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001459
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001745
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001708
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001423
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001411
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300140X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001381
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001393
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300137X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001332
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001356
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001344
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001319
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001290
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001307
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001265
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530300123X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001253
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001289
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001320
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001216
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001228
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001241
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001204
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001174
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001198
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001149
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303005676
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001162
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001150
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775303001186
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900213X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001007
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002286
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002274
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002104
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002262
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002487
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002237
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001032
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002250
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002086
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002249
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002049
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002062
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002037
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002001
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399000981
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002225
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002475
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001974
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002281
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002244
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900227X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002256
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002219
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002213
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001159
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002190
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001135
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001111
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001147
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001925
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001329
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002201
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002177
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002183
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002171
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002128
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002195
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002633
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002141
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001305
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002621
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002116
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001299
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001317
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002074
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002050
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002098
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002025
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001408
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002013
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002158
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001998
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539800216X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001962
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001950
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002444
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001949
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001391
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001986
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002146
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900138X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002134
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002773
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001937
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002122
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001196
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002109
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002110
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001901
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001913
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002079
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001895
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002092
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001469
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002432
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002067
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900141X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002080
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001457
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001421
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001883
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001871
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002055
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399002463
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002031
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002043
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001068
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001378
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001366
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900186X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001287
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539800202X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877539900124X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001263
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775398002018
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001020
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001858
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775399001226
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006899
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100742X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006875
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005535
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005213
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007418
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006346
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005225
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006309
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100550X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006887
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005511
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100684X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005493
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005523
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007534
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007625
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007522
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006292
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100725X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006802
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006656
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006231
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006280
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006243
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006838
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005158
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006784
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006644
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006760
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005146
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100516X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007406
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005122
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100622X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005134
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005110
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006218
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005328
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100533X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005316
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005304
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007601
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005092
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005080
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006632
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006620
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005456
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005444
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006206
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005432
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005420
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005481
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100619X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007236
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005419
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006619
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006188
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007613
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006164
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006152
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006176
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006772
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006796
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100739X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005407
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005274
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005298
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005262
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005250
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006607
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006140
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005249
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006590
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006814
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007388
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005237
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005079
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005948
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005961
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100595X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005936
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005973
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301006826
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005924
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005900
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005894
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005882
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005869
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007376
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005857
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005845
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005067
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301007224
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005055
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005043
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005031
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775301005821
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100581X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877530100502X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315307412
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S037877531530700X
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315307412
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877531530700X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306108
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315304262
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S037877531530714X
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306108
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315304262
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877531530714X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S037877531530639X
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306261
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S037877531530639X
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306431
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306261
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306856
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306431
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306881
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306856
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306844
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775315306881
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775315306844
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/0378775384870639
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870597
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870524
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870512
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870482
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870457
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870433
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870408
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538487038X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870354
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870317
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870275
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538487024X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870238
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870214
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870135
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870081
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775384870032
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800462
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800863
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538080084X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800796
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800759
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538080070X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800681
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538080067X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800607
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800589
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800565
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800498
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800504
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800486
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800383
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800322
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800267
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800309
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800243
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800188
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/037877538080019X
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800176
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/0378775380800139
+parse_paper2	stage:	3
+http://www.sciencedirect.com/science/article/pii/S0378775309009021
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775309009021
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775311012213
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775311012213
+parse_paper2	stage:	0
+http://www.sciencedirect.com/science/article/pii/S0378775314008593
+parse_paper	stage:	1
+http://www.sciencedirect.com/science/article/pii/S0378775314008593
+parse_paper2	stage:	0

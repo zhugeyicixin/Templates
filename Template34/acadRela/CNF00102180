@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+<script>
+  var JDM=new Object;
+JDM.dac=new Object;
+JDM.pm=new Object;
+JDM.ep=new Object;
+JDM.pf = new Object;
+JDM.pf.dc = new Object;
+
+JDM.pf.dc.respObj = '';
+JDM.pf.dc.retry = 5;
+JDM.pf.dc.retryDelay = 300;
+JDM.pf.dc.retryFactor = 1.0;
+JDM.pf.crawler = false;
+
+JDM.pm.cid = '';
+JDM.pm.issn = '00102180';
+JDM.pm.allowVIA = '';
+JDM.pm.contentType = '';
+JDM.pm.newStructure = false;
+
+JDM.ep.urlPrefix = "http://www.sciencedirect.com/science";
+
+</script> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script language="javascript">
+
+var exportAvail=true;
+
+ 
+var exportBook=false;
+
+
+var prodImagePath = "sci_dir";
+
+
+gigyaLib="//cdn.gigya.com/JS/socialize.js?apiKey=3__Bt7bHrGM8mjKPwBuOVjWyMi678aF6-PewcnoHJJ6UR1fS5t9NG9RBbKHjE0oA6J";
+
+blk_all_social_logins="Y";
+BROWSER_SPECIFIC_USR_MSG=true;
+var buildTitleFilter=false;
+
+SD_System_Msg=false;
+</script>
+
+<script>(function() {var scriptTag = document.createElement('script'); 
+scriptTag.type = 'text/javascript';scriptTag.async = true;
+scriptTag.src = '//cdn.optimizely.com/js/204774041.js';
+var head = document.getElementsByTagName('head')[0];
+head.parentNode.insertBefore(scriptTag, head);
+})();function optimizelyTimeout() {
+window.optimizely = window.optimizely|| []; 
+if(!window.optimizely.data) {
+window.optimizely.push("timeout"); } }
+setTimeout(optimizelyTimeout, 1000); </script>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<!-- TRANSKEY: 01/16/2016 05:34:37 EST#1848_002#108935#101.6.61.34 -->
+<meta name="robots" content="NOARCHIVE">
+<meta name="robots" content="noodp" />
+<meta name="robots" content="noydir" />
+<link rel="shortcut icon" href="http://cdn.els-cdn.com/sd/favSD.ico" type="image/x-icon">
+
+
+   <style type="text/css">
+.nojs { display: none;}
+</style>
+
+<script type="text/javascript">
+
+if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){
+document.styleSheets[0].rules[0].style["display"] = "";
+} else{
+document.styleSheets[0].cssRules[0].style["display"] = "";
+}
+
+</script>
+
+
+
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_gen_v01_1601R1.css" type="text/css">
+<!--[if  IE 7]>
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_gen_ie7_v01_1601R1.css" type="text/css">
+<![endif]-->
+<!--[if lte IE 6]>
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_gen_ie6_v01_1601R1.css" type="text/css">
+<![endif]-->
+<link rel="stylesheet" href="http://cdn.els-cdn.com/sd/css/jquery-ui_1601R1.css" type="text/css">
+<link rel="stylesheet" href="http://cdn.els-cdn.com/sd/css/commonSprite_1601R1.css" type="text/css">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_gen_ielt9_1601R1.css" type="text/css">
+<![endif]-->
+
+
+<!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js" 
+ type="text/javascript">
+</script>
+<script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7-squish.js" 
+ type="text/javascript">
+</script>
+<![endif]-->
+<script> 
+var SDM=new Object;
+SDM.ep = new Object;
+SDM.ep.mendeleyJS = "https://www.mendeley.com/minified/bookmarklet.js";
+</script>
+<script>
+  var JDM=new Object;
+JDM.dac=new Object;
+JDM.pm=new Object;
+JDM.ep=new Object;
+JDM.pf = new Object;
+JDM.pf.dc = new Object;
+
+JDM.pf.dc.respObj = '';
+JDM.pf.dc.retry = 5;
+JDM.pf.dc.retryDelay = 300;
+JDM.pf.dc.retryFactor = 1.0;
+JDM.pf.crawler = false;
+
+JDM.pm.cid = '';
+JDM.pm.issn = '00102180';
+JDM.pm.allowVIA = '';
+JDM.pm.contentType = '';
+JDM.pm.newStructure = false;
+
+JDM.ep.urlPrefix = "http://www.sciencedirect.com/science";
+
+</script>
+<script>var SD_URL_QUALIFIER = "science";</script>
+
+ 
+  
+
+<script src="http://cdn.els-cdn.com/sd/js/sdX_1601R1.js"></script>
+
+
+
+
+<script src="http://cdn.els-cdn.com/sd/js/sdO_1601R1.js"></script>
+
+<script src="http://cdn.els-cdn.com/sd/js/importer-api_1601R1.js.min"></script>
+<script src="http://cdn.els-cdn.com/sd/js/pa_1601R1.js"></script>
+
+
+
+
+ 
+
+<script>
+var prs = new Object();prs.rt=function(label,ts){this[label]=(ts||ts==0?ts:new Date().getTime());};
+</script>
+
+
+
+
+     <!-- if not logged in -->
+	   
+		
+
+
+<script>
+var USERACTIONSURL="http://www.sciencedirect.com/science/UserActions";
+</script>
+
+<link rel="alternate"
+      type="application/rss+xml"
+      title="Set up an article RSS feed"
+      href="http://rss.sciencedirect.com/publication/science/271463">
+
+
+<meta name="description"  content="The online version of Combustion and Flame at ScienceDirect.com, the world's leading platform for high quality peer-reviewed full-text journals.">
+
+
+<link rel="canonical" href="http://www.sciencedirect.com/science/journal/00102180"/>
+<!-- static const char journaltmpl_sccsId[] = "@(#)journal.tmpl	3.1.2.1  11/18/99 17:52:55 - Retrieved: 12/15/99 12:27:24"; -->
+
+    <title>Combustion and Flame - ScienceDirect.com  </title>
+
+
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_results_page_sprite_v01_1601R1.css" type="text/css">
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_table_v01_1601R1.css" type="text/css">
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/css_pub_v01_1601R1.css" type="text/css">
+<link rel="stylesheet" Title="Default Styles" href="http://cdn.els-cdn.com/sd/css/commonSprite_1601R1.css" type="text/css">
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MSJL85"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MSJL85');</script>
+<!-- End Google Tag Manager -->
+
+
+<script language="javascript" type="text/javascript">
+<!--
+function submitTocList(prevNext){
+  var sv = document.getElementById('vectorNext').value;
+  document.Tag.nextVector.value= sv;
+  var pv = document.getElementById('vectorPrev').value;
+  document.Tag.prevVector.value= pv;
+  document.Tag.go.value= prevNext;
+  document.Tag.target="";
+  document.Tag.submit();
+}
+//-->
+</script>
+
+
+<script language="javascript" type="text/javascript">
+<!--
+    var pgPubReload=false;
+    $('body').on('click','a,li',function(e){
+        pgPubReload=true;
+        setTimeout(function(){pgPubReload=false;},1500);
+    });
+    $(document).ready(function(){
+	$('body').on('mouseover','.browseMain tbody tr', function(){
+		var imgObj=$(this).find('td img');
+		if(!pgPubReload && imgObj[0]){
+			imgObj.attr('data-src',imgObj.attr('src'));
+			imgObj.attr('src',$(this).attr('data-hoverimg'));
+		}
+	});
+	$('body').on('mouseout','.browseMain tbody tr', function(){
+		var imgObj=$(this).find('td img');
+		if(!pgPubReload  && imgObj[0])imgObj.attr('src',imgObj.attr('data-src'));
+	});
+	}); 
+//-->
+</script>
+
+<div id="pubPg">
+
+<div class="skipnav">
+    <a id="skipNavigation" title="Skip to Main content" href="#main_content">Skip to Main content</a>
+</div>
+
+
+
+<!-- ************* For A/B testing FAST and SOLR Proxy ***************** -->
+
+<!-- *************End for A/B testing FAST and SOLR Proxy *****************-->
+
+
+
+<div id="ieWarningMsg">
+    <span class="infoIcon_ie spErrorIcon">
+        Please note that Internet Explorer version 8.x will not be supported as of January 1, 2016. Please refer to <a href="http://blog.sciencedirect.com/posts/have-you-heard-spread-the-word-about-upgrading-your-browser"> this blog post</a> for more information.
+    </span>
+    <a class="closeBt" title="Close Internet Explorer 7 warning">Close</a>
+</div>
+
+
+
+  
+    <div class="adBlock" style="width:100%; padding:0.1em 0;text-align:center;" id="leaderboard" aria-label="advertisement" role="region">
+        <noscript>
+<a href="http://ad.doubleclick.net/jump/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;sz=728x90,1000x50;ord=17261?" target="_blank" >
+<img src="http://ad.doubleclick.net/ad/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;sz=728x90,1000x50;ord=17261?" border="0" alt="" /></a>
+</noscript>
+    </div>
+  
+
+<div id="header">
+<div class="headerBlk">
+    <div class="headerInner" role="navigation" aria-label="ScienceDirect">
+        <div class="home">
+            <iframe style="display:none;" src="//acw.sciencedirect.com/SSOCore/update?acw=10333d586e942517147f767-8bbcb4ed62b87411%7C%24%7C34C928A86AA8E6DFF8C583CCA77B79C7D8B653519C17DCBF905632E3DEC8E650E33D302350210A7BD53CC41718AA218971441F442482DBA8A2F71CEDB4D14412EE2583F9B85D1DFB739049338C20DF610FCA23445DD68B2EC741B23BD7140D97D74FDB647D9EF376F9924CCB29AE701D252408F5685916A2BF8FE9D5A60FCD2E&utt=20333d586e942517147f767-8bbcb4ed62b87411-W18"></iframe><iframe style="display:none;" src="//acw.scopus.com/SSOCore/update?acw=10333d586e942517147f767-8bbcb4ed62b87411%7C%24%7C34C928A86AA8E6DFF8C583CCA77B79C7D8B653519C17DCBF905632E3DEC8E650E33D302350210A7BD53CC41718AA218971441F442482DBA8A2F71CEDB4D14412EE2583F9B85D1DFB739049338C20DF610FCA23445DD68B2EC741B23BD7140D97D74FDB647D9EF376F9924CCB29AE701D252408F5685916A2BF8FE9D5A60FCD2E&utt=20333d586e942517147f767-8bbcb4ed62b87411-W18"></iframe><iframe style="display:none;" src="//acw.sciverse.com/SSOCore/update?acw=10333d586e942517147f767-8bbcb4ed62b87411%7C%24%7C34C928A86AA8E6DFF8C583CCA77B79C7D8B653519C17DCBF905632E3DEC8E650E33D302350210A7BD53CC41718AA218971441F442482DBA8A2F71CEDB4D14412EE2583F9B85D1DFB739049338C20DF610FCA23445DD68B2EC741B23BD7140D97D74FDB647D9EF376F9924CCB29AE701D252408F5685916A2BF8FE9D5A60FCD2E&utt=20333d586e942517147f767-8bbcb4ed62b87411-W18"></iframe><iframe style="display:none;" src="//acw.elsevier.com/SSOCore/update?acw=10333d586e942517147f767-8bbcb4ed62b87411%7C%24%7C34C928A86AA8E6DFF8C583CCA77B79C7D8B653519C17DCBF905632E3DEC8E650E33D302350210A7BD53CC41718AA218971441F442482DBA8A2F71CEDB4D14412EE2583F9B85D1DFB739049338C20DF610FCA23445DD68B2EC741B23BD7140D97D74FDB647D9EF376F9924CCB29AE701D252408F5685916A2BF8FE9D5A60FCD2E&utt=20333d586e942517147f767-8bbcb4ed62b87411-W18"></iframe>
+            <!--INSERTS THE TEMPLATE VARIABLES POPULATED FROM DB for SCIVERSE and PRODUCT labels-->
+            
+                <a href="http://www.sciencedirect.com/" title="ScienceDirect -The world's leading full-text scientific database"> <span class="logoScienceDirectImg">&nbsp;</span></a>
+            
+        </div>
+
+        
+            <ul class="publication">
+                <!-- Journals link -->
+                
+                    
+                        <li>
+                            <a  href="http://www.sciencedirect.com/science/journals">Journals</a>
+                        </li>
+                     
+                
+
+                <!-- Books link -->
+                
+                    
+                        <li class="sep">
+                            <a  href="http://www.sciencedirect.com/science/bookbshsrw">Books</a>
+                        </li>
+                     
+                
+            </ul>
+        
+
+    </div>
+    
+         <!-- if not logged in -->
+         
+            
+            <div id="login" class="clearfix" aria-label="Help and Sign In" role="navigation" style="margin-right:230px;">
+            <ul class="userlinks">
+                
+                
+                
+                    
+                    <li>
+                        <a href="http://www.sciencedirect.com/science/activateaccess" target="_top" name="remote" title="Apply for remote access" >Remote access</a>
+                    </li>
+                    
+                
+            
+                <!--top right widget-->
+                <li  id="loginPlus">
+                    <h2><a id="loginPlusScript" href="javascript:LoginBox.flipLogin('loginBox',null);" title="Sign in to ScienceDirect" class="novisit plus nojs S_C_SignIn" aria-haspopup="true" aria-expanded="false" aria-controls="loginBox" role="button" >Sign in</a></h2>
+                    <noscript><a href="http://www.sciencedirect.com/science?_ob=HomePageURL&_method=userHomePage&_fl=y&md5=6dada1fb726164470bad9e40bbc4d7fa" title="Open the Sign in Box" class="plus S_C_SignIn" id="loginPlusNoScript" >Sign in</a></noscript>
+					
+                    <div id="loginBox" role="dialog" aria-labelledby="headingSignIn" class="bannerAvail" style="width:600px;display:none;"> 
+                        
+                        <div style="width:285px;float:right;border-left:1px solid #9B9B9B;padding-left:10px;min-height:180px;">
+                            
+                                <div class="openAthens"><a href="https://auth.elsevier.com/ShibAuth/institutionLogin?entityID=https%3A%2F%2Fidp.eduserv.org.uk%2Fopenathens&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience%2Fjournal%2F00102180" title="Log in using OpenAthens">OpenAthens login</a></div>
+                            
+                            
+                            <div class="sampletext">
+                                <div style="font-weight:bold;padding-bottom:7px;"><h3><b>Login via your institution</b></h3></div>
+                                
+                                
+                                    <div class="fedLink"><a href="http://www.sciencedirect.com/science/externallogin" title="Other institution login">Other institution login</a></div>
+                                
+                            </div>
+                            
+                            
+                            
+                                
+                                <div class="institutiontext">
+                                    <div><h3 style="font-weight:bold;">Remote access activation</h3></div>
+                                    <div style="margin-top: 8px;">
+                                    <a href="http://www.sciencedirect.com/science/activateaccess" title="Remote access activation">Click here to activate</a>
+                                    </div>
+                                </div>
+                                
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="padding" style="width:285px;" >
+                            <form name="sdLogin" method="POST" action="https://www.sciencedirect.com/science/login" id="login-box-form" style="margin:0;">
+                            <b><h3 id="headingSignIn">Sign in using your ScienceDirect credentials</h3></b>
+                            <input type="hidden" name="login" value="login">
+                            <div style="margin-top:20px;">
+                            <label for="username"><span style="text-align:right;">Username:</span>
+                            <input id="username" type="text" name="userid" title="Please enter your username here" /></label>
+                            </div>
+                            
+                            <div style="margin-top:7px;">
+                            <label for="password"><span style="text-align:right;">Password:</span>
+                            <input id="password" type="password" name="password" maxlength="20" title="Please enter your password here" onkeypress="if(13==event.keyCode)this.form.submit();if (13==event.keyCode)return false;"/></label>
+                            </div>
+                                   
+                                       
+                            
+                            <div class="remember">
+                            <input type="checkbox" checked name="rememberid" id="rememberMe" value="Y" class="allCheck top2fix" title="Checking this option will log you in automatically next time you visit ScienceDirect"/>
+                            <label for="rememberMe" title="Checking this option will log you in automatically next time you visit ScienceDirect">Remember me</label>
+                            </div>
+                            
+                            <input type="hidden" name="_ob" value="MiamiLogonURL">
+                            <input type="hidden" name="targetURL" value="http://www.sciencedirect.com/science/journal/00102180" >
+                            <input type="hidden" name="returnURL" value="http://www.sciencedirect.com/science/journal/00102180" >
+                            <div class="submit" >
+                            
+                            <div style="float:left;padding-left:0px;"><input class="button" type="Submit" name="arrow" alt="Sign in to ScienceDirect" title="Sign in to ScienceDirect" value="Sign in"/></div>
+                        
+                            
+                            <div class="notRegistered"><span class="astPad">| </span><span><a href="https://www.sciencedirect.com/science/register-new-user" title="" target="_top">Not Registered?</a></span></div>
+                            
+                            
+                            <div style="clear:left;"></div>
+                            </div>
+                            
+                            <div class="forgotpass">
+                            <a href="http://www.sciencedirect.com/science?_ob=ReminderURL&_method=display&md5=4a97631c25ac81c09ad2f961106e9da2" target="passwd" onClick="var remindWin;remindWin=window.open('','passwd','scrollbars=yes,resizable=yes,directories=no,toolbar=n,menubar=no,status=no,width=650,height=300');" title="Click here for help in recovering your ScienceDirect access">Forgotten username or password?</a>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="last"><a class="S_C_helpLink" href="/science?_ob=HelpURL&_file=jnl_bk_homepage.htm&_btn=Y&_zone=TopNavBar&_origin=journal" target="sdhelp" title="Help (Opens new window)" onClick="var helpWin; helpWin=window.open('/science?_ob=HelpURL&_file=jnl_bk_homepage.htm&_btn=Y&_zone=TopNavBar&_origin=journal','sdhelp','scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=984,height=738'); helpWin.focus(); return false" >Help</a></li>
+                
+            </ul>
+            </div>
+            
+            
+        <!-- logged in -->
+             
+    
+</div>
+
+
+    
+                        
+        <div class="clearfix" id="bannerTop" role="banner" aria-label="Institutional Access">                        
+            
+                <a href="www.chinasciencechallenge.com" onclick="openNS('www.chinasciencechallenge.com'); return false;">
+                    <img src="http://china1.elsevier.com/ElsevierDNN/Portals/7/chinasciencechallenge.png" border="0" />                    
+                </a>
+            
+        </div>
+        
+    
+           
+
+
+  
+    <div class="quicksearch">
+        <a name="Skip Buttons"></a><div class="extSearch" aria-label="Quick Search" role="search" >
+
+<form id="quickSearch" name="qkSrch" method="get" target="_top" action="/science">
+    <div>
+        <input type="hidden" name="_ob" value="QuickSearchURL">
+        <input type="hidden" name="_method" value="submitForm">
+        <input type="hidden" name="_acct" value="C000053663">
+        <input type="hidden" name="searchtype" value="a">
+        <input type="hidden" name="_origin" value="journal">
+        <input type="hidden" name="_zone" value="qSearch">
+        <input type="hidden" name="md5" value="9f2b83672145fc3dc27efb3a265870ba">
+        <input type="hidden" name="qs_cid" value="271463">
+        <input class="all" placeholder="Search all fields" aria-label="Search all fields" type="text" name="qs_all" id="qs_all" value="" size="34" maxlength="450" title="Search all fields">
+        <input class="author" placeholder="Author name" aria-label="Author name" type="text" name="qs_author" id="qs_author" value="" size="13" maxlength="450" title="e.g. J S Smith or John Smith or Smith JS" style="_width:100%">
+        <input class="srctitle" placeholder="Journal or book title" aria-label="Journal or book title"  type="text" id="qs_title" name="qs_title" value="--This Journal/Book--" size="13" maxlength="450" title="For example: journal of molecular biology">
+        <input class="volumelist" placeholder="Volume" aria-label="Volume"  type="text" name="qs_vol" id="qs_vol" value="" size="2" maxlength="10">
+        <input class="issuelist" placeholder="Issue" aria-label="Issue" type="text" name="qs_issue" id="qs_issue" value="" size="2" maxlength="10">
+        <input class="pages" placeholder="Page" aria-label="Page" type="text" name="qs_pages" id="qs_pages" value="" size="2" maxlength="10" title="For example: 14-27">
+        <input class="button" id="submit_search" type="Submit" alt="Submit Quick Search" value="" title="Submit Quick Search" name="sdSearch">
+        
+        <a class="advanced" href="http://www.sciencedirect.com/science/search" >Advanced search</a>
+    </div>
+</form>
+
+</div>
+
+
+
+<script>autoCompleteInit('/'+'science'+ '/jfind/auto');</script>
+
+
+    </div>
+  
+
+</div><!--header-->
+
+
+ 
+
+     
+     
+
+<a tabindex="-1" name="main_content" id="main_content"></a>
+
+<div id="sdHeader" class="outerWrapper">
+  <div class="sdContent">
+    
+    
+    
+
+
+
+
+
+
+
+    <div id="spriteFlag" data-sprite="true">&nbsp;</div>
+    <div class="pubFontBox" aria-label="Science Direct" role="Main">
+
+        
+        
+
+        
+        <!-- Common to journal and refwork title and related information -->
+
+<div id="main_content" class="publication_head">
+    <div class="publication serialPublication">
+        
+        <div class="coverImageDiv"><img src="http://ars.els-cdn.com/content/image/1-s2.0-S0010218015X00125-cov150h.gif" border="1" class="cover" alt="Cover image Combustion and Flame"></div>
+        
+        
+        
+            <div class="pubSociety">
+            
+                <div class="imgBanner">
+                <a class ="cExLink" href="https://www.combustioninstitute.org/" data-url="science/RedirectURL?_method=gejLink&_linkType=specific&_cdi=271463&_issn=00102180&_targetURL=https://www.combustioninstitute.org/" target="pubWindow">
+                <img class="societyZoneImg" src="http://ars.els-cdn.com/content/image/L00102180.gif" alt="Combustion Institute" title="Combustion Institute" align="left" border="0">
+                </a>
+                </div>
+            
+            
+                <div class="heading2" height="20" width="234" style="padding: 2px; margin-bottom: 2px;">
+
+<a target="_blank" class="txtLarge" href="https://www.combustioninstitute.org/">Visit the Combustion Institute</a>
+
+</div>
+            
+            </div>
+        
+        
+        <div class="info pubSocietyMargin">
+            
+            
+            <span class="pubTitle" style="margin:0px;">
+                <h1>Combustion and Flame</h1>
+                
+            </span>
+            
+            
+            <ul class="about navigation" role="navigation">
+                
+                
+                
+                
+                
+                    <li><a class="cExLink" href="http://www.elsevier.com/locate/issn/00102180" data-url = "science/RedirectURL?_method=gejLink&_linkType=general&_cdi=271463&_issn=00102180&_targetURL=http://www.elsevier.com/locate/issn/00102180" target="pubWindow" title="About this Journal, e.g. Description; Editorial Board; Ordering Information; Dispatch Dates -where applicable- (Opens new window)" >About this Journal</a></li>
+                
+                
+                  
+                    <li><a href="http://www.sciencedirect.com/science/journal/00102180/163" title="Sample Issue Online">Sample Issue Online</a></li>
+                  
+                
+                
+                    <li><a class ="cExLink" href="http://ees.elsevier.com/issn/00102180" data-url="/science/RedirectURL?_method=authServLink&_cdi=271463&_issn=00102180&_targetURL=http://ees.elsevier.com/issn/00102180" target="pubWindow" title="Submit your Article (Opens new window)" >Submit your Article</a></li>
+                
+                
+                
+                
+            </ul>
+            
+             
+            
+            
+              
+            
+            <ul class="feeds" aria-label="Rss and alert" role="navigation">
+                
+
+
+    
+    <li width="140px" align="left" valign="top" id="newFeedPub">
+        <a class="rssCiteIconPubHome" title="Combustion and Flame RSS article feed" href="/science?_ob=RSSURL&_method=setup&_cid=271463&md5=75684ef6f85734c5a6a72619d2cbe6f0" target="_blank" onClick="openNS('/science?_ob=RSSURL&_method=setup&_cid=271463&md5=75684ef6f85734c5a6a72619d2cbe6f0', 700, 500); return false;"  > <span class="rssCiteTextPubHome">Get new article feed</span></a>
+    </li>
+    
+     
+
+
+
+  <li>
+    <div id="alertLink" style="display:none;">
+      <a class="citeAlertIconPubHome_sci_dir" href>
+        <span class="citeAlertTextPubHome"></span>
+      </a>
+    </div>
+  </li>
+
+
+<li id="rsltInd" style="display:none;margin-bottom:15px;">
+  <div class="imgIcon"><h3><img src="http://cdn.els-cdn.com/sd/errorIcon.gif" alt="Failure" title="Failure"></h3></div>
+  <div class="confirmMsgText">Your selection(s) could not be saved due to an internal error. Please try again.</div>
+</li>
+
+
+  
+
+
+
+  
+    
+      <li>
+        <div id="favoriteOn" style="display:none;">
+          
+            <span class="favIcon_sci_dir" title="Added to Favorites">
+              <span class="favText">Added to Favorites [</span><a class="favText" href="/science?_ob=PublicationURL&addFavorite=2&_cid=271463&_pubType=J&_auth=y&md5=12cdcf7472711367dd32e255be09b75c" >remove</a><span class="favText">]</span>
+            </span>
+          
+        </div>
+        <div id="favoriteOff" style="display:inline;">
+          <a class="favIcon_sci_dir" href="/science?_ob=PublicationURL&addFavorite=2&_cid=271463&_pubType=J&_auth=y&md5=12cdcf7472711367dd32e255be09b75c" 
+             >
+            
+              <span class="favText">
+                
+                
+                Add to Favorites 
+              </span>
+            
+          </a>
+        </div>
+      </li>
+    
+  
+
+  
+
+
+
+            </ul>
+            
+                <p class="copyright">Copyright © 2016 The Combustion Institute</p>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+        
+        
+
+        
+        <noscript>
+        	<div class="msgBox" style="margin:10px 0 0 227px;width:595px;">
+        	<span class="errMsg" style="color:#000;">
+        	<img  class='warningIcon' title="Warning Icon" alt="Warning Icon" src="http://cdn.els-cdn.com/sd/img/sprite_parts/warning_a.gif" style="float:left;margin-right:5px;"/>
+            <div>JavaScript is disabled on your browser.  Please enable JavaScript to use all the features on this page.</div>
+        	</span>
+            </div>
+        </noscript>
+
+        <div id="bodyAllResults" class="cbodyAllResults">
+            <div id="issueDisplayData">
+                
+                
+                
+                
+                
+            </div>
+            <div id="bodyResults" class="mainResults journal">
+                
+                <div class="volumeHeader skyScraper">
+                    
+                   
+                    <h2 >Combustion and Flame<br>Volume 163, Pages 1-576 (January 2016)</h2>
+                    
+                    &nbsp;
+                </div>
+                
+
+                
+                    <div class="adBlock" id="skyscraper" style="float:right;width:160px;" aria-label="advertisement" role="region"></div>
+                
+                
+                                <div id="volumeIssueData" aria-label="Volume Issue" role="Navigation">
+                    
+                      <ul class="navigation">
+                      
+                        <li>
+                        
+                            <a title="Previous volume/issue" class="ActionButton" href="/science/journal/00102180/162/12">&lt; Previous vol/iss</a>
+                        
+                        </li>
+                        <li>
+                        
+                            <a title="Next volume/issue" class="ActionButton" href="/science/journal/aip/00102180">Next vol/iss &gt;</a>
+                        
+                        </li>
+                      
+                      </ul>
+                    
+                    <ol>
+                        <li><a href="/science/journal/aip/00102180"><span class="txtBold">Articles in Press</span></a></li><li><a class = "cLink" querystr="?_zone=volIssueHeader&_origin=browse" href="/science/journal/00102180/open-access"><span class="txtBold">  Open Access articles</span></a></li><li><A name="163"></A><A HREF="/science/journal/00102180/163" class="cLink volLink" queryStr="?_cHubEid=1-s2.0-S0010218015X00125" alt="Collapse Volume 163 2014" title="Collapse Volume 163 2014" aria-expanded="true" ><span class="srcPartOpened" title="Close">&nbsp;</span><span class="offscreen">Close</span>Volumes 161 - 163 (2014 - 2016)</A><ol><li class="selected"><div class="txt currentVolumes"><span aria-selected="true" style="color: #0156aa; font-weight: bold">Volume 163</span><span class="txtHidden"> - selected</span><br>pp. 1-576 (January 2016)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/12">Volume 162, Issue 12</A><br>pp. 4371-4674 (December 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/11">Volume 162, Issue 11</A><br>pp. 4075-4370 (November 2015)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/10">Volume 162, Issue 10</A><br>pp. 3447-4074 (October 2015)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/9">Volume 162, Issue 9</A><br>pp. 3131-3446 (September 2015)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/8">Volume 162, Issue 8</A><br>pp. 2963-3130 (August 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/7">Volume 162, Issue 7</A><br>pp. 2749-2962 (July 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/6">Volume 162, Issue 6</A><br>pp. 2311-2748 (June 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/5">Volume 162, Issue 5</A><br>pp. 1623-2310 (May 2015)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/4">Volume 162, Issue 4</A><br>pp. 877-1622 (April 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/3">Volume 162, Issue 3</A><br>pp. 529-876 (March 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/2">Volume 162, Issue 2</A><br>pp. 265-528 (February 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/162/1">Volume 162, Issue 1</A><br>pp. 1-264 (January 2015)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/12">Volume 161, Issue 12</A><br>pp. 3003-3266 (December 2014)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/11">Volume 161, Issue 11</A><br>pp. 2739-3002 (November 2014)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/10">Volume 161, Issue 10</A><br>pp. 2479-2738 (October 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/9">Volume 161, Issue 9</A><br>pp. 2219-2478 (September 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/8">Volume 161, Issue 8</A><br>pp. 1955-2218 (August 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/7">Volume 161, Issue 7</A><br>pp. 1687-1954 (July 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/6">Volume 161, Issue 6</A><br>pp. 1425-1686 (June 2014)</div><div class="accessIconBlk"><span class="dsub_openaccess_sci_dir " title="Issue contains Open Access articles" alt="Issue contains Open Access articles">&nbsp;<span class="offscreen">Issue contains Open Access articles</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/5">Volume 161, Issue 5</A><br>pp. 1135-1424 (May 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/4">Volume 161, Issue 4</A><br>pp. 865-1134 (April 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/3">Volume 161, Issue 3</A><br>pp. 633-864 (March 2014)<br><small>Special Issue on Alternative Fuels</small></div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/2">Volume 161, Issue 2</A><br>pp. 371-632 (February 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li><li><div class="txt currentVolumes"><A HREF="/science/journal/00102180/161/1">Volume 161, Issue 1</A><br>pp. 1-370 (January 2014)</div><div class="accessIconBlk"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></div></li></ol></li><li><A HREF="/science/journal/00102180/160" alt="Expand Volume 160 2007" title="Expand Volume 160 2007" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 151 - 160 (2007 - 2013)</A></li><li><A HREF="/science/journal/00102180/150" alt="Expand Volume 150 2005" title="Expand Volume 150 2005" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 141 - 150 (2005 - 2007)</A></li><li><A HREF="/science/journal/00102180/140" alt="Expand Volume 140 2002" title="Expand Volume 140 2002" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 131 - 140 (2002 - 2005)</A></li><li><A HREF="/science/journal/00102180/130" alt="Expand Volume 130 2000" title="Expand Volume 130 2000" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 121 - 130 (2000 - 2002)</A></li><li><A HREF="/science/journal/00102180/120" alt="Expand Volume 120 1997" title="Expand Volume 120 1997" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 111 - 120 (1997 - 2000)</A></li><li><A HREF="/science/journal/00102180/110" alt="Expand Volume 110 1995" title="Expand Volume 110 1995" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 101 - 110 (1995 - 1997)</A></li><li><A HREF="/science/journal/00102180/100" alt="Expand Volume 100 1992" title="Expand Volume 100 1992" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 91 - 100 (1992 - 1995)</A></li><li><A HREF="/science/journal/00102180/90" alt="Expand Volume 90 1990" title="Expand Volume 90 1990" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 81 - 90 (1990 - 1992)</A></li><li><A HREF="/science/journal/00102180/80" alt="Expand Volume 80 1988" title="Expand Volume 80 1988" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 71 - 80 (1988 - 1990)</A></li><li><A HREF="/science/journal/00102180/70" alt="Expand Volume 70 1985" title="Expand Volume 70 1985" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 61 - 70 (1985 - 1987)</A></li><li><A HREF="/science/journal/00102180/60" alt="Expand Volume 60 1983" title="Expand Volume 60 1983" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 51 - 60 (1983 - 1985)</A></li><li><A HREF="/science/journal/00102180/50" alt="Expand Volume 50 1981" title="Expand Volume 50 1981" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 41 - 50 (1981 - 1983)</A></li><li><A HREF="/science/journal/00102180/40" alt="Expand Volume 40 1978" title="Expand Volume 40 1978" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 31 - 40 (1978 - 1981)</A></li><li><A HREF="/science/journal/00102180/30" alt="Expand Volume 30 1973" title="Expand Volume 30 1973" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 21 - 30 (1973 - 1977)</A></li><li><A HREF="/science/journal/00102180/20" alt="Expand Volume 20 1967" title="Expand Volume 20 1967" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 11 - 20 (1967 - 1973)</A></li><li><A HREF="/science/journal/00102180/10" alt="Expand Volume 10 1957" title="Expand Volume 10 1957" aria-expanded="false" class="volLink"><span class="srcPartClosed" title="Open">&nbsp;</span><span class="offscreen">Open</span>Volumes 1 - 10 (1957 - 1966)</A></li>
+                    </ol>
+                    <script>prs.rt("pcr_nav");</script>
+                
+                </div> <!-- volumeIssueData -->
+                 
+
+  
+                
+                    
+                    
+                    <div id="issueList" class="skyScraper">
+                      <div class="resultList">
+                        
+    <form  method="get" name="Tag" action="/science" target="">
+      <input type="hidden" name="_ob" value="PublicationURL">
+      <input type="hidden" name="_method" value="list">
+      <input type="hidden" name="_hubEid" value="1-s2.0-S0010218015X00125">
+      <input type="hidden" name="_auth" value="y">
+      <input type="hidden" name="_version" value="1">
+      <input type="hidden" name="refSource" value="toc">
+      <input type="hidden" name="_pubType" value="J">
+      
+      
+        <input type="hidden" name="PDF_DDM_MAX" value="25">
+      
+      
+        <input type="hidden" name="_cid" value="271463">
+      
+      
+      
+      <input type="hidden" name="md5" value="cf8c9e2a3f2580c33473bf4d77533498">
+
+      
+        <input type="hidden" name="chunk" value="0">
+      
+      
+        <input type="hidden" name="view" value="c">
+      
+       
+      
+      
+      
+            
+      
+      
+      <input type="hidden" name="go" value="">
+      <input type="hidden" name="nextVector" value="">
+      <input type="hidden" name="prevVector" value="">
+      
+      
+          <input type="hidden" name="chunkSize" value="100">
+      
+      
+          <input type="hidden" name="hitCount" value="47">
+       
+    
+        <input type="hidden" name="count" value="47"><div id="issueListHeader" class="pubBody"><div class="arrowBlock"><span class="arrowIcon" title="Download or Export 0 selected results." alt="Download or Export 0 selected results."><span class="offscreen">Download and Export 0 checked results</span>&nbsp;</span></div><ul aria-label="Download or Export 0 selected results" role="region"><img src="http://cdn.els-cdn.com/sd/clear.gif" alt="" height="1"><li class="pdfDownloader"><span class="nojs"><input value="Download PDFs" name="pdfDownloadButton" class="listAction iconBg" id="multiPdfIcon" type="submit"><input type='hidden' name='pdfDownload' value='' /></span></li><li><input type="hidden" name="hubEID" value=""><div class="pulldown"> <div class= "exportDivision" title="Export citations" alt="Export citations"><input id="exportIcon_sci_dir" value="Export" name="export" class="listAction export export_general initialImage" type="button" title="Export citations"> <a role="button" href="javascript:;" title="Export citations" alt="Export citations" class="dropdownArrow" aria-expanded="false" aria-controls="export_popup"><span class=" exportArrow down_sci_dir">Export citations</span></a> <input class='zone' name='zone' type='hidden' value='exportDropDown'/> </div><div class="menu hidden export_popup" id="export_popup"><img class='warningIcon' title="Warning Icon" alt="Warning Icon" src="http://cdn.els-cdn.com/sd/img/sprite_parts/warning_a.gif"/><div class='exportInfo'><div class='chkboxCount'></div><div class='exportHelp'><a target='sdhelp' title='Help (Opens new window)' href='/science?_ob=HelpURL&_file=art_export.htm&_btn=Y&_zone=TopNavBar&_origin=journal' onclick='var helpWin;helpWin=window.open('/science?_ob=HelpURL&_file=art_export.htm&_btn=Y&_zone=TopNavBar&_origin=journal', 'sdhelp', 'scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=984,height=738'); helpWin.focus(); return false;' title='Help (Opens new window)'>Help</a></td></div></div><div class="expContainer"><ul class="Export_Popup"><li class='subHeading'><h3>Direct export </h3></li><li class='direct_export'><div class="downBtn export_downBtn"><div><div class='btn_export directExport'><div class='icon_Mendeley' title='Save to Mendeley'>&nbsp;</div><input id="directExport" type="button" value="Save to Mendeley" name="Save to Mendeley" alt="Save to Mendeley" class="mendeleyBT button"/></div></div><div class='btnLine'><div class='btn_export refworks'><div class='icon_Refworks' title='Save to Refworks'>&nbsp;</div><input id='REFWX' type='button' value='Save to RefWorks' name='Save to RefWorks' alt='Save to RefWorks' class='mendeleyBT button refworks'/></div></div><div class='clear'></div></div></li><li class="subHeading big"><h3>Export file</h3></li><li class="export_radio"><input type="radio" id="RIS" name="citation-type" checked value="RIS" {if var=RIS}checked{/if} class="artRadio expRadio RIS">&nbsp;<label for="RIS">RIS (for EndNote, Reference Manager, ProCite)</label></li><li class="export_radio"><input type="radio" id="BIBTEX" name="citation-type" value="BIBTEX" {if var=BIBTEX}checked{/if} class="artRadio expRadio BIBTEX">&nbsp;<label for="BIBTEX">BibTeX</label></li><li class="export_radio"><input type="radio" id="ASCII" name="citation-type" value="ASCII" {if var=ASCII}checked{/if} class="artRadio expRadio ASCII">&nbsp;<label for="ASCII">Text</label></li><li class='export_radio hidden'><input type='radio' id='REFWX' name='citation-type' value='REFWX' {if var=REFWX}checked{/if} class='artRadio expRadio REFWX'>&nbsp;<label for='REFWX'>RefWorks Direct Export</label></li><li class="subHeading big"><h3>Content</h3></li><li class='expCitab export_radio'><input type='radio' id='cite' name='format' value='cite' {if var=cite}checked{/if} class='artRadio expRadio'>&nbsp;<label class='cit' for='cite'>Citations Only</label></li><li class='expCitab export_radio'><input type='radio' id='cite-abs' name='format' value='cite-abs'checked class='artRadio expRadio'>&nbsp;<label class ='cab' for='cite-abs'>Citations and Abstracts</label></li><li class="export_submit"><div class="downBtn export_downBtn" style=""><input type="submit" value="Export" name="export" alt="Export" id = "export_button" class="button export_button"/></div></li></ul></div></div><br></li></ul><div aria-label="Filter by access" role="region" class="sortFilterContainer"><div class="pulldown right"><a aria-controls="content_type_menu" aria-expanded="false" aria-haspopup="true" class="button" href="#" role="button"><span class="icon filter_a"> </span> <span id="selectedOption">&nbsp; All access types &nbsp;</span><span class="icon arrow-down"> </span></a><div aria-activedescendant="access_JL" aria-label="Filter by content type" class="menu hidden filterMenu" id="content_type_menu" role="menu"><ul><li class="filterEnabled " aria-disabled=" "><a class="menuitem itemSelected" href="/science/journal/00102180/163" aria-expanded="false"> All access types </a></li><li class="filterEnabled" aria-disabled=" "><a class="menuitem cLink" queryStr="?_cHubEid=1-s2.0-S0010218015X00125" href="/science/journal/00102180/163/open-access" aria-expanded="false"> Open Access articles</a></li><li class="filterDisabled" aria-disabled="">Open Archive articles</li></ul></div></div></div></div><div class="pubBody"><div aria-label="Articles" role="region"><div id="bodyMainResults" class='bookResultsExp ' role='region' aria-label='Search Results' ><ol class="articleList results"><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015004319" aria-labelledby="title_S0010218015004319" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015004319" href="http://www.sciencedirect.com/science/article/pii/S0010218015004319" class="cLink artTitle S_C_artTitle prelim " data-docsubtype="edb" queryStr="?_rdoc=1&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=5bce34d977e94be84a5878dc007f3a57">Editorial Board</a></h4></li><li class="source "><i>Page IFC</i></li><li class="authors "></li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015004319" href="http://www.sciencedirect.com/science/article/pii/S0010218015004319/pdfft?md5=acd120bcf87a5d6ecc66f061aca65294&pid=1-s2.0-S0010218015004319-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (33 K)</a></li>
+</ul><div  id="abs_S0010218015004319" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015004319" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015004319" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_1" class="resultsView"></div><div class="subHeadsBlock heading1" ><h2 class="sectionH1">Original Articles</h2></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015002357" aria-labelledby="title_S0010218015002357" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015002357" href="http://www.sciencedirect.com/science/article/pii/S0010218015002357" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=2&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=e84eacafa316273f7e63a6a9abf2540b">Simulations of laminar non-premixed flames of methane with hot combustion products as oxidiser</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 1-11</i></li><li class="authors ">Jenni A.M. Sidey, Epaminondas Mastorakos</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=2&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015002357&_issn=00102180&_tab=afr&absLinks=y&md5=00a3a01dc3d48685fb349c07563fa4e4" aria-describedby="title_S0010218015002357" aria-controls="abs_S0010218015002357" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015002357" href="http://www.sciencedirect.com/science/article/pii/S0010218015002357/pdfft?md5=ae7979616c8265ce20ad65a34ac64f33&pid=1-s2.0-S0010218015002357-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1037 K)</a></li>
+</ul><div  id="abs_S0010218015002357" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015002357" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015002357" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_2" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015002618" aria-labelledby="title_S0010218015002618" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015002618" href="http://www.sciencedirect.com/science/article/pii/S0010218015002618" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=3&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=8a20ab35557d20e851a46bcf3e03f026">An experimental and kinetic modeling study of <span style='font-style: italic'>n</span>-dodecane pyrolysis and oxidation</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 12-30</i></li><li class="authors ">Sayak Banerjee, Rei Tangko, David A. Sheen, Hai Wang, C. Tom Bowman</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=3&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015002618&_issn=00102180&_tab=afr&absLinks=y&md5=dd17d69ec3f889d9dbb1eee9d40c4202" aria-describedby="title_S0010218015002618" aria-controls="abs_S0010218015002618" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015002618" href="http://www.sciencedirect.com/science/article/pii/S0010218015002618/pdfft?md5=ac9c7d0d374012fc4825ad9553eb4478&pid=1-s2.0-S0010218015002618-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (6923 K)</a></li>
+<li><a id ="title_S0010218015002618" href="http://www.sciencedirect.com/science/article/pii/S0010218015002618#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=3&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=8a20ab35557d20e851a46bcf3e03f026"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015002618" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015002618" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015002618" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_3" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015002667" aria-labelledby="title_S0010218015002667" style="padding-left:6px;"></li><li class="title oaBlock"><h4><a id ="title_S0010218015002667" href="http://www.sciencedirect.com/science/article/pii/S0010218015002667" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=4&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=d3bf90bdfa62a50397bfe85bd1b88300">Pyrolysis and ignition of a polymer by transient irradiation</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source oaBlock"><i>Pages 31-41</i></li><li class="authors oaBlock">Izabella Vermesi, Nils Roenner, Paolo Pironi, Rory M. Hadden, Guillermo Rein</li><li class="external "><div class="txt external oaBlock"><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=4&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015002667&_issn=00102180&_tab=afr&absLinks=y&md5=95d9af8728aa419c6abec706f5cfa4d5" aria-describedby="title_S0010218015002667" aria-controls="abs_S0010218015002667" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015002667" href="http://www.sciencedirect.com/science/article/pii/S0010218015002667/pdfft?md5=ca8e826b7a86fcff1017659b2cc32f92&pid=1-s2.0-S0010218015002667-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3555 K)</a></li>
+</ul><div  id="abs_S0010218015002667" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015002667" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015002667" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="iconPosition" title="Open Access Article" alt="Open Access Article">Open Access&nbsp;<span class="offscreen">Open Access Article</span><span class="dsprite_oaIcon">&nbsp;</span></span></li></ul></li><div id="resultsView_4" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015002722" aria-labelledby="title_S0010218015002722" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015002722" href="http://www.sciencedirect.com/science/article/pii/S0010218015002722" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=5&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=f55081b8513c856c184c3b347a0e9244">Hot surface ignition of <span style='font-style: italic'>n</span>-hexane in air</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 42-53</i></li><li class="authors ">Shyam K. Menon, Philipp A. Boettcher, Brian Ventura, Guillaume Blanquart</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=5&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015002722&_issn=00102180&_tab=afr&absLinks=y&md5=fac9ffb6d8a6ac7ebf992ff1dfb14a80" aria-describedby="title_S0010218015002722" aria-controls="abs_S0010218015002722" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015002722" href="http://www.sciencedirect.com/science/article/pii/S0010218015002722/pdfft?md5=5e191c3fd75ff4b9c1556e53ca90c06c&pid=1-s2.0-S0010218015002722-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3765 K)</a></li>
+<li><a id ="title_S0010218015002722" href="http://www.sciencedirect.com/science/article/pii/S0010218015002722#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=5&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=f55081b8513c856c184c3b347a0e9244"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015002722" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015002722" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015002722" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_5" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S001021801500276X" aria-labelledby="title_S001021801500276X" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S001021801500276X" href="http://www.sciencedirect.com/science/article/pii/S001021801500276X" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=6&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=b547dec7a06645e8cb247f9a2ba13397">Premixed flame inhibition by C<sub>2</sub>HF<sub>3</sub>Cl<sub>2</sub> and C<sub>2</sub>HF<sub>5</sub></a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 54-65</i></li><li class="authors ">John L. Pagliaro, Gregory T. Linteris, Valeri I. Babushok</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=6&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S001021801500276X&_issn=00102180&_tab=afr&absLinks=y&md5=32b0d0dba038a58184a0d0e66245dfbd" aria-describedby="title_S001021801500276X" aria-controls="abs_S001021801500276X" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S001021801500276X" href="http://www.sciencedirect.com/science/article/pii/S001021801500276X/pdfft?md5=dad15b9965d572f68a7c15194fcc3938&pid=1-s2.0-S001021801500276X-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2772 K)</a></li>
+</ul><div  id="abs_S001021801500276X" class="previewBox abstract hidden"></div><div  id="rabs_S001021801500276X" class="previewBox rabstract hidden"></div><div  id="gabs_S001021801500276X" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_6" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003041" aria-labelledby="title_S0010218015003041" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003041" href="http://www.sciencedirect.com/science/article/pii/S0010218015003041" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=7&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=46181620bef5755f3023d638fe7c4aff">Di-<span style='font-style: italic'>n</span>-buthylether, <span style='font-style: italic'>n</span>-octanol, and <span style='font-style: italic'>n</span>-octane as fuel candidates for diesel engine combustion</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 66-78</i></li><li class="authors ">Bruno Kerschgens, Liming Cai, Heinz Pitsch, Benedikt Heuser, Stefan Pischinger</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=7&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003041&_issn=00102180&_tab=afr&absLinks=y&md5=9e7762f706e2d8f0454b0ca708eb31c6" aria-describedby="title_S0010218015003041" aria-controls="abs_S0010218015003041" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003041" href="http://www.sciencedirect.com/science/article/pii/S0010218015003041/pdfft?md5=7085024d583818781ee3eeca0bee3765&pid=1-s2.0-S0010218015003041-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2189 K)</a></li>
+<li><a id ="title_S0010218015003041" href="http://www.sciencedirect.com/science/article/pii/S0010218015003041#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=7&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=46181620bef5755f3023d638fe7c4aff"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003041" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003041" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003041" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_7" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003053" aria-labelledby="title_S0010218015003053" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003053" href="http://www.sciencedirect.com/science/article/pii/S0010218015003053" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=8&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=3adb81744ff9ca73a6ed5494ec24355d">A numerical study of the effects of primary reference fuel chemical kinetics on ignition and heat release under homogeneous reciprocating engine conditions</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 79-89</i></li><li class="authors ">Mohammad Fatouraie, Darshan M.A. Karwat, Margaret S. Wooldridge</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=8&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003053&_issn=00102180&_tab=afr&absLinks=y&md5=36cc4d4656edcd266606a60b28d189c1" aria-describedby="title_S0010218015003053" aria-controls="abs_S0010218015003053" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003053" href="http://www.sciencedirect.com/science/article/pii/S0010218015003053/pdfft?md5=ee1f227c04ccedadc3861680b38a9f17&pid=1-s2.0-S0010218015003053-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3589 K)</a></li>
+<li><a id ="title_S0010218015003053" href="http://www.sciencedirect.com/science/article/pii/S0010218015003053#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=8&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=3adb81744ff9ca73a6ed5494ec24355d"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003053" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003053" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003053" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_8" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003077" aria-labelledby="title_S0010218015003077" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003077" href="http://www.sciencedirect.com/science/article/pii/S0010218015003077" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=9&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=d18c2eb81bcfa953ea60736c413cced7">Combustion kinetics of laser irradiated porous graphite from imaging Fourier transform spectroscopy</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 90-99</i></li><li class="authors ">Roberto I. Acosta, Kevin C. Gross, Glen P. Perram</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=9&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003077&_issn=00102180&_tab=afr&absLinks=y&md5=e2ce8147df500b45fd962cd6f6af6185" aria-describedby="title_S0010218015003077" aria-controls="abs_S0010218015003077" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003077" href="http://www.sciencedirect.com/science/article/pii/S0010218015003077/pdfft?md5=c54ece594fb1e61d0942df818d45bcf0&pid=1-s2.0-S0010218015003077-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2981 K)</a></li>
+</ul><div  id="abs_S0010218015003077" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003077" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003077" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_9" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003090" aria-labelledby="title_S0010218015003090" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003090" href="http://www.sciencedirect.com/science/article/pii/S0010218015003090" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=10&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=1223d059becfa0af449337e41e7dd81c">Characterizing spray flame–vortex interaction: A spray spectral diagram for extinction</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 100-114</i></li><li class="authors ">Benedetta Franzelli, Aymeric Vié, Matthias Ihme</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=10&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003090&_issn=00102180&_tab=afr&absLinks=y&md5=92c4c2e85ecf16744b16baa380882a73" aria-describedby="title_S0010218015003090" aria-controls="abs_S0010218015003090" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003090" href="http://www.sciencedirect.com/science/article/pii/S0010218015003090/pdfft?md5=80b147d1971ad447b19217790195263d&pid=1-s2.0-S0010218015003090-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (4431 K)</a></li>
+</ul><div  id="abs_S0010218015003090" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003090" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003090" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_10" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003107" aria-labelledby="title_S0010218015003107" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003107" href="http://www.sciencedirect.com/science/article/pii/S0010218015003107" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=11&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=98d35f52e5653d2675cf5d9e5bfab44f">Evolution of size distribution and morphology of carbon nanoparticles during ethylene pyrolysis</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 115-121</i></li><li class="authors ">Kazuki Dewa, Kiminori Ono, Aki Watanabe, Kaname Takahashi, Yoshiya Matsukawa, Yasuhiro Saito, Yohsuke Matsushita, Hideyuki Aoki, Koki Era, Takayuki Aoki, Togo Yamaguchi</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=11&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003107&_issn=00102180&_tab=afr&absLinks=y&md5=37faae739445f3f6724213a2859da6f8" aria-describedby="title_S0010218015003107" aria-controls="abs_S0010218015003107" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003107" href="http://www.sciencedirect.com/science/article/pii/S0010218015003107/pdfft?md5=3dcb43d2db876196133c7d68e45ad8fb&pid=1-s2.0-S0010218015003107-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1135 K)</a></li>
+</ul><div  id="abs_S0010218015003107" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003107" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003107" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_11" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003168" aria-labelledby="title_S0010218015003168" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003168" href="http://www.sciencedirect.com/science/article/pii/S0010218015003168" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=12&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=e9768d448a7c6d8ae34060c7c5104ce2">Direct Numerical Simulations of premixed methane flame initiation by pilot n-heptane spray autoignition</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 122-137</i></li><li class="authors ">Elena Demosthenous, Giulio Borghesi, Epaminondas Mastorakos, Robert Stewart Cant</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=12&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003168&_issn=00102180&_tab=afr&absLinks=y&md5=94d703ae8a7dbe2a7deccb09f7e8f0c2" aria-describedby="title_S0010218015003168" aria-controls="abs_S0010218015003168" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003168" href="http://www.sciencedirect.com/science/article/pii/S0010218015003168/pdfft?md5=e169915ad9c441353c6455064eecc705&pid=1-s2.0-S0010218015003168-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (5202 K)</a></li>
+</ul><div  id="abs_S0010218015003168" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003168" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003168" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_12" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S001021801500317X" aria-labelledby="title_S001021801500317X" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S001021801500317X" href="http://www.sciencedirect.com/science/article/pii/S001021801500317X" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=13&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=087b32e99267908ff4896d1469a070fd">An ignition delay time and chemical kinetic modeling study of the pentane isomers</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 138-156</i></li><li class="authors ">John Bugler, Brandon Marks, Olivier Mathieu, Rachel Archuleta, Alejandro Camou, Claire Grégoire, Karl A. Heufer, Eric L. Petersen, Henry J. Curran</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=13&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S001021801500317X&_issn=00102180&_tab=afr&absLinks=y&md5=e3a6091f73bb9c21907878dfb9531225" aria-describedby="title_S001021801500317X" aria-controls="abs_S001021801500317X" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S001021801500317X" href="http://www.sciencedirect.com/science/article/pii/S001021801500317X/pdfft?md5=b620c5732d42b8861b18043fb3f1eaee&pid=1-s2.0-S001021801500317X-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (7158 K)</a></li>
+<li><a id ="title_S001021801500317X" href="http://www.sciencedirect.com/science/article/pii/S001021801500317X#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=13&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=087b32e99267908ff4896d1469a070fd"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S001021801500317X" class="previewBox abstract hidden"></div><div  id="rabs_S001021801500317X" class="previewBox rabstract hidden"></div><div  id="gabs_S001021801500317X" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_13" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003193" aria-labelledby="title_S0010218015003193" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003193" href="http://www.sciencedirect.com/science/article/pii/S0010218015003193" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=14&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=959d9e5fe887914f95d5df78d5e4822b">Reactivity and structure of soot generated at varying biofuel content and engine operating parameters</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 157-169</i></li><li class="authors ">Michaela Nicole Ess, Henrike Bladt, Wolfgang Mühlbauer, Simone Isabelle Seher, Christian Zöllner, Sebastian Lorenz, Dieter Brüggemann, Ulrich Nieken, Natalia P. Ivleva, Reinhard Niessner</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=14&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003193&_issn=00102180&_tab=afr&absLinks=y&md5=3885381cbfbe9f106912cf4446d25e34" aria-describedby="title_S0010218015003193" aria-controls="abs_S0010218015003193" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003193" href="http://www.sciencedirect.com/science/article/pii/S0010218015003193/pdfft?md5=a5687932642ec985b9c9aa44b86c18fc&pid=1-s2.0-S0010218015003193-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2023 K)</a></li>
+<li><a id ="title_S0010218015003193" href="http://www.sciencedirect.com/science/article/pii/S0010218015003193#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=14&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=959d9e5fe887914f95d5df78d5e4822b"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003193" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003193" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003193" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_14" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003259" aria-labelledby="title_S0010218015003259" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003259" href="http://www.sciencedirect.com/science/article/pii/S0010218015003259" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=15&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=bcc3308b56bfdf866dbbaeba2016a054">Soot oxidation-induced fragmentation: Part 2: Experimental investigation of the mechanism of fragmentation</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 170-178</i></li><li class="authors ">Hossein Ghiassi, Isabel C. Jaramillo, Pal Toth, JoAnn S. Lighty</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=15&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003259&_issn=00102180&_tab=afr&absLinks=y&md5=bf0ab94137af51df0b76108024d80f38" aria-describedby="title_S0010218015003259" aria-controls="abs_S0010218015003259" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003259" href="http://www.sciencedirect.com/science/article/pii/S0010218015003259/pdfft?md5=fc158761da7ac0442dcac3a4ec81ae51&pid=1-s2.0-S0010218015003259-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1536 K)</a></li>
+</ul><div  id="abs_S0010218015003259" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003259" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003259" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_15" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003260" aria-labelledby="title_S0010218015003260" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003260" href="http://www.sciencedirect.com/science/article/pii/S0010218015003260" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=16&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=a1450a98d771edc173cf660ad687e5c7">Soot oxidation-induced fragmentation: Part 1: The relationship between soot nanostructure and oxidation-induced fragmentation</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 179-187</i></li><li class="authors ">Hossein Ghiassi, Pal Toth, Isabel C. Jaramillo, JoAnn S. Lighty</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=16&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003260&_issn=00102180&_tab=afr&absLinks=y&md5=8f2ce123234c29d22991bc36f9e0a672" aria-describedby="title_S0010218015003260" aria-controls="abs_S0010218015003260" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003260" href="http://www.sciencedirect.com/science/article/pii/S0010218015003260/pdfft?md5=d09218981ebcb1a13598f0aeb9c77fa9&pid=1-s2.0-S0010218015003260-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3119 K)</a></li>
+</ul><div  id="abs_S0010218015003260" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003260" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003260" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_16" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003272" aria-labelledby="title_S0010218015003272" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003272" href="http://www.sciencedirect.com/science/article/pii/S0010218015003272" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=17&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=842885ddefa4706dcfe1ff4245c1f52d">A char combustion sub-model for CFD-predictions of fluidized bed combustion - experiments and mathematical modeling</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 188-201</i></li><li class="authors ">Jakub Bibrzycki, Marco Mancini, Andrzej Szlęk, Roman Weber</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=17&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003272&_issn=00102180&_tab=afr&absLinks=y&md5=b2c7af48ec84c150152130fa92375e56" aria-describedby="title_S0010218015003272" aria-controls="abs_S0010218015003272" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003272" href="http://www.sciencedirect.com/science/article/pii/S0010218015003272/pdfft?md5=9d3bff864d850bbedc581391f2474b9e&pid=1-s2.0-S0010218015003272-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1984 K)</a></li>
+</ul><div  id="abs_S0010218015003272" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003272" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003272" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_17" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003405" aria-labelledby="title_S0010218015003405" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003405" href="http://www.sciencedirect.com/science/article/pii/S0010218015003405" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=18&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=9746eea045a086b376e0db742c54c0a9">Scaling of a small scale burner fire whirl</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 202-208</i></li><li class="authors ">K.A. Hartl, A.J. Smits</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=18&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003405&_issn=00102180&_tab=afr&absLinks=y&md5=e526272f26771cd24638a364cfbd4eca" aria-describedby="title_S0010218015003405" aria-controls="abs_S0010218015003405" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003405" href="http://www.sciencedirect.com/science/article/pii/S0010218015003405/pdfft?md5=892b80704bff793cdd3a16e8b20ebf9d&pid=1-s2.0-S0010218015003405-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1271 K)</a></li>
+</ul><div  id="abs_S0010218015003405" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003405" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003405" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_18" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003429" aria-labelledby="title_S0010218015003429" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003429" href="http://www.sciencedirect.com/science/article/pii/S0010218015003429" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=19&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=0c3575fa4254446cdc64cc7bc71db763">Study on combustion and ignition characteristics of ethylene, propylene, 1-butene and 1-pentene in a micro flow reactor with a controlled temperature profile</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 209-219</i></li><li class="authors ">Shogo Kikui, Hisashi Nakamura, Takuya Tezuka, Susumu Hasegawa, Kaoru Maruta</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=19&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003429&_issn=00102180&_tab=afr&absLinks=y&md5=48827df18eed719b587f37f5248a6610" aria-describedby="title_S0010218015003429" aria-controls="abs_S0010218015003429" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003429" href="http://www.sciencedirect.com/science/article/pii/S0010218015003429/pdfft?md5=17dabcb70fba9ba50a434bfa2449a124&pid=1-s2.0-S0010218015003429-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2427 K)</a></li>
+</ul><div  id="abs_S0010218015003429" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003429" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003429" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_19" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003466" aria-labelledby="title_S0010218015003466" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003466" href="http://www.sciencedirect.com/science/article/pii/S0010218015003466" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=20&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=974099b7445a78a70c1c7d03be05ede8">A flame particle tracking analysis of turbulence–chemistry interaction in hydrogen–air premixed flames</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 220-240</i></li><li class="authors ">Harshavardhana A. Uranakara, Swetaprovo Chaudhuri, Himanshu L. Dave, Paul G. Arias, Hong G. Im</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=20&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003466&_issn=00102180&_tab=afr&absLinks=y&md5=e86558e8ba7594db76b4350a534dbce1" aria-describedby="title_S0010218015003466" aria-controls="abs_S0010218015003466" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003466" href="http://www.sciencedirect.com/science/article/pii/S0010218015003466/pdfft?md5=43142fc4504ed55ce5bf0dd634b3eb2c&pid=1-s2.0-S0010218015003466-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (14231 K)</a></li>
+</ul><div  id="abs_S0010218015003466" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003466" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003466" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_20" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003478" aria-labelledby="title_S0010218015003478" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003478" href="http://www.sciencedirect.com/science/article/pii/S0010218015003478" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=21&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=74fd41c513e31e0872691b3ff1724dde">High-repetition-rate planar measurements in the wake of a reacting jet injected into a swirling vitiated crossflow</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 241-257</i></li><li class="authors ">Pratikash P. Panda, Mario Roa, Carson D. Slabaugh, Scott Peltier, Campbell D. Carter, Walter R. Laster, Robert P. Lucht</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=21&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003478&_issn=00102180&_tab=afr&absLinks=y&md5=23b6fb57ed8649ab6b4093952f37bf26" aria-describedby="title_S0010218015003478" aria-controls="abs_S0010218015003478" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003478" href="http://www.sciencedirect.com/science/article/pii/S0010218015003478/pdfft?md5=436d1aea69addbb9253637405a0d95f6&pid=1-s2.0-S0010218015003478-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (10168 K)</a></li>
+</ul><div  id="abs_S0010218015003478" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003478" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003478" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_21" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003491" aria-labelledby="title_S0010218015003491" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003491" href="http://www.sciencedirect.com/science/article/pii/S0010218015003491" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=22&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=256733f559163efeb5fb7c5a7649278d">Independent component analysis of cycle resolved combustion images from a spark ignition optical engine</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 258-269</i></li><li class="authors ">Katarzyna Bizon, Gaetano Continillo, Simone Lombardi, Paolo Sementa, Bianca M. Vaglieco</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=22&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003491&_issn=00102180&_tab=afr&absLinks=y&md5=2eba15d0976a5465dabec22763925a1e" aria-describedby="title_S0010218015003491" aria-controls="abs_S0010218015003491" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003491" href="http://www.sciencedirect.com/science/article/pii/S0010218015003491/pdfft?md5=928b9a7e639daff51de59878a68885ba&pid=1-s2.0-S0010218015003491-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (4929 K)</a></li>
+</ul><div  id="abs_S0010218015003491" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003491" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003491" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_22" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003508" aria-labelledby="title_S0010218015003508" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003508" href="http://www.sciencedirect.com/science/article/pii/S0010218015003508" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=23&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=b994abaf8536081e5ba9c4c8458d5669">Laminar flame speeds under engine-relevant conditions: Uncertainty quantification and minimization in spherically expanding flame experiments</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 270-283</i></li><li class="authors ">Christodoulos Xiouris, Tailai Ye, Jagannath Jayachandran, Fokion N. Egolfopoulos</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=23&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003508&_issn=00102180&_tab=afr&absLinks=y&md5=cef41f236140e69ba4a7235a74948be1" aria-describedby="title_S0010218015003508" aria-controls="abs_S0010218015003508" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003508" href="http://www.sciencedirect.com/science/article/pii/S0010218015003508/pdfft?md5=de63d68f46b1f6cfa1eac9051b5ba6d7&pid=1-s2.0-S0010218015003508-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2870 K)</a></li>
+<li><a id ="title_S0010218015003508" href="http://www.sciencedirect.com/science/article/pii/S0010218015003508#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=23&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=b994abaf8536081e5ba9c4c8458d5669"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003508" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003508" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003508" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_23" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S001021801500351X" aria-labelledby="title_S001021801500351X" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S001021801500351X" href="http://www.sciencedirect.com/science/article/pii/S001021801500351X" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=24&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=bc5934d3f875fa7e994497f491ed4121">Transient combustion of a methane-hydrate sphere</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 284-300</i></li><li class="authors ">Tali Bar-Kohany, William A. Sirignano</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=24&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S001021801500351X&_issn=00102180&_tab=afr&absLinks=y&md5=c72e00635255a672afbe087812d052c7" aria-describedby="title_S001021801500351X" aria-controls="abs_S001021801500351X" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S001021801500351X" href="http://www.sciencedirect.com/science/article/pii/S001021801500351X/pdfft?md5=c4301a78940e9935f68b4153eb4874d2&pid=1-s2.0-S001021801500351X-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2298 K)</a></li>
+</ul><div  id="abs_S001021801500351X" class="previewBox abstract hidden"></div><div  id="rabs_S001021801500351X" class="previewBox rabstract hidden"></div><div  id="gabs_S001021801500351X" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_24" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003533" aria-labelledby="title_S0010218015003533" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003533" href="http://www.sciencedirect.com/science/article/pii/S0010218015003533" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=25&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=f31ffa4d5696cca492f4505cc54b1a53">A numerical investigation of the influence of radiation and moisture content on pyrolysis and ignition of a leaf-like fuel element</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 301-316</i></li><li class="authors ">B.L. Yashwanth, B. Shotorban, S. Mahalingam, C.W. Lautenberger, D.R. Weise</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=25&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003533&_issn=00102180&_tab=afr&absLinks=y&md5=7a746e628ee2325e6dc702107bfb8a58" aria-describedby="title_S0010218015003533" aria-controls="abs_S0010218015003533" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003533" href="http://www.sciencedirect.com/science/article/pii/S0010218015003533/pdfft?md5=9c604a654c45e52bdafc26c9b7498a6a&pid=1-s2.0-S0010218015003533-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2504 K)</a></li>
+</ul><div  id="abs_S0010218015003533" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003533" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003533" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_25" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003545" aria-labelledby="title_S0010218015003545" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003545" href="http://www.sciencedirect.com/science/article/pii/S0010218015003545" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=26&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=6dccf2e6bb74a5d661023d98a49d70b7">DC field response of one-dimensional flames using an ionized layer model</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 317-325</i></li><li class="authors ">Yuan Xiong, Dae Geun Park, Bok Jik Lee, Suk Ho Chung, Min Suk Cha</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=26&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003545&_issn=00102180&_tab=afr&absLinks=y&md5=98ffbb0929d9ed1765211cc8202fb814" aria-describedby="title_S0010218015003545" aria-controls="abs_S0010218015003545" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003545" href="http://www.sciencedirect.com/science/article/pii/S0010218015003545/pdfft?md5=b0788e1600b77c78883bcc66419c0747&pid=1-s2.0-S0010218015003545-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2442 K)</a></li>
+<li><a id ="title_S0010218015003545" href="http://www.sciencedirect.com/science/article/pii/S0010218015003545#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=26&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=6dccf2e6bb74a5d661023d98a49d70b7"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003545" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003545" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003545" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_26" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003557" aria-labelledby="title_S0010218015003557" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003557" href="http://www.sciencedirect.com/science/article/pii/S0010218015003557" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=27&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=91864e88c7602b1282cfc19d351403bd">Droplet ignition of approximately continuous liquid mixtures of <span style='font-style: italic'>n</span>-paraffins and <span style='font-style: italic'>n</span>-alkyl aromatics</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 326-336</i></li><li class="authors ">Shaun W. Sabourin, Claire I. Boteler, William L.H. Hallett</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=27&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003557&_issn=00102180&_tab=afr&absLinks=y&md5=0a9e0aef1cd97b886d2aecd7d194882f" aria-describedby="title_S0010218015003557" aria-controls="abs_S0010218015003557" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003557" href="http://www.sciencedirect.com/science/article/pii/S0010218015003557/pdfft?md5=8efe6f9ecb2f1792bab9219658a76853&pid=1-s2.0-S0010218015003557-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1131 K)</a></li>
+</ul><div  id="abs_S0010218015003557" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003557" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003557" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_27" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003570" aria-labelledby="title_S0010218015003570" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003570" href="http://www.sciencedirect.com/science/article/pii/S0010218015003570" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=28&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=5dee6d2f361a5db7c298a9eccf92c6c1">Nonlinear analysis of an acoustically excited laminar premixed flame</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 337-357</i></li><li class="authors ">S. Schlimpert, M. Meinke, W. Schröder</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=28&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003570&_issn=00102180&_tab=afr&absLinks=y&md5=2c9cc70b2eaf8e1d2c094ac496b9565b" aria-describedby="title_S0010218015003570" aria-controls="abs_S0010218015003570" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003570" href="http://www.sciencedirect.com/science/article/pii/S0010218015003570/pdfft?md5=3fbfe7f71063849f270505ba792da843&pid=1-s2.0-S0010218015003570-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2931 K)</a></li>
+</ul><div  id="abs_S0010218015003570" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003570" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003570" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_28" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003582" aria-labelledby="title_S0010218015003582" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003582" href="http://www.sciencedirect.com/science/article/pii/S0010218015003582" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=29&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=64e44f65e2ea58ad1587170f6d2fda3f">Numerical modeling of self-heating and self-ignition in a packed-bed of biomass using XDEM</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 358-369</i></li><li class="authors ">Amir Houshang Mahmoudi, Florian Hoffmann, Miladin Markovic, Bernhard Peters, Gerrit Brem</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=29&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003582&_issn=00102180&_tab=afr&absLinks=y&md5=2d688a54effe481d3208f12483158475" aria-describedby="title_S0010218015003582" aria-controls="abs_S0010218015003582" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003582" href="http://www.sciencedirect.com/science/article/pii/S0010218015003582/pdfft?md5=61446e5e0ec6d1a81799835c1a4696a2&pid=1-s2.0-S0010218015003582-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2642 K)</a></li>
+</ul><div  id="abs_S0010218015003582" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003582" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003582" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_29" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003600" aria-labelledby="title_S0010218015003600" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003600" href="http://www.sciencedirect.com/science/article/pii/S0010218015003600" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=30&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=0e0dd8c1d45b46b1b3731ac3fe7da4b1">Structure of premixed ammonia + air flames at atmospheric pressure: Laser diagnostics and kinetic modeling</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 370-381</i></li><li class="authors ">Christian Brackmann, Vladimir A. Alekseev, Bo Zhou, Emil Nordström, Per-Erik Bengtsson, Zhongshan Li, Marcus Aldén, Alexander A. Konnov</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=30&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003600&_issn=00102180&_tab=afr&absLinks=y&md5=d3a5299ea4aaffdbdce74e364579d89e" aria-describedby="title_S0010218015003600" aria-controls="abs_S0010218015003600" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003600" href="http://www.sciencedirect.com/science/article/pii/S0010218015003600/pdfft?md5=d632a24a08fdcf17f25bafa75b469478&pid=1-s2.0-S0010218015003600-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1603 K)</a></li>
+<li><a id ="title_S0010218015003600" href="http://www.sciencedirect.com/science/article/pii/S0010218015003600#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=30&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=0e0dd8c1d45b46b1b3731ac3fe7da4b1"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003600" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003600" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003600" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_30" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003612" aria-labelledby="title_S0010218015003612" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003612" href="http://www.sciencedirect.com/science/article/pii/S0010218015003612" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=31&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=4cd748dc521b47ce67e3929a5e1b7e1f">Skeletal mechanism reduction through species-targeted sensitivity analysis</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 382-393</i></li><li class="authors ">A. Stagni, A. Frassoldati, A. Cuoci, T. Faravelli, E. Ranzi</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=31&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003612&_issn=00102180&_tab=afr&absLinks=y&md5=fe0cf87e4dd817ff8a38f2c7e5a573d0" aria-describedby="title_S0010218015003612" aria-controls="abs_S0010218015003612" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003612" href="http://www.sciencedirect.com/science/article/pii/S0010218015003612/pdfft?md5=7c26e020d7a3fe4866927c1a598d55ce&pid=1-s2.0-S0010218015003612-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1761 K)</a></li>
+<li><a id ="title_S0010218015003612" href="http://www.sciencedirect.com/science/article/pii/S0010218015003612#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=31&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=4cd748dc521b47ce67e3929a5e1b7e1f"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003612" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003612" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003612" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_31" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003624" aria-labelledby="title_S0010218015003624" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003624" href="http://www.sciencedirect.com/science/article/pii/S0010218015003624" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=32&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=c62e2e830046f77b96fc1d089aff4beb">Numerical study of laminar flame speed of fuel-stratified hydrogen/air flames</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 394-405</i></li><li class="authors ">Xian Shi, Jyh-Yuan Chen, Zheng Chen</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=32&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003624&_issn=00102180&_tab=afr&absLinks=y&md5=3facf481f9cbfa802de8bca9c0d076e4" aria-describedby="title_S0010218015003624" aria-controls="abs_S0010218015003624" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003624" href="http://www.sciencedirect.com/science/article/pii/S0010218015003624/pdfft?md5=fb03520ffaf41704dbf35f3d93c27ac0&pid=1-s2.0-S0010218015003624-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (4433 K)</a></li>
+</ul><div  id="abs_S0010218015003624" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003624" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003624" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_32" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003636" aria-labelledby="title_S0010218015003636" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003636" href="http://www.sciencedirect.com/science/article/pii/S0010218015003636" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=33&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=b3fd98b33da8f19ddd383bab4c7ba754">Oxidizer coarse-to-fine ratio effect on microscale flame structure in a bimodal composite propellant</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 406-413</i></li><li class="authors ">Sarah Isert, Trevor D. Hedman, Robert P. Lucht, Steven F. Son</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=33&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003636&_issn=00102180&_tab=afr&absLinks=y&md5=b197a8847b71929d890d0eb22bc9a771" aria-describedby="title_S0010218015003636" aria-controls="abs_S0010218015003636" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003636" href="http://www.sciencedirect.com/science/article/pii/S0010218015003636/pdfft?md5=5c6038586cebf527bd50cf9424a9d157&pid=1-s2.0-S0010218015003636-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1478 K)</a></li>
+</ul><div  id="abs_S0010218015003636" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003636" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003636" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_33" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003648" aria-labelledby="title_S0010218015003648" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003648" href="http://www.sciencedirect.com/science/article/pii/S0010218015003648" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=34&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=2e6978c94a19946e32808f181c5f0201">On the pressure dependence of ignition and mixing in two-dimensional reactive shock-bubble interaction</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 414-426</i></li><li class="authors ">Felix Diegelmann, Volker Tritschler, Stefan Hickel, Nikolaus Adams</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=34&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003648&_issn=00102180&_tab=afr&absLinks=y&md5=a524be4385ab298347c88e2a9f224ef4" aria-describedby="title_S0010218015003648" aria-controls="abs_S0010218015003648" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003648" href="http://www.sciencedirect.com/science/article/pii/S0010218015003648/pdfft?md5=85c334c90acad31c21a639e8a611784b&pid=1-s2.0-S0010218015003648-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2255 K)</a></li>
+<li><a id ="title_S0010218015003648" href="http://www.sciencedirect.com/science/article/pii/S0010218015003648#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=34&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=2e6978c94a19946e32808f181c5f0201"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003648" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003648" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003648" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_34" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S001021801500365X" aria-labelledby="title_S001021801500365X" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S001021801500365X" href="http://www.sciencedirect.com/science/article/pii/S001021801500365X" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=35&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=37d62af8f830c3d98236b9dbe9648fa1">A computational study of ethylene–air sooting flames: Effects of large polycyclic aromatic hydrocarbons</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 427-436</i></li><li class="authors ">Prabhu Selvaraj, Paul G. Arias, Bok Jik Lee, Hong G. Im, Yu Wang, Yang Gao, Sungwoo Park, S. Mani Sarathy, Tianfeng Lu, Suk Ho Chung</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=35&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S001021801500365X&_issn=00102180&_tab=afr&absLinks=y&md5=74a95e343e0c8f68223b023648c3b745" aria-describedby="title_S001021801500365X" aria-controls="abs_S001021801500365X" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S001021801500365X" href="http://www.sciencedirect.com/science/article/pii/S001021801500365X/pdfft?md5=8092be5f5888e4dbc4eeb2138904281a&pid=1-s2.0-S001021801500365X-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2682 K)</a></li>
+</ul><div  id="abs_S001021801500365X" class="previewBox abstract hidden"></div><div  id="rabs_S001021801500365X" class="previewBox rabstract hidden"></div><div  id="gabs_S001021801500365X" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_35" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003661" aria-labelledby="title_S0010218015003661" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003661" href="http://www.sciencedirect.com/science/article/pii/S0010218015003661" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=36&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=e598c863c2c6edbc29324c59cd4f6456">On lumped-reduced reaction model for combustion of liquid fuels</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 437-446</i></li><li class="authors ">Yang Gao, Ruiqin Shan, Sgouria Lyra, Cong Li, Hai Wang, Jacqueline H. Chen, Tianfeng Lu</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=36&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003661&_issn=00102180&_tab=afr&absLinks=y&md5=2d5c8d779be027b194f8b37277d93690" aria-describedby="title_S0010218015003661" aria-controls="abs_S0010218015003661" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003661" href="http://www.sciencedirect.com/science/article/pii/S0010218015003661/pdfft?md5=3fb0df34edf310571a7db15f3995bd5a&pid=1-s2.0-S0010218015003661-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3123 K)</a></li>
+</ul><div  id="abs_S0010218015003661" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003661" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003661" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_36" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003673" aria-labelledby="title_S0010218015003673" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003673" href="http://www.sciencedirect.com/science/article/pii/S0010218015003673" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=37&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=d8722e4108f4dc5e32a2ddfc1d601859">Reaction pathway of coal oxidation at low temperatures: a model of cyclic chain reactions and kinetic characteristics</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 447-460</i></li><li class="authors ">De-ming Wang, Hai-hui Xin, Xu-yao Qi, Guo-lan Dou, Guan-sheng Qi, Li-yang Ma</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=37&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003673&_issn=00102180&_tab=afr&absLinks=y&md5=2c0735ecaf8b959f59e008a52810362e" aria-describedby="title_S0010218015003673" aria-controls="abs_S0010218015003673" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003673" href="http://www.sciencedirect.com/science/article/pii/S0010218015003673/pdfft?md5=8f77e35edad794f57dc240ac1958d9a8&pid=1-s2.0-S0010218015003673-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3881 K)</a></li>
+</ul><div  id="abs_S0010218015003673" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003673" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003673" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_37" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003685" aria-labelledby="title_S0010218015003685" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003685" href="http://www.sciencedirect.com/science/article/pii/S0010218015003685" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=38&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=0b2b7338fc10025bab170b52f8bb6826">A numerical study of laminar flames propagating in stratified mixtures</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 461-471</i></li><li class="authors ">Jiacheng Zhang, John Abraham</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=38&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003685&_issn=00102180&_tab=afr&absLinks=y&md5=07b78cd01dca422763f44ec679719653" aria-describedby="title_S0010218015003685" aria-controls="abs_S0010218015003685" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003685" href="http://www.sciencedirect.com/science/article/pii/S0010218015003685/pdfft?md5=764a9f140c5d4768e6133d640d45c0ad&pid=1-s2.0-S0010218015003685-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (3177 K)</a></li>
+</ul><div  id="abs_S0010218015003685" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003685" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003685" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_38" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003715" aria-labelledby="title_S0010218015003715" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003715" href="http://www.sciencedirect.com/science/article/pii/S0010218015003715" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=39&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=e522e505693f7669e2db6be06d969a06">The critical flow velocity for radiative extinction in opposed-flow flame spread in a microgravity environment: A comparison of experimental, computational, and theoretical results</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 472-477</i></li><li class="authors ">Subrata Bhattacharjee, Aslihan Simsek, Sandra Olson, Paul Ferkul</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=39&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003715&_issn=00102180&_tab=afr&absLinks=y&md5=042ec3fa5a6e477d66fc86a0a8f235ed" aria-describedby="title_S0010218015003715" aria-controls="abs_S0010218015003715" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003715" href="http://www.sciencedirect.com/science/article/pii/S0010218015003715/pdfft?md5=2ce93a13e5f4907bbae6c3e1ba74f395&pid=1-s2.0-S0010218015003715-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1437 K)</a></li>
+</ul><div  id="abs_S0010218015003715" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003715" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003715" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_39" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003727" aria-labelledby="title_S0010218015003727" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003727" href="http://www.sciencedirect.com/science/article/pii/S0010218015003727" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=40&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=1f036fab9b92f43ccb462954c925aa78">Stability of rich laminar hydrogen-air flames in a model with detailed transport and kinetic mechanisms</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 478-486</i></li><li class="authors ">A.I. Korsakova, V.V. Gubernov, A.V. Kolobov, V. Bykov, U. Maas</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=40&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003727&_issn=00102180&_tab=afr&absLinks=y&md5=919d29570fc10eb8ca61e59ee3ac62a0" aria-describedby="title_S0010218015003727" aria-controls="abs_S0010218015003727" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003727" href="http://www.sciencedirect.com/science/article/pii/S0010218015003727/pdfft?md5=f48fc642a2e1095280a547e0d060c9ee&pid=1-s2.0-S0010218015003727-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1059 K)</a></li>
+</ul><div  id="abs_S0010218015003727" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003727" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003727" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_40" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003818" aria-labelledby="title_S0010218015003818" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003818" href="http://www.sciencedirect.com/science/article/pii/S0010218015003818" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=41&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=13d135b5b651833d51f9f757fc62da77">Solid-flame: Experimental validation</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 487-493</i></li><li class="authors ">Christopher E. Shuck, Khachatur V. Manukyan, Sergei Rouvimov, Alexander S. Rogachev, Alexander S. Mukasyan</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=41&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003818&_issn=00102180&_tab=afr&absLinks=y&md5=8cfee03ceb86531b728bf7d06bdd66b1" aria-describedby="title_S0010218015003818" aria-controls="abs_S0010218015003818" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003818" href="http://www.sciencedirect.com/science/article/pii/S0010218015003818/pdfft?md5=44cb65be226d4e7f66e9c3bd872a46d0&pid=1-s2.0-S0010218015003818-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (2703 K)</a></li>
+</ul><div  id="abs_S0010218015003818" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003818" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003818" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_41" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S001021801500382X" aria-labelledby="title_S001021801500382X" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S001021801500382X" href="http://www.sciencedirect.com/science/article/pii/S001021801500382X" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=42&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=86fa9182668e2b2c4ba5e9c1906308b0">Flame macrostructures, combustion instability and extinction strain scaling in swirl-stabilized premixed CH<sub>4</sub>/H<sub>2</sub> combustion</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 494-507</i></li><li class="authors ">S.J. Shanbhogue, Y.S. Sanusi, S. Taamallah, M.A. Habib, E.M.A. Mokheimer, A.F. Ghoniem</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=42&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S001021801500382X&_issn=00102180&_tab=afr&absLinks=y&md5=30bed77ec085c00c09fad96170e35690" aria-describedby="title_S001021801500382X" aria-controls="abs_S001021801500382X" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S001021801500382X" href="http://www.sciencedirect.com/science/article/pii/S001021801500382X/pdfft?md5=0b0b759044b6b7b53d6dc1440ffd0af9&pid=1-s2.0-S001021801500382X-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (5482 K)</a></li>
+</ul><div  id="abs_S001021801500382X" class="previewBox abstract hidden"></div><div  id="rabs_S001021801500382X" class="previewBox rabstract hidden"></div><div  id="gabs_S001021801500382X" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_42" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003831" aria-labelledby="title_S0010218015003831" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003831" href="http://www.sciencedirect.com/science/article/pii/S0010218015003831" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=43&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=19be72885aa11f7c9f3f8b0a7713d785">A diffuse interface method for simulating the dynamics of premixed flames</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 508-516</i></li><li class="authors ">Kai Sun, Sheng Yang, Chung K. Law</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=43&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003831&_issn=00102180&_tab=afr&absLinks=y&md5=551ac5d33c0829d8b487e5bcbe8f9670" aria-describedby="title_S0010218015003831" aria-controls="abs_S0010218015003831" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003831" href="http://www.sciencedirect.com/science/article/pii/S0010218015003831/pdfft?md5=769f5b661455b401ab7b846d2b3914b4&pid=1-s2.0-S0010218015003831-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1864 K)</a></li>
+</ul><div  id="abs_S0010218015003831" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003831" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003831" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_43" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003867" aria-labelledby="title_S0010218015003867" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003867" href="http://www.sciencedirect.com/science/article/pii/S0010218015003867" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=44&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=dc5915480b1013c89fd6620fc7899702">Investigation of unsteady behaviors of forward and opposed flow combustion of solid fuel</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 517-531</i></li><li class="authors ">Nepal C. Roy, Yuji Nakamura</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=44&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003867&_issn=00102180&_tab=afr&absLinks=y&md5=e3af802a59f6e07457ebbb5fb1f36e8f" aria-describedby="title_S0010218015003867" aria-controls="abs_S0010218015003867" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003867" href="http://www.sciencedirect.com/science/article/pii/S0010218015003867/pdfft?md5=6f6590a5431fcd08a3eec7da9d241bb7&pid=1-s2.0-S0010218015003867-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1345 K)</a></li>
+</ul><div  id="abs_S0010218015003867" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003867" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003867" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_44" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003880" aria-labelledby="title_S0010218015003880" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003880" href="http://www.sciencedirect.com/science/article/pii/S0010218015003880" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=45&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=a7a0d115fb256399b3c1150e2d242e71">Decomposition of ethylamine through bimolecular reactions</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 532-539</i></li><li class="authors ">Mohammednoor Altarawneh, Mansour H. Almatarneh, Ali Marashdeh, Bogdan Z. Dlugogorski</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=45&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003880&_issn=00102180&_tab=afr&absLinks=y&md5=ce9093e93f3753d4159e6120ae86f058" aria-describedby="title_S0010218015003880" aria-controls="abs_S0010218015003880" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003880" href="http://www.sciencedirect.com/science/article/pii/S0010218015003880/pdfft?md5=e930fcfa2652298eee44f7777e2dc90b&pid=1-s2.0-S0010218015003880-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (1289 K)</a></li>
+<li><a id ="title_S0010218015003880" href="http://www.sciencedirect.com/science/article/pii/S0010218015003880#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=45&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=a7a0d115fb256399b3c1150e2d242e71"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003880" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003880" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003880" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_45" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003892" aria-labelledby="title_S0010218015003892" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003892" href="http://www.sciencedirect.com/science/article/pii/S0010218015003892" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=46&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=bd255b9a201f39e131dfec0ebdeb1cc7">Efficient calculation of multicomponent diffusion fluxes based on kinetic theory</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 540-556</i></li><li class="authors ">Manuel Arias-Zugasti, Pedro L. Garcia-Ybarra, Jose L. Castillo</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=46&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003892&_issn=00102180&_tab=afr&absLinks=y&md5=8144022d8724f82a231f2b3cb432998d" aria-describedby="title_S0010218015003892" aria-controls="abs_S0010218015003892" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003892" href="http://www.sciencedirect.com/science/article/pii/S0010218015003892/pdfft?md5=6d9ed4bbe261b1876c405b2c48d19ef9&pid=1-s2.0-S0010218015003892-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (5096 K)</a></li>
+</ul><div  id="abs_S0010218015003892" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003892" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003892" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_46" class="resultsView"></div><li class="detail"><ul class="article"><li class="selection"><input class="checkBox" type="checkbox" name="art" value=" 1-s2.0-S0010218015003983" aria-labelledby="title_S0010218015003983" style="padding-left:6px;"></li><li class="title "><h4><a id ="title_S0010218015003983" href="http://www.sciencedirect.com/science/article/pii/S0010218015003983" class="cLink artTitle S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=47&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=544102dcc50c78008bebd3b261c48ca2">Modeling of NO formation in low pressure premixed flames</a></h4><span class="articleTypeLabel">Original Research Article</span></li><li class="source "><i>Pages 557-575</i></li><li class="authors ">Nathalie Lamoureux, Hilal El Merhubi, Laure Pillier, Stéphanie de Persis, Pascale Desgroux</li><li class="external "><div class="txt external "><ul class="extLinkBlock extLinkBlockJrnl"><li><a href="#" data-type="abstract" role="button" class="absLink" data-url="http://www.sciencedirect.com/science/preview/abstract?_rdoc=47&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_ct=47&_zone=rslt_list_item&_fmt=full&_pii=S0010218015003983&_issn=00102180&_tab=afr&absLinks=y&md5=52f2fb025acb8cd9de0a56f22d9deafa" aria-describedby="title_S0010218015003983" aria-controls="abs_S0010218015003983" aria-expanded="false"><span class="arrowSide"></span><span class="preTxt">Abstract</span></a></li><li><a class="cLink" rel="nofollow" aria-describedby="title_S0010218015003983" href="http://www.sciencedirect.com/science/article/pii/S0010218015003983/pdfft?md5=8cb10eecc41bac5236fd5252698f6d3b&pid=1-s2.0-S0010218015003983-main.pdf" queryStr="?_origin=PublicationURL&_zone=rslt_list_item" target="_blank"><span class="pdfIconSmall">&nbsp;</span>PDF (5720 K)</a></li>
+<li><a id ="title_S0010218015003983" href="http://www.sciencedirect.com/science/article/pii/S0010218015003983#MMCvFirst" class="mmcLinkSprite" cLink S_C_artTitle " data-docsubtype="fla" queryStr="?_rdoc=47&_fmt=high&_origin=PublicationURL&_srch=hubEid(1-s2.0-S0010218015X00125)&_docanchor=&_ct=47&md5=544102dcc50c78008bebd3b261c48ca2"><span class="mmcTxt">Supplementary content</span></a></li></ul><div  id="abs_S0010218015003983" class="previewBox abstract hidden"></div><div  id="rabs_S0010218015003983" class="previewBox rabstract hidden"></div><div  id="gabs_S0010218015003983" class="previewBox gabstract hidden"></div></div></li><li class="accessBlock colLast"><span class="dsub_article_sci_dir sci_dir" title="Entitled to full text" alt="Entitled to full text">&nbsp;<span class="offscreen">Entitled to full text</span></span></li></ul></li><div id="resultsView_47" class="resultsView"></div></ol></div></div>
+    
+
+
+    <input type="hidden" name="count" value="47">
+
+
+
+
+</div>
+</form>
+
+<script>prs.rt("pcr");</script>
+
+
+                      
+                        <div class="navigation top" aria-label="Pagination" role="navigation">
+                          <!-- Page Navigation -->
+<input type="hidden" name="bottomPaginationBoxChanged" value=""/>
+<input type="hidden" id="vectorNext" name="vectorNext" value=""/>
+<input type="hidden" id="vectorPrev" name="vectorPrev" value=""/>
+<div class="paginationBar">
+  
+  
+    Articles <b>1 - 47</b>
+  
+  </div>
+
+                        </div> 
+                        <div class="navigation" aria-label="Pagination" role="navigation">
+                          <!-- Page Navigation -->
+<input type="hidden" name="bottomPaginationBoxChanged" value=""/>
+<input type="hidden" id="vectorNext" name="vectorNext" value=""/>
+<input type="hidden" id="vectorPrev" name="vectorPrev" value=""/>
+<div class="paginationBar">
+  
+  
+    Articles <b>1 - 47</b>
+  
+  </div>
+
+                        </div>
+                      
+                      </div>
+                    </div> <!-- end of issueList -->
+                
+                    
+                <ul class="volumePage navigation">
+                
+                    
+                    <li>
+                    
+                    <a title="Previous volume/issue" class="ActionButton" href="/science/journal/00102180/162/12">&lt; Previous vol/iss</a>
+                    
+                    </li>
+                    <li>
+                    
+                      <a title="Next volume/issue" class="ActionButton" href="/science/journal/aip/00102180">Next vol/iss &gt;</a>
+                    
+                    </li>
+                    
+                
+                </ul>
+                <div style="clear:both"></div>
+            </div>
+            <!-- ECRED  -->
+
+<!-- ECRED -->
+
+
+<div id="footer" class="outerWrapper" aria-label="Footer" role="navigation"> 
+              <div class="padding">
+      <div id="linkArea">
+        <div class="padding">
+            <div style="float:left;width:0;height:1px;"></div>
+            <div id="banner-bottom">
+                <a  class="S_C_aboutElsevier" href="http://www.elsevier.com" target="_blank" title="Elsevier homepage (opens in a new window)"></a>
+            </div>
+            <ul class="col5">
+<li><a target="_blank" href="http://www.elsevier.com/solutions/sciencedirect">About ScienceDirect</a></li>
+</ul>
+<ul class="col5">
+<li> <a target="_blank" href="http://www.sciencedirect.com/science/contactus">Contact and support</a></li>
+</ul>
+<ul class="col5">
+<li><a target="_blank" href="http://www.elsevier.com/locate/termsandconditions?utm_source=sciencedirect&utm_medium=link&utm_campaign=terms">Terms and conditions</a></li>
+</ul>
+<ul class="col5">
+<li><a target="_blank" href="http://www.elsevier.com/privacypolicy?utm_source=sciencedirect&utm_medium=link&utm_campaign=privacy">Privacy policy</a></li>
+</ul>
+          <div class="clear"></div>
+          <!-- CSAS will be providing the links-->
+        </div>
+        <div class="padding S_C_copyright" style="padding-bottom:4px;font-size:11px;">
+              Copyright &copy; 2016 Elsevier B.V. or its licensors or contributors. ScienceDirect&reg; is a registered trademark of Elsevier B.V.
+        </div>
+        <div class="padding" style="padding-bottom:4px;padding-top:0px;font-size:11px;">
+              Cookies are used by this site. To decline or learn more, visit our <a class="S_C_cookie_page" href="https://www.elsevier.com/solutions/sciencedirect/support/cookies" target="_blank">Cookies</a> page.
+        </div> 
+        
+          
+            <div class="padding links">
+              <div id="goToggleSite"><a class="mLink" site='Mobile' ckNm='Site' lnkOrg='PublicationURL' lnkZn='footer' href='#'>Switch to Mobile Site</a></div>
+            </div>
+            <form id="pgReload" method="get" action=""></form>
+          
+        
+      </div>
+  </div>
+
+ </div> <!-- footer div will be closed on copyright.tmpl -->
+ </div><!-- width100% -->
+</div><!-- sdHeader -->
+<!-- <div id="sdpa"></div> -->
+
+<div style="display:none" id="leaderboard2"><!-- begin LEADERBOARD ad tag 20110910 -->
+<script type="text/javascript">
+if(typeof(cachebuster) == "undefined"){var cachebuster = Math.floor(Math.random()*10000000000)}
+if(typeof(dcopt) == "undefined"){var dcopt = "dcopt=ist;"} else {var dcopt = ""}
+if(LEADERBOARD_LAUNCHED == undefined) { var LEADERBOARD_LAUNCHED=0; }
+if(typeof(tile) == "undefined"){var tile = 1} else {if(LEADERBOARD_LAUNCHED==0){tile++;}}
+function launchLeaderboard() {
+if(LEADERBOARD_LAUNCHED==1){return;}
+else { LEADERBOARD_LAUNCHED=1;}
+document.write('<script src=\"http://ad.doubleclick.net/adj/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;' + dcopt + ';tile=' + tile + ';sz=728x90,1000x50;ord=' + cachebuster + '?"></scr'+'ipt>');
+}
+launchLeaderboard();
+</script>
+
+
+<!-- end LEADERBOARD ad tag --></div>
+<div style="display:none" id="skyscraper2"><!-- begin SKYSCRAPER ad tag 20130612 -->
+<script type="text/javascript"> 
+if(typeof(cachebuster) == "undefined"){var cachebuster = Math.floor(Math.random()*10000000000)}
+if(typeof(dcopt) == "undefined"){var dcopt = "dcopt=ist;"} else {var dcopt = ""}
+if(typeof(tile) == "undefined"){var tile = 1} else {tile++}
+document.write('<script src="http://ad.doubleclick.net/adj/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;pos=toc;' + dcopt + ';tile=' + tile + ';sz=120x600,160x600;ord=' + cachebuster + '?"></scr'+'ipt>');
+</script>
+<noscript>
+<a href="http://ad.doubleclick.net/jump/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;pos=toc;sz=120x600,160x600;ord=17261?" target="_blank" >
+<img src="http://ad.doubleclick.net/ad/els.SDsub/ISSN00102180;ISSN=00102180;pg=unknown;pos=toc;sz=120x600,160x600;ord=17261?" border="0" alt="" /></a>
+</noscript>
+<!-- end SKYSCRAPER ad tag --></div>
+
+<script>
+var SDM = new Object;
+SDM.si = new Object;
+SDM.si.sds = "bc150bf0bde4fa919603e81893cd156c71b292f8db7ef9c7add716f1065a285b2d41024e1c51d33b5d29eb57260e80d2";
+
+SDM.tid = "be212084-bc3c-11e5-ba3d-00000aab0f27";
+SDM.ep = new Object();
+SDM.ep.prDevice = "http://pa.elsevier.com";
+SDM.ep.urlPrefix = "http://www.sciencedirect.com/science";
+SDM.ep.urlQualifier = "science";
+SDM.ieVersion="8";
+SDM.pageTransKey = "01/16/2016 05:34:37 EST#1848_002#108935#101.6.61.34";
+SDM.pageType = "pubhome_j";
+SDM.ud = "1553430|<SAInfo><SAId>993</SAId><SAName>Calis SDOL China Consortium (CFC)</SAName><SANum>S000000993</SANum></SAInfo>|C000053663|75806|IPRANGE";
+
+SDM.pf = new Object();
+SDM.pf.ddm = new Object();
+SDM.pf.ddm.endpoint = "http://services.elsevier.com/SDWebExport/export/pdfdownload/pdf";
+
+
+
+
+
+SDPA.init();
+
+
+Ads.init();
+
+</script>
+
+<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/14bb862cc5c4.js");
+/*]]>{/literal}*/
+if(typeof SDM != "undefined") {
+  if(SDM.ud) { usabilla_live("data", {"custom": {"ud":SDM.ud} }); }
+  if(SDM.pf&&SDM.pf.oa) {
+    if(SDM.pf.oa.item) { usabilla_live("data", {"custom": {"open_access":SDM.pf.oa.item} });}
+    if(SDM.pf.oa.archive) { usabilla_live("data", {"custom": {"open_archive":SDM.pf.oa.archive} });}
+  }
+}
+</script>
+
+        </div>
+        
+    </div> 
+
+    <div style="clear:both"></div>
+    
+</div>
+<div id="appBackground"></div>
+<div id="appDialog" class="files">
+    <div id="header">
+        <h1 class="headline">Download PDFs</h1>
+        <img id="logo" class="sd-bubbles" src="http://cdn.els-cdn.com/sd/sciencedirect.svg" onerror="this.src='http://cdn.els-cdn.com/sd/sciencedirect.png'">
+        <a class="close" id="closeWindow" href="#"><img src="http://cdn.els-cdn.com/sd/img/sprite_parts/close-icon.png"></a>
+    </div>
+    <div id="contentBlk" class="view">
+        <div class="help_button" id="ddmMainHelp"><a class="ddmHelp" target="sdhelp" href="/science?_ob=HelpURL&_file=DM_main.htm&_btn=Y&_zone=TopNavBar&_origin=journal" title="Help (Opens new window)" onClick="var helpWin; helpWin=window.open('/science?_ob=HelpURL&_file=DM_main.htm&_btn=Y&_zone=TopNavBar&_origin=journal','sdhelp','scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=984,height=738'); helpWin.focus(); return false">Help</a></div>
+        <div class="help_button" id="ddmNewformatHelp"><a class="ddmHelp" target="sdhelp" href="/science?_ob=HelpURL&_file=DM_newformat.htm&_btn=Y&_zone=TopNavBar&_origin=journal" title="Help (Opens new window)" onClick="var helpWin; helpWin=window.open('/science?_ob=HelpURL&_file=DM_newformat.htm&_btn=Y&_zone=TopNavBar&_origin=journal','sdhelp','scrollbars=yes,resizable=yes,directories=no,toolbar=no,menubar=no,status=no,width=984,height=738'); helpWin.focus(); return false">Help</a></div>
+        <div id="filesTemplate"></div>
+        <div id="namingTemplate"></div> 
+    </div>
+    <div class="footer"></div>
+</div>
+
+</body>
+</html>

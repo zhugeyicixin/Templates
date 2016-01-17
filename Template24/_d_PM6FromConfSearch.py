@@ -70,22 +70,37 @@ for tmp_folder in tmp_folderList:
 			# 		if (moles[i].ZPE - moles[0].ZPE) > 10:
 			# 			tmp_num = i
 			# 			break
+			print tmp_file
 			tmp_num = len(moles)
-			for i in xrange(tmp_num):
-				if i > 99:
-					print 'Error! The number of comformers is more than 99!'
-				fw = file(os.path.join('..', '_d_conformerPM6Gjfs', tmp_name + '_' + '%02d' % i + '.gjf'), 'w')
-				fw.write(
+			if tmp_num > 99:
+				print 'Warning! The number of comformers is more than 99!'
+				for i in xrange(tmp_num):
+					fw = file(os.path.join('..', '_d_conformerPM6Gjfs', tmp_name + '_' + '%03d' % i + '.gjf'), 'w')
+					fw.write(
 '''#p b3lyp/6-31g(d) opt freq
 
 this is the .gjf file generated from Forg output which is used to save the coordinate of different coformers
 
 0 1
 ''')
-				for tmp_atom in moles[i].atoms:
-					fw.write(tmp_atom.symbol + '    ' + str(tmp_atom.coordinate[0]) + '    ' + str(tmp_atom.coordinate[1]) + '    ' + str(tmp_atom.coordinate[2]) + '\n')
-				fw.write('\n\n\n\n\n\n')
-				fw.close()
+					for tmp_atom in moles[i].atoms:
+						fw.write(tmp_atom.symbol + '    ' + str(tmp_atom.coordinate[0]) + '    ' + str(tmp_atom.coordinate[1]) + '    ' + str(tmp_atom.coordinate[2]) + '\n')
+					fw.write('\n\n\n\n\n\n')
+					fw.close()
+			else:
+				for i in xrange(tmp_num):
+					fw = file(os.path.join('..', '_d_conformerPM6Gjfs', tmp_name + '_' + '%02d' % i + '.gjf'), 'w')
+					fw.write(
+'''#p b3lyp/6-31g(d) opt freq
+
+this is the .gjf file generated from Forg output which is used to save the coordinate of different coformers
+
+0 1
+''')
+					for tmp_atom in moles[i].atoms:
+						fw.write(tmp_atom.symbol + '    ' + str(tmp_atom.coordinate[0]) + '    ' + str(tmp_atom.coordinate[1]) + '    ' + str(tmp_atom.coordinate[2]) + '\n')
+					fw.write('\n\n\n\n\n\n')
+					fw.close()
 	if mol2Exist != 1:
 		error_file_num += 1
 		print tmp_folder + '\terror!'		
