@@ -8,15 +8,21 @@ import os
 import shutil
 import textExtractor
 import cluster
+import xlsxwriter
 
 # input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'cce'
-clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
+# clusterName = 'cce'
+# clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
+clusterName = 'Tianhe'
+clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n+2_6'
+jobsPerSlot = 10
+
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
+cluster1._g09D01=True 
 
 pattern_file = re.compile('^(C[0-9]*H[0-9]*_[0-9]*).*\.log$')
 pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
@@ -43,6 +49,8 @@ coordinate_done = 0
 
 # temporary variables
 tmp_energy = 0.0
+tmp_num = 0
+slot_num = 1
 
 #counters
 error_file_num = 0
@@ -86,8 +94,8 @@ for tmp_folder in tmp_folderLists:
 		error_file_num += 1	
 
 # write to excel
-wb_new = Workbook()
-sh = wb_new.add_sheet('energy', cell_overwrite_ok=True)
+wb_new = xlsxwriter.Workbook('EnergyCollection.xlsx')
+sh = wb_new.add_worksheet('energy')
 tmp_row = 0
 tmp_col = 0
 sh.write(tmp_row, tmp_col, 0)
@@ -135,7 +143,7 @@ for tmp_mole in  molecules:
 	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_e_conformerB3LYPGjfs', sortedDict[0][0]+'.log'))
 	# else:
 	# 	print 'Error! There is no file corresponding to molecule ' + tmp_mole
-wb_new.save('EnergyCollection.xls')
+wb_new.close()
 
 # extract geom from log files
 for tmp_mole in molecules:
@@ -201,7 +209,77 @@ for tmp_file in tmp_fileList:
 		tmp_m = pattern_fileConf.match(tmp_file)
 		if tmp_m:
 			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_1_opt_B3L' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine')
+
+# generate cluster script
+tmp_num = 0
+slot_num = 1
+fw2 = file('testTH.sh', 'w')
+if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+	fw2.write('''#!/bin/bash
+
+source $HOME/.bash_profile
+
+declare -i numJobs=0
+
+''')
+else:
+	fw2.write('''#!/bin/csh
+#
+''')
+if jobsPerSlot > 1:
+	tmp_fileList = os.listdir('.') 
+	for tmp_file in tmp_fileList:
+		if os.path.isdir(tmp_file):
+			if tmp_num == 0:
+				fw = file('slot_' + '%04d'%slot_num + '.sh', 'w')
+				fw.write('#!/bin/bash\n\n')			
+			fw.write('sh ' + tmp_file + '/' + tmp_file + '.job\n')
+			tmp_num += 1
+			if tmp_num >= jobsPerSlot:
+				tmp_num = 0
+				slot_num += 1
+				fw.close()
+				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+	fw.close()
+	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+	
+	tmp_fileList = os.listdir('.')
+	for tmp_file in tmp_fileList:
+		if re.search('slot_.*sh', tmp_file):
+			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
+sleep 1
+numJobs=`yhq |grep TH_NET | wc -l` 
+while ((numJobs>18))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq | grep TH_NET | wc -l`  
+done
+''')
+
+elif jobsPerSlot == 1:
+	tmp_fileList = os.listdir('.')	
+	for tmp_file in tmp_fileList:
+		if os.path.isdir(tmp_file):
+			if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+				fw2.write('sh submitTH.sh ' + tmp_file + '''
+sleep 1
+numJobs=`yhq |grep TH_NET | wc -l` 
+while ((numJobs>18))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq | grep TH_NET | wc -l`  
+done
+''')
+			else:
+				fw2.write('sh submit12.sh ' + tmp_file + '\nsleep 5\n')
+fw2.close()
+os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw2.name + ' > log_dos2unix.txt 2>&1')
+
 os.chdir('../')
+
+
 
 print '---------------------------------------\nLog of task 1\n'
 print 'Energy extracted successfully!'
