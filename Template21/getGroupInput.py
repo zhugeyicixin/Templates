@@ -105,7 +105,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -134,7 +134,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -163,7 +163,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -235,7 +235,7 @@ for tmp_row in xrange(1, num_rows):
 # wb2.close()
 
 # vectorGroups = []
-# vertorMole = []
+# vectorMole = []
 # acyclicVecIndex = []
 # cyclicVecIndex = []
 
@@ -248,7 +248,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp5_col = 0
 # sh5.write(tmp5_row, tmp5_col, 'ID')
 # sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-# sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+# sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 # tmp5_row = 1
 # sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -278,7 +278,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp6_col = 0
 # sh6.write(tmp6_row, tmp6_col, 'ID')
 # sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-# sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+# sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 # tmp6_row = 1
 # sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -308,7 +308,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp7_col = 0
 # sh7.write(tmp7_row, tmp7_col, 'ID')
 # sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-# sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+# sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 # tmp7_row = 1
 # sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -351,12 +351,12 @@ for tmp_row in xrange(1, num_rows):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 # 			if max(abs(tmp_diff)) < 1e-5:			
-# 				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+# 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
 # 		vectorGroups.append(tmp_groupVector)
-# 		vertorMole.append({})
-# 		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+# 		vectorMole.append({})
+# 		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 # 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 # 		for j in xrange(N*(N+3)/2):
 # 			sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -391,7 +391,7 @@ for tmp_row in xrange(1, num_rows):
 # 	tmp6_col = N*(N+3)/2 + 7
 # 	tmp7_col = N*(N+3)/2 + 7
 
-# 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+# 	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 # 	for tmp_item in tmp_list:
 # 		# print tmp5_col, tmp_item[0], tmp_item[1]
 # 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
@@ -437,7 +437,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -466,7 +466,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -495,7 +495,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -567,7 +567,7 @@ for tmp_row in xrange(1, num_rows):
 # wb2.close()
 
 # vectorGroups = []
-# vertorMole = []
+# vectorMole = []
 # acyclicVecIndex = []
 # cyclicVecIndex = []
 
@@ -580,7 +580,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp5_col = 0
 # sh5.write(tmp5_row, tmp5_col, 'ID')
 # sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-# sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+# sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 # tmp5_row = 1
 # sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -610,7 +610,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp6_col = 0
 # sh6.write(tmp6_row, tmp6_col, 'ID')
 # sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-# sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+# sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 # tmp6_row = 1
 # sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -640,7 +640,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp7_col = 0
 # sh7.write(tmp7_row, tmp7_col, 'ID')
 # sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-# sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+# sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 # tmp7_row = 1
 # sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -682,12 +682,12 @@ for tmp_row in xrange(1, num_rows):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 # 			if max(abs(tmp_diff)) < 1e-5:			
-# 				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+# 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
 # 		vectorGroups.append(tmp_groupVector)
-# 		vertorMole.append({})
-# 		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+# 		vectorMole.append({})
+# 		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 # 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 # 		for j in xrange(N*(N+3)/2):
 # 				sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -722,7 +722,7 @@ for tmp_row in xrange(1, num_rows):
 # 	tmp6_col = N*(N+3)/2 + 7
 # 	tmp7_col = N*(N+3)/2 + 7
 
-# 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+# 	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 # 	for tmp_item in tmp_list:
 # 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 # 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
@@ -766,7 +766,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*2)
@@ -794,7 +794,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*2)
@@ -822,7 +822,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*2)
@@ -912,7 +912,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*2)
@@ -939,7 +939,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*2)
@@ -967,7 +967,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*2)
@@ -1057,7 +1057,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -1086,7 +1086,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -1115,7 +1115,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -1187,7 +1187,7 @@ for tmp_row in xrange(1, num_rows):
 # wb2.close()
 
 # vectorGroups = []
-# vertorMole = []
+# vectorMole = []
 # acyclicVecIndex = []
 # cyclicVecIndex = []
 
@@ -1200,7 +1200,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp5_col = 0
 # sh5.write(tmp5_row, tmp5_col, 'ID')
 # sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-# sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+# sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 # tmp5_row = 1
 # sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -1230,7 +1230,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp6_col = 0
 # sh6.write(tmp6_row, tmp6_col, 'ID')
 # sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-# sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+# sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 # tmp6_row = 1
 # sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -1260,7 +1260,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp7_col = 0
 # sh7.write(tmp7_row, tmp7_col, 'ID')
 # sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-# sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+# sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 # tmp7_row = 1
 # sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -1302,12 +1302,12 @@ for tmp_row in xrange(1, num_rows):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 # 			if max(abs(tmp_diff)) < 1e-5:			
-# 				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+# 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
 # 		vectorGroups.append(tmp_groupVector)
-# 		vertorMole.append({})
-# 		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+# 		vectorMole.append({})
+# 		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 # 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 # 		for j in xrange(N*(N+3)/2):
 # 				sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -1342,7 +1342,7 @@ for tmp_row in xrange(1, num_rows):
 # 	tmp6_col = N*(N+3)/2 + 7
 # 	tmp7_col = N*(N+3)/2 + 7
 
-# 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+# 	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 # 	for tmp_item in tmp_list:
 # 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 # 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
@@ -1386,7 +1386,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -1415,7 +1415,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -1444,7 +1444,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -1516,7 +1516,7 @@ for tmp_row in xrange(1, num_rows):
 # wb2.close()
 
 # vectorGroups = []
-# vertorMole = []
+# vectorMole = []
 # acyclicVecIndex = []
 # cyclicVecIndex = []
 
@@ -1529,7 +1529,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp5_col = 0
 # sh5.write(tmp5_row, tmp5_col, 'ID')
 # sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-# sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+# sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 # tmp5_row = 1
 # sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -1559,7 +1559,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp6_col = 0
 # sh6.write(tmp6_row, tmp6_col, 'ID')
 # sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-# sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+# sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 # tmp6_row = 1
 # sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -1589,7 +1589,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp7_col = 0
 # sh7.write(tmp7_row, tmp7_col, 'ID')
 # sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-# sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+# sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 # tmp7_row = 1
 # sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -1631,12 +1631,12 @@ for tmp_row in xrange(1, num_rows):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 # 			if max(abs(tmp_diff)) < 1e-5:			
-# 				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+# 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
 # 		vectorGroups.append(tmp_groupVector)
-# 		vertorMole.append({})
-# 		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+# 		vectorMole.append({})
+# 		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 # 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 # 		for j in xrange(N*(N+3)/2):
 # 				sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -1671,7 +1671,7 @@ for tmp_row in xrange(1, num_rows):
 # 	tmp6_col = N*(N+3)/2 + 7
 # 	tmp7_col = N*(N+3)/2 + 7
 
-# 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+# 	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 # 	for tmp_item in tmp_list:
 # 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 # 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
@@ -1715,7 +1715,7 @@ for tmp_row in xrange(1, num_rows):
 # sh2.write(tmp2_row, tmp2_col+1, 'Name') 
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -1744,7 +1744,7 @@ for tmp_row in xrange(1, num_rows):
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -1773,7 +1773,7 @@ for tmp_row in xrange(1, num_rows):
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -1845,7 +1845,7 @@ for tmp_row in xrange(1, num_rows):
 # wb2.close()
 
 # vectorGroups = []
-# vertorMole = []
+# vectorMole = []
 # acyclicVecIndex = []
 # cyclicVecIndex = []
 
@@ -1858,7 +1858,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp5_col = 0
 # sh5.write(tmp5_row, tmp5_col, 'ID')
 # sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-# sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+# sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 # tmp5_row = 1
 # sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -1888,7 +1888,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp6_col = 0
 # sh6.write(tmp6_row, tmp6_col, 'ID')
 # sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-# sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+# sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 # tmp6_row = 1
 # sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -1918,7 +1918,7 @@ for tmp_row in xrange(1, num_rows):
 # tmp7_col = 0
 # sh7.write(tmp7_row, tmp7_col, 'ID')
 # sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-# sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+# sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 # tmp7_row = 1
 # sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -1960,12 +1960,12 @@ for tmp_row in xrange(1, num_rows):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 # 			if max(abs(tmp_diff)) < 1e-5:			
-# 				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+# 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
 # 		vectorGroups.append(tmp_groupVector)
-# 		vertorMole.append({})
-# 		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+# 		vectorMole.append({})
+# 		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 # 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 # 		for j in xrange(N*(N+3)/2):
 # 				sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -2000,7 +2000,7 @@ for tmp_row in xrange(1, num_rows):
 # 	tmp6_col = N*(N+3)/2 + 7
 # 	tmp7_col = N*(N+3)/2 + 7
 
-# 	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+# 	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 # 	for tmp_item in tmp_list:
 # 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 # 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
@@ -2044,7 +2044,7 @@ sh2.write(tmp2_row, tmp2_col, 'ID')
 sh2.write(tmp2_row, tmp2_col+1, 'Name')
 sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 tmp2_row = 1
 sh2.write(tmp2_row, tmp2_col+3, N*(N+3)/2)
@@ -2073,7 +2073,7 @@ sh3.write(tmp3_row, tmp3_col, 'ID')
 sh3.write(tmp3_row, tmp3_col+1, 'Name')
 sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 tmp3_row = 1
 sh3.write(tmp3_row, tmp3_col+3, N*(N+3)/2)
@@ -2102,7 +2102,7 @@ sh4.write(tmp4_row, tmp4_col, 'ID')
 sh4.write(tmp4_row, tmp4_col+1, 'Name')
 sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 tmp4_row = 1
 sh4.write(tmp4_row, tmp4_col+3, N*(N+3)/2)
@@ -2174,7 +2174,7 @@ for (index, tmp_mole) in enumerate(all_moles):
 wb2.close()
 
 vectorGroups = []
-vertorMole = []
+vectorMole = []
 acyclicVecIndex = []
 cyclicVecIndex = []
 
@@ -2187,7 +2187,7 @@ tmp5_row = 0
 tmp5_col = 0
 sh5.write(tmp5_row, tmp5_col, 'ID')
 sh5.write(tmp5_row, tmp5_col+3, 'TotalDimesionNumber')
-sh5.write(tmp5_row, tmp5_col+5, 'DimenstionIndex')
+sh5.write(tmp5_row, tmp5_col+5, 'DimentionIndex')
 
 tmp5_row = 1
 sh5.write(tmp5_row, tmp5_col+3, N*(N+3)/2)
@@ -2217,7 +2217,7 @@ tmp6_row = 0
 tmp6_col = 0
 sh6.write(tmp6_row, tmp6_col, 'ID')
 sh6.write(tmp6_row, tmp6_col+3, 'TotalDimesionNumber')
-sh6.write(tmp6_row, tmp6_col+5, 'DimenstionIndex')
+sh6.write(tmp6_row, tmp6_col+5, 'DimentionIndex')
 
 tmp6_row = 1
 sh6.write(tmp6_row, tmp6_col+3, N*(N+3)/2)
@@ -2247,7 +2247,7 @@ tmp7_row = 0
 tmp7_col = 0
 sh7.write(tmp7_row, tmp7_col, 'ID')
 sh7.write(tmp7_row, tmp7_col+3, 'TotalDimesionNumber')
-sh7.write(tmp7_row, tmp7_col+5, 'DimenstionIndex')
+sh7.write(tmp7_row, tmp7_col+5, 'DimentionIndex')
 
 tmp7_row = 1
 sh7.write(tmp7_row, tmp7_col+3, N*(N+3)/2)
@@ -2289,12 +2289,12 @@ for (index, tmp_mole) in enumerate(all_moles):
 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
 			if max(abs(tmp_diff)) < 1e-5:			
-				vertorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
+				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 				flag_exsit = 1
 	if flag_exsit == 0:
 		vectorGroups.append(tmp_groupVector)
-		vertorMole.append({})
-		vertorMole[-1][tmp_mole.label] = tmp_mole.ZPE
+		vectorMole.append({})
+		vectorMole[-1][tmp_mole.label] = tmp_mole.ZPE
 		sh5.write(tmp5_row, tmp5_col, len(vectorGroups))
 		for j in xrange(N*(N+3)/2):
 				sh5.write(tmp5_row, tmp5_col+5+j, 0.0)
@@ -2329,7 +2329,7 @@ for i in xrange(len(vectorGroups)):
 	tmp6_col = N*(N+3)/2 + 7
 	tmp7_col = N*(N+3)/2 + 7
 
-	tmp_list = sorted(vertorMole[i].items(), key = lambda d: d[1])
+	tmp_list = sorted(vectorMole[i].items(), key = lambda d: d[1])
 	for tmp_item in tmp_list:
 		sh5.write(tmp5_row, tmp5_col, tmp_item[0])
 		sh5.write(tmp5_row, tmp5_col+1, tmp_item[1])
@@ -2374,7 +2374,7 @@ wb3.close()
 # sh2.write(tmp2_row, tmp2_col+1, 'Name')
 # sh2.write(tmp2_row, tmp2_col+2, 'ReferenceEnergy')
 # sh2.write(tmp2_row, tmp2_col+3, 'TotalDimesionNumber')
-# sh2.write(tmp2_row, tmp2_col+5, 'DimenstionIndex')
+# sh2.write(tmp2_row, tmp2_col+5, 'DimentionIndex')
 
 # tmp2_row = 1
 # sh2.write(tmp2_row, tmp2_col+3, N+2)
@@ -2401,7 +2401,7 @@ wb3.close()
 # sh3.write(tmp3_row, tmp3_col+1, 'Name')
 # sh3.write(tmp3_row, tmp3_col+2, 'ReferenceEnergy')
 # sh3.write(tmp3_row, tmp3_col+3, 'TotalDimesionNumber')
-# sh3.write(tmp3_row, tmp3_col+5, 'DimenstionIndex')
+# sh3.write(tmp3_row, tmp3_col+5, 'DimentionIndex')
 
 # tmp3_row = 1
 # sh3.write(tmp3_row, tmp3_col+3, N+2)
@@ -2428,7 +2428,7 @@ wb3.close()
 # sh4.write(tmp4_row, tmp4_col+1, 'Name')
 # sh4.write(tmp4_row, tmp4_col+2, 'ReferenceEnergy')
 # sh4.write(tmp4_row, tmp4_col+3, 'TotalDimesionNumber')
-# sh4.write(tmp4_row, tmp4_col+5, 'DimenstionIndex')
+# sh4.write(tmp4_row, tmp4_col+5, 'DimentionIndex')
 
 # tmp4_row = 1
 # sh4.write(tmp4_row, tmp4_col+3, N+2)

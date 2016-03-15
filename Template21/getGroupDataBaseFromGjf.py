@@ -7,7 +7,7 @@ import textExtractor
 import chem
 
 ###########################################
-# extract geometry and energy form log file
+# extract geometry and energy form gjf file
 ###########################################
 # get commands from .name file
 __energy__ = 'b3lyp'
