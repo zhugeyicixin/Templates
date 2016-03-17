@@ -40,13 +40,13 @@ for tmp_file in tmp_fileLists:
 							freq_done = 1
 			for tmp_num in freq:
 				if tmp_num<=0:
-					print 'Error! An imaginary frequency!'
+					print 'Error2! An imaginary frequency!' + tmp_file
 					error_file_num += 1
 					print freq
 					break
 
 		else:
-			print 'Error! ' + tmp_file + ' did not end normally!'
+			print 'Error1! ' + 'File did not end normally!' + tmp_file
 			error_file_num += 1				
 	else:
 		print 'Error! Log file not found!', tmp_file

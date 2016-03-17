@@ -36,7 +36,7 @@ for tmp_file in tmp_fileLists:
 	if re.search(name,tmp_file):
 		tmp_m = pattern_name.match(tmp_file)
 		if tmp_m:
-			fw.write('sh submitTH.sh ' + tmp_file + '''
+			fw.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
 
 sleep 1
 numJobs=`yhq |grep TH_NET | wc -l` 
