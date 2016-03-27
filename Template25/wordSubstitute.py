@@ -36,18 +36,36 @@ for tmp_file in tmp_fileLists:
 		tmp_m = pattern_name.match(tmp_file)
 		if tmp_m:
 			print tmp_file
-			fw = file(tmp_file + '/' + tmp_file + '.gjf','r+')
-			lines = fw.readlines()
-			# print lines
-			# lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
-			fw.seek(0)
-			fw.truncate()
-			# lines[0] = '%mem=16GB\n'
-			# lines[1] = '%nprocshared=12\n'
-			# lines[2] = '#p B3LYP/6-31G(d) opt=(gdiis,tight) int=ultrafine freq \n'
-			fw.writelines(lines)
+			# fw = file(tmp_file + '/' + tmp_file + '.gjf','r+')
+			# lines = fw.readlines()
+			# # print lines
+			# # lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
+			# fw.seek(0)
+			# fw.truncate()
+			# # lines[0] = '%mem=16GB\n'
+			# # lines[1] = '%nprocshared=12\n'
+			# # lines[2] = '#p B3LYP/6-31G(d) opt=(gdiis,tight) int=ultrafine freq \n'
+			# fw.writelines(lines)
+			# fw.close()
+			# os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+
+			fw = file(tmp_file + '/' + tmp_file + '.job','w')
+			fw.write('''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+setenv GAUSS_SCRDIR /state/partition1
+setenv g09root /home/hetanjin/apps/g09D01
+source $g09root/g09/bsd/g09.login
+
+cd /home/hetanjin/newGroupAdditivityFrog2/_g2_CnH2n_5/''' + tmp_file + '''
+$g09root/g09/g09 ''' + tmp_file + '''.gjf
+
+				''')
 			fw.close()
-			os.system("D:\\hetanjin\\smallSoftware\\dos2unix-6.0.6-win64\\bin\dos2unix.exe " + fw.name)
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 			if os.path.exists(tmp_file + '/' + tmp_file+'.fchk'):
 				os.remove(tmp_file + '/' + tmp_file+'.fchk')
