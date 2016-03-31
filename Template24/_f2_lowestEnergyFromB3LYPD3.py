@@ -8,27 +8,25 @@ import os
 import shutil
 import textExtractor
 import cluster
-import xlsxwriter
 
 # input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
 # clusterName = 'cce'
-# clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n_4'
-# clusterName = 'Tianhe2'
-# clusterPath = '/vol-th/home/you1/hetanjin/newGroupAdditivityFrog2/CnH2n_5'
+# clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n'
+# clusterName = 'Tianhe'
+# clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n_4'
 clusterName = 'TianheII'
-clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CnH2n_5'
-jobsPerSlot = 20
-
+clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CnH2n+2_2'
+jobsPerSlot = 12
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
 cluster1._g09D01=True 
 
-pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_[0-9]*).*\.log$')
-pattern_logFileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
-pattern_gjfFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*_*[0-9]*)_[0-9]+_opt.*\.gjf$')
+pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*).*\.log$')
+pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
+pattern_gjfFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*).*\.gjf$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$') 
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
@@ -52,18 +50,16 @@ coordinate_done = 0
 
 # temporary variables
 tmp_energy = 0.0
-tmp_num = 0
-slot_num = 1
 
 #counters
 error_file_num = 0
 
 # extract energies
-if os.path.exists('_e2_conformerB3LYPD3Gjfs'):
-	shutil.rmtree('_e2_conformerB3LYPD3Gjfs')
-os.mkdir('_e2_conformerB3LYPD3Gjfs')
+if os.path.exists('_f2_lowestEnergy'):
+	shutil.rmtree('_f2_lowestEnergy')
+os.mkdir('_f2_lowestEnergy')
 
-os.chdir('_e_conformerB3LYPGjfs')
+os.chdir('_e2_conformerB3LYPD3Gjfs')
 tmp_folderLists = os.listdir('.')
 for tmp_folder in tmp_folderLists:
 	logExist = 0
@@ -86,9 +82,10 @@ for tmp_folder in tmp_folderLists:
 					if tmp3_m:
 						tmp_energy = float(tmp3_m.group(1))
 				energyDict[tmp_name][tmp_folder[0:-4]] = tmp_energy
-			fr.close()		
+			fr.close()
 	else:
 		tmp_fileList = os.listdir(tmp_folder)
+		# print tmp_folder
 		for tmp_file in tmp_fileList:
 			tmp_m = pattern_logFile.match(tmp_file)
 			if tmp_m:
@@ -98,7 +95,6 @@ for tmp_folder in tmp_folderLists:
 					energyDict[tmp_name] = {} 
 				fr = file(os.path.join(tmp_folder, tmp_file), 'r')
 				tmp_lines = fr.readlines()
-				print tmp_file
 				tmp2_m = pattern_end.match(tmp_lines[-1])
 				if not tmp2_m:
 					print 'Error! ' + tmp_file + ' not ends normally!'
@@ -115,8 +111,8 @@ for tmp_folder in tmp_folderLists:
 			error_file_num += 1	
 
 # write to excel
-wb_new = xlsxwriter.Workbook('EnergyCollection.xlsx')
-sh = wb_new.add_worksheet('energy')
+wb_new = Workbook()
+sh = wb_new.add_sheet('energy', cell_overwrite_ok=True)
 tmp_row = 0
 tmp_col = 0
 sh.write(tmp_row, tmp_col, 0)
@@ -135,7 +131,7 @@ for tmp_mole in  molecules:
 	# sortedFiles = sorted(tmp_dict.keys, key=tmp_dict.__getitem__)
 	
 	for tmp_file in sortedDict:
-		tmp_m = pattern_logFileConf.match(tmp_file[0])
+		tmp_m = pattern_fileConf.match(tmp_file[0])
 		if tmp_m:
 			if tmp_file != sortedDict[0]:
 				# print 'Warning! The optimized structure from conformer search is not the first one!'
@@ -161,24 +157,27 @@ for tmp_mole in  molecules:
 		tmp_col += 1
 	# this code is used to copy the lowest-energy file to LogFileCollection directory
 	# if len(sortedDict) > 0:
-	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_e_conformerB3LYPGjfs', sortedDict[0][0]+'.log'))
+	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_f2_lowestEnergy', sortedDict[0][0]+'.log'))
 	# else:
 	# 	print 'Error! There is no file corresponding to molecule ' + tmp_mole
-wb_new.close()
+wb_new.save('EnergyCollection.xls')
 
 # extract geom from log files
 for tmp_mole in molecules:
 	tmp_dict = energyDict[tmp_mole]
 	sortedDict = sorted(tmp_dict.items(), key=lambda d:d[1])
-	for tmp_file in sortedDict[0:20]:
-		tmp_m = pattern_logFileConf.match(tmp_file[0])
+	if len(sortedDict) > 0:
+		tmp_file = sortedDict[0]
+		tmp_m = pattern_fileConf.match(tmp_file[0])
 		if not tmp_m:
 			print 'Warning! Not structure from conformer searching!', tmp_file[0]
 			# continue
-			fr = file(os.path.join(tmp_file[0]+'.log'))
-		else:
-			fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
-		
+		# 	fr = file(os.path.join(tmp_file[0]+'.log'))
+		# else:
+		# 	fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
+
+		fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
+
 		multi_done = 0
 		optimized_done = 0
 		standard_done = 0
@@ -206,7 +205,7 @@ for tmp_mole in molecules:
 					if lineNum > tmp_num:
 						tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
 						coordinate_done = 1
-		fw = file(os.path.join('..', '_e2_conformerB3LYPD3Gjfs', tmp_file[0]+'.gjf'), 'w')
+		fw = file(os.path.join('..', '_f2_lowestEnergy', tmp_file[0]+'.gjf'), 'w')
 		fw.write(
 '''%mem=28GB
 %nprocshared=12
@@ -218,10 +217,12 @@ using B3LYP/6-31G(d) to do opt and freq calc.
 0 '''+str(multi) + '\n' + tmp_geom + '\n\n\n\n\n\n')
 		fw.close()
 		fr.close()
+	else:
+		print 'Error! There is no jobs about molecule ' + tmp_mole
 os.chdir('../')
 
-# generate B3LYP jobs from Gjfs in _e_conformerB3LYPGjfs
-os.chdir('_e2_conformerB3LYPD3Gjfs')
+# generate B3LYP jobs from Gjfs in _f2_lowestEnergy
+os.chdir('_f2_lowestEnergy')
 tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('\.gjf', tmp_file):
@@ -231,7 +232,7 @@ for tmp_file in tmp_fileList:
 			cluster1.setTS(False)
 		tmp_m = pattern_gjfFile.match(tmp_file)
 		if tmp_m:
-			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_5_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt EmpiricalDispersion=GD3BJ')
+			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_6_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq EmpiricalDispersion=GD3BJ')
 
 # generate cluster script
 tmp_num = 0
@@ -249,6 +250,29 @@ else:
 	fw2.write('''#!/bin/csh
 #
 ''')
+
+if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+	fw2.write('''numJobs=`yhq |grep TH_NET | wc -l` 
+while ((numJobs>28))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq | grep TH_NET | wc -l`  
+done
+
+''')
+
+if clusterName == 'TianheII':
+	fw2.write('''numJobs=`yhq |grep tsinghua_xqy | wc -l` 
+while ((numJobs>15))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq |grep tsinghua_xqy | wc -l`  
+done
+
+''')
+
 if jobsPerSlot > 1:
 	tmp_fileList = os.listdir('.') 
 	for tmp_file in tmp_fileList:
@@ -288,7 +312,7 @@ done
 				fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep TH_NET | wc -l` 
-while ((numJobs>17))
+while ((numJobs>28))
 do
 	echo $numJobs
 	sleep 120
@@ -299,7 +323,7 @@ done
 				fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 -p free ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>7))
+while ((numJobs>15))
 do
 	echo $numJobs
 	sleep 120
@@ -316,7 +340,7 @@ elif jobsPerSlot == 1:
 				fw2.write('sh submitTH.sh ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep TH_NET | wc -l` 
-while ((numJobs>17))
+while ((numJobs>28))
 do
 	echo $numJobs
 	sleep 120
@@ -329,8 +353,6 @@ fw2.close()
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw2.name + ' > log_dos2unix.txt 2>&1')
 
 os.chdir('../')
-
-
 
 print '---------------------------------------\nLog of task 1\n'
 print 'Energy extracted successfully!'

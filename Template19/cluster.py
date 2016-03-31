@@ -400,6 +400,11 @@ $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 '''%mem=16GB
 %nprocshared=12
 ''')
+		elif self.name == 'TianheII':
+			fw.write(
+'''%mem=15GB
+%nprocshared=6
+''')
 		else:
 			fw.write(
 '''%mem=28GB
@@ -570,6 +575,16 @@ source $g09root/g09/bsd/g09.profile
 cd ''' + self.jobLocation + '/' + tmp_dir + '''
 $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 
+
+
+''')
+		elif self.name == 'TianheII':
+			fw.write(
+# TianheII cluster
+'''#!/bin/bash
+
+cd ''' + self.jobLocation + '/' + tmp_dir + '''
+g09 ''' + tmp_dir + '''.gjf 
 
 
 ''')				
