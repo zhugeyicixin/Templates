@@ -80,7 +80,7 @@ done
 
 if clusterName == 'TianheII':
 	fw2.write('''numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>7))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120
@@ -137,10 +137,10 @@ do
 done
 ''')
 		elif clusterName == 'TianheII':
-			fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 -p free ' + tmp_file + '''
+			fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>7))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120

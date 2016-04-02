@@ -63,7 +63,7 @@ class groupCounter:
 		lineStart = 0
 		lineEnd = 0
 
-		print fileName
+		# print fileName
 		gjfFile = file(os.path.join(directory, fileName), 'r')
 		tmp_lines = gjfFile.readlines()
 		for (lineNum, tmp_line) in enumerate(tmp_lines):
@@ -89,7 +89,8 @@ class groupCounter:
 		if geomDone != 1:
 			print 'Sorry! The input file is not a standard gjf file!'
 		else:
-			print 'Gjf file read in successfully!'
+			pass
+			# print 'Gjf file read in successfully!'
 
 		gjfFile.close()
 

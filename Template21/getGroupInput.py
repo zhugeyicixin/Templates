@@ -39,7 +39,7 @@ for tmp_file in tmp_fileLists:
 #####################################################################
 # read data from the database excel file and generate input file
 #####################################################################
-wb=xlrd.open_workbook('database.xlsx')
+wb=xlrd.open_workbook('database.xls')
 sh=wb.sheet_by_name('speciesInfo')
 
 # definition of variables
@@ -350,7 +350,7 @@ for tmp_row in xrange(1, num_rows):
 # 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-# 			if max(abs(tmp_diff)) < 1e-5:			
+# 			if max(abs(tmp_diff)) < 1e-12:			
 # 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
@@ -681,7 +681,7 @@ for tmp_row in xrange(1, num_rows):
 # 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-# 			if max(abs(tmp_diff)) < 1e-5:			
+# 			if max(abs(tmp_diff)) < 1e-12:			
 # 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
@@ -1301,7 +1301,7 @@ for tmp_row in xrange(1, num_rows):
 # 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-# 			if max(abs(tmp_diff)) < 1e-5:			
+# 			if max(abs(tmp_diff)) < 1e-12:			
 # 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
@@ -1630,7 +1630,7 @@ for tmp_row in xrange(1, num_rows):
 # 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-# 			if max(abs(tmp_diff)) < 1e-5:			
+# 			if max(abs(tmp_diff)) < 1e-12:			
 # 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
@@ -1959,7 +1959,7 @@ for tmp_row in xrange(1, num_rows):
 # 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 # 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 # 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-# 			if max(abs(tmp_diff)) < 1e-5:			
+# 			if max(abs(tmp_diff)) < 1e-12:			
 # 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 # 				flag_exsit = 1
 # 	if flag_exsit == 0:
@@ -2288,7 +2288,7 @@ for (index, tmp_mole) in enumerate(all_moles):
 	for (i, tmp_vector) in enumerate(reversed(vectorGroups)):
 		if set(tmp_groupVector.keys()) == set(tmp_vector.keys()):
 			tmp_diff = np.array([tmp_groupVector[x]-tmp_vector[x] for x in tmp_groupVector.keys()])
-			if max(abs(tmp_diff)) < 1e-5:			
+			if max(abs(tmp_diff)) < 1e-12:			
 				vectorMole[len(vectorGroups)-i-1][tmp_mole.label] = tmp_mole.ZPE
 				flag_exsit = 1
 	if flag_exsit == 0:

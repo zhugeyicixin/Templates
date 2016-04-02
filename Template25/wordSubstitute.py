@@ -44,28 +44,25 @@ for tmp_file in tmp_fileLists:
 			fw.truncate()
 			# lines[0] = '%mem=16GB\n'
 			# lines[1] = '%nprocshared=12\n'
-			lines[2] = '#p B3LYP/6-31G(d) opt=(tight) int=ultrafine freq EmpiricalDispersion=GD3BJ iop(1/8=1) \n'
+			lines[2] = '#p B3LYP/6-31G(d) opt=(tight,calcfc) int=ultrafine freq EmpiricalDispersion=GD3BJ \n'
 			fw.writelines(lines)
 			fw.close()
 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 # 			fw = file(tmp_file + '/' + tmp_file + '.job','w')
-# 			fw.write('''#!/bin/csh
-# #
-# #$ -cwd
-# #$ -j y
-# #$ -S /bin/csh
-# #
-# setenv GAUSS_SCRDIR /state/partition1
-# setenv g09root /home/hetanjin/apps/g09D01
-# source $g09root/g09/bsd/g09.login
+# 			fw.write('''#!/bin/bash
 
-# cd /home/hetanjin/newGroupAdditivityFrog2/_g2_CnH2n_5/''' + tmp_file + '''
+# export GAUSS_SCRDIR=/vol-th/home/you1/scratch
+# export g09root=/vol-th/home/you1/softwares/gaussian/g09D01
+
+# source $g09root/g09/bsd/g09.profile
+
+# cd /vol-th/home/you1/hetanjin/newGroupAdditivityFrog2/rotation/CnH2n+2/''' + tmp_file + '''
 # $g09root/g09/g09 ''' + tmp_file + '''.gjf
 
 # 				''')
-			# fw.close()
-			# os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+# 			fw.close()
+# 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 			if os.path.exists(tmp_file + '/' + tmp_file+'.fchk'):
 				os.remove(tmp_file + '/' + tmp_file+'.fchk')
