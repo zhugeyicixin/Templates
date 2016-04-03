@@ -125,7 +125,7 @@ class groupCounter:
 		lineEnd = 0
 
 		tmp_mole = chem.molecule()
-		tmp_mole.getGjfGeom(geom)
+		tmp_mole.getGjfGeom(self.geom)
 		tmp_mole.calcFormula()
 		self.formula = tmp_mole.formula
 		self.atomsNum = tmp_mole.getAtomsNum()

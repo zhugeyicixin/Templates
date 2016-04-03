@@ -10,11 +10,11 @@ import shutil
 
 
 #input
-clusterName = 'TianheII'
+clusterName = 'Tianhe2'
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-jobsPerSlot = 4
+jobsPerSlot = 6
 
 #definition of parameters
 multi = 0
