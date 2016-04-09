@@ -43,7 +43,7 @@ for tmp_file in tmp_fileLists:
 			cluster1.setTS(True)
 		else:
 			cluster1.setTS(False)
-		cluster1.generateJobFromLog(tmp_file,jobName=jobName)
+		cluster1.generateJobFromLog(tmp_file,jobName=tmp_file[0:-4])
 
 print 'Jobs generated successfully!'
 

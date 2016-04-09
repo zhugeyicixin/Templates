@@ -653,15 +653,12 @@ g09 ''' + tmp_dir + '''.gjf
 			fw.write(
 '''%mem=16GB
 %nprocshared=12
-%chk=''')
+''')
 		else:
 			fw.write(
 '''%mem=28GB
 %nprocshared=12
-%chk=''')
-		if self.name == 'Tsinghua100' and self._scratchStrategy == True:
-			fw.write('/scratch/')
-		fw.write(tmp_dir+'.chk\n')
+''')
 		if self._TS == False:
 			fw.write('#p cbs-qb3')
 		else:

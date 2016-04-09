@@ -10,11 +10,11 @@ import shutil
 
 
 #input
-clusterName = 'Tianhe2'
+clusterName = 'TianheII'
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-jobsPerSlot = 6
+jobsPerSlot = 4
 
 #definition of parameters
 multi = 0
@@ -106,10 +106,10 @@ done
 					fw.write('wait\n')
 				fw.close()
 				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
-if clusterName == 'TianheII':
+if clusterName == 'TianheII' and tmp_num != 0:
 	fw.write('wait\n')
 fw.close()
-fw.close()
+
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 tmp_fileList = os.listdir('.')

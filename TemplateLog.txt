@@ -33,8 +33,8 @@ Template14用于提取hindered rotation的能量和使用lamm计算inertia
 提取扫描过程中坐标，使用lamm计算inertia和rotational constant
 
 
-Template15用于修改提交用脚本
-可以用于在Tsinghua cluster和Prof. You's cluster之间切换
+//旧版报废 Template15用于修改提交用脚本
+//旧版报废 可以用于在Tsinghua cluster和Prof. You's cluster之间切换
 
 Template16用于简单地只拟合阿伦尼乌斯方程
 
@@ -55,17 +55,17 @@ Template23 用于批量重命名
 
 Template24 用于生成conformer searching和能量最小化，生成newGroupAdditivity的能量数据
 
-Template25 用于替换某些关键词句
+Template25 用于替换某些关键词句，快速生成脚本
 
-Template26 用于在大量文件中选取某些需要的
+Template26 用于在大量文件中选取某些需要的，或者删除某些文件夹，或者列出当前目录文件名，或者批量删除集群上的指定文件
 
 Template27 用于cantera的ignition delay sensitivity文件生成和分析，内置了xml的生成文件
 
 Template28 用于chemikin导出的ROP中的路径分析和相对速率计算
 
-Template29 用于生成提交到Tianhe或者Tianhe2的脚本
+Template29 用于生成提交到Tianhe或者Tianhe2或者TianheII的脚本
 
-Template30 用于检测.log是否正常完成
+Template30 用于检测.log是否正常完成，检查是否有虚频，是否使用nosym关键字
 
 Template31 用于在同类分子中随机选取若干个进行后续计算
 
