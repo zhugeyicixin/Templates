@@ -32,6 +32,12 @@ for tmp_file in tmp_fileLists:
 		elif tmp_line == 'M062X/def2TZVP//B3LYP/6-31G(d)':
 			__energy__ = 'M062X/def2TZVP//B3LYP/6-31G(d)'
 			print '\n-------------------------------------\nM062X energy and b3lyp geom are used in this calculation\n-------------------------------------\n'	
+		elif tmp_line == 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
+			__energy__ = 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)'
+			print '\n-------------------------------------\nM062X energy and B3LYP-GD3BJ geom are used in this calculation\n-------------------------------------\n'	
+		elif tmp_line == 'M062X-GD3/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
+			__energy__ = 'M062X-GD3/def2TZVP//B3LYP-GD3BJ/6-31G(d)'
+			print '\n-------------------------------------\nM062X-GD3 energy and B3LYP-GD3BJ geom are used in this calculation\n-------------------------------------\n'	
 		else:
 			print '\n-------------------------------------\nWarning! CBS or b3lyp energy is not announced! CBS is used as default!\n-------------------------------------\n'
 		fr.close()	

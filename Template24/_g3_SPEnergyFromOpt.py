@@ -17,12 +17,12 @@ import cluster
 # clusterName = 'Tianhe'
 # clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n_4'
 clusterName = 'TianheII'
-clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CnH2n+2_2'
+clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/_g3_SP/CnH2n'
 jobsPerSlot = 12
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
-cluster1._g09D01=True 
+cluster1._g09D01=True
 
 pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*).*\.log$')
 pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
@@ -37,7 +37,7 @@ pattern_energy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *([\-\.0-9Ee]+) +A\.
 pattern_end = re.compile('^.*Normal termination of Gaussian 09.*$')
 
 # variables
-energyDict = {}
+energyDict = {} 
 molecules = []
 multi = 1
 
@@ -55,11 +55,11 @@ tmp_energy = 0.0
 error_file_num = 0
 
 # extract energies
-if os.path.exists('_f2_lowestEnergy'):
-	shutil.rmtree('_f2_lowestEnergy')
-os.mkdir('_f2_lowestEnergy')
+if os.path.exists('_g3_SPEnergy'):
+	shutil.rmtree('_g3_SPEnergy')
+os.mkdir('_g3_SPEnergy')
 
-os.chdir('_e2_conformerB3LYPD3Gjfs')
+os.chdir('_f2_lowestEnergy')
 tmp_folderLists = os.listdir('.')
 for tmp_folder in tmp_folderLists:
 	logExist = 0
@@ -86,6 +86,7 @@ for tmp_folder in tmp_folderLists:
 	else:
 		tmp_fileList = os.listdir(tmp_folder)
 		# print tmp_folder
+		print tmp_folder
 		for tmp_file in tmp_fileList:
 			tmp_m = pattern_logFile.match(tmp_file)
 			if tmp_m:
@@ -157,7 +158,7 @@ for tmp_mole in  molecules:
 		tmp_col += 1
 	# this code is used to copy the lowest-energy file to LogFileCollection directory
 	# if len(sortedDict) > 0:
-	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_f2_lowestEnergy', sortedDict[0][0]+'.log'))
+	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_g3_SPEnergy', sortedDict[0][0]+'.log'))
 	# else:
 	# 	print 'Error! There is no file corresponding to molecule ' + tmp_mole
 wb_new.save('EnergyCollection.xls')
@@ -168,14 +169,6 @@ for tmp_mole in molecules:
 	sortedDict = sorted(tmp_dict.items(), key=lambda d:d[1])
 	if len(sortedDict) > 0:
 		tmp_file = sortedDict[0]
-		tmp_m = pattern_fileConf.match(tmp_file[0])
-		if not tmp_m:
-			print 'Warning! Not structure from conformer searching!', tmp_file[0]
-			# continue
-		# 	fr = file(os.path.join(tmp_file[0]+'.log'))
-		# else:
-		# 	fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
-
 		fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
 
 		multi_done = 0
@@ -205,7 +198,7 @@ for tmp_mole in molecules:
 					if lineNum > tmp_num:
 						tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
 						coordinate_done = 1
-		fw = file(os.path.join('..', '_f2_lowestEnergy', tmp_file[0]+'.gjf'), 'w')
+		fw = file(os.path.join('..', '_g3_SPEnergy', tmp_file[0]+'.gjf'), 'w')
 		fw.write(
 '''%mem=28GB
 %nprocshared=12
@@ -221,8 +214,8 @@ using B3LYP/6-31G(d) to do opt and freq calc.
 		print 'Error! There is no jobs about molecule ' + tmp_mole
 os.chdir('../')
 
-# generate B3LYP jobs from Gjfs in _f2_lowestEnergy
-os.chdir('_f2_lowestEnergy')
+# generate B3LYP jobs from Gjfs in _g3_SPEnergy
+os.chdir('_g3_SPEnergy')
 tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('\.gjf', tmp_file):
@@ -232,7 +225,7 @@ for tmp_file in tmp_fileList:
 			cluster1.setTS(False)
 		tmp_m = pattern_gjfFile.match(tmp_file)
 		if tmp_m:
-			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_6_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq EmpiricalDispersion=GD3BJ')
+			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_7_SP_M06D3' ,command='#p M062X/def2TZVP EmpiricalDispersion=GD3')
 
 # generate cluster script
 tmp_num = 0
@@ -264,7 +257,7 @@ done
 
 if clusterName == 'TianheII':
 	fw2.write('''numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>15))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120
@@ -300,7 +293,7 @@ done
 					fw.write('wait\n')
 				fw.close()
 				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
-	if clusterName == 'TianheII' and tmp_num != 0:
+	if clusterName == 'TianheII':
 		fw.write('wait\n')	
 	fw.close()
 	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
@@ -323,7 +316,7 @@ done
 				fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>15))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120

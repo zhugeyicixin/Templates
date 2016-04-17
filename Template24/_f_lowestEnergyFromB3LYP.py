@@ -10,13 +10,15 @@ import textExtractor
 import cluster
 
 # input
-# cluster could be set as cce or Tsinghua100
+# cluster could be set as cce or Tsinghua100 or Tianhe
 # the path where the jobs would lie should be announced
 # clusterName = 'cce'
 # clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n'
-clusterName = 'Tianhe'
-clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n'
-jobsPerSlot = 5
+# clusterName = 'Tianhe'
+# clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n_4'
+clusterName = 'TianheII'
+clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/banana/validation_f_B3L'
+jobsPerSlot = 4
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
@@ -233,8 +235,8 @@ for tmp_file in tmp_fileList:
 # generate cluster script
 tmp_num = 0
 slot_num = 1
-fw2 = file('testTH.sh', 'w')
-if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+fw2 = file('submitFleet.sh', 'w')
+if clusterName == 'Tianhe' or clusterName == 'Tianhe2' or clusterName == 'TianheII':
 	fw2.write('''#!/bin/bash
 
 source $HOME/.bash_profile
@@ -246,37 +248,88 @@ else:
 	fw2.write('''#!/bin/csh
 #
 ''')
+
+if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+	fw2.write('''numJobs=`yhq |grep TH_NET | wc -l` 
+while ((numJobs>28))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq | grep TH_NET | wc -l`  
+done
+
+''')
+
+if clusterName == 'TianheII':
+	fw2.write('''numJobs=`yhq |grep tsinghua_xqy | wc -l` 
+while ((numJobs>63))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq |grep tsinghua_xqy | wc -l`  
+done
+
+''')
+
 if jobsPerSlot > 1:
 	tmp_fileList = os.listdir('.') 
 	for tmp_file in tmp_fileList:
 		if os.path.isdir(tmp_file):
 			if tmp_num == 0:
 				fw = file('slot_' + '%04d'%slot_num + '.sh', 'w')
-				fw.write('#!/bin/bash\n\n')			
-			fw.write('sh ' + tmp_file + '/' + tmp_file + '.job\n')
+				fw.write('#!/bin/bash\n\n')
+			if clusterName == 'TianheII':
+				fw.write('sh ' + tmp_file + '/' + tmp_file + '''.job &
+sleep 2
+numJobs=`ps | grep g09 | wc -l`
+while((numJobs>3))
+do 
+	sleep 120
+	numJobs=`ps | grep g09 | wc -l`
+done
+''')
+			else:			
+				fw.write('sh ' + tmp_file + '/' + tmp_file + '.job\n')
 			tmp_num += 1
 			if tmp_num >= jobsPerSlot:
 				tmp_num = 0
 				slot_num += 1
+				if clusterName == 'TianheII':
+					fw.write('wait\n')
 				fw.close()
 				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+	if clusterName == 'TianheII':
+		fw.write('wait\n')	
 	fw.close()
 	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 	
 	tmp_fileList = os.listdir('.')
 	for tmp_file in tmp_fileList:
 		if re.search('slot_.*sh', tmp_file):
-			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
+			if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
+				fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep TH_NET | wc -l` 
-while ((numJobs>18))
+while ((numJobs>28))
 do
 	echo $numJobs
 	sleep 120
 	numJobs=`yhq | grep TH_NET | wc -l`  
 done
 ''')
-
+			elif clusterName == 'TianheII':
+				fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 ' + tmp_file + '''
+sleep 1
+numJobs=`yhq |grep tsinghua_xqy | wc -l` 
+while ((numJobs>63))
+do
+	echo $numJobs
+	sleep 120
+	numJobs=`yhq |grep tsinghua_xqy | wc -l`  
+done
+''')
+			else:
+				fw2.write('sh submit12.sh ' + tmp_file + '\nsleep 5\n')
 elif jobsPerSlot == 1:
 	tmp_fileList = os.listdir('.')	
 	for tmp_file in tmp_fileList:
@@ -296,7 +349,6 @@ done
 				fw2.write('sh submit12.sh ' + tmp_file + '\nsleep 5\n')
 fw2.close()
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw2.name + ' > log_dos2unix.txt 2>&1')
-
 os.chdir('../')
 
 print '---------------------------------------\nLog of task 1\n'

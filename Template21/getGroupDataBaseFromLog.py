@@ -1,8 +1,8 @@
 # this is used to generate database for group additivity method
-from xlwt import *
 import os
 import re
 import xlsxwriter
+import numpy as np
 
 import textExtractor
 import chem
@@ -33,6 +33,12 @@ for tmp_file in tmp_fileLists:
 		elif tmp_line == 'M062X/def2TZVP//B3LYP/6-31G(d)':
 			__energy__ = 'M062X/def2TZVP//B3LYP/6-31G(d)'
 			print '\n-------------------------------------\nM062X energy and b3lyp geom are used in this calculation\n-------------------------------------\n'	
+		elif tmp_line == 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
+			__energy__ = 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)'
+			print '\n-------------------------------------\nM062X energy and B3LYP-GD3BJ geom are used in this calculation\n-------------------------------------\n'	
+		elif tmp_line == 'M062X-GD3/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
+			__energy__ = 'M062X-GD3/def2TZVP//B3LYP-GD3BJ/6-31G(d)'
+			print '\n-------------------------------------\nM062X-GD3 energy and B3LYP-GD3BJ geom are used in this calculation\n-------------------------------------\n'				
 		else:
 			print '\n-------------------------------------\nWarning! CBS or b3lyp energy is not announced! CBS is used as default!\n-------------------------------------\n'
 		fr.close()	
@@ -70,6 +76,7 @@ pattern_freqSum = re.compile('^.*\\\\Freq\\\\.*$')
 pattern_optEnergy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *([\-\.0-9Ee]+) +A\.U\. after.*$')
 pattern_optZPE = re.compile('^.*Sum of electronic and zero-point Energies= *(-?[0-9]+\.[0-9]+).*$')
 pattern_optEnthalpy = re.compile('^.*Sum of electronic and thermal Enthalpies= *(-?[0-9]+\.[0-9]+).*$')
+pattern_D3Energy = re.compile('^.*Grimme-D3 Dispersion energy= *(-?[0-9]+\.[0-9]+) *Hartrees.*$')
 pattern_SPEnergy = re.compile('^.*SCF Done:  E\([RU]M062X\) = *([\-\.0-9Ee]+) +A\.U\. after.*$')
 # pattern_SPEnergy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *([\-\.0-9Ee]+) +A\.U\. after.*$')
 
@@ -99,7 +106,7 @@ pwd = os.getcwd()
 tmp_fileLists = os.listdir(os.path.join(pwd, 'freq'))
 
 for tmp_file in tmp_fileLists:
-	print tmp_file
+	# print tmp_file
 	tmp_m = pattern_logFile.match(tmp_file)
 	if tmp_m:
 		if tmp_m.group(1) != None:
@@ -148,7 +155,7 @@ for tmp_file in tmp_fileLists:
 						freqCom_done = 1
 			elif standard_done != 1:
 				tmp_m = pattern_standard.match(tmp_line)
-				if tmp_m:
+				if tmp_m: 
 					tmp_num = lineNum + 5
 					standard_done = 1
 			elif coordinate_done != 1:
@@ -193,28 +200,45 @@ for tmp_file in tmp_fileLists:
 					break							
 		freqFile.close()
 
+		tmp_energy = 0
+		tmp_D3energy = 0
+
 		if 'cbs' in __energy__:	
 			cbs_done = -1
 		else:
 			cbs_done = 1
 
-		energyFile = file(os.path.join('energy', tmp_name+'_3_opt_M06.log'),'r')
+		energyFile = file(os.path.join('energy', tmp_name+'_7_SP_M06D3.log'),'r')
 		# energyFile = file(os.path.join('energy', tmp_file),'r')
-		for tmp_line in energyFile.readlines():
-			if cbs_done != 1:
-				if tmp_line == tmp_lines[-1]:
-					print 'Error! ' + tmp_file + 'not cbs freq file'
-				tmp_m = pattern_cbs.match(tmp_line)
-				if tmp_m:
-					cbs_done = 1
-			elif SPEnergy_done != 1:
-				tmp_m = pattern_SPEnergy.match(tmp_line)
-				if tmp_m:
-					tmp_energy = float(tmp_m.group(1))
-		SPEnergy.append(tmp_energy)
-		SPEnergy_done = 1
+		if __energy__ != 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
+			for tmp_line in energyFile.readlines():
+				if cbs_done != 1:
+					if tmp_line == tmp_lines[-1]:
+						print 'Error! ' + tmp_file + 'not cbs freq file'
+					tmp_m = pattern_cbs.match(tmp_line)
+					if tmp_m:
+						cbs_done = 1
+				elif SPEnergy_done != 1:
+					tmp_m = pattern_SPEnergy.match(tmp_line)
+					if tmp_m:
+						tmp_energy = float(tmp_m.group(1))
+						SPEnergy_done = 0
+		elif __energy__ == 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)': 
+			for tmp_line in energyFile.readlines():
+				if SPEnergy_done != 1:
+					tmp_m = pattern_D3Energy.match(tmp_line)
+					if tmp_m:
+						tmp_D3energy = float(tmp_m.group(1))
+						SPEnergy_done = 0
+					tmp_m = pattern_SPEnergy.match(tmp_line)
+					if tmp_m:
+						tmp_energy = float(tmp_m.group(1))
+
+		SPEnergy.append(tmp_energy - tmp_D3energy)
+		if np.abs(tmp_energy) > 1e-12 and SPEnergy_done == 0:
+			SPEnergy_done = 1
 		if SPEnergy_done != 1:
-			print tmp_file
+			print 'Error! SP energy file error!' + tmp_file
 		energyFile.close()
 
 		tmp_mole = chem.molecule()

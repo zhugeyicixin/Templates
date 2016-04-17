@@ -9,24 +9,26 @@ import shutil
 import textExtractor
 import cluster
 
+import chem
+
 # input
-# cluster could be set as cce or Tsinghua100
+# cluster could be set as cce or Tsinghua100 or Tianhe
 # the path where the jobs would lie should be announced
 # clusterName = 'cce'
 # clusterPath = '/home/hetanjin/newGroupAdditivityFrog2/CnH2n'
 # clusterName = 'Tianhe'
 # clusterPath = '/vol-th/home/you/hetanjin/newGroupAdditivityFrog2/CnH2n_4'
 clusterName = 'TianheII'
-clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CnH2n+2_2'
+clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CnH2n+2'
 jobsPerSlot = 12
 
 # constants
 cluster1 = cluster.cluster(clusterName, clusterPath)
-cluster1._g09D01=True 
+cluster1._g09D01=True
 
 pattern_logFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*).*\.log$')
 pattern_fileConf = re.compile('^(C[0-9]*H[0-9]*_[0-9]*_[0-9]+)_[0-9]+_.*$')
-pattern_gjfFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*).*\.gjf$')
+pattern_gjfFile = re.compile('^(C[0-9]*H[0-9]*_*[0-9]*_r[0-9]+_[CO0-9]+).*\.gjf$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$') 
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
@@ -55,11 +57,11 @@ tmp_energy = 0.0
 error_file_num = 0
 
 # extract energies
-if os.path.exists('_f2_lowestEnergy'):
-	shutil.rmtree('_f2_lowestEnergy')
-os.mkdir('_f2_lowestEnergy')
+if os.path.exists('_h2_radicalGeneration'):
+	shutil.rmtree('_h2_radicalGeneration')
+os.mkdir('_h2_radicalGeneration')
 
-os.chdir('_e2_conformerB3LYPD3Gjfs')
+os.chdir('_f2_lowestEnergy')
 tmp_folderLists = os.listdir('.')
 for tmp_folder in tmp_folderLists:
 	logExist = 0
@@ -86,6 +88,7 @@ for tmp_folder in tmp_folderLists:
 	else:
 		tmp_fileList = os.listdir(tmp_folder)
 		# print tmp_folder
+		print tmp_folder
 		for tmp_file in tmp_fileList:
 			tmp_m = pattern_logFile.match(tmp_file)
 			if tmp_m:
@@ -157,31 +160,24 @@ for tmp_mole in  molecules:
 		tmp_col += 1
 	# this code is used to copy the lowest-energy file to LogFileCollection directory
 	# if len(sortedDict) > 0:
-	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_f2_lowestEnergy', sortedDict[0][0]+'.log'))
+	# 	shutil.copyfile(os.path.join(pwd, tmp_folder, sortedDict[0][0]+'.log'), os.path.join(pwd, '_g_SPEnergy', sortedDict[0][0]+'.log'))
 	# else:
 	# 	print 'Error! There is no file corresponding to molecule ' + tmp_mole
 wb_new.save('EnergyCollection.xls')
 
 # extract geom from log files
+tmp_molecule = chem.molecule()
 for tmp_mole in molecules:
 	tmp_dict = energyDict[tmp_mole]
 	sortedDict = sorted(tmp_dict.items(), key=lambda d:d[1])
 	if len(sortedDict) > 0:
 		tmp_file = sortedDict[0]
-		tmp_m = pattern_fileConf.match(tmp_file[0])
-		if not tmp_m:
-			print 'Warning! Not structure from conformer searching!', tmp_file[0]
-			# continue
-		# 	fr = file(os.path.join(tmp_file[0]+'.log'))
-		# else:
-		# 	fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
-
 		fr = file(os.path.join(tmp_file[0], tmp_file[0]+'.log'))
 
 		multi_done = 0
 		optimized_done = 0
 		standard_done = 0
-		coordinate_done =0
+		coordinate_done = 0
 
 		tmp_lines = fr.readlines()
 		for (lineNum, tmp_line) in enumerate(tmp_lines):
@@ -196,33 +192,43 @@ for tmp_mole in molecules:
 					optimized_done = 1
 			elif standard_done != 1:
 				tmp_m = pattern_standard.match(tmp_line)
-				if tmp_m:
+				if tmp_m: 
 					tmp_num = lineNum + 5
 					standard_done = 1
 			elif coordinate_done != 1:
 				tmp_m = pattern_endline.match(tmp_line)
 				if tmp_m:
 					if lineNum > tmp_num:
-						tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
+						# tmp_geom = textExtractor.geometryExtractor(tmp_lines[tmp_num: lineNum])
+						tmp_geom = tmp_lines[tmp_num: lineNum]
 						coordinate_done = 1
-		fw = file(os.path.join('..', '_f2_lowestEnergy', tmp_file[0]+'.gjf'), 'w')
-		fw.write(
+
+		tmp_molecule.getLogGeom(tmp_geom)
+		tmp_molecule.setLabel(tmp_mole)
+		tmp_molecule.fulfillBonds()
+		tmp_radicals = tmp_molecule.generateRadicals()
+
+		for (index, tmp_radical) in enumerate(tmp_radicals.keys()):
+			tmp_name = tmp_mole + '_r' + '%03d'%(index+1) + '_' + tmp_radicals[tmp_radical]
+			fw = file(os.path.join('..', '_h2_radicalGeneration', tmp_name+'.gjf'), 'w')
+			fw.write(
 '''%mem=28GB
 %nprocshared=12
-%chk=''' + tmp_file[0] + '''.chk
+%chk=''' + tmp_name + '''.chk
 #p B3LYP/6-31G(d) opt freq
 
 using B3LYP/6-31G(d) to do opt and freq calc.
 
-0 '''+str(multi) + '\n' + tmp_geom + '\n\n\n\n\n\n')
-		fw.close()
+0 '''+str(multi+1) + '\n' + tmp_radical + '\n\n\n\n\n\n')
+			fw.close()
 		fr.close()
 	else:
 		print 'Error! There is no jobs about molecule ' + tmp_mole
+
 os.chdir('../')
 
-# generate B3LYP jobs from Gjfs in _f2_lowestEnergy
-os.chdir('_f2_lowestEnergy')
+# generate B3LYP jobs from Gjfs in _g_SPEnergy
+os.chdir('_h2_radicalGeneration')
 tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('\.gjf', tmp_file):
@@ -232,7 +238,7 @@ for tmp_file in tmp_fileList:
 			cluster1.setTS(False)
 		tmp_m = pattern_gjfFile.match(tmp_file)
 		if tmp_m:
-			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_6_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq EmpiricalDispersion=GD3BJ')
+			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_8_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq EmpiricalDispersion=GD3BJ')
 
 # generate cluster script
 tmp_num = 0
@@ -264,7 +270,7 @@ done
 
 if clusterName == 'TianheII':
 	fw2.write('''numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>15))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120
@@ -300,7 +306,7 @@ done
 					fw.write('wait\n')
 				fw.close()
 				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
-	if clusterName == 'TianheII' and tmp_num != 0:
+	if clusterName == 'TianheII':
 		fw.write('wait\n')	
 	fw.close()
 	os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
@@ -323,7 +329,7 @@ done
 				fw2.write('echo \'submit to TianheII:\'\necho \'' + tmp_file + '\'\nyhbatch -N 1 ' + tmp_file + '''
 sleep 1
 numJobs=`yhq |grep tsinghua_xqy | wc -l` 
-while ((numJobs>15))
+while ((numJobs>63))
 do
 	echo $numJobs
 	sleep 120

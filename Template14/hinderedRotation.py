@@ -18,10 +18,11 @@ import lamm
 name = 'rotation'
 
 # symbol indicating the position
-pattern_name = re.compile('^.*.*|.*_scan.*$')
+pattern_name = re.compile('^.*_scan_.*$')
 pattern_atoms = re.compile('^.*D *([0-9]+) *([0-9]+) *([0-9]+) *([0-9]+).*S *([0-9]+) *(-?[0-9]+\.[0-9]+).*$')
 pattern_energy = re.compile('^.*SCF Done:  E\([UR]?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
-pattern_optimized = re.compile('^.*Optimized Parameters.*$')
+# pattern_energy = re.compile('^.*SCF Done:  E\([UR]?PM6\) = *([\.\-Ee0-9]+).*$')
+pattern_optimized = re.compile('^.*Optimized Parameters.*$') 
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_input = re.compile('^.*Input orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
