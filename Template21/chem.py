@@ -1189,6 +1189,50 @@ class molecule:
 				connectInfo += str(atomIndex+1) + ' ' + tmp_atom.symbol + ' ' + '%.1f'%radicalIndex + ' ' + tmp_str + '\n'
 		return connectInfo
 
+	# used to generate mol file for JMOL display
+	# .mol is similar to .sdf. MDL MOL (or sometimes molfile), for single molecules, and MDL SDF (or sometimes SDfile) for multiple molecules and associated data fields. Ref: http://molmatinf.com/whynotmolsdf.html.
+	# C-C bond with order of 1.5 is defined as bond type 5 in JMOL for non acromatic species. For acromatic ones, it's defined as type 4. Ref: http://wiki.jmol.org/index.php/Support_for_bond_orders
+	# currently only bondOrder 4 is used, acromatic species hasn't been taken into consideration
+	# currently radical or not, or the spinMultiplicity is not added in the file, because of no need for display, temporarily. Ref: https://docs.chemaxon.com/display/FF/MDL+MOLfiles,+RGfiles,+SDfiles,+Rxnfiles,+RDfiles+formats
+	def generateMOLFile(self, directory='', moleculeLabel=''):
+		if directory == '':
+			directory = 'MOLFiles'
+		if not os.path.exists(directory):
+			os.mkdir(directory)
+		if moleculeLabel == '':
+			moleculeLabel = self.label
+
+		resonance = 0
+
+		# write .mol file with connectivity
+		fw = file(os.path.join(directory, moleculeLabel+'.mol'), 'w')
+		fw.write(moleculeLabel + '''
+
+generated based on coordinates by chem.py
+''' + '%3d'%self.getAtomsNum() + '%3d'%len(self.bonds) + '  0  0  0  0  0  0  0  0999 V2000\n')
+		for tmp_atom in self.atoms:
+			fw.write('%10.4f'%tmp_atom.coordinate[0] + '%10.4f'%tmp_atom.coordinate[1] + '%10.4f'%tmp_atom.coordinate[2] + '%2s'%tmp_atom.symbol + '   0  0  0  0  0  0  0  0  0  0  0  0\n')
+		for tmp_atom in self.atoms:
+			tmp_bonds = {}
+			for (index_child, tmp_child) in enumerate(tmp_atom.children):
+				if tmp_child.label > tmp_atom.label:
+					tmp_bondOrder = tmp_atom.bonds[index_child].bondOrder
+					if tmp_bondOrder - int(tmp_bondOrder) > 1e-3:
+						resonance += 1
+						tmp_bondOrder = 5
+						if resonance > 2:
+							print 'Error! The variable resonance is larger than 2!'
+					if np.abs(tmp_bondOrder - round(tmp_bondOrder)) > 1e-3:
+						print 'Error! The bond order used in .mol file is not an integer!'
+					tmp_bonds[tmp_child.label] = int(round(tmp_bondOrder))
+			for tmp_label in sorted(tmp_bonds.keys()):
+				fw.write('%3d'%tmp_atom.label + '%3d'%tmp_label + '%3d'%int(tmp_bonds[tmp_label]) + '  0  0  0  0\n')
+
+		fw.write('''M  END
+
+			''')
+		fw.close()
+
 	# get the distance matrix describling the distance between different groups
 	# this is not the same as a TSP (travel saleman problem) solver
 	def getDistanceMatrix(self, atomList):

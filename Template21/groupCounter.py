@@ -28,24 +28,14 @@ class groupCounter:
 	pattern_blankLine = re.compile('^ *$')
 
 	# definition of variables
-	name = ''
-	multi = 0
-	geom = []
-	formula = ''
-	atomsNum = 0
+	mole = None
 
 	groupLib = []
 
 	# the default geom and connectivity are from gjf file. Thus self.geom is in gjf format
 	# self.groupLib include groupA, groupB and groupA-groupB	
 	def __init__(self):
-		self.name = ''
-		self.multi = 0
-		self.geom = []
-		self.formula = ''
-		self.atomsNum = 0
-
-		self.groupLib = []
+		self.mole = None
 
 	# fileName is the name of the input gjf file
 	# directory containing this gjf file. it is needed in case that the gjf file is not in the same directory as this .py code
@@ -60,6 +50,8 @@ class groupCounter:
 
 		#definition of temporary variables
 		tmp_m = []		#match result 
+		tmp_multi = 1
+		tmp_geom = ''
 		lineStart = 0
 		lineEnd = 0
 
@@ -75,14 +67,14 @@ class groupCounter:
 				tmp_m = self.pattern_gjfMulti.match(tmp_line)
 				if tmp_m:
 					lineStart = lineNum
-					self.multi = int(tmp_m.group(2))
+					tmp_multi = int(tmp_m.group(2))
 					geomDone = 0
 					gjfMulti_done = 1
 			elif geomDone != 1:
 				tmp_m = self.pattern_blankLine.match(tmp_line)
 				if tmp_m:
 					lineEnd = lineNum
-					self.geom = tmp_lines[lineStart+1: lineEnd]
+					tmp_geom = tmp_lines[lineStart+1: lineEnd]
 					geomDone = 1
 
 
@@ -94,52 +86,43 @@ class groupCounter:
 
 		gjfFile.close()
 
-		tmp_mole = chem.molecule()
-		tmp_mole.getGjfGeom(self.geom)
-		tmp_mole.calcFormula()
-		self.formula = tmp_mole.formula
-		self.atomsNum = tmp_mole.getAtomsNum()
-
+		self.mole = chem.molecule()
+		self.mole.getGjfGeom(tmp_geom)
+		self.mole.setSpinMultiplicity(tmp_multi)
+		self.mole.calcFormula()
 		if moleculeLabel == '':
-			self.name = formula
+			self.mole.setLabel(self.mole.formula)
 		else:
-			self.name = moleculeLabel
+			self.mole.setLabel(moleculeLabel)		
+		self.mole.fulfillBonds()
 
-		return self.name, self.multi, self.geom, self.formula, self.atomsNum
+		return self.mole
 
 	# moleculeLabel is the unique label or name of this molecule for convenient reference, such as ethane or pentane
 	# if moleculeLabel is not given, the name of molecule would be regarded as the same as the formula
-	# the output parameter multi is the multiplicity of the molecule, which is not needed in this group contribution method. Thus even a wrong multiplicity could work. When multi is not given, it would be regarded as 0 as default.
-	def readGjfGeom(self, gjfGeom, moleculeLabel=''):
-		self.multi = 0
-		self.geom = gjfGeom.strip()
+	# gjfGeom is a string in .gjf format, descirbing the geometry of species
+	# the output parameter multi is the multiplicity of the molecule, which is not needed in this group contribution method. Thus even a wrong multiplicity could work. When multi is not given, it would be regarded as 1 as default.
+	def readGjfGeom(self, gjfGeom, moleculeLabel='', multiplicity=1):
+		tmp_multi = multiplicity
+		tmp_geom = gjfGeom.strip()
+		tmp_geom = tmp_geom.split('\n')
 
-		#definition of flags
-		gjfCommand_done = -1
-		gjfMulti_done = -1
-		geomDone = -1
-
-		#definition of temporary variables
-		tmp_m = []		#match result 
-		lineStart = 0
-		lineEnd = 0
-
-		tmp_mole = chem.molecule()
-		tmp_mole.getGjfGeom(self.geom)
-		tmp_mole.calcFormula()
-		self.formula = tmp_mole.formula
-		self.atomsNum = tmp_mole.getAtomsNum()
-
+		self.mole = chem.molecule()
+		self.mole.getGjfGeom(tmp_geom)
+		self.mole.setSpinMultiplicity(tmp_multi)
+		self.mole.calcFormula()
 		if moleculeLabel == '':
-			self.name = formula
+			self.mole.setLabel(self.mole.formula)
 		else:
-			self.name = moleculeLabel
+			self.mole.setLabel(moleculeLabel)		
+		self.mole.fulfillBonds()
 
-		return self.name, self.multi, self.geom, self.formula, self.atomsNum
+		return self.mole
 
 	# this function is used read the template containing the names of groups and group interactions in current database
 	# use this function once before writeDBGCVector, because the dimension of the GBGC vector should be determined in advance
 	# the default name of the template file is groupTemplate.xlsx
+	@classmethod
 	def readGroupTemplate(self, fileName='groupTemplate.xlsx'):
 		if not os.path.exists(fileName):
 			print 'Error! Group template file ' + fileName + 'does not exist!'
@@ -203,14 +186,10 @@ class groupCounter:
 		for i in xrange(vectorDimension):
 			groupIndex[self.groupLib[i]] = tmp_col+i
 
-		tmp_mole = chem.molecule()
-		tmp_mole.getGjfGeom(self.geom)
-		tmp_mole.setLabel(self.name)
-		tmp_mole.fulfillBonds()
-		tmp_groups = tmp_mole.get1stOrderGroup()
+		tmp_groups = self.mole.get1stOrderGroup()
 		if not set(tmp_groups).issubset(set(self.groupLib)):
 			print 'Error! The input molecule does not belong to the family of trained molecules.'
-		tmp_groupVector = tmp_mole.getGroupVector6()
+		tmp_groupVector = self.mole.getGroupVector6()
 		tmp_row = 4+speciesNumber
 		tmp_col = 1
 		speciesNumber += 1
@@ -219,7 +198,7 @@ class groupCounter:
 			shw.cell(row=tmp_row, column=tmp_col+5+i).value = 0.0
 		for tmp_vectorEle in tmp_groupVector.keys():
 			shw.cell(row=tmp_row, column=groupIndex[tmp_vectorEle]).value = tmp_groupVector[tmp_vectorEle]
-		shw.cell(row=tmp_row, column=vectorDimension+8).value = tmp_mole.label
+		shw.cell(row=tmp_row, column=vectorDimension+8).value = self.mole.label
 
 		tmp_row = 2
 		tmp_col = 2
@@ -228,3 +207,24 @@ class groupCounter:
 		wbw.save(fileName)
 		os.chdir('../')
 		print 'Write group vector successfully!'
+
+# this function is used to write MATLAB output (enthalpy) into excel (DBGCVectors.xlsx)
+# input data should be a list object
+# fileName is name of excel or a joined path of directory and file name 
+def writeDataToExcel(data, fileName):
+	if os.path.exists(fileName):
+		wbw = openpyxl.load_workbook(fileName)
+		shw = wbw.get_sheet_by_name('inputVectors')
+		speciesNumber = shw.cell(row=2, column=2).value
+		vectorDimension = shw.cell(row=2, column=4).value
+		if speciesNumber != len(data):
+			print 'Error! The number of output data is not as the same as the that of species!'
+		tmp_row = 4
+		for (index, item) in enumerate(data):
+			shw.cell(row=tmp_row, column=vectorDimension+9).value = item
+			tmp_row += 1
+	else:
+		print 'Error! File ' + fileName + ' does not exists!'
+	wbw.save(fileName)	
+
+
