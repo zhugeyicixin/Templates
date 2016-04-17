@@ -1,0 +1,12 @@
+%mem=15GB
+%nprocshared=6
+#p freq ub3lyp/6-31g(d) scrf=check guess=tcheck
+geom=(connectivity,allcheck) genchk
+
+Title Card Required
+
+0 3
+ C                  0.00000000    0.00000000    0.00000000
+
+ 1
+

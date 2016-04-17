@@ -12,15 +12,17 @@ import shutil
 
 
 # pattern_folder = re.compile('^RO2_[0-9]+.*$')
-pattern_file = re.compile('^.*opt_631gd.*$')
+pattern_file = re.compile('^.*_9_SP_M06D3.log$')
 
 pwd = os.getcwd()
 
 tmp_folderLists = os.listdir(pwd)
-for tmp_file in tmp_folderLists:
+for (index,tmp_file) in enumerate(tmp_folderLists):
 	tmp_m = pattern_file.match(tmp_file)
 	if tmp_m:
-		os.rename(tmp_file, tmp_file[0:-16]+'.log')
+		print tmp_file
+		os.rename(tmp_file, tmp_file[0:-15]+'_7_SP_M06D3.log')
+
  
 print '\n rename successfully!'
 # THE END

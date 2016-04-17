@@ -14,7 +14,7 @@ clusterName = 'TianheII'
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-jobsPerSlot = 4
+jobsPerSlot = 1
 
 #definition of parameters
 multi = 0

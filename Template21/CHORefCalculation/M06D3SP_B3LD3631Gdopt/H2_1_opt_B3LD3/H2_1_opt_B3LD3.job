@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/CH2O2/H2_1_opt_B3LD3
+g09 H2_1_opt_B3LD3.gjf
+
+				

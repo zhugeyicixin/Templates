@@ -25,12 +25,19 @@ pattern_name = re.compile('^.*$')
 #variables
 tmp_fileLists = '''
 
-C10H20_577_09_5_opt_B3LD3
-C10H20_579_04_5_opt_B3LD3
-C10H20_859_02_5_opt_B3LD3
-C10H20_860_00_5_opt_B3LD3
-C10H20_880_5_opt_B3LD3
+C12H24_092_1003_1_opt_B3L
+C12H24_092_1008_1_opt_B3L
+C12H24_092_1009_1_opt_B3L
+C12H24_092_1010_1_opt_B3L
+C12H24_092_1011_1_opt_B3L
+C12H24_092_2001_1_opt_B3L
 
+C14H28_093_1000_1_opt_B3L
+C14H28_093_1001_1_opt_B3L
+C14H28_093_1002_1_opt_B3L
+C14H28_093_1003_1_opt_B3L
+C14H28_093_1004_1_opt_B3L
+C14H28_093_1005_1_opt_B3L
 
 
 
@@ -117,7 +124,7 @@ done
 					fw.write('wait\n')
 				fw.close()
 				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
-if clusterName == 'TianheII':
+if clusterName == 'TianheII' and tmp_num != 0:
 	fw.write('wait\n')
 fw.close()
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')

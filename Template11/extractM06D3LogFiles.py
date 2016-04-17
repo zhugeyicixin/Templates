@@ -12,7 +12,7 @@ import shutil
 
 
 # pattern_folder = re.compile('^RO2_[0-9]+.*$')
-pattern_folder = re.compile('^C3H7O2_62_b3631gd_[0-9]+$')
+pattern_folder = re.compile('^.*M06D3$')
 # pattern_energy = re.compile('^.*Sum of electronic and zero-point Energies= *(-?[0-9]+\.[0-9]+).*$')
 pattern_end = re.compile('^.*Normal termination of Gaussian 09.*$')
 
@@ -25,9 +25,9 @@ error_file_num = 0
 pwd = os.getcwd()
 pwd_home = pwd
 
-if os.path.exists(pwd_home + '/LogFileCollection_62_b3631gd'):
-	shutil.rmtree('LogFileCollection_62_b3631gd')
-os.mkdir('LogFileCollection_62_b3631gd')
+if os.path.exists(pwd_home + '/LogFileCollection'):
+	shutil.rmtree('LogFileCollection')
+os.mkdir('LogFileCollection')
 
 tmp_folderLists = os.listdir(pwd)
 for tmp_folder in tmp_folderLists:
@@ -50,7 +50,7 @@ for tmp_folder in tmp_folderLists:
 					print tmp_file + '\terror'
 					error_file_num += 1
 
-				shutil.copyfile(tmp_file, pwd_home + '/LogFileCollection_62_b3631gd/' + tmp_file)
+				shutil.copyfile(tmp_file, pwd_home + '/LogFileCollection/' + tmp_file)
 		os.chdir('../')
 
 print '\n log files extracted successfully!'

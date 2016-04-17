@@ -2,7 +2,7 @@ import os
 import re
 
 # constants
-pattern_gjfFile = re.compile('(.*)\.gjf')
+pattern_gjfFile = re.compile('(.*)')
 
 # variables
 moleSet1 = '''C8H16_1

@@ -1,0 +1,14 @@
+%mem=15GB
+%nprocshared=6
+#p B3LYP/6-31G(d) opt=tight int=ultrafine freq EmpiricalDispersion=GD3BJ  
+
+Title Card Required
+
+0 3
+ C                 0.00000000   0.00000000    0.00000000
+
+
+ 
+ 
+ 
+ 
