@@ -9,7 +9,7 @@ import numpy as np
 import chem
 
 # input variables
-dataFile = 'database.xlsx'
+dataFile = 'currentDatabase.xlsx'
 
 # variables
 all_geoms = []
@@ -23,7 +23,7 @@ smilesDict = {}
 wbrw = openpyxl.load_workbook(dataFile)
 shrw = wbrw.get_sheet_by_name('speciesInfo')
 loaded = False
-tmp_row = 2
+tmp_row = 4
 tmp_col = 14
 while not loaded:
 	tmp_geom = shrw.cell(row=tmp_row, column=tmp_col).value
@@ -125,7 +125,7 @@ $$$$''')
 		for tmp_label in sorted(tmp_bonds.keys()):
 			tmp_connectivity += ' ' + str(tmp_label) + ' %.1f'%tmp_bonds[tmp_label]
 		tmp_connectivity += '\n'
-	shrw.cell(row=2+index_mole, column=15).value = tmp_connectivity
+	shrw.cell(row=4+index_mole, column=13).value = tmp_connectivity
 
 # openbabel convert into smiles
 tmp_fileList = os.listdir('.')
@@ -182,11 +182,14 @@ for tmp_file in tmp_fileList:
 for (index_mole, tmp_label) in enumerate(all_labels):
 	if tmp_label in smilesDict.keys():
 		if len(smilesDict[tmp_label]) == 2 and smilesDict[tmp_label][0] != '':
-			tmp_smiles = smilesDict[tmp_label][0] + '\n or \n' + smilesDict[tmp_label][1]
+			if smilesDict[tmp_label][0] != smilesDict[tmp_label][1]:
+				tmp_smiles = smilesDict[tmp_label][0] + '\n or \n' + smilesDict[tmp_label][1]
+			else:
+				tmp_smiles = smilesDict[tmp_label][0]
 		else:
 			tmp_smiles = ''.join(smilesDict[tmp_label])
 		tmp_smiles=tmp_smiles.strip()
-		shrw.cell(row=2+index_mole, column=2).value = tmp_smiles
+		shrw.cell(row=4+index_mole, column=2).value = tmp_smiles
 	else:
 		print 'Error! Smiles is not found for ' + tmp_label 
 

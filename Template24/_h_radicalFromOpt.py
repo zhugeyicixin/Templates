@@ -238,7 +238,7 @@ for tmp_file in tmp_fileList:
 			cluster1.setTS(False)
 		tmp_m = pattern_gjfFile.match(tmp_file)
 		if tmp_m:
-			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_8_opt_B3LD3' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq ')
+			cluster1.generateJobFromGjf(tmp_file, jobName=tmp_m.group(1)+'_2_opt_B3L' ,command='#p B3LYP/6-31G(d) opt=tight int=ultrafine freq ')
 
 # generate cluster script
 tmp_num = 0
