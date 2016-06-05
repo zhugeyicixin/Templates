@@ -13,6 +13,7 @@ import shutil
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
+path='/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/Dispersion/SPonB3LYPD36311GDP_CCSDTVTZ/'
 
 #definition of parameters
 multi = 0
@@ -42,9 +43,10 @@ for tmp_file in tmp_fileLists:
 			# lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
 			fw.seek(0)
 			fw.truncate()
-			lines[0] = '%mem=30GB\n'
-			lines[1] = '%nprocshared=24\n'
-			lines[2] = '#p M062X/def2TZVP  \n'
+			lines[0] = '%mem=15GB\n'
+			lines[1] = '%nprocshared=6\n'
+			lines[2] = '#p ccsd(t)/cc-pvtz\n'
+			# lines.insert(2, '%chk='+tmp_file+'.chk\n')
 			fw.writelines(lines)
 			fw.close()
 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
@@ -67,12 +69,28 @@ for tmp_file in tmp_fileLists:
 			fw = file(tmp_file + '/' + tmp_file + '.job','w')
 			fw.write('''#!/bin/bash
 
-cd /WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/banana/SP_M06/''' + tmp_file + '''
+cd ''' + path + tmp_file + '''
 g09 ''' + tmp_file + '''.gjf
 
 				''')
 			fw.close()
 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+
+# 			fw = file(tmp_file + '/' + tmp_file + '.job','w')
+# 			fw.write('''#!/bin/bash
+
+# export GAUSS_SCRDIR=/state/partition1
+# export g09root=/home/hetanjin/apps/g09D01
+# source $g09root/g09/bsd/g09.profile
+
+# cd ''' + path + tmp_file + '''
+# $g09root/g09/g09 ''' + tmp_file + '''.gjf
+# $g09root/g09/formchk ''' + tmp_file + '''.chk
+
+# 				''')
+# 			fw.close()
+# 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+
 
 
 			if os.path.exists(tmp_file + '/' + tmp_file+'.fchk'):

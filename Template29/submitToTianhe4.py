@@ -11,8 +11,6 @@ import shutil
 
 #input
 clusterName = 'TianheII'
-directory = 'rotation3'
-charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
 jobsPerSlot = 4
 

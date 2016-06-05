@@ -15,7 +15,7 @@ Template7用于提取cbs-qb3优化后的坐标进行irc
 Template8 optCheck 用于提取每步优化中的能量 
 
 thermodynamic计算
-Template9 使用THERM批量计算thermodynamic datah和用于将thermodynamic data转换成thermfit可以读取的格式
+Template9 使用THERM批量计算thermodynamic data和用于将thermodynamic data转换成thermfit可以读取的格式
 
 用于gaussian或者molpro计算
 Template10用于提取scan中的坐标，生成各个反应坐标（键长等）对应的输入文件 

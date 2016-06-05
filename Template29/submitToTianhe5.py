@@ -10,11 +10,10 @@ import shutil
 
 
 #input
+# clusterName can be 'cce' or 'TianheII' or 'Tianhe' or 'Tianhe2'
 clusterName = 'TianheII'
-directory = 'rotation3'
-charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-jobsPerSlot = 12
+jobsPerSlot = 4
 
 #definition of parameters
 multi = 0
@@ -53,7 +52,7 @@ declare -i numJobs=0
 
 ''')
 else:
-	fw2.write('''#!/bin/csh
+	fw2.write('''#!/bin/bash
 #
 ''')
 
@@ -85,7 +84,16 @@ for tmp_file in tmp_jobList:
 		if tmp_m:
 			if tmp_num == 0:
 				fw = file('slot_' + '%04d'%slot_num + '.sh', 'w')
-				fw.write('#!/bin/bash\n\n')
+				if clusterName == 'Tianhe' or clusterName == 'Tianhe2' or clusterName == 'TianheII':
+					fw.write('#!/bin/bash\n\n')
+				else:
+					fw.write('''#!/bin/csh
+#
+#$ -cwd
+#$ -j y
+#$ -S /bin/csh
+#
+''')
 			if clusterName == 'TianheII':
 				fw.write('sh ' + tmp_file + '/' + tmp_file + '''.job &
 sleep 2
@@ -138,7 +146,7 @@ do
 done
 ''')
 		else:
-			fw2.write('sh submit12.sh ' + tmp_file + '\nsleep 5\n')
+			fw2.write('qsub -pe orte 12 ' + tmp_file + '\nsleep 5\n')
 
 fw2.close()
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw2.name + ' > log_dos2unix.txt 2>&1')

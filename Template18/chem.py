@@ -2,6 +2,7 @@
 # it can be used to deal with infomation of atoms and molecules
 # import visual
 import os
+import re
 
 import numpy as np
 import copy
@@ -226,7 +227,7 @@ class molecule:
 						self.atoms[int(tmp_line[j]) - 1].addBond(tmp_bond)
 						self.bonds.append(tmp_bond)
 			elif connect != []:
-				print 'Error! Worng coonectivity in molecule initiation!'					
+				print 'Error! Wrong coonectivity in molecule initiation!'					
 		else:
 			self.atoms = copy.deepcopy(inputAtoms)
 
@@ -511,17 +512,21 @@ class molecule:
 
 		# check is the input molecule is a tidy one (if hydrogen is too close to more than one heavy atom when drawing scratch, the connectivity recognition would be wrong)
 		# currently only check of C-H bond is supported
+		# if the label indicates this is a transition state, the check will be skipped
 		tidyMolecule = True
 		tmp_questionHydrogen = []
-		for tmp_atom in self.atoms:
-			if tmp_atom.symbol == 'H':
-				sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
-				if sumBondOrder >= 2:
-					tidyMolecule = False
-					tmp_questionHydrogen.append(tmp_atom)
-					for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-						tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
-						self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
+		if not re.match('^.*[Tt][Ss].*$', self.label):
+			for tmp_atom in self.atoms:
+				if tmp_atom.symbol == 'H':
+					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
+					if sumBondOrder >= 2:
+						tidyMolecule = False
+						tmp_questionHydrogen.append(tmp_atom)
+						for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+							tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
+							self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
+		else:
+			pass
 		if tmp_questionHydrogen:
 			print 'Warning! The molecule structure is not tidy. There is at least one H atom connected to two atoms with single bonds. I optimized the connectivity automatically, but you had better check if the result is what you want.', self.label
 		for tmp_atom in tmp_questionHydrogen:
@@ -1165,6 +1170,7 @@ class molecule:
 	# currently only used for alkane and alkene molecules and radicals, only single bond and double bond is considered. cannot used for 1.5 bond 
 	def getRMGConnectivity(self):
 		bondDict = {1: 'S', 1.5: '1.5', 2: 'D'}
+		fullBondOrderDict = {'C': 4, 'O': 2, 'H': 1}
 
 		connectInfo = self.label + '\n'
 		# get all non-H atom list
@@ -1173,8 +1179,11 @@ class molecule:
 			if tmp_atom.symbol != 'H':
 				allAtoms.append(tmp_atom)
 		for (atomIndex, tmp_atom) in enumerate(allAtoms):
-			# only carbon atom considered here. If other heavy atom exists in the system, radicalIndex should be kept consistent with the new element. 
-			radicalIndex = 4
+			# only carbon and oxygen atom considered here. If other heavy atom exists in the system, radicalIndex should be kept consistent with the new element. 
+			if tmp_atom.symbol in fullBondOrderDict.keys():
+				radicalIndex = fullBondOrderDict[tmp_atom.symbol]
+			else:
+				radicalIndex = 4
 			tmp_str = ''
 			for (childIndex, tmp_child) in enumerate(tmp_atom.children):
 				tmp_bondOrder = tmp_atom.bonds[childIndex].bondOrder

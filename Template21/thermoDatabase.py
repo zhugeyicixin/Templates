@@ -20,9 +20,9 @@ tmp_mole.setDescription('gas-phase Carbon atom, charge: 0, multiplicity: 3')
 # Tanjin's CBS-QB3 empirical HR averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.134300929
 # tmp_mole.setFormationH(169.5852139)
 # Tanjin's M062X/def2TZVP//B3LYP/6-31G(d) empirical HO averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.156821832
-# tmp_mole.setFormationH(172.0396822)
+tmp_mole.setFormationH(172.0396822)
 # Tanjin's M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d) empirical HO averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.157905381
-tmp_mole.setFormationH(172.0489917)
+# tmp_mole.setFormationH(172.0489917)
 # Tanjin's M062X-GD3/def2TZVP//B3LYP-GD3BJ/6-31G(d) empirical HO averaged data based on 89 alkanes, alkenes, cycloalkanes and oxygenated hydrocarbons, standard deviation 0.157319398
 # tmp_mole.setFormationH(172.0982219)
 # Tanjin's B3LYP/6-31G(d) empirical HO averaged data based on 82 alkanes, alkenes, cycloalkanes, standard deviation 0.347106593
