@@ -15,10 +15,10 @@ import chem
 #input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'cce'
-clusterPath = '/home/hetanjin/propane/rotation'
+clusterName = 'TianheII'
+clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/isobutane/rotation1'
 barrierless = 	False
-rotCH3 = False
+rotCH3 = True
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
@@ -126,12 +126,19 @@ for tmp_file in tmp_fileLists:
 
 			molecule1.fulfillBonds()
 			molecule1.generateRotScanFile(fixedBond=fixedBond, rotCH3=rotCH3)
+			print molecule1.label
+			if re.match('^.*[Tt][Ss].*$', molecule1.label):
+				cluster1.setTS(True)
+			else:
+				cluster1.setTS(False)
+			cluster1.generateRotScanJobs(pathway=molecule1.label, barrierless=barrierless)
+
 
 print '\ngenerating rotation scan jobs\n'
 
 # cluster1.setTS(True)
-cluster1.setScratchStractegy(False)
-cluster1.generateRotScanJobs(pwd,barrierless=barrierless)
+# cluster1.setScratchStractegy(False)
+# cluster1.generateRotScanJobs(pwd,barrierless=barrierless)
 
 
 print 'Rotation scan files generated successfully!'

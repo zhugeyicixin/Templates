@@ -79,11 +79,13 @@ class cluster:
 
 		if pathway == '':
 			pathway = os.getcwd()
-
-		tmp_fileLists = os.listdir(pathway)
+			tmp_fileLists = os.listdir(pathway)
+		else:
+			tmp_fileLists = [pathway]
+		
 		for tmp_file in tmp_fileLists:
-			if os.path.isdir(os.path.join(pathway, tmp_file)):
-				tmp2_fileLists = os.listdir(os.path.join(pathway, tmp_file))
+			if os.path.isdir(tmp_file):
+				tmp2_fileLists = os.listdir(tmp_file)
 				for tmp2_file in tmp2_fileLists:
 					if re.search('\.rot', tmp2_file):
 						multi_done = -1
@@ -98,7 +100,7 @@ class cluster:
 						rotations = []
 						fixedBond = []
 
-						fr = file(os.path.join(pathway, tmp_file, tmp2_file), 'r')
+						fr = file(os.path.join(tmp_file, tmp2_file), 'r')
 						tmp_lines = fr.readlines()
 						for (lineNum,tmp_line) in enumerate(tmp_lines):
 							if multi_done != 1:
@@ -131,38 +133,38 @@ class cluster:
 						for tmp_rotation in rotations:
 
 							tmp_num = 1
-							tmp_dir = ''.join([tmp2_file[0:-4], '_', tmp_rotation[1], '_', tmp_rotation[2], '_', str(tmp_num), '_scan_b3631gd'])
-							tmp_dir_path = os.path.join(pathway, tmp_file, tmp_dir)
+							tmp_dir = ''.join([tmp2_file[0:-4], '_', tmp_rotation[1], '_', tmp_rotation[2], '_', str(tmp_num), '_scan'])
+							tmp_dir_path = os.path.join(tmp_file, tmp_dir)
 							while os.path.exists(tmp_dir_path):
 								tmp_num += 1
-								tmp_dir = ''.join([tmp2_file[0:-4], '_', tmp_rotation[1], '_', tmp_rotation[2], '_', str(tmp_num), '_scan_b3631gd'])
-								tmp_dir_path = os.path.join(pathway, tmp_file, tmp_dir)
+								tmp_dir = ''.join([tmp2_file[0:-4], '_', tmp_rotation[1], '_', tmp_rotation[2], '_', str(tmp_num), '_scan'])
+								tmp_dir_path = os.path.join(tmp_file, tmp_dir)
 							os.mkdir(tmp_dir_path)
 							fw = file(os.path.join(tmp_dir_path, tmp_dir+'.gjf'), 'w')
 							if self.name == 'Tianhe' or self.name == 'Tianhe2':
 								fw.write(
-'''%mem=16GB
-%nprocshared=12
+'''%mem=15GB
+%nprocshared=6
 %chk=''')
 							else:
 								fw.write(
-'''%mem=28GB
-%nprocshared=12
-%chk=''')
-							if self.name == 'Tsinghua100' and self._scratchStrategy == True:
-								fw.write('/scratch/')
-							if self._dispersionD3 == False:
-								fw.write(tmp_dir + '.chk\n')
+'''%mem=15GB
+%nprocshared=6
+''')
+							# if self.name == 'Tsinghua100' and self._scratchStrategy == True:
+							# 	fw.write('/scratch/')
+							# if self._dispersionD3 == False:
+							# 	fw.write(tmp_dir + '.chk\n')
 							if self._TS == False:
 								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=modredundant nosym')
+									fw.write('#p ub3lyp/6-31g(d) opt=modredundant EmpiricalDispersion=GD3BJ nosym')
 								else:
-									fw.write('#p b3lyp/6-31g(d) opt=modredundant nosym')
+									fw.write('#p b3lyp/6-31g(d) opt=modredundant EmpiricalDispersion=GD3BJ nosym')
 							else:
 								if multi != 1:
-									fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
+									fw.write('#p ub3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) EmpiricalDispersion=GD3BJ nosym')
 								else:
-									fw.write('#p b3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) nosym')
+									fw.write('#p b3lyp/6-31g(d) opt=(TS, calcfc,modredundant,noeigentest) EmpiricalDispersion=GD3BJ nosym')
 							if self._dispersionD3 == False:
 								fw.write('\n')
 							else:
@@ -316,20 +318,31 @@ $g09root/g09/g09 ''' + tmp_dir + '''.gjf
 
 
 
-''')									
+''')
+							elif self.name == 'TianheII':
+								fw.write(
+# TianheII
+'''#!/bin/bash
+
+cd ''' + self.jobLocation + '/' + tmp_file + '/' + tmp_dir + '''
+g09 ''' + tmp_dir + '''.gjf
+
+
+
+''')													
 							fw.close()
 							os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 						if self.name == 'cce':
 							if os.path.exists('submit12.sh'):
-								shutil.copy('submit12.sh', os.path.join(pathway, tmp_file))
+								shutil.copy('submit12.sh', os.path.join(tmp_file))
 							if os.path.exists('submit24.sh'):
-								shutil.copy('submit24.sh', os.path.join(pathway, tmp_file))								
+								shutil.copy('submit24.sh', os.path.join(tmp_file))								
 						elif self.name == 'Tsinghua100':
 							if os.path.exists('submit.sh'):
-								shutil.copy('submit.sh', os.path.join(pathway, tmp_file))
+								shutil.copy('submit.sh', os.path.join(tmp_file))
 						elif self.name == 'Tianhe' or self.name == 'Tianhe2':
 							if os.path.exists('submitTH.sh'):
-								shutil.copy('submitTH.sh', os.path.join(pathway, tmp_file))
+								shutil.copy('submitTH.sh', os.path.join(tmp_file))
 
 
 	def generateJobFromGjf(self, fileName, path='', jobName='', method='', freq=True, command=''):
@@ -653,15 +666,12 @@ g09 ''' + tmp_dir + '''.gjf
 			fw.write(
 '''%mem=16GB
 %nprocshared=12
-%chk=''')
+''')
 		else:
 			fw.write(
 '''%mem=28GB
 %nprocshared=12
-%chk=''')
-		if self.name == 'Tsinghua100' and self._scratchStrategy == True:
-			fw.write('/scratch/')
-		fw.write(tmp_dir+'.chk\n')
+''')
 		if self._TS == False:
 			fw.write('#p cbs-qb3')
 		else:
