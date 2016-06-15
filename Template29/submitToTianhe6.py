@@ -1,4 +1,4 @@
-# this code is used to traverse all jobs folder in current directory
+# this code is used to traverse all jobs folder in the fitst-depth directory
 
 from numpy import *
 from xlrd import *
@@ -39,7 +39,12 @@ for tmp_file in tmp_files:
 	if re.search(name,tmp_file):
 		tmp_m = pattern_name.match(tmp_file)
 		if tmp_m:
-			tmp_jobList.append(tmp_file)	
+			tmp2_files = os.listdir(os.path.join(pwd, tmp_file))
+			for tmp2_file in tmp2_files:
+				if os.path.isfile(os.path.join(pwd, tmp_file, tmp2_file)):
+					continue
+				else:
+					tmp_jobList.append([tmp_file, tmp2_file])	
 
 
 fw2 = file('submitFleet.sh', 'w')
@@ -79,41 +84,38 @@ done
 ''')
 
 for tmp_file in tmp_jobList:
-	if re.search(name,tmp_file):
-		tmp_m = pattern_name.match(tmp_file)
-		if tmp_m:
-			if tmp_num == 0:
-				fw = file('slot_' + '%04d'%slot_num + '.sh', 'w')
-				if clusterName == 'Tianhe' or clusterName == 'Tianhe2' or clusterName == 'TianheII':
-					fw.write('#!/bin/bash\n\n')
-				else:
-					fw.write('''#!/bin/csh
+	if tmp_num == 0:
+		fw = file('slot_' + '%04d'%slot_num + '.sh', 'w')
+		if clusterName == 'Tianhe' or clusterName == 'Tianhe2' or clusterName == 'TianheII':
+			fw.write('#!/bin/bash\n\n')
+		else:
+			fw.write('''#!/bin/csh
 #
 #$ -cwd
 #$ -j y
 #$ -S /bin/csh
 #
 ''')
-			if clusterName == 'TianheII':
-				fw.write('sh ' + tmp_file + '/' + tmp_file + '''.job &
+	if clusterName == 'TianheII':
+		fw.write('sh ' + tmp_file[0] + '/' + tmp_file[1] + '/' + tmp_file[1] + '''.job &
 sleep 2
 numJobs=`ps | grep g09 | wc -l`
 while((numJobs>3))
 do 
-	sleep 120
-	numJobs=`ps | grep g09 | wc -l`
+sleep 120
+numJobs=`ps | grep g09 | wc -l`
 done
 ''')
-			else:			
-				fw.write('sh ' + tmp_file + '/' + tmp_file + '.job\n')
-			tmp_num += 1
-			if tmp_num >= jobsPerSlot:
-				tmp_num = 0
-				slot_num += 1
-				if clusterName == 'TianheII':
-					fw.write('wait\n')
-				fw.close()
-				os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+	else:			
+		fw.write('sh ' + tmp_file[0] + '/' + tmp_file[1] + '/' + tmp_file[1] + '.job\n')
+	tmp_num += 1
+	if tmp_num >= jobsPerSlot:
+		tmp_num = 0
+		slot_num += 1
+		if clusterName == 'TianheII':
+			fw.write('wait\n')
+		fw.close()
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 if clusterName == 'TianheII' and tmp_num != 0:
 	fw.write('wait\n')
 fw.close()

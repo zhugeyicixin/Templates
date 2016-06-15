@@ -15,7 +15,7 @@ import chem
 #input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'cce'
+clusterName = 'TianheII'
 clusterPath = '/home/hetanjin/propane'
 
 # symbol indicating the position
