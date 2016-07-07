@@ -13,7 +13,7 @@ import shutil
 # clusterName can be 'cce' or 'TianheII' or 'Tianhe' or 'Tianhe2'
 clusterName = 'TianheII'
 name = ''
-jobsPerSlot = 4
+jobsPerSlot = 8
 
 #definition of parameters
 multi = 0

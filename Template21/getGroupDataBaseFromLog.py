@@ -48,6 +48,7 @@ for tmp_file in tmp_fileLists:
 name = []
 multi = []
 geom = []
+freq = []
 RSN = [] 					#external symmetry number
 formula = []
 atomsNum = []
@@ -89,6 +90,7 @@ multi_done = -1
 freqCom_done = -1
 standard_done = -1
 coordinate_done = -1
+freq_done = -1
 RSN_done = -1
 freqSum_done = -1
 optEnergy_done = -1
@@ -120,12 +122,15 @@ for tmp_file in tmp_fileLists:
 		freqCom_done = -1
 		standard_done = -1
 		coordinate_done = -1
+		freq_done = -1
 		RSN_done = -1
 		freqSum_done = -1
 		optEnergy_done = -1
 		optZPE_done = -1
 		optEnthalpy_done = -1
 		SPEnergy_done = -1
+
+		tmp_freq = []
 
 		# only if __energy__ == 'cbs', then check whether the freq file is cbs file 
 		# if __energy__ == 'cbs':
@@ -169,6 +174,17 @@ for tmp_file in tmp_fileLists:
 				if tmp_m:
 					optEnergy.append(float(tmp_m.group(1)))
 					optEnergy_done = 1
+			elif freq_done != 1:
+				tmp_m = pattern_freq.match(tmp_line)
+				if tmp_m:
+					tmp_freq.extend(tmp_m.groups())
+					freq_done = 0
+				if freq_done == 0:
+					if re.search('Thermochemistry', tmp_line):
+						while None in tmp_freq:
+							tmp_freq.remove(None)
+						freq.append(tmp_freq)
+						freq_done = 1
 			elif RSN_done != 1:
 				tmp_m = pattern_RSN.match(tmp_line)
 				if tmp_m:	
@@ -208,7 +224,7 @@ for tmp_file in tmp_fileLists:
 		else:
 			cbs_done = 1
 
-		energyFile = file(os.path.join('energy', tmp_name+'_7_SP_M06D3.log'),'r')
+		energyFile = file(os.path.join('energy', tmp_name+'_3_opt_M06.log'),'r')
 		# energyFile = file(os.path.join('energy', tmp_file),'r')
 		if __energy__ != 'M062X/def2TZVP//B3LYP-GD3BJ/6-31G(d)':
 			for tmp_line in energyFile.readlines():
@@ -272,6 +288,7 @@ sh.write(tmp_row, tmp_col+9, 'SP Enthalpy (298.15 K) in energy corrected with fr
 sh.write(tmp_row, tmp_col+10, 'Multiplicity')
 sh.write(tmp_row, tmp_col+11, 'External Symmetry Number')
 sh.write(tmp_row, tmp_col+12, 'Geometry')
+sh.write(tmp_row, tmp_col+13, 'Frequencies')
 
 tmp_row = 1
 tmp_col = 0
@@ -290,6 +307,7 @@ for i in xrange(speciesNum):
 	sh.write(tmp_row, tmp_col+10, multi[i])
 	sh.write(tmp_row, tmp_col+11, RSN[i])
 	sh.write(tmp_row, tmp_col+12, textExtractor.geometryExtractor(geom[i]).replace('\t','    '))
+	sh.write(tmp_row, tmp_col+13, ' '.join(freq[i]))
 	tmp_row += 1
 
 wb.close()

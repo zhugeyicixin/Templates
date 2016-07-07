@@ -13,7 +13,7 @@ import shutil
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-path='/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/isobutane/geom_Tyler/'
+path='/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/rebuttal/_1_opt/'
 
 #definition of parameters
 multi = 0
@@ -37,19 +37,19 @@ for tmp_file in tmp_fileLists:
 		tmp_m = pattern_name.match(tmp_file)
 		if tmp_m:
 			print tmp_file
-			# fw = file(tmp_file + '/' + tmp_file + '.gjf','r+')
-			# lines = fw.readlines()
-			# # print lines
-			# # lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
-			# fw.seek(0)
-			# fw.truncate()
-			# lines[0] = '%mem=15GB\n'
-			# lines[1] = '%nprocshared=6\n'
-			# lines[2] = '#p b3lyp/6-311++g(d,p) opt=(TS,calcfc) FREQ EmpiricalDispersion=GD3BJ \n'
-			# # lines.insert(2, '%chk='+tmp_file+'.chk\n')
-			# fw.writelines(lines)
-			# fw.close()
-			# os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+			fw = file(tmp_file + '/' + tmp_file + '.gjf','r+')
+			lines = fw.readlines()
+			# print lines
+			# lines[2] = re.sub(r'%chk=',lambda x: charmap[x.group(0)], lines[2])
+			fw.seek(0)
+			fw.truncate()
+			lines[0] = '%mem=15GB\n'
+			lines[1] = '%nprocshared=6\n'
+			# lines[2] = '#p ccsd(t)/aug-cc-pvtz \n'
+			# lines.insert(2, '%chk='+tmp_file+'.chk\n')
+			fw.writelines(lines)
+			fw.close()
+			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 # 			fw = file(tmp_file + '/' + tmp_file + '.job','w')
 # 			fw.write('''#!/bin/bash
