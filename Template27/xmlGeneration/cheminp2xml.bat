@@ -1,3 +1,3 @@
 
-python ck2cti.py --input=farnesane_abinitio.inp --thermo=farnesane_estimation2.dat --id='Farnesane_Tanjin' --permissive
-cti2ctml.exe farnesane_abinitio.cti
+python ck2cti.py --input=chem.inp --thermo=SMM5_therm_POMDME1-3.dat --transport=tran.dat --id='CYR' --permissive
+cti2ctml.exe chem.cti

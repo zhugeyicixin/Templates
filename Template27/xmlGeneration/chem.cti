@@ -1,0 +1,310 @@
+"""
+SMM5 for Proc. Combust. Inst. 36, 2016
+Speciation and the laminar burning velocities of poly(oxymethylene) dimethyl ether 3 (POMDME3) flames: An experimental and modeling study
+Wenyu Sun, Guoqing Wang, Shuang Li, Ruzheng Zhang, Jiuzhong Yang, Yuyang Li, Bin Yang
+Proceedings of combustion institute 2015
+mechanism for POMDME1~3
+thermochemical data
+"""
+
+units(length='cm', time='s', quantity='mol', act_energy='cal/mol')
+
+ideal_gas(name="'CYR'",
+          elements="O H C N",
+          species="""C3H8  O     O2    CO    H     H2    OH    HO2   H2O2
+                     H2O   CO2   N2""",
+          reactions='all',
+          transport='Mix',
+          initial_state=state(temperature=300.0, pressure=OneAtm))
+
+#-------------------------------------------------------------------------------
+# Species data
+#-------------------------------------------------------------------------------
+
+species(name=u'C3H8',
+        atoms='H:8 C:3',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.21093013E+00,  1.70886504E-03,  7.06530164E-05,
+                      -9.20060565E-08,  3.64618453E-11, -1.43810883E+04,
+                       5.61004451E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 6.66919760E+00,  2.06108751E-02, -7.36512349E-06,
+                       1.18434262E-09, -7.06914630E-14, -1.62754066E+04,
+                      -1.31943379E+01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=4.982,
+                                well_depth=266.8,
+                                rot_relax=1.0),
+        note=u'G2/00')
+
+species(name=u'O',
+        atoms='O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.16826710E+00, -3.27931884E-03,  6.64306396E-06,
+                      -6.12806624E-09,  2.11265971E-12,  2.91222592E+04,
+                       2.05193346E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.54363697E+00, -2.73162486E-05, -4.19029520E-09,
+                       4.95481845E-12, -4.79553694E-16,  2.92260120E+04,
+                       4.92229457E+00])),
+        transport=gas_transport(geom='atom',
+                                diam=2.75,
+                                well_depth=80.0),
+        note=u'L1/90')
+
+species(name=u'O2',
+        atoms='O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.78245636E+00, -2.99673416E-03,  9.84730201E-06,
+                      -9.68129509E-09,  3.24372837E-12, -1.06394356E+03,
+                       3.65767573E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 3.66096065E+00,  6.56365811E-04, -1.41149627E-07,
+                       2.05797935E-11, -1.29913436E-15, -1.21597718E+03,
+                       3.41536279E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                polar=1.6,
+                                rot_relax=3.8),
+        note=u'RUS89')
+
+species(name=u'CO',
+        atoms='C:1 O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.57953350E+00, -6.10353690E-04,  1.01681430E-06,
+                       9.07005860E-10, -9.04424490E-13, -1.43440860E+04,
+                       3.50840930E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 3.04848590E+00,  1.35172810E-03, -4.85794050E-07,
+                       7.88536440E-11, -4.69807460E-15, -1.42661170E+04,
+                       6.01709770E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.65,
+                                well_depth=98.1,
+                                polar=1.95,
+                                rot_relax=1.8),
+        note=u'RUS79')
+
+species(name=u'H',
+        atoms='H:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  2.54736600E+04,
+                      -4.46682850E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.50000000E+00,  0.00000000E+00,  0.00000000E+00,
+                       0.00000000E+00,  0.00000000E+00,  2.54736600E+04,
+                      -4.46682850E-01])),
+        transport=gas_transport(geom='atom',
+                                diam=2.05,
+                                well_depth=145.0),
+        note=u'L6/94')
+
+species(name=u'H2',
+        atoms='H:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.34433112E+00,  7.98052075E-03, -1.94781510E-05,
+                       2.01572094E-08, -7.37611761E-12, -9.17935173E+02,
+                       6.83010238E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.93286575E+00,  8.26608026E-04, -1.46402364E-07,
+                       1.54100414E-11, -6.88804800E-16, -8.13065581E+02,
+                      -1.02432865E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.92,
+                                well_depth=38.0,
+                                polar=0.79,
+                                rot_relax=280.0),
+        note=u'TPIS78')
+
+species(name=u'OH',
+        atoms='H:1 O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.99198424E+00, -2.40106655E-03,  4.61664033E-06,
+                      -3.87916306E-09,  1.36319502E-12,  3.36889836E+03,
+                      -1.03998477E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.83853033E+00,  1.10741289E-03, -2.94000209E-07,
+                       4.20698729E-11, -2.42289890E-15,  3.69780808E+03,
+                       5.84494652E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=2.75,
+                                well_depth=80.0),
+        note=u'IU3/03')
+
+species(name=u'HO2',
+        atoms='H:1 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.30179807E+00, -4.74912097E-03,  2.11582905E-05,
+                      -2.42763914E-08,  9.29225225E-12,  2.64018485E+02,
+                       3.71666220E+00]),
+                NASA([1000.00, 5000.00],
+                     [ 4.17228741E+00,  1.88117627E-03, -3.46277286E-07,
+                       1.94657549E-11,  1.76256905E-16,  3.10206839E+01,
+                       2.95767672E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                rot_relax=1.0),
+        note=u'T1/09')
+
+species(name=u'H2O2',
+        atoms='H:2 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.31515149E+00, -8.47390622E-04,  1.76404323E-05,
+                      -2.26762944E-08,  9.08950158E-12, -1.77067437E+04,
+                       3.27373319E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 4.57977305E+00,  4.05326003E-03, -1.29844730E-06,
+                       1.98211400E-10, -1.13968792E-14, -1.80071775E+04,
+                       6.64970694E-01])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=3.458,
+                                well_depth=107.4,
+                                rot_relax=3.8),
+        note=u'T8/03')
+
+species(name=u'H2O',
+        atoms='H:2 O:1',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 4.19863520E+00, -2.03640170E-03,  6.52034160E-06,
+                      -5.48792690E-09,  1.77196800E-12, -3.02937260E+04,
+                      -8.49009010E-01]),
+                NASA([1000.00, 6000.00],
+                     [ 2.67703890E+00,  2.97318160E-03, -7.73768890E-07,
+                       9.44335140E-11, -4.26899910E-15, -2.98858940E+04,
+                       6.88255000E+00])),
+        transport=gas_transport(geom='nonlinear',
+                                diam=2.605,
+                                well_depth=572.4,
+                                dipole=1.844,
+                                rot_relax=4.0),
+        note=u'L5/89')
+
+species(name=u'CO2',
+        atoms='C:1 O:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 2.35681300E+00,  8.98412990E-03, -7.12206320E-06,
+                       2.45730080E-09, -1.42885480E-13, -4.83719710E+04,
+                       9.90090350E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 4.63651110E+00,  2.74145690E-03, -9.95897590E-07,
+                       1.60386660E-10, -9.16198570E-15, -4.90249040E+04,
+                      -1.93489550E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.763,
+                                well_depth=244.0,
+                                polar=2.65,
+                                rot_relax=2.1),
+        note=u'L7/88')
+
+species(name=u'N2',
+        atoms='N:2',
+        thermo=(NASA([200.00, 1000.00],
+                     [ 3.53100528E+00, -1.23660988E-04, -5.02999433E-07,
+                       2.43530612E-09, -1.40881235E-12, -1.04697628E+03,
+                       2.96747038E+00]),
+                NASA([1000.00, 6000.00],
+                     [ 2.95257637E+00,  1.39690040E-03, -4.92631603E-07,
+                       7.86010195E-11, -4.60755204E-15, -9.23948688E+02,
+                       5.87188762E+00])),
+        transport=gas_transport(geom='linear',
+                                diam=3.621,
+                                well_depth=97.53,
+                                polar=1.76,
+                                rot_relax=4.0),
+        note=u'G8/02')
+
+#-------------------------------------------------------------------------------
+# Reaction data
+#-------------------------------------------------------------------------------
+# R1
+
+# Reaction 1
+reaction('C3H8 + 1.5 O2 => 3 CO + 4 H2', [1.500000e+12, 0.0, 30000.0],
+         order='O2:1.65 C3H8:0.1')
+# R2
+
+# Reaction 2
+reaction('H + O2 <=> O + OH', [2.200000e+14, 0.0, 16800.0])
+# R3
+
+# Reaction 3
+reaction('H2 + O <=> H + OH', [1.800000e+10, 1.0, 8900.0])
+# R4
+
+# Reaction 4
+reaction('O + H2O <=> OH + OH', [6.800000e+13, 0.0, 18400.0])
+# R5
+
+# Reaction 5
+reaction('OH + H2 <=> H + H2O', [2.200000e+13, 0.0, 5100.0])
+# R6
+
+# Reaction 6
+three_body_reaction('H + O2 + M <=> HO2 + M', [1.500000e+15, 0.0, -1000.0])
+# R7
+
+# Reaction 7
+reaction('O + HO2 <=> O2 + OH', [5.000000e+13, 0.0, 1000.0])
+# R8
+
+# Reaction 8
+reaction('H + HO2 <=> OH + OH', [2.500000e+14, 0.0, 1900.0])
+# R9
+
+# Reaction 9
+reaction('H + HO2 <=> H2 + O2', [2.500000e+13, 0.0, 700.0])
+# R10
+
+# Reaction 10
+reaction('OH + HO2 <=> H2O + O2', [5.000000e+13, 0.0, 1000.0])
+# R11
+
+# Reaction 11
+reaction('HO2 + HO2 <=> H2O2 + O2', [1.000000e+13, 0.0, 1000.0])
+# R12
+
+# Reaction 12
+three_body_reaction('H2O2 + M <=> OH + OH + M', [1.200000e+17, 0.0, 45500.0])
+# R13
+
+# Reaction 13
+reaction('HO2 + H2 <=> H2O2 + H', [7.300000e+11, 0.0, 18700.0])
+# R14
+
+# Reaction 14
+reaction('H2O2 + OH <=> H2O + HO2', [1.000000e+13, 0.0, 1800.0])
+# R15
+
+# Reaction 15
+reaction('CO + OH <=> CO2 + H', [1.500000e+07, 1.3, -800.0])
+# R16
+
+# Reaction 16
+reaction('CO + O2 <=> CO2 + O', [3.100000e+11, 0.0, 37600.0])
+# R17
+
+# Reaction 17
+three_body_reaction('CO + O + M <=> CO2 + M', [5.900000e+15, 0.0, 4100.0])
+# R18
+
+# Reaction 18
+reaction('CO + HO2 <=> CO2 + OH', [1.500000e+14, 0.0, 23700.0])
+# R19
+
+# Reaction 19
+three_body_reaction('OH + M <=> O + H + M', [8.000000e+19, -1.0, 103700.0])
+# R20
+
+# Reaction 20
+three_body_reaction('O2 + M <=> O + O + M', [5.100000e+15, 0.0, 115000.0])
+# R21
+
+# Reaction 21
+three_body_reaction('H2 + M <=> H + H + M', [2.200000e+14, 0.0, 96000.0])
+# R22
+
+# Reaction 22
+three_body_reaction('H2O + M <=> H + OH + M', [2.200000e+16, 0.0, 105000.0])
