@@ -13,7 +13,7 @@ import shutil
 directory = 'rotation3'
 charmap={'rotation1': directory,',gdiis': '', '%chk=': '%chk=/scratch/','%chk=/scratch/':'%chk='}
 name = ''
-path='/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/rebuttal/_1_opt/'
+path='/WORK/tsinghua_xqyou_1/hetanjin/PODEn/_001_opt/'
 
 #definition of parameters
 multi = 0
@@ -44,9 +44,15 @@ for tmp_file in tmp_fileLists:
 			fw.seek(0)
 			fw.truncate()
 			lines[0] = '%mem=15GB\n'
-			lines[1] = '%nprocshared=6\n'
-			# lines[2] = '#p ccsd(t)/aug-cc-pvtz \n'
-			# lines.insert(2, '%chk='+tmp_file+'.chk\n')
+			lines[1] = '%nprocshared=12\n'
+			lines[2] = '#p opt=(calcfc,ts) freq b3lyp/6-31g(d) empiricaldispersion=gd3bj \n'
+			# lines[2] = '#p PM6 opt=gdiis  \n'
+			#p PM6 opt  
+			# if re.match('^.*chk=.*$', lines[2]):  
+				# lines.pop(2)
+			# lines[2] = '#p M062X/def2TZVPP opt=(ts,calcfc,tight) freq int=ultrafine     \n'
+			# lines.insert(2, '#p B3LYP/6-311++G(d,p) opt=(gdiis,tight) int=ultrafine EmpiricalDispersion=GD3BJ     \n')
+
 			fw.writelines(lines)
 			fw.close()
 			os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
@@ -54,12 +60,12 @@ for tmp_file in tmp_fileLists:
 # 			fw = file(tmp_file + '/' + tmp_file + '.job','w')
 # 			fw.write('''#!/bin/bash
 
-# export GAUSS_SCRDIR=/vol-th/home/you1/scratch
-# export g09root=/vol-th/home/you1/softwares/gaussian/g09D01
+# export GAUSS_SCRDIR=/vol-th/home/you/scratch
+# export g09root=/vol-th/home/you/softwares/gaussian/g09D01
 
 # source $g09root/g09/bsd/g09.profile
 
-# cd /vol-th/home/you1/hetanjin/newGroupAdditivityFrog2/B3woDispersion/CnH2n_5/''' + tmp_file + '''
+# cd ''' + path + tmp_file + '''
 # $g09root/g09/g09 ''' + tmp_file + '''.gjf
 
 # 				''')
@@ -85,7 +91,6 @@ g09 ''' + tmp_file + '''.gjf
 
 # cd ''' + path + tmp_file + '''
 # $g09root/g09/g09 ''' + tmp_file + '''.gjf
-# $g09root/g09/formchk ''' + tmp_file + '''.chk
 
 # 				''')
 # 			fw.close()
@@ -99,7 +104,8 @@ g09 ''' + tmp_file + '''.gjf
 				os.remove(tmp_file + '/' + tmp_file+'.log')
 			if os.path.exists(tmp_file + '/' + tmp_file+'.chk'):
 				os.remove(tmp_file + '/' + tmp_file+'.chk')
-
+			if os.path.exists(tmp_file + '/' + tmp_file+'.com'):
+				os.remove(tmp_file + '/' + tmp_file+'.com')
 
 # if os.path.exists(os.getcwd()+'/mesmerInput'):
 	# shutil.rmtree(os.getcwd()+'/mesmerInput')
