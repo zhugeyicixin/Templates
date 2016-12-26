@@ -58,24 +58,11 @@ eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
 
-# # version 1.3 used for new group additivity, the distance is loose due to the consideration of TS, thus not needed currently
-# bondDisDict={
-# 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
-# 'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
-# 'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
-# }
-
-# bondOrderDict={
-# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
-# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
-# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
-# }
-
-# version 1.4 used for new group additivity, without condideration of transition state (TS)
+# version 1.3 used for new group additivity, the distance is loose due to the consideration of TS, thus not needed currently
 bondDisDict={
-'H': {'H': [0.6350], 'C': [1.1342], 'O': [1.01760]},
-'C': {'H': [1.1342], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
-'O': {'H': [1.01760], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.39919]}
+'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
+'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
 }
 
 bondOrderDict={
@@ -83,6 +70,19 @@ bondOrderDict={
 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 }
+
+# # version 1.4 used for new group additivity, without condideration of transition state (TS)
+# bondDisDict={
+# 'H': {'H': [0.6350], 'C': [1.1342], 'O': [1.01760]},
+# 'C': {'H': [1.1342], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
+# 'O': {'H': [1.01760], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.39919]}
+# }
+
+# bondOrderDict={
+# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+# }
 
 # units:
 # P: atm
@@ -513,58 +513,58 @@ class molecule:
 		# check is the input molecule is a tidy one (if hydrogen is too close to more than one heavy atom when drawing scratch, the connectivity recognition would be wrong)
 		# currently only check of C-H bond is supported
 		# if the label indicates this is a transition state, the check will be skipped
-		tidyMolecule = True
-		tmp_questionHydrogen = []
-		if not re.match('^.*[Tt][Ss].*$', self.label):
-			for tmp_atom in self.atoms:
-				if tmp_atom.symbol == 'H':
-					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
-					if sumBondOrder >= 2:
-						tidyMolecule = False
-						tmp_questionHydrogen.append(tmp_atom)
-						for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-							tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
-							self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
-		else:
-			pass
-		if tmp_questionHydrogen:
-			print 'Warning! The molecule structure is not tidy. There is at least one H atom connected to two atoms with single bonds. I optimized the connectivity automatically, but you had better check if the result is what you want.', self.label
-		for tmp_atom in tmp_questionHydrogen:
-			bonds_saturateC = []
-			print tmp_atom.label
-			for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-				if tmp_child.symbol == 'C':
-					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_child.bonds])
-					if sumBondOrder > 4:
-						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_child.label
-						break
-					elif sumBondOrder == 4:
-						bonds_saturateC.append(tmp_atom.bonds[tmp_childIndex])
-			for tmp_bond in bonds_saturateC:
-				tmp_atom.removeBond(tmp_bond)
-			closestIndex = 0
-			tmp_distance = 10
-			for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-				if tmp_distance > tmp_atom.distance(tmp_child):
-					tmp_distance = tmp_atom.distance(tmp_child)
-					closestIndex = tmp_childIndex
-			tmp_child = tmp_atom.children[closestIndex]
-			tmp_bond = tmp_atom.bonds[closestIndex]
-			tmp_atom.removeAllBonds()
-			tmp_atom.addBond(tmp_bond)
-			tmp_child.addBond(tmp_bond)
-			self.bonds.append(tmp_bond)			
+		# tidyMolecule = True
+		# tmp_questionHydrogen = []
+		# if not re.match('^.*[Tt][Ss].*$', self.label):
+		# 	for tmp_atom in self.atoms:
+		# 		if tmp_atom.symbol == 'H':
+		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
+		# 			if sumBondOrder >= 2:
+		# 				tidyMolecule = False
+		# 				tmp_questionHydrogen.append(tmp_atom)
+		# 				for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+		# 					tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
+		# 					self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
+		# else:
+		# 	pass
+		# if tmp_questionHydrogen:
+		# 	print 'Warning! The molecule structure is not tidy. There is at least one H atom connected to two atoms with single bonds. I optimized the connectivity automatically, but you had better check if the result is what you want.', self.label
+		# for tmp_atom in tmp_questionHydrogen:
+		# 	bonds_saturateC = []
+		# 	print tmp_atom.label
+		# 	for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+		# 		if tmp_child.symbol == 'C':
+		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_child.bonds])
+		# 			if sumBondOrder > 4:
+		# 				print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_child.label
+		# 				break
+		# 			elif sumBondOrder == 4:
+		# 				bonds_saturateC.append(tmp_atom.bonds[tmp_childIndex])
+		# 	for tmp_bond in bonds_saturateC:
+		# 		tmp_atom.removeBond(tmp_bond)
+		# 	closestIndex = 0
+		# 	tmp_distance = 10
+		# 	for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+		# 		if tmp_distance > tmp_atom.distance(tmp_child):
+		# 			tmp_distance = tmp_atom.distance(tmp_child)
+		# 			closestIndex = tmp_childIndex
+		# 	tmp_child = tmp_atom.children[closestIndex]
+		# 	tmp_bond = tmp_atom.bonds[closestIndex]
+		# 	tmp_atom.removeAllBonds()
+		# 	tmp_atom.addBond(tmp_bond)
+		# 	tmp_child.addBond(tmp_bond)
+		# 	self.bonds.append(tmp_bond)			
 
-		if tidyMolecule == False:
-			for tmp_atom in self.atoms:
-				if tmp_atom.symbol == 'H':
-					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
-					if sumBondOrder >= 2:
-						print 'Error! The molecule is not tidy enough! There is a hydrogen connected with more than one heavy atoms!', tmp_atom.label
-				if tmp_atom.symbol == 'C':
-					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds])
-					if sumBondOrder > 4:
-						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
+		# if tidyMolecule == False:
+		# 	for tmp_atom in self.atoms:
+		# 		if tmp_atom.symbol == 'H':
+		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
+		# 			if sumBondOrder >= 2:
+		# 				print 'Error! The molecule is not tidy enough! There is a hydrogen connected with more than one heavy atoms!', tmp_atom.label
+		# 		if tmp_atom.symbol == 'C':
+		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds])
+		# 			if sumBondOrder > 4:
+		# 				print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
 
 	def generateRotScanFile(self, fixedBond=[], rotCH3=True):
 		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
