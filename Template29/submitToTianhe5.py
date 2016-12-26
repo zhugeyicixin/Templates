@@ -13,7 +13,7 @@ import shutil
 # clusterName can be 'cce' or 'TianheII' or 'Tianhe' or 'Tianhe2'
 clusterName = 'TianheII'
 name = ''
-jobsPerSlot = 4
+jobsPerSlot = 2
 
 #definition of parameters
 multi = 0
@@ -57,12 +57,12 @@ else:
 ''')
 
 if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
-	fw2.write('''numJobs=`yhq |grep TH_NET | wc -l` 
+	fw2.write('''numJobs=`yhq |grep TH_SR | wc -l` 
 while ((numJobs>18))
 do
 	echo $numJobs
 	sleep 120
-	numJobs=`yhq | grep TH_NET | wc -l`  
+	numJobs=`yhq | grep TH_SR | wc -l`  
 done
 
 ''')
@@ -124,14 +124,14 @@ tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('slot_.*sh', tmp_file):
 		if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
-			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
+			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_SR -c 12 ' + tmp_file + '''
 sleep 1
-numJobs=`yhq |grep TH_NET | wc -l` 
+numJobs=`yhq |grep TH_SR | wc -l` 
 while ((numJobs>18))
 do
 	echo $numJobs
 	sleep 120
-	numJobs=`yhq | grep TH_NET | wc -l`  
+	numJobs=`yhq | grep TH_SR | wc -l`  
 done
 ''')
 		elif clusterName == 'TianheII':
@@ -146,7 +146,8 @@ do
 done
 ''')
 		else:
-			fw2.write('qsub -pe orte 12 ' + tmp_file + '\nsleep 5\n')
+			fw2.write('qsub -pe smp 24 ' + tmp_file + '\nsleep 5\n')
+			# fw2.write('qsub -pe orte 12 ' + tmp_file + '\nsleep 5\n')
 
 fw2.close()
 os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw2.name + ' > log_dos2unix.txt 2>&1')

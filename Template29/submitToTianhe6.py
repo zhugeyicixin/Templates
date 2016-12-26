@@ -13,8 +13,7 @@ import shutil
 # clusterName can be 'cce' or 'TianheII' or 'Tianhe' or 'Tianhe2'
 clusterName = 'TianheII'
 name = ''
-jobsPerSlot = 8
-
+jobsPerSlot = 2
 #definition of parameters
 multi = 0
 
@@ -62,12 +61,12 @@ else:
 ''')
 
 if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
-	fw2.write('''numJobs=`yhq |grep TH_NET | wc -l` 
-while ((numJobs>18))
+	fw2.write('''numJobs=`yhq |grep TH_SR | wc -l` 
+while ((numJobs>28))
 do
 	echo $numJobs
 	sleep 120
-	numJobs=`yhq | grep TH_NET | wc -l`  
+	numJobs=`yhq | grep TH_SR | wc -l`  
 done
 
 ''')
@@ -100,7 +99,7 @@ for tmp_file in tmp_jobList:
 		fw.write('sh ' + tmp_file[0] + '/' + tmp_file[1] + '/' + tmp_file[1] + '''.job &
 sleep 2
 numJobs=`ps | grep g09 | wc -l`
-while((numJobs>3))
+while((numJobs>7))
 do 
 sleep 120
 numJobs=`ps | grep g09 | wc -l`
@@ -126,14 +125,14 @@ tmp_fileList = os.listdir('.')
 for tmp_file in tmp_fileList:
 	if re.search('slot_.*sh', tmp_file):
 		if clusterName == 'Tianhe' or clusterName == 'Tianhe2':
-			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_NET -c 12 ' + tmp_file + '''
+			fw2.write('echo \'submit to Tianhe:\'\necho \'' + tmp_file + '\'\nyhbatch -pTH_SR -c 12 ' + tmp_file + '''
 sleep 1
-numJobs=`yhq |grep TH_NET | wc -l` 
-while ((numJobs>18))
+numJobs=`yhq |grep TH_SR | wc -l` 
+while ((numJobs>28))
 do
 	echo $numJobs
 	sleep 120
-	numJobs=`yhq | grep TH_NET | wc -l`  
+	numJobs=`yhq | grep TH_SR | wc -l`  
 done
 ''')
 		elif clusterName == 'TianheII':
