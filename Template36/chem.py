@@ -58,18 +58,18 @@ eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
 
-# version 1.3 used for new group additivity, the distance is loose due to the consideration of TS, thus not needed currently
-bondDisDict={
-'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
-'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
-'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
-}
+# # version 1.3 used for new group additivity, the distance is loose due to the consideration of TS, thus not needed currently
+# bondDisDict={
+# 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+# 'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 2.1], 'O': [1.15829, 1.287, 1.34419, 2.27]},
+# 'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 2.27], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
+# }
 
-bondOrderDict={
-'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
-'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
-'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
-}
+# bondOrderDict={
+# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+# }
 
 # # version 1.4 used for new group additivity, without condideration of transition state (TS)
 # bondDisDict={
@@ -83,6 +83,20 @@ bondOrderDict={
 # 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
+
+# version 1.5 used for new group additivity, allowing the existence of ring structure, but only for stable species rather than TS. The distance can still be updated.
+bondDisDict={
+'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
+'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
+}
+
+bondOrderDict={
+'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+}
+
 
 # units:
 # P: atm
@@ -645,7 +659,7 @@ class molecule:
 		for tmp_rotation in rotations:
 
 			isCH3 = False
-			tmp_3rdOrderGroup = tmp_rotation.rotBondAxis.get1stOrderGroup()
+			tmp_3rdOrderGroup = tmp_rotation.rotBondAxis.get2ndOrderGroup()
 			if 'C/H3' in tmp_3rdOrderGroup.values():
 				isCH3 = True
 			if rotCH3 == False and isCH3 == True:
@@ -669,10 +683,17 @@ class molecule:
 				fw_text.append(' 2\n 0. 60.0\n')				
 			else:
 				fw_text.append(' 3\n 0. 120.0 -120.0\n')
-		fw_text.append(
+		if re.match('^.*TS.*$', self.label):
+			fw_text.append(
 '''%mem=15GB
 %nprocshared=6
-#p UB3LYP/6-31G(d) opt=tight int=ultrafine
+#p UB3LYP/6-311++G(d,p) opt=(TS, calcfc, tight) int=ultrafine EmpiricalDispersion=GD3BJ 
+0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
+		else:		
+			fw_text.append(
+'''%mem=15GB
+%nprocshared=6
+#p UB3LYP/6-311++G(d,p) opt=tight int=ultrafine EmpiricalDispersion=GD3BJ 
 0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
 
 

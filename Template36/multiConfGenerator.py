@@ -8,28 +8,25 @@ from re import *
 import re
 import os
 import shutil
-import cluster
 import chem
 
 
 #input
 # cluster could be set as cce or Tsinghua100
 # the path where the jobs would lie should be announced
-clusterName = 'TianheII'
-clusterPath = '/WORK/tsinghua_xqyou_1/hetanjin/newGroupAdditivityFrog2/isobutane/rotation1'
-barrierless = 	False
-rotCH3 = True
+rotCH3 = False
 
 # symbol indicating the position
 pattern_name = re.compile('^.*.*$')
 
 # constants
-cluster1 = cluster.cluster(clusterName, clusterPath)
+
 
 # definetion of comparing pattern
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_fixBond = re.compile('^ *B *([0-9]+) *([0-9]+) *F *$')
 pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
+pattern_optimized = re.compile('^.*Optimized Parameters.*$')
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 
@@ -39,11 +36,9 @@ fixedBond = []
 
 #flags
 multi_done = -1
-if  barrierless == True:
-	fixBond_done = -1
-else:
-	fixBond_done = 1
+barrierless = False
 freqCom_done = -1
+optimized_done = -1
 standard_done = -1
 coordinate_done = -1
 
@@ -82,7 +77,8 @@ for tmp_file in tmp_fileLists:
 				fixBond_done = -1
 			else:
 				fixBond_done = 1
-			freqCom_done = -1
+			freqCom_done = 1
+			optimized_done = -1
 			standard_done = -1
 			coordinate_done = -1
 
@@ -105,6 +101,10 @@ for tmp_file in tmp_fileLists:
 						tmp_m = pattern_freqCom.match(tmp2_line)
 						if tmp_m:
 							freqCom_done = 1
+				elif optimized_done != 1:
+					tmp_m = pattern_optimized.match(tmp_line)
+					if tmp_m:
+						optimized_done = 1	
 				elif standard_done != 1:
 					tmp_m = pattern_standard.match(tmp_line)
 					if tmp_m:
