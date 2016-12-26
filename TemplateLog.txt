@@ -6,7 +6,7 @@
 //旧版报废 Template4使用freq文件中第一次的freq
 //旧版报废 Template5检查freq是否有cbs部分，只能使用cbs部分的freq，找不到会报错
 //旧版报废 Template6用于计算barrierless reactions
-Template12用于计算barrier/barrierless reaction, 其中的能量可以选择（cbs开关和能量提取关键字）,温度也可以选择
+Template12用于计算barrier/barrierless reaction, 其中的能量可以选择（cbs开关和能量提取关键字）,温度也可以选择,小工具可以提取log文件对应species的formula
 
 用于gaussian计算
 Template7用于提取cbs-qb3优化后的坐标进行irc
@@ -57,7 +57,7 @@ Template24 用于生成conformer searching和能量最小化，生成newGroupAdd
 
 Template25 用于替换某些关键词句，快速生成脚本
 
-Template26 用于在大量文件中选取某些需要的，或者删除某些文件夹，或者列出当前目录文件名，或者批量删除集群上的指定文件
+Template26 用于在大量文件中选取某些需要的，或者删除某些文件夹，或者列出当前目录文件名，或者批量删除集群上的指定文件，或者按照指定规则复制
 
 Template27 用于cantera的ignition delay sensitivity文件生成和分析，内置了xml的生成文件
 
@@ -77,4 +77,7 @@ Template34 用于网络爬虫acadRela
 
 Template35 用于比较两个分子set的异同
 
+Template36 用于辅助Mstor计算
+
+Template37 用于将每个C对应的enthalpy进行平移，测试标准生成焓用
 
