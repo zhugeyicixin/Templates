@@ -20,7 +20,7 @@ name = 'rotation'
 # symbol indicating the position
 pattern_name = re.compile('^.*.*|.*_scan.*$')
 pattern_multi = re.compile('^.*Charge = *[0-9]+ Multiplicity = ([0-9]+).*$')
-pattern_rigidScan = re.compile('^ *([A-Z0-9]+) *(-?[0-9]+\.[0-9]+)Scan *([0-9]+) *(-?[0-9]+\.[0-9]*).*$')
+pattern_rigidScan = re.compile('^ *([A-Z0-9]+) *(-?[0-9]+\.[0-9]+).*Scan *([0-9]+) *(-?[0-9]+\.[0-9]*).*$')
 pattern_energy = re.compile('^.*SCF Done:  E\([UR]?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
 pattern_Zcoordinate = re.compile('^.*Z-Matrix orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
@@ -206,7 +206,7 @@ for tmp_file in tmp_fileLists:
 
 				if len(energy) < (steps + 1) :
 					print 'Error! Notice that the number of energies is less than steps+1!'
-				elif len(energy) < (steps + 1):
+				elif len(energy) > (steps + 1):
 					print 'Error! Notice that the number of energies is more than steps+1!'
 				tmp_m = pattern_normal.match(tmp_lines[-1])
 				if not tmp_m:
