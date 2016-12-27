@@ -71,11 +71,24 @@ eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
 
-# version 1.4 used for new group additivity, without condideration of transition state (TS)
+# # version 1.4 used for new group additivity, without condideration of transition state (TS)
+# bondDisDict={
+# 'H': {'H': [0.6350], 'C': [1.1342], 'O': [1.01760]},
+# 'C': {'H': [1.1342], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
+# 'O': {'H': [1.01760], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.39919]}
+# }
+
+# bondOrderDict={
+# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+# }
+
+# version 1.5 used for new group additivity, allowing the existence of ring structure, but only for stable species rather than TS. The distance can still be updated.
 bondDisDict={
-'H': {'H': [0.6350], 'C': [1.1342], 'O': [1.01760]},
-'C': {'H': [1.1342], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
-'O': {'H': [1.01760], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.39919]}
+'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
+'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
 }
 
 bondOrderDict={
@@ -83,6 +96,7 @@ bondOrderDict={
 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 }
+
 
 # units:
 # P: atm
@@ -396,6 +410,8 @@ class molecule:
 					# print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					pass
 				else:
+					if tmp_result == 0:
+						print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					tmp_rotation = rotation(tmp_atom.bonds[index], tmp_group1, tmp_group2)
 					rotations.append(tmp_rotation)
 		return rotations
@@ -566,6 +582,9 @@ class molecule:
 					if sumBondOrder > 4:
 						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
 
+	# this function is used to generate rotation scan (flexible scan) job file
+	# can be used to in 1D HR scan
+	# every time only one rotatable bond is considered
 	def generateRotScanFile(self, fixedBond=[], rotCH3=True):
 		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
 
@@ -619,6 +638,70 @@ class molecule:
 
 		fw.write('\n\n\n\n\n')
 		fw.close()
+
+	# this function is used to generate multi-conformer input file with the assistance of MSTor
+	# all rotatable bonds are considered simultaneously
+	# by default every bond will rotate by 0, -120 and 120 degree, except CH3 will only rotate by 60 degree 
+	def generateMultiConfFile(self, fixedBond=[], rotCH3=True):
+		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
+
+		rotations = self.getRotations()
+
+		if not os.path.exists(self.label):
+			os.mkdir(self.label)
+		fw = file(os.path.join(self.label, ''.join([self.label, '.rot'])), 'w')	
+		fw_text = []
+
+		fw_text.append(str(len(self.atoms)) + ' ' + str(len(rotations)) + '\n')
+		fw_text.append(''.join([' %s %.8f %.8f %.8f\n' % (x.symbol, x.coordinate[0], x.coordinate[1], x.coordinate[2]) for x in self.atoms]))
+
+		torsionNum = 0
+		for tmp_rotation in rotations:
+
+			isCH3 = False
+			tmp_3rdOrderGroup = tmp_rotation.rotBondAxis.get2ndOrderGroup()
+			if 'C/H3' in tmp_3rdOrderGroup.values():
+				isCH3 = True
+			if rotCH3 == False and isCH3 == True:
+				continue
+
+			if tmp_rotation.rotBondAxis.atom1.label < tmp_rotation.rotBondAxis.atom2.label:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom1
+				tmp_group1 = tmp_rotation.atomGroup1
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom2
+			else:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom2
+				tmp_group1 = tmp_rotation.atomGroup2
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom1
+
+			torsionNum += 1
+			fw_text.append('#torsion ' + str(torsionNum) + ' definition\n')
+			fw_text.append(''.join([' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), '\n']))
+			fw_text.append(''.join([' ', str(len(tmp_group1)), '\n']))
+			fw_text.append(' '.join([''] + [str(x.label) for x in tmp_group1] + ['\n']))
+			if isCH3 == True:
+				fw_text.append(' 2\n 0. 60.0\n')				
+			else:
+				fw_text.append(' 3\n 0. 120.0 -120.0\n')
+		if re.match('^.*TS.*$', self.label):
+			fw_text.append(
+'''%mem=15GB
+%nprocshared=6
+#p UB3LYP/6-311++G(d,p) opt=(TS, calcfc, tight) int=ultrafine EmpiricalDispersion=GD3BJ 
+0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
+		else:		
+			fw_text.append(
+'''%mem=15GB
+%nprocshared=6
+#p UB3LYP/6-311++G(d,p) opt=tight int=ultrafine EmpiricalDispersion=GD3BJ 
+0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
+
+
+		if torsionNum != len(rotations):
+			fw_text[0] = str(len(self.atoms)) + ' ' + str(torsionNum) + '\n'
+		fw.writelines(fw_text)
+		fw.close()
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
 
 	# get the formula of the molecule	
 	def calcFormula(self):
