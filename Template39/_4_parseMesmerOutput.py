@@ -38,7 +38,9 @@ phys1 = phys.phys()
 pattern_geomFileName = re.compile('^([CHO0-9]+_[0-9]+)_.*opt.*$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
-pattern_standard = re.compile('^.*Standard orientation:.*$') 
+# note that Input orientation should be used in MESMER rather than standard orientation when hessian used
+pattern_input = re.compile('^.*Input orientation:.*$') 
+# pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 pattern_SCFEnergy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *(-?[0-9]+\.[0-9]+) *A\.U\. after.*$')
 pattern_freq = re.compile('^.*Frequencies -- *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)?$')
@@ -86,7 +88,7 @@ for tmp_file in tmp_fileList:
 
 		multi_done = -1
 		freqCom_done = -1
-		standard_done = -1
+		input_done = -1
 		coordinate_done = -1
 		energy_done = -1		
 		freq_done = -1
@@ -108,11 +110,11 @@ for tmp_file in tmp_fileList:
 					tmp_m = pattern_freqCom.match(tmp2_line)
 					if tmp_m:
 						freqCom_done = 1
-			elif standard_done != 1:
-				tmp_m = pattern_standard.match(tmp_line)
+			elif input_done != 1:
+				tmp_m = pattern_input.match(tmp_line)
 				if tmp_m:
 					tmp_num = lineNum + 5
-					standard_done = 1
+					input_done = 1
 			elif coordinate_done != 1:
 				tmp_m = pattern_endline.match(tmp_line)
 				if tmp_m:
@@ -257,7 +259,7 @@ for tmp_species in mole_dict.keys():
 	fr.close()
 	if mole_dict[tmp_species].opticalIsomerNumber > 1:
 		delta_S = phys1.JoulTocal(phys1.R)*np.log(mole_dict[tmp_species].opticalIsomerNumber)
-		print tmp_species, mole_dict[tmp_species].opticalIsomerNumber, delta_S
+		# print tmp_species, mole_dict[tmp_species].opticalIsomerNumber, delta_S
 		for i in xrange(len(thermo_dict[tmp_species][3])):
 			thermo_dict[tmp_species][3][i] += delta_S
 
@@ -265,7 +267,7 @@ print len(thermo_dict)
 
 # write thermo data to excel
 wbw = xlsxwriter.Workbook('mesmerThermoData.xlsx')
-shw = wbw.add_worksheet('thermoData')
+shw = wbw.add_worksheet('thermoDataIncal')
 
 tmp_row = 0
 tmp_col = 0
@@ -307,6 +309,50 @@ for tmp_species in all_species:
 		shw.write(tmp_row+1, tmp_col+5+i, thermo_dict[tmp_species][2][i])
 		shw.write(tmp_row+2, tmp_col+5+i, thermo_dict[tmp_species][3][i])
 		shw.write(tmp_row+3, tmp_col+5+i, thermo_dict[tmp_species][4][i])
+	tmp_row += 4
+
+shw2 = wbw.add_worksheet('thermoDataInJoul')
+
+tmp_row = 0
+tmp_col = 0
+shw2.write(tmp_row, tmp_col, 'Name Abbreviation')
+shw2.write(tmp_row, tmp_col+1, 'Name')
+shw2.write(tmp_row, tmp_col+2, 'Formula')
+shw2.write(tmp_row, tmp_col+3, 'Geometry')
+shw2.write(tmp_row, tmp_col+4, 'ThermoData unit: [Joul] [mol] [K] ')
+shw2.write(tmp_row, tmp_col+5, 'Temperature')
+
+tmp_row += 1
+tmp_col += 5
+tmp_item = thermo_dict.values()
+tmp_temperatures = tmp_item[0][0]
+for i in xrange(len(tmp_temperatures)):
+	shw2.write(tmp_row, tmp_col+i, tmp_temperatures[i])
+
+tmp_row += 1
+tmp_col = 0
+tmp_item = mole_dict.values()
+tmp_mole = tmp_item[0]
+all_species = sorted(thermo_dict.keys(), cmp=tmp_mole.moleFormulaCmp)
+for tmp_species in all_species:
+	if tmp_species not in thermo_dict.keys():
+		print 'Error! ' + tmp_species + ' not found in thermo_dict!'
+		break
+	shw2.write(tmp_row, tmp_col, tmp_species)
+	shw2.write(tmp_row, tmp_col+1, tmp_species)
+	shw2.write(tmp_row, tmp_col+2, mole_dict[tmp_species].formula)
+	shw2.write(tmp_row, tmp_col+3, mole_dict[tmp_species].toStringGeom())
+	shw2.write(tmp_row, tmp_col+4, 'partition function Q')
+	shw2.write(tmp_row+1, tmp_col+4, 'H(T) - H(0)')
+	shw2.write(tmp_row+2, tmp_col+4, 'entropy S')
+	shw2.write(tmp_row+3, tmp_col+4, 'heat capacity Cp')
+	for i in xrange(len(tmp_temperatures)):
+		if np.abs(thermo_dict[tmp_species][0][i] - tmp_temperatures[i]) > 1.0e-6:
+			print 'Error! Temperature is not unified in thermo_dict!'
+		shw2.write(tmp_row, tmp_col+5+i, thermo_dict[tmp_species][1][i])
+		shw2.write(tmp_row+1, tmp_col+5+i, phys1.calToJoul(thermo_dict[tmp_species][2][i]))
+		shw2.write(tmp_row+2, tmp_col+5+i, phys1.calToJoul(thermo_dict[tmp_species][3][i]))
+		shw2.write(tmp_row+3, tmp_col+5+i, phys1.calToJoul(thermo_dict[tmp_species][4][i]))
 	tmp_row += 4
 
 wbw.close()

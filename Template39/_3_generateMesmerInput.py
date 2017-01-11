@@ -37,7 +37,9 @@ phys1 = phys.phys()
 pattern_geomFileName = re.compile('^([CHO0-9]+_[0-9]+)_.*opt.*$')
 pattern_multi = re.compile('^.*Multiplicity = ([0-9]+).*$')
 pattern_freqCom = re.compile('^.*#[PN]? Geom=AllCheck Guess=TCheck SCRF=Check.*Freq.*$')
-pattern_standard = re.compile('^.*Standard orientation:.*$') 
+# note that Input orientation should be used in MESMER rather than standard orientation when hessian used
+pattern_input = re.compile('^.*Input orientation:.*$') 
+# pattern_standard = re.compile('^.*Standard orientation:.*$') 
 pattern_endline = re.compile('^.*---------------------------------------------------------------------.*$')
 pattern_SCFEnergy = re.compile('^.*SCF Done:  E\([RU]B3LYP\) = *(-?[0-9]+\.[0-9]+) *A\.U\. after.*$')
 pattern_freq = re.compile('^.*Frequencies -- *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)? *(-?[0-9]+\.[0-9]+)?$')
@@ -80,7 +82,7 @@ for tmp_file in tmp_fileList:
 
 		multi_done = -1
 		freqCom_done = -1
-		standard_done = -1
+		input_done = -1
 		coordinate_done = -1
 		energy_done = -1		
 		freq_done = -1
@@ -102,11 +104,11 @@ for tmp_file in tmp_fileList:
 					tmp_m = pattern_freqCom.match(tmp2_line)
 					if tmp_m:
 						freqCom_done = 1
-			elif standard_done != 1:
-				tmp_m = pattern_standard.match(tmp_line)
+			elif input_done != 1:
+				tmp_m = pattern_input.match(tmp_line)
 				if tmp_m:
 					tmp_num = lineNum + 5
-					standard_done = 1
+					input_done = 1
 			elif coordinate_done != 1:
 				tmp_m = pattern_endline.match(tmp_line)
 				if tmp_m:
