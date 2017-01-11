@@ -13,7 +13,7 @@ import shutil
 # clusterName can be 'cce' or 'TianheII' or 'Tianhe' or 'Tianhe2'
 clusterName = 'TianheII'
 name = ''
-jobsPerSlot = 2
+jobsPerSlot = 4
 #definition of parameters
 multi = 0
 
@@ -99,7 +99,7 @@ for tmp_file in tmp_jobList:
 		fw.write('sh ' + tmp_file[0] + '/' + tmp_file[1] + '/' + tmp_file[1] + '''.job &
 sleep 2
 numJobs=`ps | grep g09 | wc -l`
-while((numJobs>7))
+while((numJobs>3))
 do 
 sleep 120
 numJobs=`ps | grep g09 | wc -l`
