@@ -12,10 +12,21 @@ elementDict={1:'H', 2:'He', 6:'C', 7:'N', 8:'O',
 '1':'H', '2':'He', '6':'C', '7':'N', '8':'O'
 }
 
+eleLabelDict={'H':1, 'He':2, 'C':6, 'N':7, 'O':8}
 eleWeightDict={'H': 1.008, 'He': 4.0026, 'C': 12.011, 'O': 15.999, 'N': 14.007}
 
 # eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
 eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
+
+groupPointDict={'Cs':1, 'Ci':1,
+'C1':1, 'C2':2, 'C3':3, 'C4':4, 'C5':5, 'C6':6, 
+'C1v':1, 'C2v':2, 'C3v':3, 'C4v':4, 'C5v':5, 'C6v':6, 
+'C1h':1, 'C2h':2, 'C3h':3, 'C4h':4, 'C5h':5, 'C6h':6, 
+'D1': 2, 'D2':4, 'D3':6, 'D4':8, 'D5':10, 'D6':12,
+'D1h': 2, 'D2h':4, 'D3h':6, 'D4h':8, 'D5h':10, 'D6h':12,
+'D1d': 2, 'D2d':4, 'D3d':6, 'D4d':8, 'D5d':10, 'D6d':12,
+'T': 12, 'Td': 12, 'O': 24, 'Oh':24, 'I': 60, 'Ih': 60,
+}
 
 # gaussian default bond length threshold parameters
 # bondDisDict={
@@ -172,6 +183,7 @@ class molecule:
 	ZPE = 0.0
 	rotConsts = []
 	symmetryNumber = 1
+	opticalIsomerNumber = 1
 	# frequency scaling factor could be set for each molecule separately if the freq computational methods are different but all accurate 
 	# currently the freq scaling factor used is the factor in reaction system, which is a uniformed number
 	freqScaleFactor = 1.0
@@ -201,6 +213,7 @@ class molecule:
 		self.ZPE = 0.0
 		self.rotConsts = []
 		self.symmetryNumber = 1
+		self.opticalIsomerNumber = 1
 		self.freqScaleFactor = 1.0
 		self.imfreq = 0.0
 		self.frequencies = []
@@ -217,6 +230,7 @@ class molecule:
 		self.refH0 = {}
 		self.refH298 = {}
 
+		# ban rotors in rings
 		self._RingBanned = False
 
 		if inputAtoms == []:
@@ -407,7 +421,7 @@ class molecule:
 				# print [x.label for x in tmp_group1]
 				# print [x.label for x in tmp_group2]
 				if self._RingBanned == True and tmp_result == 0:
-					# print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
+					print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					pass
 				else:
 					if tmp_result == 0:
@@ -488,6 +502,12 @@ class molecule:
 	def getAtomsNum(self):
 		return len(self.atoms)
 
+	def toStringGeom(self):
+		geomStr = ''
+		for tmp_atom in self.atoms:
+			geomStr = tmp_atom.symbol + ''.join(['    '+str(x) for x in tmp_atom.coordinate]) + '\n'
+		return geomStr
+
 	def displayBonds(self):
 		print 'all bonds for ' + self.label
 		for tmp_atom in self.atoms:
@@ -529,58 +549,58 @@ class molecule:
 		# check is the input molecule is a tidy one (if hydrogen is too close to more than one heavy atom when drawing scratch, the connectivity recognition would be wrong)
 		# currently only check of C-H bond is supported
 		# if the label indicates this is a transition state, the check will be skipped
-		# tidyMolecule = True
-		# tmp_questionHydrogen = []
-		# if not re.match('^.*[Tt][Ss].*$', self.label):
-		# 	for tmp_atom in self.atoms:
-		# 		if tmp_atom.symbol == 'H':
-		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
-		# 			if sumBondOrder >= 2:
-		# 				tidyMolecule = False
-		# 				tmp_questionHydrogen.append(tmp_atom)
-		# 				for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-		# 					tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
-		# 					self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
-		# else:
-		# 	pass
-		# if tmp_questionHydrogen:
-		# 	print 'Warning! The molecule structure is not tidy. There is at least one H atom connected to two atoms with single bonds. I optimized the connectivity automatically, but you had better check if the result is what you want.', self.label
-		# for tmp_atom in tmp_questionHydrogen:
-		# 	bonds_saturateC = []
-		# 	print tmp_atom.label
-		# 	for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-		# 		if tmp_child.symbol == 'C':
-		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_child.bonds])
-		# 			if sumBondOrder > 4:
-		# 				print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_child.label
-		# 				break
-		# 			elif sumBondOrder == 4:
-		# 				bonds_saturateC.append(tmp_atom.bonds[tmp_childIndex])
-		# 	for tmp_bond in bonds_saturateC:
-		# 		tmp_atom.removeBond(tmp_bond)
-		# 	closestIndex = 0
-		# 	tmp_distance = 10
-		# 	for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
-		# 		if tmp_distance > tmp_atom.distance(tmp_child):
-		# 			tmp_distance = tmp_atom.distance(tmp_child)
-		# 			closestIndex = tmp_childIndex
-		# 	tmp_child = tmp_atom.children[closestIndex]
-		# 	tmp_bond = tmp_atom.bonds[closestIndex]
-		# 	tmp_atom.removeAllBonds()
-		# 	tmp_atom.addBond(tmp_bond)
-		# 	tmp_child.addBond(tmp_bond)
-		# 	self.bonds.append(tmp_bond)			
+		tidyMolecule = True
+		tmp_questionHydrogen = []
+		if not re.match('^.*[Tt][Ss].*$', self.label):
+			for tmp_atom in self.atoms:
+				if tmp_atom.symbol == 'H':
+					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
+					if sumBondOrder >= 2:
+						tidyMolecule = False
+						tmp_questionHydrogen.append(tmp_atom)
+						for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+							tmp_child.removeBond(tmp_atom.bonds[tmp_childIndex])
+							self.bonds.remove(tmp_atom.bonds[tmp_childIndex])
+		else:
+			pass
+		if tmp_questionHydrogen:
+			print 'Warning! The molecule structure is not tidy. There is at least one H atom connected to two atoms with single bonds. I optimized the connectivity automatically, but you had better check if the result is what you want.', self.label
+		for tmp_atom in tmp_questionHydrogen:
+			bonds_saturateC = []
+			print tmp_atom.label
+			for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+				if tmp_child.symbol == 'C':
+					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_child.bonds])
+					if sumBondOrder > 4:
+						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_child.label
+						break
+					elif sumBondOrder == 4:
+						bonds_saturateC.append(tmp_atom.bonds[tmp_childIndex])
+			for tmp_bond in bonds_saturateC:
+				tmp_atom.removeBond(tmp_bond)
+			closestIndex = 0
+			tmp_distance = 10
+			for (tmp_childIndex, tmp_child) in enumerate(tmp_atom.children):
+				if tmp_distance > tmp_atom.distance(tmp_child):
+					tmp_distance = tmp_atom.distance(tmp_child)
+					closestIndex = tmp_childIndex
+			tmp_child = tmp_atom.children[closestIndex]
+			tmp_bond = tmp_atom.bonds[closestIndex]
+			tmp_atom.removeAllBonds()
+			tmp_atom.addBond(tmp_bond)
+			tmp_child.addBond(tmp_bond)
+			self.bonds.append(tmp_bond)			
 
-		# if tidyMolecule == False:
-		# 	for tmp_atom in self.atoms:
-		# 		if tmp_atom.symbol == 'H':
-		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
-		# 			if sumBondOrder >= 2:
-		# 				print 'Error! The molecule is not tidy enough! There is a hydrogen connected with more than one heavy atoms!', tmp_atom.label
-		# 		if tmp_atom.symbol == 'C':
-		# 			sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds])
-		# 			if sumBondOrder > 4:
-		# 				print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
+		if tidyMolecule == False:
+			for tmp_atom in self.atoms:
+				if tmp_atom.symbol == 'H':
+					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds]) 
+					if sumBondOrder >= 2:
+						print 'Error! The molecule is not tidy enough! There is a hydrogen connected with more than one heavy atoms!', tmp_atom.label
+				if tmp_atom.symbol == 'C':
+					sumBondOrder = sum([tmp_bond.bondOrder for tmp_bond in tmp_atom.bonds])
+					if sumBondOrder > 4:
+						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
 
 	# this function is used to generate rotation scan (flexible scan) job file
 	# can be used to in 1D HR scan
@@ -718,6 +738,19 @@ class molecule:
 				tmp_formula += str(tmp_num)  
 
 		self.formula = tmp_formula
+
+	# get the optical isomer number of the molecule
+	# only validated with linear molecules, ring-structured molecules may be not correct
+	def calcOpticalIsomerNum(self):
+		for tmp_atom in self.atoms:
+			# only optical site for carbon atom is supported currently
+			if tmp_atom.symbol == 'C':
+				childSubStructures = []
+				for tmp_child in tmp_atom.children:
+					leftConnectedAtoms = tmp_child.dividedGraph2([tmp_atom])
+					childSubStructures.append(tmp_child.calcStructureTree(set(leftConnectedAtoms)))
+				if len(set(childSubStructures)) == len(childSubStructures):
+					self.opticalIsomerNumber *= 2
 
 	# the groups returned is in the order of atoms-ranking in atomList, which is self.atoms as default 
 	def get1stOrderGroup(self, inputAtomList=[]):
@@ -1437,7 +1470,70 @@ generated based on coordinates by chem.py
 					print 'Error! There is a hydrogen bond across H ' + str(tmp_atom.label) + '!'
 		return radicals
 
-   
+	# compare formula for label ranking
+	# support C H O only
+	def moleFormulaCmp(self, formula1, formula2):
+		pattern_element = re.compile('([\_A-Z][a-z]?)([0-9]*)')
+		atomNum1 = {}
+		atomNum2 = {}
+
+		atomNum1['C'] = 0
+		atomNum1['H'] = 0
+		atomNum1['O'] = 0
+		atomNum1['else'] = 0
+		allElements = pattern_element.findall(formula1)
+		for tmp_element in allElements:
+			if tmp_element[0] in ['C', 'H', 'O']:
+				if tmp_element[1] != '':
+					atomNum1[tmp_element[0]] = int(tmp_element[1])
+				else:
+					atomNum1[tmp_element[0]] = 1
+			elif tmp_element[0] == '_':
+				if tmp_element[1] != '':
+					atomNum1['else'] = int(tmp_element[1])
+				else:
+					atomNum1['else'] = 1
+			else:				
+				print 'Error! The elements are more than C H and O!'
+		if sum(atomNum1.values())==0:
+			print 'Error! Total atom number can not be 0!'
+
+		atomNum2['C'] = 0
+		atomNum2['H'] = 0
+		atomNum2['O'] = 0
+		atomNum2['else'] = 0
+		allElements = pattern_element.findall(formula2)
+		for tmp_element in allElements:
+			if tmp_element[0] in ['C', 'H', 'O']:
+				if tmp_element[1] != '':
+					atomNum2[tmp_element[0]] = int(tmp_element[1])
+				else:
+					atomNum2[tmp_element[0]] = 1
+			elif tmp_element[0] == '_':
+				if tmp_element[1] != '':
+					atomNum2['else'] = int(tmp_element[1])
+				else:
+					atomNum2['else'] = 1					
+			else:
+				print 'Error! The elements are more than C H and O!'
+		if sum(atomNum2.values())==0:
+			print 'Error! Total atom number can not be 0!'		
+
+		if atomNum1['C'] < atomNum2['C']:
+			return -1
+		elif atomNum1['C'] == atomNum2['C']:
+			if atomNum1['O'] < atomNum2['O']:
+				return -1
+			elif atomNum1['O'] == atomNum2['O']:
+				if atomNum1['H'] < atomNum2['H']:
+					return -1
+				elif atomNum1['H'] == atomNum2['H']:
+					if atomNum1['else'] < atomNum2['else']:
+						return -1
+					elif atomNum1['else'] == atomNum2['else']:
+						return 0
+		return 1	
+ 
 class atom:
 	symbol = ''
 	label = 0
@@ -1506,7 +1602,7 @@ class atom:
 
 	# this function is used to get the left connected part after prohibiting the route to tabuAtomPool, but without double check. 
 	# It's unknown whether the left part is a part or not. It is also a arbitary division if there is a ring structure in the molecule.
-	def dividedGraph2(self,tabuPool):
+	def dividedGraph2(self, tabuPool):
 		connectedPool = [self]
 		tabuPool.append(self)
 		for tmp_atom in self.children:
@@ -1514,6 +1610,27 @@ class atom:
 				connectedPool += tmp_atom.dividedGraph2(tabuPool)
 				tabuPool += connectedPool
 		return connectedPool
+
+	# get the string expression of a tree started with self atom and confined in atomSet
+	# the number of heavy atoms may not equal to the number of heavy atoms in atomSet, becuase the branches will be repeated in the tree expression if ring exists
+	def calcStructureTree(self, atomSet):
+		treeStr = self.symbol
+		subTreeStrs = []
+		for tmp_child in self.children:
+			if tmp_child in atomSet:
+				leftAtomSet = atomSet - set([self])
+				subTreeStrs.append(tmp_child.calcStructureTree(leftAtomSet))
+		tmp_set = set(subTreeStrs)
+		tmp_set = sorted(tmp_set)
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = subTreeStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				treeStr += '/(' + tmp_Str + ')'
+			else:
+				treeStr += '/' + tmp_Str
+			if tmp_num > 1:
+				treeStr += str(tmp_num)
+		return treeStr
 
 	def childrenNum(self):
 		return len(self.children)
@@ -1701,6 +1818,7 @@ class rotation:
 	atomGroup2 = []
 	angles = []
 	energies = []
+	coeff_V = []
 	period = 1
 
 	# rotBondAxis is a bond instance
@@ -1708,6 +1826,7 @@ class rotation:
 		self.rotBondAxis = rotBondAxis
 		self.angles = []
 		self.energies = []
+		self.coeff_V = []
 		self.period = 1
 		if atomGroup1 == []:
 			self.atomGroup1	= []
@@ -1761,6 +1880,9 @@ class rotation:
 	def setPotential(self, angles, energies):
 		self.angles = angles
 		self.energies = energies
+
+	def setFourierCoefficients(self, coeff_V):
+		self.coeff_V = coeff_V
 
 	def setPeriod(self, periodicity):
 		self.period = periodicity	

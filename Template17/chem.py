@@ -12,10 +12,21 @@ elementDict={1:'H', 2:'He', 6:'C', 7:'N', 8:'O',
 '1':'H', '2':'He', '6':'C', '7':'N', '8':'O'
 }
 
+eleLabelDict={'H':1, 'He':2, 'C':6, 'N':7, 'O':8}
 eleWeightDict={'H': 1.008, 'He': 4.0026, 'C': 12.011, 'O': 15.999, 'N': 14.007}
 
 # eleColorDict={'H': visual.color.white, 'He': visual.color.cyan, 'C': visual.color.yellow, 'O': visual.color.red, 'N': visual.color.green}
 eleColorDict={'H': 1, 'He': 2, 'C': 3, 'O': 4, 'N': 5}
+
+groupPointDict={'Cs':1, 'Ci':1,
+'C1':1, 'C2':2, 'C3':3, 'C4':4, 'C5':5, 'C6':6, 
+'C1v':1, 'C2v':2, 'C3v':3, 'C4v':4, 'C5v':5, 'C6v':6, 
+'C1h':1, 'C2h':2, 'C3h':3, 'C4h':4, 'C5h':5, 'C6h':6, 
+'D1': 2, 'D2':4, 'D3':6, 'D4':8, 'D5':10, 'D6':12,
+'D1h': 2, 'D2h':4, 'D3h':6, 'D4h':8, 'D5h':10, 'D6h':12,
+'D1d': 2, 'D2d':4, 'D3d':6, 'D4d':8, 'D5d':10, 'D6d':12,
+'T': 12, 'Td': 12, 'O': 24, 'Oh':24, 'I': 60, 'Ih': 60,
+}
 
 # gaussian default bond length threshold parameters
 # bondDisDict={
@@ -83,6 +94,20 @@ bondOrderDict={
 # 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
 # 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
 # }
+
+# # version 1.5 used for new group additivity, allowing the existence of ring structure, but only for stable species rather than TS. The distance can still be updated.
+# bondDisDict={
+# 'H': {'H': [0.6350], 'C': [1.5], 'O': [1.5]},
+# 'C': {'H': [1.5], 'C': [1.24740, 1.3785, 1.4475, 1.65], 'O': [1.15829, 1.287, 1.34419, 1.5158]},
+# 'O': {'H': [1.5], 'C': [1.15829, 1.287, 1.34419, 1.5158], 'O': [1.0692, 1.18800, 1.2408, 1.9]}
+# }
+
+# bondOrderDict={
+# 'H': {'H': [1.0], 'C': [1.0], 'O': [1.0]},
+# 'C': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]},
+# 'O': {'H': [1.0], 'C': [3.0, 2.0, 1.5, 1.0], 'O': [3.0, 2.0, 1.5, 1.0]}
+# }
+
 
 # units:
 # P: atm
@@ -158,6 +183,7 @@ class molecule:
 	ZPE = 0.0
 	rotConsts = []
 	symmetryNumber = 1
+	opticalIsomerNumber = 1
 	# frequency scaling factor could be set for each molecule separately if the freq computational methods are different but all accurate 
 	# currently the freq scaling factor used is the factor in reaction system, which is a uniformed number
 	freqScaleFactor = 1.0
@@ -187,6 +213,7 @@ class molecule:
 		self.ZPE = 0.0
 		self.rotConsts = []
 		self.symmetryNumber = 1
+		self.opticalIsomerNumber = 1
 		self.freqScaleFactor = 1.0
 		self.imfreq = 0.0
 		self.frequencies = []
@@ -203,6 +230,7 @@ class molecule:
 		self.refH0 = {}
 		self.refH298 = {}
 
+		# ban rotors in rings
 		self._RingBanned = False
 
 		if inputAtoms == []:
@@ -393,9 +421,11 @@ class molecule:
 				# print [x.label for x in tmp_group1]
 				# print [x.label for x in tmp_group2]
 				if self._RingBanned == True and tmp_result == 0:
-					# print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
+					print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					pass
 				else:
+					if tmp_result == 0:
+						print 'Warning! The bond between ' + str(tmp_atom.label) + ' and ' + str(tmp_atom2.label) + ' is in a ring! Now it is not added in the MomInert input file.' 
 					tmp_rotation = rotation(tmp_atom.bonds[index], tmp_group1, tmp_group2)
 					rotations.append(tmp_rotation)
 		return rotations
@@ -471,6 +501,12 @@ class molecule:
 
 	def getAtomsNum(self):
 		return len(self.atoms)
+
+	def toStringGeom(self):
+		geomStr = ''
+		for tmp_atom in self.atoms:
+			geomStr = tmp_atom.symbol + ''.join(['    '+str(x) for x in tmp_atom.coordinate]) + '\n'
+		return geomStr
 
 	def displayBonds(self):
 		print 'all bonds for ' + self.label
@@ -566,6 +602,9 @@ class molecule:
 					if sumBondOrder > 4:
 						print 'Error! The molecule is not tidy enough! Ther is a queationable carbon atom, the total bond order of which is more than 4!', tmp_atom.label
 
+	# this function is used to generate rotation scan (flexible scan) job file
+	# can be used to in 1D HR scan
+	# every time only one rotatable bond is considered
 	def generateRotScanFile(self, fixedBond=[], rotCH3=True):
 		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
 
@@ -620,6 +659,70 @@ class molecule:
 		fw.write('\n\n\n\n\n')
 		fw.close()
 
+	# this function is used to generate multi-conformer input file with the assistance of MSTor
+	# all rotatable bonds are considered simultaneously
+	# by default every bond will rotate by 0, -120 and 120 degree, except CH3 will only rotate by 60 degree 
+	def generateMultiConfFile(self, fixedBond=[], rotCH3=True):
+		elementRanking = {'C': 1, 'O':2, 'N':3, 'H':4}
+
+		rotations = self.getRotations()
+
+		if not os.path.exists(self.label):
+			os.mkdir(self.label)
+		fw = file(os.path.join(self.label, ''.join([self.label, '.rot'])), 'w')	
+		fw_text = []
+
+		fw_text.append(str(len(self.atoms)) + ' ' + str(len(rotations)) + '\n')
+		fw_text.append(''.join([' %s %.8f %.8f %.8f\n' % (x.symbol, x.coordinate[0], x.coordinate[1], x.coordinate[2]) for x in self.atoms]))
+
+		torsionNum = 0
+		for tmp_rotation in rotations:
+
+			isCH3 = False
+			tmp_3rdOrderGroup = tmp_rotation.rotBondAxis.get2ndOrderGroup()
+			if 'C/H3' in tmp_3rdOrderGroup.values():
+				isCH3 = True
+			if rotCH3 == False and isCH3 == True:
+				continue
+
+			if tmp_rotation.rotBondAxis.atom1.label < tmp_rotation.rotBondAxis.atom2.label:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom1
+				tmp_group1 = tmp_rotation.atomGroup1
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom2
+			else:
+				tmp_atom1 = tmp_rotation.rotBondAxis.atom2
+				tmp_group1 = tmp_rotation.atomGroup2
+				tmp_atom2 = tmp_rotation.rotBondAxis.atom1
+
+			torsionNum += 1
+			fw_text.append('#torsion ' + str(torsionNum) + ' definition\n')
+			fw_text.append(''.join([' ', str(tmp_atom1.label), ' ', str(tmp_atom2.label), '\n']))
+			fw_text.append(''.join([' ', str(len(tmp_group1)), '\n']))
+			fw_text.append(' '.join([''] + [str(x.label) for x in tmp_group1] + ['\n']))
+			if isCH3 == True:
+				fw_text.append(' 2\n 0. 60.0\n')				
+			else:
+				fw_text.append(' 3\n 0. 120.0 -120.0\n')
+		if re.match('^.*TS.*$', self.label):
+			fw_text.append(
+'''%mem=15GB
+%nprocshared=6
+#p UB3LYP/6-311++G(d,p) opt=(TS, calcfc, tight) int=ultrafine EmpiricalDispersion=GD3BJ 
+0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
+		else:		
+			fw_text.append(
+'''%mem=15GB
+%nprocshared=6
+#p UB3LYP/6-311++G(d,p) opt=tight int=ultrafine EmpiricalDispersion=GD3BJ 
+0 '''+str(self.spinMultiplicity)+'\n\n\n\n\n')
+
+
+		if torsionNum != len(rotations):
+			fw_text[0] = str(len(self.atoms)) + ' ' + str(torsionNum) + '\n'
+		fw.writelines(fw_text)
+		fw.close()
+		os.system("..\\dos2unix-6.0.6-win64\\bin\\dos2unix.exe " + fw.name + ' > log_dos2unix.txt 2>&1')
+
 	# get the formula of the molecule	
 	def calcFormula(self):
 		elementRanking = {'C':1, 'H':2, 'O':3, 'N':4}
@@ -635,6 +738,19 @@ class molecule:
 				tmp_formula += str(tmp_num)  
 
 		self.formula = tmp_formula
+
+	# get the optical isomer number of the molecule
+	# only validated with linear molecules, ring-structured molecules may be not correct
+	def calcOpticalIsomerNum(self):
+		for tmp_atom in self.atoms:
+			# only optical site for carbon atom is supported currently
+			if tmp_atom.symbol == 'C':
+				childSubStructures = []
+				for tmp_child in tmp_atom.children:
+					leftConnectedAtoms = tmp_child.dividedGraph2([tmp_atom])
+					childSubStructures.append(tmp_child.calcStructureTree(set(leftConnectedAtoms)))
+				if len(set(childSubStructures)) == len(childSubStructures):
+					self.opticalIsomerNumber *= 2
 
 	# the groups returned is in the order of atoms-ranking in atomList, which is self.atoms as default 
 	def get1stOrderGroup(self, inputAtomList=[]):
@@ -1354,7 +1470,70 @@ generated based on coordinates by chem.py
 					print 'Error! There is a hydrogen bond across H ' + str(tmp_atom.label) + '!'
 		return radicals
 
-   
+	# compare formula for label ranking
+	# support C H O only
+	def moleFormulaCmp(self, formula1, formula2):
+		pattern_element = re.compile('([\_A-Z][a-z]?)([0-9]*)')
+		atomNum1 = {}
+		atomNum2 = {}
+
+		atomNum1['C'] = 0
+		atomNum1['H'] = 0
+		atomNum1['O'] = 0
+		atomNum1['else'] = 0
+		allElements = pattern_element.findall(formula1)
+		for tmp_element in allElements:
+			if tmp_element[0] in ['C', 'H', 'O']:
+				if tmp_element[1] != '':
+					atomNum1[tmp_element[0]] = int(tmp_element[1])
+				else:
+					atomNum1[tmp_element[0]] = 1
+			elif tmp_element[0] == '_':
+				if tmp_element[1] != '':
+					atomNum1['else'] = int(tmp_element[1])
+				else:
+					atomNum1['else'] = 1
+			else:				
+				print 'Error! The elements are more than C H and O!'
+		if sum(atomNum1.values())==0:
+			print 'Error! Total atom number can not be 0!'
+
+		atomNum2['C'] = 0
+		atomNum2['H'] = 0
+		atomNum2['O'] = 0
+		atomNum2['else'] = 0
+		allElements = pattern_element.findall(formula2)
+		for tmp_element in allElements:
+			if tmp_element[0] in ['C', 'H', 'O']:
+				if tmp_element[1] != '':
+					atomNum2[tmp_element[0]] = int(tmp_element[1])
+				else:
+					atomNum2[tmp_element[0]] = 1
+			elif tmp_element[0] == '_':
+				if tmp_element[1] != '':
+					atomNum2['else'] = int(tmp_element[1])
+				else:
+					atomNum2['else'] = 1					
+			else:
+				print 'Error! The elements are more than C H and O!'
+		if sum(atomNum2.values())==0:
+			print 'Error! Total atom number can not be 0!'		
+
+		if atomNum1['C'] < atomNum2['C']:
+			return -1
+		elif atomNum1['C'] == atomNum2['C']:
+			if atomNum1['O'] < atomNum2['O']:
+				return -1
+			elif atomNum1['O'] == atomNum2['O']:
+				if atomNum1['H'] < atomNum2['H']:
+					return -1
+				elif atomNum1['H'] == atomNum2['H']:
+					if atomNum1['else'] < atomNum2['else']:
+						return -1
+					elif atomNum1['else'] == atomNum2['else']:
+						return 0
+		return 1	
+ 
 class atom:
 	symbol = ''
 	label = 0
@@ -1423,7 +1602,7 @@ class atom:
 
 	# this function is used to get the left connected part after prohibiting the route to tabuAtomPool, but without double check. 
 	# It's unknown whether the left part is a part or not. It is also a arbitary division if there is a ring structure in the molecule.
-	def dividedGraph2(self,tabuPool):
+	def dividedGraph2(self, tabuPool):
 		connectedPool = [self]
 		tabuPool.append(self)
 		for tmp_atom in self.children:
@@ -1431,6 +1610,27 @@ class atom:
 				connectedPool += tmp_atom.dividedGraph2(tabuPool)
 				tabuPool += connectedPool
 		return connectedPool
+
+	# get the string expression of a tree started with self atom and confined in atomSet
+	# the number of heavy atoms may not equal to the number of heavy atoms in atomSet, becuase the branches will be repeated in the tree expression if ring exists
+	def calcStructureTree(self, atomSet):
+		treeStr = self.symbol
+		subTreeStrs = []
+		for tmp_child in self.children:
+			if tmp_child in atomSet:
+				leftAtomSet = atomSet - set([self])
+				subTreeStrs.append(tmp_child.calcStructureTree(leftAtomSet))
+		tmp_set = set(subTreeStrs)
+		tmp_set = sorted(tmp_set)
+		for (index, tmp_Str) in enumerate(tmp_set):
+			tmp_num = subTreeStrs.count(tmp_Str)
+			if len(tmp_Str) > 1:
+				treeStr += '/(' + tmp_Str + ')'
+			else:
+				treeStr += '/' + tmp_Str
+			if tmp_num > 1:
+				treeStr += str(tmp_num)
+		return treeStr
 
 	def childrenNum(self):
 		return len(self.children)
@@ -1618,6 +1818,7 @@ class rotation:
 	atomGroup2 = []
 	angles = []
 	energies = []
+	coeff_V = []
 	period = 1
 
 	# rotBondAxis is a bond instance
@@ -1625,6 +1826,7 @@ class rotation:
 		self.rotBondAxis = rotBondAxis
 		self.angles = []
 		self.energies = []
+		self.coeff_V = []
 		self.period = 1
 		if atomGroup1 == []:
 			self.atomGroup1	= []
@@ -1678,6 +1880,9 @@ class rotation:
 	def setPotential(self, angles, energies):
 		self.angles = angles
 		self.energies = energies
+
+	def setFourierCoefficients(self, coeff_V):
+		self.coeff_V = coeff_V
 
 	def setPeriod(self, periodicity):
 		self.period = periodicity	

@@ -4,7 +4,7 @@ import scipy.optimize
 import matplotlib.pyplot as plt
 import sys
 
-# if set __printError__ = True, then the root mean square RMS of devidation list(fit_y)-list(y) would be printed
+# if set __printError__ = True, then the root mean square RMS of deviation list(fit_y)-list(y) would be printed
 __printError__ = False
 
 # the max_order in fourier() expand

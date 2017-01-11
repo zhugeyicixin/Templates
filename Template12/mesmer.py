@@ -224,13 +224,22 @@ class mesmer:
 						tmpnode_ExtraDOSC = meEtree.orderedSubElement(tmpnode_mole, '{%s}ExtraDOSCMethod' % self.nsmap['me'], ['{%s}type' % self.nsmap['xsi']], ['HinderedRotorQM1D'])
 						tmpnode_bond = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}bondRef' % self.nsmap['me'])
 						tmpnode_bond.text = 'b'+str(tmp_molecule.bonds.index(tmp_hinderRotor.rotBondAxis)+1)
-						tmpnode_potential = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}HinderedRotorPotential' % self.nsmap['me'], ['format', 'units', 'expansionSize', 'UseSineTerms', 'scale'], ['numerical', 'cm-1', '9', 'yes', '1'])
 						
-						tmp_angles, tmp_energies, tmp_refined = self.angleDependPotentCheck(tmp_hinderRotor.angles, tmp_hinderRotor.energies, description=''.join([tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']']))
-						if tmp_refined:
-							print 'Warning! Fitted data used in mesmer hindered rotation input!', tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']'
-						for (index, tmp_angle) in enumerate(tmp_angles):
-							tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_energies[index])])
+						if tmp_hinderRotor.coeff_V == []:
+							tmpnode_potential = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}HinderedRotorPotential' % self.nsmap['me'], ['format', 'units', 'expansionSize', 'UseSineTerms', 'scale'], ['numerical', 'cm-1', '9', 'yes', '1'])
+							
+							tmp_angles, tmp_energies, tmp_refined = self.angleDependPotentCheck(tmp_hinderRotor.angles, tmp_hinderRotor.energies, description=''.join([tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']']))
+							if tmp_refined:
+								print 'Warning! Fitted data used in mesmer hindered rotation input!', tmp_molecule.label, '[' , str(tmp_hinderRotor.rotBondAxis.atom1.label), ',', str(tmp_hinderRotor.rotBondAxis.atom2.label), ']'
+							for (index, tmp_angle) in enumerate(tmp_angles):
+								tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['angle', 'potential'], [str(tmp_angle), str(tmp_energies[index])])
+						else:
+							# only cosine fourier expression is supported here
+							# sine items can be added in the future if needed, mesmer has support sine items
+							tmpnode_potential = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}HinderedRotorPotential' % self.nsmap['me'], ['format', 'units'], ['analytical', 'cm-1'])
+							
+							for i in xrange(len(tmp_hinderRotor.coeff_V)/2):
+								tmpnode_point = meEtree.orderedSubElement(tmpnode_potential, '{%s}PotentialPoint' % self.nsmap['me'], ['index', 'coefficient'], [str(i), str(tmp_hinderRotor.coeff_V[i])])
 
 						if tmp_hinderRotor.period != 1:
 							tmpnode_period = meEtree.orderedSubElement(tmpnode_ExtraDOSC, '{%s}periodicity' % self.nsmap['me'])
