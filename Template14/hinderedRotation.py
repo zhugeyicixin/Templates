@@ -20,7 +20,8 @@ name = 'rotation'
 # symbol indicating the position
 pattern_name = re.compile('^.*_scan_.*$')
 pattern_atoms = re.compile('^.*D *([0-9]+) *([0-9]+) *([0-9]+) *([0-9]+).*S *([0-9]+) *(-?[0-9]+\.[0-9]+).*$')
-pattern_energy = re.compile('^.*SCF Done:  E\([UR]?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
+# pattern_energy = re.compile('^.*SCF Done:  E\([UR]?B3LYP\) = *(-?[0-9]+\.[0-9]+).*$')
+pattern_energy = re.compile('^.*SCF Done:  E\([UR]?M062X\) = *(-?[0-9]+\.[0-9]+).*$')
 # pattern_energy = re.compile('^.*SCF Done:  E\([UR]?PM6\) = *([\.\-Ee0-9]+).*$')
 pattern_optimized = re.compile('^.*Optimized Parameters.*$') 
 pattern_standard = re.compile('^.*Standard orientation:.*$') 
@@ -247,6 +248,11 @@ for tmp_file in tmp_fileLists:
 				energy_cmm1 = energy_cmm1- energy_cmm1[0]
 				# notice that the np.std is sqrt(sum((x-mean)^2)/n) rather than n-1
 				coeff_V, deviation_V = fourier.fit_fourier_noGuess(dihedral_rad, energy_cmm1, threshold=np.std(energy_cmm1)/1e1)
+				# adjust to the default rotation direction: positive step means right-handed rule, the rotating fragment rotate along the bond which pointing along the direction of thumb
+				if step_length < 0:
+					length_coeff_V = len(coeff_V)/2
+					coeff_V[length_coeff_V:] = -coeff_V[length_coeff_V:]
+
 				# coeff_V, deviation_V = fourier.fit_fourier(dihedral_rad, energy_cmm1)
 
 				# generate lamm input files
@@ -331,6 +337,10 @@ for tmp_file in tmp_fileLists:
 				tmp_col2 = 0
 				sh_fit.col(0).width = 0x2000					
 				sh_fit.write(tmp_row2, 0, tmp_file2, style_blue)
+				if step_length >= 0:
+					sh_fit.write(tmp_row2, 1, 'right-handed')
+				else:
+					sh_fit.write(tmp_row2, 1, 'left-handed')
 				tmp_row2 = tmp_row2 + 1
 				sh_fit.write(tmp_row2, 0, 'atoms')
 				sh_fit.write(tmp_row2, 1, atoms[0])
@@ -349,10 +359,15 @@ for tmp_file in tmp_fileLists:
 				sh_fit.write(tmp_row2+8, tmp_col2, 'fit deviation_B (cm^-1)')				
 				sh_fit.write(tmp_row2+9, tmp_col2, 'data summary')
 				tmp_col2 = tmp_col2 + 1
+				if step_length < 0:
+					energy_cmm1_fitted = fourier.func_fourier(dihedral_rad,*coeff_V)
 				for i in range(0, len(dihedral)):
 					sh_fit.write(tmp_row2+0, tmp_col2+i, '%.6f' % dihedral_rad[i])
-					sh_fit.write(tmp_row2+1, tmp_col2+i, '%.6f' % energy_cmm1[i])
-					sh_fit.write(tmp_row2+2, tmp_col2+i, '%.6f' % deviation_V[i])
+					if step_length >= 0:
+						sh_fit.write(tmp_row2+1, tmp_col2+i, '%.6f' % energy_cmm1[i])						
+						sh_fit.write(tmp_row2+2, tmp_col2+i, '%.6f' % deviation_V[i])
+					else:
+						sh_fit.write(tmp_row2+1, tmp_col2+i, '%.6f' % energy_cmm1_fitted[i])
 				for i in range(0, len(lamm_dihedral)):
 					sh_fit.write(tmp_row2+3, tmp_col2+i, '%.6f' % lamm_dihedral[i])
 					sh_fit.write(tmp_row2+4, tmp_col2+i, '%.6f' % inertia[i])
@@ -361,8 +376,11 @@ for tmp_file in tmp_fileLists:
 					sh_fit.write(tmp_row2+7, tmp_col2+i, '%.6f' % rotConst[i])
 					sh_fit.write(tmp_row2+8, tmp_col2+i, '%.6f' % deviation_B[i])
 				sh_fit.write(tmp_row2+9, tmp_col2, str(list(dihedral_rad)))
-				sh_fit.write(tmp_row2+10, tmp_col2, str(list(energy_cmm1)))
-				sh_fit.write(tmp_row2+11, tmp_col2, str(list(deviation_V)))
+				if step_length >= 0:
+					sh_fit.write(tmp_row2+10, tmp_col2, str(list(energy_cmm1)))
+					sh_fit.write(tmp_row2+11, tmp_col2, str(list(deviation_V)))
+				else:
+					sh_fit.write(tmp_row2+10, tmp_col2, str(list(energy_cmm1_fitted)))
 				sh_fit.write(tmp_row2+12, tmp_col2, str(list(lamm_dihedral)))
 				sh_fit.write(tmp_row2+13, tmp_col2, str(list(inertia)))
 				sh_fit.write(tmp_row2+14, tmp_col2, str(list(deviation_I)))
@@ -424,7 +442,10 @@ for tmp_file in tmp_fileLists:
 
 				tmp_ax = tmp_fig.add_subplot(FIG_ROW,FIG_COL,tmp_num - FIG_ROW*FIG_COL*(tmp_pic-1))
 				tmp_fig.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
-				tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
+				if step_length >= 0:
+					tmp_ax.plot(dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
+				else:
+					tmp_ax.plot(2*np.pi-dihedral_rad, energy_cmm1, 'b*', dihedral_rad, fourier.func_fourier(dihedral_rad,*coeff_V),'r-')
 				tmp_ax.set_title(tmp_file2)
 				tmp_ax2 = tmp_fig2.add_subplot(FIG_ROW,FIG_COL,tmp_num - FIG_ROW*FIG_COL*(tmp_pic-1))
 				tmp_fig2.subplots_adjust(left=0.04,bottom=0.04,right=0.98,top=0.96,wspace=0.2,hspace=0.4)
