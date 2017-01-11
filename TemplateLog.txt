@@ -81,3 +81,7 @@ Template36 用于辅助Mstor计算
 
 Template37 用于将每个C对应的enthalpy进行平移，测试标准生成焓用
 
+Template38 用于根据热力学数据和正反应速率计算逆向速率
+
+Template39 用于计算转动势函数的相空间积分,使用Pitzer-Gwinn potential近似相空间积分，生成1DHR的mesmer输入文件计算热力学数据
+
